@@ -59,9 +59,13 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | add a new person |
 `* * *` | user | delete a person | remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
+`* * *` | careless user | be able to rename a person | correct my spelling mistakes
+`* * *` | careless user | undo a delete | fix accidental deletions
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
+`*` | user with many duplicate persons in the address book | identify duplicate users | de-clutter my addressBook
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
-
+`*` | user with many persons in the address book | search for persons by name, phone and tags | locate a person easily
+`*` | very organised user | auto-format my persons' names and address | increase readability
 
 ## Appendix B : Use Cases
 
