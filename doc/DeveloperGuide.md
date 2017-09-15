@@ -94,6 +94,12 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should be carry out operations within O(log N) time
+6. Should have an intuitive user interface
+7. Should have a responsive display.
+8. Source code should be open source.
+9. System should be backward compatible with previous levels of addressbook.
+10. The system should work on both 32-bit and 64-bit environments.
 
 ## Appendix D : Glossary
 
