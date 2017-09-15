@@ -19,7 +19,7 @@ public class IncorrectCommand extends Command{
 
     @Override
     public boolean isMutating(){
-        return false;
+        return Command.willNotMutateData;
     }
 
 }
