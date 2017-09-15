@@ -70,4 +70,13 @@ public abstract class Command {
     public void setTargetIndex(int targetIndex) {
         this.targetIndex = targetIndex;
     }
+
+    /**
+     * Returns true (if the command is going to change storage file) or false (the otherwise). 
+     *
+     * By default, the method returns false.
+     * */
+    public boolean isMutating() {
+        return false;
+    }
 }
