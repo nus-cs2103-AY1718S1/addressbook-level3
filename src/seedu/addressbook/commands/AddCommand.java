@@ -56,7 +56,12 @@ public class AddCommand extends Command {
     public ReadOnlyPerson getPerson() {
         return toAdd;
     }
-
+    
+    @Override
+    public boolean isMutating() {
+        return true;
+    }
+    
     @Override
     public CommandResult execute() {
         try {
