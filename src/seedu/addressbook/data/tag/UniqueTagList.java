@@ -2,6 +2,7 @@ package seedu.addressbook.data.tag;
 
 import seedu.addressbook.common.Utils;
 import seedu.addressbook.data.exception.DuplicateDataException;
+import seedu.addressbook.data.person.Printable;
 
 import java.util.*;
 
@@ -11,7 +12,17 @@ import java.util.*;
  * @see Tag#equals(Object)
  * @see Utils#elementsAreUnique(Collection)
  */
-public class UniqueTagList implements Iterable<Tag> {
+public class UniqueTagList implements Iterable<Tag>, Printable {
+
+    @Override
+    public String getPrintableString() {
+        String printableString = "Tag ";
+        for(Tag tag : internalList) {
+            printableString += tag.toString();
+        }
+
+        return printableString;
+    }
 
     /**
      * Signals that an operation would have violated the 'no duplicates' property of the list.
