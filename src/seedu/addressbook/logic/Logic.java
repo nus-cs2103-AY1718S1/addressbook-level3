@@ -89,7 +89,7 @@ public class Logic {
         if(command.isMutating()) {
             storage.save(addressBook);
         }
-        
+
         return result;
     }
 

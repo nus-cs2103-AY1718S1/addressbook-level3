@@ -80,6 +80,8 @@ public class LogicTest {
         //Execute the command
         CommandResult r = logic.execute(inputCommand);
 
+        saveFile.save(addressBook);
+
         //Confirm the result contains the right data
         assertEquals(expectedMessage, r.feedbackToUser);
         assertEquals(r.getRelevantPersons().isPresent(), isRelevantPersonsExpected);
