@@ -80,6 +80,10 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should be easy to learn for users that have little prior experience with CLI applications.
+6. Should require some form of authentication before allowing usage.
+7. Should respond promptly (within 2 seconds) as long as number of persons is within 1000.
+8. Should be compatible with data produced earlier on even after updates to the application.
 
 ## Appendix D : Glossary
 
