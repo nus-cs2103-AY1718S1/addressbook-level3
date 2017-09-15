@@ -68,13 +68,13 @@ public interface ReadOnlyPerson {
         final StringBuilder builder = new StringBuilder();
         builder.append(getName());
         if (!getPhone().isPrivate()) {
-            builder.append(" Phone: ").append(getPhone());
+            builder.append(" " + getPrintableString(getPhone()));
         }
         if (!getEmail().isPrivate()) {
-            builder.append(" Email: ").append(getEmail());
+            builder.append(" " + getPrintableString(getEmail()));
         }
         if (!getAddress().isPrivate()) {
-            builder.append(" Address: ").append(getAddress());
+            builder.append(" " + getPrintableString(getAddress()));
         }
         builder.append(" Tags: ");
         for (Tag tag : getTags()) {
@@ -82,4 +82,13 @@ public interface ReadOnlyPerson {
         }
         return builder.toString();
     }
+
+    default String getPrintableString(Printable... printables){
+        String str = "";
+        for(Printable printable : printables){
+            str += printable.getPrintableString();
+        }
+        return str;
+    }
+
 }
