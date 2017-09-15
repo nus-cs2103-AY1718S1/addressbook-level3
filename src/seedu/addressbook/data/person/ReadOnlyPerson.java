@@ -33,25 +33,41 @@ public interface ReadOnlyPerson {
     }
 
     /**
+     * Returns a concatenated version of the printable strings of each object.
+     */
+    default String getPrintableString(Printable... printables) {
+        String printableString = "";
+        for (Printable printable : printables) {
+            printableString += " " + printable.getPrintableString();
+        }
+        return printableString.trim();
+    }
+
+    /**
      * Formats the person as text, showing all contact details.
      */
     default String getAsTextShowAll() {
         final StringBuilder builder = new StringBuilder();
         final String detailIsPrivate = "(private) ";
-        builder.append(getName())
-                .append(" Phone: ");
         if (getPhone().isPrivate()) {
-            builder.append(detailIsPrivate);
+            builder.append(getName())
+                    .append(" Phone: " + detailIsPrivate);
+        } else {
+            builder.append(" " + getPrintableString(getPhone()));
         }
-        builder.append(getPhone())
-                .append(" Email: ");
+
         if (getEmail().isPrivate()) {
-            builder.append(detailIsPrivate);
+            builder.append(getPhone())
+                    .append(" Email: " + detailIsPrivate);
+        } else {
+            builder.append(" " + getPrintableString(getEmail()));
         }
-        builder.append(getEmail())
-                .append(" Address: ");
+
         if (getAddress().isPrivate()) {
-            builder.append(detailIsPrivate);
+            builder.append(getEmail())
+                    .append(" Address: " + detailIsPrivate);
+        } else {
+            builder.append(" " + getPrintableString(getAddress()));
         }
         builder.append(getAddress())
                 .append(" Tags: ");
