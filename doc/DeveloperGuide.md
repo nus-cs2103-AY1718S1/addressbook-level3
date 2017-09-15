@@ -87,6 +87,39 @@ Use case ends.
 
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
+  
+### Use case: Rename tag
+
+**MSS**
+
+1. User requests to renaming of an existing tag
+2. AddressBook prompts user enter tag to rename and a new name
+3. User enters the existing name and new name
+4. AddressBook confirms with the user the change 
+5. User confirms the change
+6. AddressBook renames all friends tags to buddies <br>
+Use case ends
+
+**Extensions**
+
+3.a The tag the user entered is not found
+
+> 3a1. AddressBook shows an error message <br>
+  Use case resumes at step 2
+
+3.b The user did not enter the new name
+
+> 3b1. AddressBook will remind the user to add the new name <br>
+  Use case resumes at step 2
+   
+5.a The user writes confirms no
+
+> 5a1. Use case ends
+
+5.b The user types enters something other than yes and no
+
+> 5a2. AddressBook will notify user of invalid input <br>
+  Use case resumes at step 4
 
 ## Appendix C : Non Functional Requirements
 
@@ -94,7 +127,6 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
-
 ## Appendix D : Glossary
 
 ##### Mainstream OS
