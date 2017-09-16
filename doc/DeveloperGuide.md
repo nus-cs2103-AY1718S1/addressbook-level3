@@ -58,7 +58,11 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | new user | see usage instructions | refer to instructions when I forget how to use the App
 `* * *` | user | add a new person |
 `* * *` | user | delete a person | remove entries that I no longer need
+`* * *` | user | edit contact details | update contact details as needed
+`* * *` | careless user | undo delete | fix accidentally deleted contacts
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
+`* * *` | user | find a person by any detail | locate details of persons without having to remember their name
+`* * ` | user | categorise people by tags | find out how contacts are related to me
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
 
