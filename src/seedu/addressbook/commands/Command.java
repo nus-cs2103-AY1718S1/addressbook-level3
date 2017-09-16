@@ -46,6 +46,14 @@ public abstract class Command {
     //Note: it is better to make the execute() method abstract, by replacing the above method with the line below:
     //public abstract CommandResult execute();
 
+
+    /**
+     * Checks whether the command type mutates the data in addressbook.
+     * @return true if the command mutates the data in addressbook, false if otherwise.
+     */
+
+    public abstract boolean isMutated();
+
     /**
      * Supplies the data the command will operate on.
      */
