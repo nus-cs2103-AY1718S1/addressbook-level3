@@ -22,6 +22,7 @@ public class ViewCommand extends Command {
 
     public ViewCommand(int targetVisibleIndex) {
         super(targetVisibleIndex);
+        isMutating = false;
     }
 
 
