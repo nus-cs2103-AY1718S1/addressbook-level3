@@ -94,6 +94,10 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should be able to work on both 32-bit and 64-bit environments.
+6. Should be usable by a novice who never used an address book before.
+7. Should be able to perform add, find, and delete operations within O(log n) time.
+8. Total project cost should not exceed $10,000.
 
 ## Appendix D : Glossary
 
