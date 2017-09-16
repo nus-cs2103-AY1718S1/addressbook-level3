@@ -1,9 +1,13 @@
 package seedu.addressbook.ui;
 
+import seedu.addressbook.data.person.Printable;
 import seedu.addressbook.data.person.ReadOnlyPerson;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * Used for formatting text for display. e.g. for adding text decorations.
@@ -61,6 +65,16 @@ public class Formatter {
      */
     private static String getIndexedListItem(int visibleIndex, String listItem) {
         return String.format(MESSAGE_INDEXED_LIST_ITEM, visibleIndex, listItem);
+    }
+
+    /**
+     * Returns a concatenated version of the printable strings of each object.
+     */
+    public String getPrintableString(Printable... printables) {
+        List<String> stringStream = Arrays.stream(printables)
+                .map(Printable::getPrintableString)
+                .collect(Collectors.toList());
+        return String.join(", ", stringStream);
     }
 
 }
