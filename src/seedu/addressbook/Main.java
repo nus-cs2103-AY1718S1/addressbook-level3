@@ -7,7 +7,8 @@ import javafx.stage.Stage;
 import seedu.addressbook.logic.Logic;
 import seedu.addressbook.ui.Gui;
 import seedu.addressbook.ui.Stoppable;
-
+//TODO: 1. Help, 2. Docs, 3. Tests
+//TODO: [Wxx.y][W11-B2]
 /**
  * Main entry point to the application.
  */
