@@ -1,5 +1,6 @@
 package seedu.addressbook.data;
 
+import seedu.addressbook.data.exception.IllegalValueException;
 import seedu.addressbook.data.person.*;
 import seedu.addressbook.data.person.UniquePersonList.*;
 import seedu.addressbook.data.tag.Tag;
@@ -80,6 +81,19 @@ public class AddressBook {
     public void addPerson(Person toAdd) throws DuplicatePersonException {
         syncTagsWithMasterList(toAdd);
         allPersons.add(toAdd);
+    }
+
+    /**
+     * Edits a person in the address book.
+     * @params toEdit: person to edit
+     * @params field: which field to edit(i.e. Address/Phone Number)
+     * @params value: new value to change to
+     *
+     * @throws IllegalValueException if the provided data does not fulfill some constraints
+     */
+    public Boolean editPerson(Person toEdit, String field, String value) {
+        Boolean success = allPersons.edit(toEdit, field, value);
+        return success;
     }
 
     /**

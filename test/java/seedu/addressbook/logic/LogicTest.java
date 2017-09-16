@@ -93,6 +93,48 @@ public class LogicTest {
         assertEquals(addressBook, saveFile.load());
     }
 
+    /**
+     * Similar to assertCommandBehavior, but with an additional test case for EditCommand
+     */
+    private void assertEditCommandBehavior(String addCommand,
+                                           String editCommand,
+                                           String expectedAddMessage,
+                                           String expectedEditMessage,
+                                           AddressBook expectedAddressBook,
+                                           AddressBook expectedEditAddressBook,
+                                           boolean isRelevantPersonsExpected,
+                                           List<? extends ReadOnlyPerson> lastShownList) throws Exception {
+        //Execute the add command
+        CommandResult r = logic.execute(addCommand);
+
+        //Confirm the result contains the right data
+        assertEquals(expectedAddMessage, r.feedbackToUser);
+        assertEquals(r.getRelevantPersons().isPresent(), isRelevantPersonsExpected);
+        if(isRelevantPersonsExpected){
+            assertEquals(lastShownList, r.getRelevantPersons().get());
+        }
+
+        //Confirm the state of data is as expected
+        assertEquals(expectedAddressBook, addressBook);
+        assertEquals(lastShownList, logic.getLastShownList());
+        assertEquals(addressBook, saveFile.load());
+
+        //Execute the Edit command
+        r = logic.execute(editCommand);
+
+        //Confirm the result contains the right data
+        assertEquals(expectedEditMessage, r.feedbackToUser);
+        assertEquals(r.getRelevantPersons().isPresent(), isRelevantPersonsExpected);
+        if(isRelevantPersonsExpected){
+            assertEquals(lastShownList, r.getRelevantPersons().get());
+        }
+
+        //Confirm the state of data is as expected
+        assertEquals(expectedEditAddressBook, addressBook);
+        assertEquals(lastShownList, logic.getLastShownList());
+        assertEquals(addressBook, saveFile.load());
+    }
+
 
     @Test
     public void execute_unknownCommandWord() throws Exception {
@@ -163,6 +205,8 @@ public class LogicTest {
 
     }
 
+
+
     @Test
     public void execute_addDuplicate_notAllowed() throws Exception {
         // setup expectations
@@ -181,6 +225,31 @@ public class LogicTest {
                 expectedAB,
                 false,
                 Collections.emptyList());
+
+    }
+
+    @Test
+    public void execute_edit_successful() throws Exception {
+        // prepare expectations
+        TestDataHelper helper = new TestDataHelper();
+        Person toBeAdded = helper.adam();
+        Person toBeEdited = helper.Brown();
+        AddressBook expectedAB = new AddressBook();
+        AddressBook expectedEditAB = new AddressBook();
+        expectedAB.addPerson(toBeAdded);
+        expectedEditAB.addPerson(toBeEdited);
+
+
+        // execute command and verify result
+        assertEditCommandBehavior(helper.generateAddCommand(toBeAdded),
+                helper.generateEditCommand(toBeAdded,toBeEdited),
+                String.format(AddCommand.MESSAGE_SUCCESS, toBeAdded),
+                EditCommand.MESSAGE_SUCCESS,
+                expectedAB,
+                expectedEditAB,
+                false,
+                Collections.emptyList()
+                );
 
     }
 
@@ -473,6 +542,17 @@ public class LogicTest {
             return new Person(name, privatePhone, email, privateAddress, tags);
         }
 
+        Person Brown() throws Exception {
+            Name name = new Name("Brown");
+            Phone privatePhone = new Phone("111111", true);
+            Email email = new Email("adam@gmail.com", false);
+            Address privateAddress = new Address("111, alpha street", true);
+            Tag tag1 = new Tag("tag1");
+            Tag tag2 = new Tag("tag2");
+            UniqueTagList tags = new UniqueTagList(tag1, tag2);
+            return new Person(name, privatePhone, email, privateAddress, tags);
+        }
+
         /**
          * Generates a valid person using the given seed.
          * Running this function with the same parameter values guarantees the returned person will have the same state.
@@ -508,6 +588,10 @@ public class LogicTest {
             }
 
             return cmd.toString();
+        }
+
+        String generateEditCommand(Person before, Person after) {
+            return "edit Adam Brown name " + after.getName().toString();
         }
 
         /**

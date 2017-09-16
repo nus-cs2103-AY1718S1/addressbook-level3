@@ -107,6 +107,44 @@ public class UniquePersonList implements Iterable<Person> {
     }
 
     /**
+     * Edits the person's information in the list.
+     */
+    public Boolean edit(Person toEdit, String field, String value){
+        Boolean success = false;
+        for(Person person: internalList){
+            if(person.equals(toEdit)){
+
+                switch (field) {
+
+                    case "name":
+                        //System.out.println("Selected name");
+                        success = person.setName(value);
+                        return success;
+
+                    case "phone":
+                        //System.out.println("Selected phone");
+                        success = person.setPhone(value);
+                        return success;
+
+                    case "email":
+                        //System.out.println("Selected mail");
+                        success = person.setEmail(value);
+                        return success;
+
+                    case "address":
+                        //System.out.println("Selected add");
+                        success = person.setAddress(value);
+                        return success;
+
+                    default:
+                        return success;
+                }
+            }
+        }
+        return success;
+    }
+
+    /**
      * Clears all persons in list.
      */
     public void clear() {
