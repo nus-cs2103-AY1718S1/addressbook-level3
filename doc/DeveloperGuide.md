@@ -94,6 +94,9 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should complete any command in less than 2 seconds.
+6. Should be backward compatible with earlier versions of the application,
+7. Should be usable by someone who has never used a similar app before.
 
 ## Appendix D : Glossary
 
