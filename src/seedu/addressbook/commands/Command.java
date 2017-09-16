@@ -25,7 +25,7 @@ public abstract class Command {
 
     protected Command() {
     }
-    
+
     /**
      * Checks if commandType is mutatable
      */
