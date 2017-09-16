@@ -59,10 +59,13 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | add a new person |
 `* * *` | user | delete a person | remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
+`* * *` | user | undo my actions | not be afraid to make mistakes
+`* * *` | user | edit a person's details | update the address book easily
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
 `*` | forgetful user | store and see birthdays of contacts | not forget a friend's birthday
 `*` | bored user | list all my contacts | decide who to call on a boring day 
+`*` | bored user | get a random person from the address book | call a random contact on a boring day 
 
 
 ## Appendix B : Use Cases
