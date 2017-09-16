@@ -69,7 +69,7 @@ Note how the `Command::execute()` method shows polymorphic behavior.
 * Add a method `boolean isMutating()` to the `Command` class. This method will return `true` for
   command types that mutate the data. e.g. `AddCommand`
 * Currently, AddressBook data are saved to the file after every command. 
-  Take advantage of the the new method you added to limit file saving to only for command types that mutate data.<br>
+  Take advantage of this new method you added to limit file saving to only for command types that mutate data.<br>
   i.e. `add` command should always save the data while `list` command should never save data to the file.
 
 Note: There may be better ways to limit file saving to commands that mutate data. The above approach, while not
