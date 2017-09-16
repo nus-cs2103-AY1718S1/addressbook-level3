@@ -59,8 +59,12 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | add a new person |
 `* * *` | user | delete a person | remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
+`* * *` | user | look at the list sorted | catergorise persons easily
+`* * *` | user | find a person without upper/lower case | access the persons details easily
+`* * *` | user | group some person | group people with common interest together
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
+
 
 
 ## Appendix B : Use Cases
