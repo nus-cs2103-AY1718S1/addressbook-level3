@@ -61,6 +61,9 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
+`**` | user | edit person details | change the details anytime instead of deleting and adding the person again
+`*` | user with many persons in the address book | filter persons by tag | locate persons of the same tag easily
+`*` | user | change the colour theme | make the address book more personalized
 
 
 ## Appendix B : Use Cases
