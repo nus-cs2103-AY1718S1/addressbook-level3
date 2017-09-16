@@ -5,5 +5,5 @@ public interface Printable {
     /**
      * @return a printable string
      */
-    public String getPrintableString();
+    String getPrintableString();
 }

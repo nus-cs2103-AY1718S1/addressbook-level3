@@ -2,6 +2,7 @@ package seedu.addressbook.data.person;
 
 import seedu.addressbook.data.tag.Tag;
 import seedu.addressbook.data.tag.UniqueTagList;
+import seedu.addressbook.ui.Formatter;
 
 /**
  * A read-only immutable interface for a Person in the addressbook.
@@ -66,15 +67,15 @@ public interface ReadOnlyPerson {
      */
     default String getAsTextHidePrivate() {
         final StringBuilder builder = new StringBuilder();
-        builder.append(getName());
+        builder.append(Formatter.getPrintableString(getName()));
         if (!getPhone().isPrivate()) {
-            builder.append(" Phone: ").append(getPhone());
+            builder.append(Formatter.getPrintableString(getPhone()));
         }
         if (!getEmail().isPrivate()) {
-            builder.append(" Email: ").append(getEmail());
+            builder.append(Formatter.getPrintableString(getEmail()));
         }
         if (!getAddress().isPrivate()) {
-            builder.append(" Address: ").append(getAddress());
+            builder.append(Formatter.getPrintableString(getAddress()));
         }
         builder.append(" Tags: ");
         for (Tag tag : getTags()) {
