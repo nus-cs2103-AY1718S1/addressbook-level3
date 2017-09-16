@@ -13,7 +13,7 @@
 
 * A simple GUI added to replace the Text UI.
 * A `Logic` class added together with a `LogicTest` class.
-* Appendices added to [Developer Guide](doc/DeveloperGuide.md).
+* Appendices added to [Developer Guide](doc/DeveloperGuide.md#appendix-a--user-stories).
 
   
 **Useful Links**
