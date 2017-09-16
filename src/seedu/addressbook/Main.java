@@ -15,6 +15,10 @@ public class Main extends Application implements Stoppable {
     /** Version info of the program. */
     private static final String VERSION = "AddressBook Level 3 - Version 1.0";
 
+    public static void main(String[] args) {
+        launch(args);
+    }
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         Gui gui = new Gui(new Logic(), VERSION);
@@ -26,9 +30,5 @@ public class Main extends Application implements Stoppable {
         super.stop();
         Platform.exit();
         System.exit(0);
-    }
-
-    public static void main(String[] args) {
-        launch(args);
     }
 }
