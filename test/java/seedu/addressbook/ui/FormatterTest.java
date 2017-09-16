@@ -6,6 +6,8 @@ import seedu.addressbook.data.person.*;
 import seedu.addressbook.data.tag.Tag;
 import seedu.addressbook.data.tag.UniqueTagList;
 
+import static org.junit.Assert.assertEquals;
+
 public class FormatterTest {
     private Formatter formatter = null;
 
@@ -17,7 +19,10 @@ public class FormatterTest {
     @Test
     public void formatter_getPrintableString_printPersonDetails() throws Exception {
         Person testPerson = adam();
-        System.out.println(formatter.getPrintableString(testPerson.getAddress(), testPerson.getEmail()));
+        String expected = " Address: 111, alpha street" + System.lineSeparator()
+                + " Email: adam@gmail.com" + System.lineSeparator();
+
+        assertEquals(expected, formatter.getPrintableString(testPerson.getAddress(), testPerson.getEmail()));
     }
 
     private Person adam() throws Exception {

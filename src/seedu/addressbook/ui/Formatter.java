@@ -48,13 +48,13 @@ public class Formatter {
      * Returns a concatenated version of the printable strings of each object.
      */
     public String getPrintableString(Printable... printables){
-        final List<String> printed = new ArrayList<>();
+        StringBuilder sb = new StringBuilder();
 
         for (Printable obj: printables) {
-            printed.add(obj.getPrintableString());
+            sb.append(format(obj.getPrintableString()));
         }
 
-        return format(printed.toString());
+        return sb.toString();
     }
 
     /** Formats a list of strings as an indexed list. */
