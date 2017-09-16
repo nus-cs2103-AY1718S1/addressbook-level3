@@ -59,8 +59,12 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | add a new person |
 `* * *` | user | delete a person | remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
+`* * *` | user | undo accidental changes | recover from mistakes
+`* * *` | user | categorise persons | keep track of how I am related to other people
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
+`* *` | user | find a person by any field | locate details of persons without having to remember their name
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
+`*` | advanced user | add user-defined fields | have additional info regarding a person
 
 
 ## Appendix B : Use Cases
