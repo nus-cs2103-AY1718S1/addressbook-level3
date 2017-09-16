@@ -88,6 +88,31 @@ Use case ends.
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
 
+#### Use case: Edit person
+
+**MSS**
+
+1.User request to list persons
+2.AddressBook shows a list of persons
+3.User request to change details of one of the person
+4.User provides the detail to change, with the new arguments
+5.AddressBook replaces the detail of that person with the new arguments
+Use case ends.
+
+**Extensions**
+
+2a. The list is empty
+
+Use case ends
+
+3a. Argument provided is invalid
+
+Use case ends
+
+4a. No arguments provided
+
+Use case ends 
+
 ## Appendix C : Non Functional Requirements
 
 1. Should work on any [mainstream OS](#mainstream-os) as long as it has Java 8 or higher installed.
