@@ -4,14 +4,15 @@
     -fx-font-size: 12pt;
     -fx-font-family: "Calibri";
     -fx-font-weight: bold;
-    -fx-text-fill: yellow;
-    -fx-control-inner-background: derive(#1d1d1d,20%);
+    -fx-text-fill: #f1c40f;
+    -fx-control-inner-background: derive(#2c3e50,20%);
 }
 
 .text-area {
-    -fx-background-color: black;
-    -fx-control-inner-background: black;
+    -fx-background-color: #34495e;
+    -fx-control-inner-background: #34495e;
     -fx-font-family: "Segoe UI";
     -fx-font-size: 10pt;
+    -fx-text-fill: #ecf0f1;
     -fx-padding: 5 5 5 5;
 }
