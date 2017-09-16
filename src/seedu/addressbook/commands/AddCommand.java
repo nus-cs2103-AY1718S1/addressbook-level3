@@ -49,6 +49,14 @@ public class AddCommand extends Command {
         );
     }
 
+    /**
+     * Checks if commandType is mutatable
+     */
+    @Override
+    public boolean isMutating() {
+        return true;
+    }
+
     public AddCommand(Person toAdd) {
         this.toAdd = toAdd;
     }
