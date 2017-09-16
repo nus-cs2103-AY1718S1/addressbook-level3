@@ -88,6 +88,45 @@ Use case ends.
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
 
+#### Use case: Add person
+
+**MSS**
+
+1. User requests to add person
+2. AddressBook adds the person <br>
+Use case ends.
+
+**Extensions**
+
+1a. The input is invalid
+
+> Use case ends
+
+
+#### Use case: Sort
+
+**MSS**
+
+1. User requests to sort AddressBook by name of persons
+2. AddressBook sorts itself
+3. AddressBook shows a sorted list of persons <br>
+Use case ends.
+
+#### Use case: Find person by name
+
+**MSS**
+
+1. User requests to find persons by name
+2. AddressBook shows a list of corresponding persons <br>
+Use case ends.
+
+**Extensions**
+
+1a. No matches found
+
+> 1a1. AddressBook shows 0 persons found <br>
+  Use case ends
+
 ## Appendix C : Non Functional Requirements
 
 1. Should work on any [mainstream OS](#mainstream-os) as long as it has Java 8 or higher installed.
