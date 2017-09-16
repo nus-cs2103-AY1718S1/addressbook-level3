@@ -39,17 +39,17 @@ public interface ReadOnlyPerson {
         final StringBuilder builder = new StringBuilder();
         final String detailIsPrivate = "(private) ";
         builder.append(getName())
-                .append(" Phone: ");
+                .append(" " + getPrintableString(this.getPhone()));
         if (getPhone().isPrivate()) {
             builder.append(detailIsPrivate);
         }
         builder.append(getPhone())
-                .append(" Email: ");
+                .append(" " + getPrintableString(this.getEmail()));
         if (getEmail().isPrivate()) {
             builder.append(detailIsPrivate);
         }
         builder.append(getEmail())
-                .append(" Address: ");
+                .append(" " + getPrintableString(this.getAddress()));
         if (getAddress().isPrivate()) {
             builder.append(detailIsPrivate);
         }
@@ -82,4 +82,16 @@ public interface ReadOnlyPerson {
         }
         return builder.toString();
     }
+
+    /**
+     * Returns a concatenated version of the printable strings of each object
+     */
+    default String getPrintableString(Printable... printables) {
+        String result = "";
+        for (Printable attribute: printables) {
+            result = result + " " + attribute.getPrintableString();
+        }
+        return result;
+    }
+
 }
