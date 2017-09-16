@@ -47,7 +47,7 @@ public class Gui {
         stage.setScene(new Scene(loader.load(), INITIAL_WINDOW_WIDTH, INITIAL_WINDOW_HEIGHT));
 
         //Add application icon
-        stage.getIcons().add(new Image("resources/images/addressbook_icon.png"))
+        stage.getIcons().add(new Image("resources/images/addressbook_icon.png"));
 
         stage.show();
         MainWindow mainWindow = loader.getController();
