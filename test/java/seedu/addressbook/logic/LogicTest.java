@@ -41,10 +41,9 @@ public class LogicTest {
     }
 
     @Test
+    // Constructor is called in the setup() method which executes before every test, no need to call it here again.
     public void constructor() {
-        //Constructor is called in the setup() method which executes before every test, no need to call it here again.
-
-        //Confirm the last shown list is empty
+        // Confirm the last shown list is empty
         assertEquals(Collections.emptyList(), logic.getLastShownList());
     }
 
@@ -77,17 +76,17 @@ public class LogicTest {
                                       boolean isRelevantPersonsExpected,
                                       List<? extends ReadOnlyPerson> lastShownList) throws Exception {
 
-        //Execute the command
+        // Execute the command
         CommandResult r = logic.execute(inputCommand);
 
-        //Confirm the result contains the right data
+        // Confirm the result contains the right data
         assertEquals(expectedMessage, r.feedbackToUser);
         assertEquals(r.getRelevantPersons().isPresent(), isRelevantPersonsExpected);
         if(isRelevantPersonsExpected){
             assertEquals(lastShownList, r.getRelevantPersons().get());
         }
 
-        //Confirm the state of data is as expected
+        // Confirm the state of data is as expected
         assertEquals(expectedAddressBook, addressBook);
         assertEquals(lastShownList, logic.getLastShownList());
         assertEquals(addressBook, saveFile.load());
@@ -233,7 +232,6 @@ public class LogicTest {
 
     @Test
     public void execute_view_onlyShowsNonPrivate() throws Exception {
-
         TestDataHelper helper = new TestDataHelper();
         Person p1 = helper.generatePerson(1, true);
         Person p2 = helper.generatePerson(2, false);
@@ -267,6 +265,10 @@ public class LogicTest {
         expectedAB.addPerson(p2);
 
         addressBook.addPerson(p2);
+        // This statement is necessary because view command does not trigger saving changes after executed.
+        saveFile.save(addressBook);
+
+        // Set the lastShownList to include a non-existing person with the index of 1.
         logic.setLastShownList(lastShownList);
 
         assertCommandBehavior("view 1",
@@ -323,6 +325,10 @@ public class LogicTest {
         expectedAB.addPerson(p1);
 
         addressBook.addPerson(p1);
+        // This statement is necessary because view command does not trigger saving changes after executed.
+        saveFile.save(addressBook);
+
+        // Set the lastShownList to include a non-existing person with the index of 1.
         logic.setLastShownList(lastShownList);
 
         assertCommandBehavior("viewall 2",
@@ -467,9 +473,11 @@ public class LogicTest {
             Phone privatePhone = new Phone("111111", true);
             Email email = new Email("adam@gmail.com", false);
             Address privateAddress = new Address("111, alpha street", true);
+
             Tag tag1 = new Tag("tag1");
             Tag tag2 = new Tag("tag2");
             UniqueTagList tags = new UniqueTagList(tag1, tag2);
+
             return new Person(name, privatePhone, email, privateAddress, tags);
         }
 
@@ -515,9 +523,18 @@ public class LogicTest {
          * @param isPrivateStatuses flags to indicate if all contact details of respective persons should be set to
          *                          private.
          */
-        AddressBook generateAddressBook(Boolean... isPrivateStatuses) throws Exception{
+        AddressBook generateAddressBook(Boolean... isPrivateStatuses) throws Exception {
             AddressBook addressBook = new AddressBook();
             addToAddressBook(addressBook, isPrivateStatuses);
+
+            /*
+            This is a proper fix because we cannot assume all commands will save the data after being executed. For
+            those who do not modify the data model, it is a waste of system resources if we simply save data every
+            time after we execute a command.
+            Without this, unreasonable test failures will arise.
+             */
+            saveFile.save(addressBook);
+
             return addressBook;
         }
 
@@ -527,6 +544,8 @@ public class LogicTest {
         AddressBook generateAddressBook(List<Person> persons) throws Exception{
             AddressBook addressBook = new AddressBook();
             addToAddressBook(addressBook, persons);
+            // See comments above for the reason why we are adding this statement.
+            saveFile.save(addressBook);
             return addressBook;
         }
 
