@@ -75,6 +75,10 @@ public class Logic {
         return result;
     }
 
+    public Command returnCommand(String userCommandText){
+        return new Parser().parseCommand(userCommandText);
+    }
+
     /**
      * Executes the command, updates storage, and returns the result.
      *
