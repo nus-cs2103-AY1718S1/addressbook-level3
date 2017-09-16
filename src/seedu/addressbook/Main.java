@@ -35,5 +35,3 @@ public class Main extends Application implements Stoppable {
         launch(args);
     }
 }
-
-
