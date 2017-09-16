@@ -33,8 +33,10 @@ public class Formatter {
         return sb.toString();
     }
 
-    /** Formats the given Printables for displaying to the user. */
-    public String getPrintableSting(Printable... printables) {
+    /**
+     * Returns a concatenated version of the printable strings of each object.
+     */
+    public String getPrintableString(Printable... printables) {
         StringBuilder sb = new StringBuilder();
         sb.append(LINE_PREFIX);
         for (Printable p : printables) {
