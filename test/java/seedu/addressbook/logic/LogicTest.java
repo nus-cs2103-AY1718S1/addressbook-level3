@@ -91,8 +91,13 @@ public class LogicTest {
         //Confirm the state of data is as expected
         assertEquals(expectedAddressBook, addressBook);
         assertEquals(lastShownList, logic.getLastShownList());
+        //Due to the addition of isMutating() method, this test has to be updated.
+        //If the command does not mutate data, no save would be called, and thus should be compared with an
+        //empty AddressBook object.
         if(commandType.isMutating()) {
             assertEquals(addressBook, saveFile.load());
+        }else{
+            assertEquals(new AddressBook(), saveFile.load());
         }
     }
 
