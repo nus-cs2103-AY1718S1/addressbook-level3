@@ -84,4 +84,11 @@ public class Person implements ReadOnlyPerson {
         return getAsTextShowAll();
     }
 
+    /**
+     * Returns a concatenated version of the printable strings of each object.
+     */
+    String getPrintableString(Printable... printables) {
+        return getPrintableString(this.getPhone(), this.getEmail(), this.getAddress());
+    }
+
 }
