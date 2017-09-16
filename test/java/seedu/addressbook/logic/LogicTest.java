@@ -90,7 +90,13 @@ public class LogicTest {
         //Confirm the state of data is as expected
         assertEquals(expectedAddressBook, addressBook);
         assertEquals(lastShownList, logic.getLastShownList());
-        assertEquals(addressBook, saveFile.load());
+        if (isMutatorCommand(inputCommand)) {
+            assertEquals(addressBook, saveFile.load());
+        }
+    }
+
+    private boolean isMutatorCommand(String inputCommand) {
+        return (inputCommand.equals("add") || inputCommand.equals("clear") || inputCommand.equals("delete"));
     }
 
 
