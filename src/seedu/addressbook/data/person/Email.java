@@ -64,6 +64,12 @@ public class Email implements Printable {
      */
     @Override
     public String getPrintableString() {
-        return "Email: " + value;
+        StringBuilder builder = new StringBuilder();
+        builder.append("Email: ");
+        if(isPrivate){
+            builder.append("(private) ");
+        }
+        builder.append(value);
+        return builder.toString();
     }
 }

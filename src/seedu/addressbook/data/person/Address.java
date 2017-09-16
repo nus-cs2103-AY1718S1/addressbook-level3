@@ -61,6 +61,12 @@ public class Address implements Printable {
      */
     @Override
     public String getPrintableString() {
-        return "Address: " + value;
+        StringBuilder builder = new StringBuilder();
+        builder.append("Address: ");
+        if(isPrivate){
+            builder.append("(private) ");
+        }
+        builder.append(value);
+        return builder.toString();
     }
 }
