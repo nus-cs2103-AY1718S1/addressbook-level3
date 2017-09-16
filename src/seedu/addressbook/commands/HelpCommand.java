@@ -6,6 +6,11 @@ package seedu.addressbook.commands;
  */
 public class HelpCommand extends Command {
 
+    @Override
+    public boolean isMutating() {
+        return false;
+    }
+
     public static final String COMMAND_WORD = "help";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ":\n" +"Shows program usage instructions.\n\t"
