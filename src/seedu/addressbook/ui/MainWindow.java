@@ -22,24 +22,24 @@ public class MainWindow {
 
     private Logic logic;
     private Stoppable mainApp;
+    private Formatter formatter;
 
     public MainWindow(){
+        formatter = new Formatter();
     }
 
     public void setLogic(Logic logic){
         this.logic = logic;
     }
 
-    public void setMainApp(Stoppable mainApp){
+    void setMainApp(Stoppable mainApp){
         this.mainApp = mainApp;
     }
 
     @FXML
     private TextArea outputConsole;
-
     @FXML
     private TextField commandInput;
-
 
     @FXML
     void onCommand(ActionEvent event) {
@@ -48,7 +48,6 @@ public class MainWindow {
             CommandResult result = logic.execute(userCommandText);
             if(isExitCommand(result)){
                 exitApp();
-                return;
             }
             displayResult(result);
             clearCommandInput();
@@ -62,7 +61,9 @@ public class MainWindow {
         mainApp.stop();
     }
 
-    /** Returns true of the result given is the result of an exit command */
+    /**
+     *  @return true if the result given is the result of an exit command.
+     */
     private boolean isExitCommand(CommandResult result) {
         return result.feedbackToUser.equals(ExitCommand.MESSAGE_EXIT_ACKNOWEDGEMENT);
     }
@@ -73,21 +74,19 @@ public class MainWindow {
     }
 
     /** Clears the output display area */
-    public void clearOutputConsole(){
+    private void clearOutputConsole() {
         outputConsole.clear();
     }
 
     /** Displays the result of a command execution to the user. */
-    public void displayResult(CommandResult result) {
+    private void displayResult(CommandResult result) {
         clearOutputConsole();
         final Optional<List<? extends ReadOnlyPerson>> resultPersons = result.getRelevantPersons();
-        if(resultPersons.isPresent()) {
-            display(resultPersons.get());
-        }
+        resultPersons.ifPresent(this::display);
         display(result.feedbackToUser);
     }
 
-    public void displayWelcomeMessage(String version, String storageFilePath) {
+    void displayWelcomeMessage(String version, String storageFilePath) {
         String storageFileInfo = String.format(MESSAGE_USING_STORAGE_FILE, storageFilePath);
         display(MESSAGE_WELCOME, version, MESSAGE_PROGRAM_LAUNCH_ARGS_USAGE, storageFileInfo);
     }
@@ -97,14 +96,13 @@ public class MainWindow {
      * Private contact details are hidden.
      */
     private void display(List<? extends ReadOnlyPerson> persons) {
-        display(new Formatter().format(persons));
+        display(formatter.format(persons));
     }
 
     /**
      * Displays the given messages on the output display area, after formatting appropriately.
      */
     private void display(String... messages) {
-        outputConsole.setText(outputConsole.getText() + new Formatter().format(messages));
+        outputConsole.setText(outputConsole.getText() + formatter.format(messages));
     }
-
 }
