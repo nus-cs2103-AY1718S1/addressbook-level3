@@ -43,6 +43,13 @@ public abstract class Command {
         throw new UnsupportedOperationException("This method should be implement in child classes");
     }
 
+    /**
+     * Executes the command if command mutates data and returns the result.
+     */
+    public boolean isMutating(){
+        return false;
+    }
+
     //Note: it is better to make the execute() method abstract, by replacing the above method with the line below:
     //public abstract CommandResult execute();
 
