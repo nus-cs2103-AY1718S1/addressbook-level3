@@ -15,6 +15,7 @@ public abstract class Command {
     protected AddressBook addressBook;
     protected List<? extends ReadOnlyPerson> relevantPersons;
     private int targetIndex = -1;
+    public static final String COMMAND_WORD = "test";
 
     /**
      * @param targetIndex last visible listing index of the target person
@@ -24,6 +25,12 @@ public abstract class Command {
     }
 
     protected Command() {
+    }
+    /**
+     * Checks if commandType is mutatable
+     */
+    public boolean isMutating() {
+           return false;
     }
 
     /**
