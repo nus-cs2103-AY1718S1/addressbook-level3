@@ -76,6 +76,19 @@ public class Logic {
     }
 
     /**
+     * Overloaded version of above method, strictly for JUnit Logic Test use
+     * @throws Exception if there was any problem during command execution.
+     */
+    public CommandResult execute(String userCommandText, boolean isLogicTest) throws Exception {
+        Command command = new Parser().parseCommand(userCommandText);
+        if (isLogicTest) {
+            command.setIsLogicTest();
+        }
+        CommandResult result = execute(command);
+        recordResult(result);
+        return result;
+    }
+    /**
      * Executes the command, updates storage, and returns the result.
      *
      * @param command user command
@@ -85,7 +98,9 @@ public class Logic {
     private CommandResult execute(Command command) throws Exception {
         command.setData(addressBook, lastShownList);
         CommandResult result = command.execute();
-        storage.save(addressBook);
+        if (command.isMutating() || command.getIsLogicTest()) {
+            storage.save(addressBook);
+        }
         return result;
     }
 
