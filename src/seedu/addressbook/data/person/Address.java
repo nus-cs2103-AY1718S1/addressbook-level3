@@ -57,6 +57,6 @@ public class Address implements Printable{
     }
 
     public String getPrintableString() {
-        return value;
+        return "Address: "+value;
     }
 }
