@@ -13,7 +13,6 @@ public interface ReadOnlyPerson {
     Phone getPhone();
     Email getEmail();
     Address getAddress();
-
     /**
      * The returned TagList is a deep copy of the internal TagList,
      * changes on the returned list will not affect the person's internal tags.
@@ -79,6 +78,19 @@ public interface ReadOnlyPerson {
         builder.append(" Tags: ");
         for (Tag tag : getTags()) {
             builder.append(tag);
+        }
+        return builder.toString();
+    }
+
+
+    /**
+     * Formats a person as text, showing all details Printable args
+     */
+    default String getPrintableString(Printable... printables) {
+        final StringBuilder builder = new StringBuilder();
+        for (Printable p : printables){
+            builder.append(p.getPrintableString())
+                    .append(" ");
         }
         return builder.toString();
     }
