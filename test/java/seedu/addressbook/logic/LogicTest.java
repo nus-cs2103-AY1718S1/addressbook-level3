@@ -12,6 +12,7 @@ import seedu.addressbook.data.AddressBook;
 import seedu.addressbook.data.person.*;
 import seedu.addressbook.data.tag.Tag;
 import seedu.addressbook.data.tag.UniqueTagList;
+import seedu.addressbook.parser.Parser;
 import seedu.addressbook.storage.StorageFile;
 
 import java.util.*;
@@ -79,6 +80,11 @@ public class LogicTest {
 
         //Execute the command
         CommandResult r = logic.execute(inputCommand);
+        Command command = new Parser().parseCommand(inputCommand);
+        if (!command.isMutating()) {
+            saveFile.save(addressBook);
+        }
+
 
         //Confirm the result contains the right data
         assertEquals(expectedMessage, r.feedbackToUser);
