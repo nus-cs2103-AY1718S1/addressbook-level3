@@ -33,7 +33,6 @@ public class Gui {
     public void start(Stage stage, Stoppable mainApp) throws IOException {
         mainWindow = createMainWindow(stage, mainApp);
         mainWindow.displayWelcomeMessage(version, logic.getStorageFilePath());
-
     }
 
     private MainWindow createMainWindow(Stage stage, Stoppable mainApp) throws IOException{
