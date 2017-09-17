@@ -21,7 +21,7 @@ public class Main extends Application implements Stoppable{
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        primaryStage.getIcons().add(new Image("file: doc/images/icon.jpeg"));
+        primaryStage.getIcons().add(new Image("file: doc/images/icon2.png"));
 
         gui = new Gui(new Logic(), VERSION);
         gui.start(primaryStage, this);
