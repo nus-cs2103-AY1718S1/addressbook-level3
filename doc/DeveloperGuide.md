@@ -6,7 +6,7 @@
 * [Appendix A: User Stories](#appendix-a--user-stories)
 * [Appendix B: Use Cases](#appendix-b--use-cases)
 * [Appendix C: Non Functional Requirements](#appendix-c--non-functional-requirements)
-* [Appendix D: Gloassary](#appendix-d--glossary)
+* [Appendix D: Glossary](#appendix-d--glossary)
 
 ## Setting up
 
@@ -87,6 +87,40 @@ Use case ends.
 
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
+
+#### Use case: Rename tag
+
+**MSS**
+
+1. User requests to rename a tag
+2. AddressBook shows a list of existing tags and prompts user to select one of them
+3. User selects one of the tags
+4. AddressBook prompts user to enter the new name
+5. User enters the new name for that tag
+6. AddressBook shows all persons that will be affected by this renaming and requests to confirm from user
+7. User confirms to rename the tag
+8. AddressBook shows the success message <br>
+Use case ends.
+
+**Extensions**
+
+2a. There is no existing tag
+
+> Use case ends
+
+3a. User selects a tag that is not shown in the listing
+
+> 3a1. AddressBook shows an error message <br>
+  Use case resumes at step 2
+
+5a. User enters an invalid new name
+
+> 3a1. AddressBook shows an error message <br>
+  Use case resumes at step 4
+
+7a. User disconfirms the changes
+
+> Use case ends
 
 ## Appendix C : Non Functional Requirements
 
