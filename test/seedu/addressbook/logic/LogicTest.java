@@ -90,7 +90,12 @@ public class LogicTest {
         //Confirm the state of data is as expected
         assertEquals(expectedAddressBook, addressBook);
         assertEquals(lastShownList, logic.getLastShownList());
-        assertEquals(addressBook, saveFile.load());
+
+        List<String> mutableCommands = Arrays.asList("add", "delete", "clear");
+
+        if (mutableCommands.contains(inputCommand)) {
+            assertEquals(addressBook, saveFile.load());
+        }
     }
 
 
@@ -460,7 +465,7 @@ public class LogicTest {
     /**
      * A utility class to generate test data.
      */
-    class TestDataHelper{
+    class TestDataHelper {
 
         Person adam() throws Exception {
             Name name = new Name("Adam Brown");

@@ -31,6 +31,9 @@ public class FindCommand extends Command {
     }
 
     @Override
+    public boolean isMutating() { return false; }
+
+    @Override
     public CommandResult execute() {
         final List<ReadOnlyPerson> personsFound = getPersonsWithNameContainingAnyKeyword(keywords);
         return new CommandResult(getMessageForPersonListShownSummary(personsFound), personsFound);

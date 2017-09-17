@@ -19,11 +19,12 @@ public class ViewCommand extends Command {
 
     public static final String MESSAGE_VIEW_PERSON_DETAILS = "Viewing person: %1$s";
 
-
     public ViewCommand(int targetVisibleIndex) {
         super(targetVisibleIndex);
     }
 
+    @Override
+    public boolean isMutating() { return false; }
 
     @Override
     public CommandResult execute() {
