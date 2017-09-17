@@ -23,6 +23,7 @@ public class MainWindow {
     private Logic logic;
     private Stoppable mainApp;
 
+    //Dimensions for Alert Information from Command Help
     private final double HELP_WIDTH_SIZE = 600;
     private final double HELP_HEIGHT_SIZE = 300;
 
@@ -110,11 +111,14 @@ public class MainWindow {
         outputConsole.setText(outputConsole.getText() + new Formatter().format(messages));
     }
 
+
+    //exits program from menu bar
     @FXML
     private void handleExit() {
         System.exit(0);
     }
 
+    //shows instructions for add command
     @FXML
     private void handleAddHelp() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -127,6 +131,7 @@ public class MainWindow {
         alert.showAndWait();
     }
 
+    //shows instructions for delete command
     @FXML
     private void handleDeleteHelp() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -138,6 +143,7 @@ public class MainWindow {
         alert.showAndWait();
     }
 
+    //shows instructions for clear command
     @FXML
     private void handleClearHelp() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -149,6 +155,7 @@ public class MainWindow {
         alert.showAndWait();
     }
 
+    //shows instructions for find command
     @FXML
     private void handleFindHelp() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -160,6 +167,7 @@ public class MainWindow {
         alert.showAndWait();
     }
 
+    //shows instructions for list command
     @FXML
     private void handleListHelp() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -171,6 +179,7 @@ public class MainWindow {
         alert.showAndWait();
     }
 
+    //shows instructions for view command
     @FXML
     private void handleViewHelp() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -182,6 +191,7 @@ public class MainWindow {
         alert.showAndWait();
     }
 
+    //shows instructions for View All command
     @FXML
     private void handleViewAllHelp() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -193,23 +203,25 @@ public class MainWindow {
         alert.showAndWait();
     }
 
+    //shows instructions for help command
     @FXML
     private void handleHelpHelp() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.getDialogPane().setMinSize(HELP_WIDTH_SIZE, HELP_HEIGHT_SIZE);
         alert.setTitle("AddressBook Commands List");
-        alert.setHeaderText("Commands");
+        alert.setHeaderText("Help Command");
         alert.setContentText(HelpCommand.MESSAGE_USAGE);
 
         alert.showAndWait();
     }
 
+    //shows instructions for exit command
     @FXML
     private void handleExitHelp() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.getDialogPane().setMinSize(HELP_WIDTH_SIZE, HELP_HEIGHT_SIZE);
         alert.setTitle("AddressBook Commands List");
-        alert.setHeaderText("Commands");
+        alert.setHeaderText("Exit Command");
         alert.setContentText(ExitCommand.MESSAGE_USAGE);
 
         alert.showAndWait();

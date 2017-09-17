@@ -21,6 +21,7 @@ public class Main extends Application implements Stoppable{
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        //add logo for AddressBook
         primaryStage.getIcons().add(new Image("file:doc/images/AddressApp_Logo.png"));
         gui = new Gui(new Logic(), VERSION);
         gui.start(primaryStage, this);
