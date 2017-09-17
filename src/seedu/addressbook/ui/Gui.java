@@ -8,6 +8,7 @@ import seedu.addressbook.Main;
 
 import java.io.File;
 import java.io.IOException;
+import java.awt.GraphicsEnvironment;
 
 /**
  * The GUI of the App
@@ -48,6 +49,7 @@ public class Gui {
         MainWindow mainWindow = loader.getController();
         mainWindow.setLogic(logic);
         mainWindow.setMainApp(mainApp);
+
         return mainWindow;
     }
 
