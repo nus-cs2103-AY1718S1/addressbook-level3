@@ -59,6 +59,9 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | add a new person |
 `* * *` | user | delete a person | remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
+`* * *` | user | undo my last action | prevent accidents such as deletion from happening
+`* *` | user | edit a person entry | change details of person without having to delete and re-add a person to change details
+`* *` | user | import/export | transfer data to and from other users
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
 
