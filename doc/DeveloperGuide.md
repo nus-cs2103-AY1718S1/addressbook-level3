@@ -111,12 +111,12 @@ Use case ends.
 3a. User selects a tag that is not shown in the listing
 
 > 3a1. AddressBook shows an error message <br>
-  Usecase resumes at step 2
+  Use case resumes at step 2
 
 5a. User enters an invalid new name
 
 > 3a1. AddressBook shows an error message <br>
-  Usecase resumes at step 4
+  Use case resumes at step 4
 
 7a. User disconfirms the changes
 
