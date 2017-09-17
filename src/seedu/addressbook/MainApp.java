@@ -8,10 +8,45 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import javafx.collections.ObservableList;
+import javafx.collections.FXCollections;
+
+import seedu.addressbook.model.Person;
+import seedu.addressbook.view.PersonOverviewController;
+
 
 public class MainApp extends Application {
     private Stage primaryStage;
     private BorderPane rootLayout;
+
+
+    /**
+     * The data as an observable list of {@link Person}.
+     */
+    private ObservableList<Person> personData = FXCollections.observableArrayList();
+
+    /**
+     * Constructor
+     */
+    public MainApp() {
+        // Add some sample data
+        personData.add(new Person("Hans", "Muster"));
+        personData.add(new Person("Ruth", "Mueller"));
+        personData.add(new Person("Heinz", "Kurz"));
+        personData.add(new Person("Cornelia", "Meier"));
+        personData.add(new Person("Werner", "Meyer"));
+        personData.add(new Person("Lydia", "Kunz"));
+        personData.add(new Person("Anna", "Best"));
+        personData.add(new Person("Stefan", "Meier"));
+        personData.add(new Person("Martin", "Mueller"));
+    }
+
+    /**
+     * Returns the data as an observable list of {@link Person}.
+     */
+    public ObservableList<Person> getPersonData() {
+        return personData;
+    }
 
     @Override
     public void start(Stage primaryStage) {
@@ -54,6 +89,10 @@ public class MainApp extends Application {
 
             // Set person overview into the center of root layout.
             rootLayout.setCenter(personOverview);
+
+            // Give the controller access to the main app.
+            PersonOverviewController controller = loader.getController();
+            controller.setMainApp(this);
         } catch (IOException e) {
             e.printStackTrace();
         }
