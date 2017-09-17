@@ -1,19 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox stylesheets="@/seedu/addressbook/ui/DarkTheme.css" alignment="center" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="seedu.addressbook.ui.MainWindow">
+<VBox alignment="center" prefHeight="380.0" prefWidth="478.0" stylesheets="@/seedu/addressbook/ui/DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seedu.addressbook.ui.MainWindow">
 
     <children>
 
-        <TextField fx:id="commandInput" onAction="#onCommand" VBox.vgrow="NEVER">
+        <TextField fx:id="commandInput" onAction="#onCommand" prefHeight="0.0" prefWidth="478.0" VBox.vgrow="NEVER">
         </TextField>
 
         <TextArea fx:id="outputConsole" editable="false" wrapText="true" VBox.vgrow="ALWAYS">
         </TextArea>
+      <ButtonBar prefHeight="38.0" prefWidth="468.0">
+        <buttons>
+          <Button mnemonicParsing="false" onAction="#handleAdd" prefHeight="25.0" text="Add" />
+            <Button mnemonicParsing="false" text="Delete" />
+            <Button mnemonicParsing="false" onAction="#handleList" text="List" />
+            <Button mnemonicParsing="false" onAction="#handleClear" text="Clear" />
+            <Button mnemonicParsing="false" onAction="#handleExit" text="Exit" />
+        </buttons>
+         <VBox.margin>
+            <Insets right="10.0" />
+         </VBox.margin>
+      </ButtonBar>
 
     </children>
 

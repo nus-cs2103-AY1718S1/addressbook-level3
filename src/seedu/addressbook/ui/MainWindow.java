@@ -5,9 +5,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import seedu.addressbook.Main;
 import seedu.addressbook.commands.ExitCommand;
 import seedu.addressbook.logic.Logic;
 import seedu.addressbook.commands.CommandResult;
+import seedu.addressbook.commands.ListCommand;
 import seedu.addressbook.data.person.ReadOnlyPerson;
 
 import java.util.List;
@@ -57,6 +59,46 @@ public class MainWindow {
             throw new RuntimeException(e);
         }
     }
+
+    @FXML
+    private void handleAdd() {
+
+    }
+    @FXML
+    private void handleList(){
+       try {
+           CommandResult result = logic.execute("list");
+           displayResult(result);
+           clearCommandInput();
+       } catch (Exception e) {
+            display(e.getMessage());
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    private void handleClear(){
+        try {
+            CommandResult result = logic.execute("clear");
+            displayResult(result);
+            clearCommandInput();
+        } catch (Exception e) {
+            display(e.getMessage());
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    private void handleExit(){
+        try {
+            displayResult(new CommandResult(ExitCommand.MESSAGE_EXIT_ACKNOWEDGEMENT));
+            exitApp();
+        } catch (Exception e) {
+            display(e.getMessage());
+            throw new RuntimeException(e);
+        }
+    }
+
 
     private void exitApp() throws Exception {
         mainApp.stop();
