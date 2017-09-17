@@ -94,6 +94,9 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. System should be able to respond within 3 seconds when a command is typed.
+6. System should be usable by a novice who has never used an addressbook before.
+7. Should be able to scale the system with more advanced features in future.
 
 ## Appendix D : Glossary
 
