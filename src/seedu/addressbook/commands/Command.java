@@ -53,6 +53,13 @@ public abstract class Command {
         this.addressBook = addressBook;
         this.relevantPersons = relevantPersons;
     }
+    /**
+     * @returns true for command types that mutates data
+     * Returns false by default.
+     */
+    public boolean isMutating() {
+        return false;
+    }
 
     /**
      * Extracts the the target person in the last shown list from the given arguments.
