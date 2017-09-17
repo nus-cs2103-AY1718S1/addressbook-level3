@@ -82,4 +82,20 @@ public interface ReadOnlyPerson {
         }
         return builder.toString();
     }
+
+    /**
+     * Get a printable string consists of the given printables
+     * @param printables
+     * @return a printable string composed of given printables
+     */
+    default String getPrintableString(Printable... printables) {
+
+        String printableString = " ";
+
+        for (Printable printable : printables) {
+            printableString += printable.getPrintableString() + " ";
+        }
+        return printableString;
+    }
+
 }
