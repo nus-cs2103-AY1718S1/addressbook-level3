@@ -35,6 +35,13 @@ public abstract class Command {
         return isMutating;
     }
 
+    /*
+     * Set the isMutating attribute to be given value
+     */
+    protected void setMutating(boolean isMutating) {
+        this.isMutating = isMutating;
+    }
+
 
     /**
      * Constructs a feedback message to summarise an operation that displayed a listing of persons.
