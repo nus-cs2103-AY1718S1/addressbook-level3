@@ -70,4 +70,8 @@ public abstract class Command {
     public void setTargetIndex(int targetIndex) {
         this.targetIndex = targetIndex;
     }
+    
+    protected boolean isMutating() {
+        return false; // assumes that general commands does not mutate the address book
+    }
 }
