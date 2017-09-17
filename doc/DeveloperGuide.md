@@ -94,6 +94,11 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Classes should follow the single responsibility principle.
+6. Should have updated documentation and UML diagrams.
+7. Should be managed using a VCS with frequent commits for each feature implementation.
+8. All methods and classes should be clearly commented.
+9. Proper coding standards should be adhered to (e.g. No magic numbers, Java coding standard).
 
 ## Appendix D : Glossary
 
