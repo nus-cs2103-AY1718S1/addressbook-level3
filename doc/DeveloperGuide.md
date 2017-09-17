@@ -67,6 +67,23 @@ Priority | As a ... | I want to ... | So that I can...
 
 (For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
 
+System: Addressbook-level3
+Use case: UC01 - Rename Tag
+Actor: User
+MSS:
+    1. user requires to rename a tag
+    2. System ask user to confirm rename
+    3. user confirm to rename the tag
+    4. System rename the tag and updates data
+    5. System shows successful message
+    
+Extensions
+    2.a System detects the new tag is invalid  
+      2.a1 System prompts a message tell user it is an invalid tag
+      2.a2 System asks user to reenter a valid tag
+    Use case resumes from step 2.
+    
+
 #### Use case: Delete person
 
 **MSS**
