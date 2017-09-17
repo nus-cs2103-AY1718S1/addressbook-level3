@@ -84,4 +84,14 @@ public class Person implements ReadOnlyPerson {
         return getAsTextShowAll();
     }
 
+    public String getPrintableString(Printable... printables) {
+        StringBuilder builder = new StringBuilder();
+        for (Printable each_printable: printables) {
+            builder.append(each_printable.getPrintableString() + ", ");
+        }
+        // remove trailing comma and space
+        builder.delete(builder.length() -2, builder.length());
+        return builder.toString();
+    }
+
 }
