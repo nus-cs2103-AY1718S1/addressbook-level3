@@ -62,6 +62,7 @@ Priority | As a ...  | I want to ... | So that I can...
 `* *`    | user      | edit an existing person's information | update the information when it changes
 `* *`    | user      | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
 `* *`    | user      | make the software compatible with my [operating system](#mainstream-os) | use this software on my computer
+`*`      | user      | save the storage file at arbitrary location | specify the storage path
 `*`      | user with many persons in the address book | sort persons by name | locate a person easily
 `*`      | user with many separate address books | import data from another address book | combine them together
 
