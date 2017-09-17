@@ -17,4 +17,9 @@ public class IncorrectCommand extends Command{
         return new CommandResult(feedbackToUser);
     }
 
+    @Override
+    public boolean isMutating() {
+        return NOT_MUTATING;
+    }
+
 }
