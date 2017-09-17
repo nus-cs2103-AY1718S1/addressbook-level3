@@ -68,18 +68,29 @@ public interface ReadOnlyPerson {
         final StringBuilder builder = new StringBuilder();
         builder.append(getName());
         if (!getPhone().isPrivate()) {
-            builder.append(" Phone: ").append(getPhone());
+            getPrintableString(getPhone());
         }
         if (!getEmail().isPrivate()) {
-            builder.append(" Email: ").append(getEmail());
+            getPrintableString(getEmail());
         }
         if (!getAddress().isPrivate()) {
-            builder.append(" Address: ").append(getAddress());
+            getPrintableString(getAddress());
         }
         builder.append(" Tags: ");
         for (Tag tag : getTags()) {
             builder.append(tag);
         }
         return builder.toString();
+    }
+
+    /**
+     * Returns a concatenated version of the printable strings of each object.
+     */
+    default String getPrintableString(Printable... printables){
+        final StringBuilder result = new StringBuilder();
+        for (Printable p : printables) {
+            result.append(p.getPrintableString() + " ");
+        }
+        return result.toString();
     }
 }
