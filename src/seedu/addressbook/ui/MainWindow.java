@@ -120,7 +120,7 @@ public class MainWindow {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.getDialogPane().setMinSize(HELP_WIDTH_SIZE, HELP_HEIGHT_SIZE);
         alert.setTitle("AddressBook Commands List");
-        alert.setHeaderText("Commands");
+        alert.setHeaderText("Add Command");
         alert.setContentText(AddCommand.MESSAGE_USAGE);
 
 
@@ -132,7 +132,7 @@ public class MainWindow {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.getDialogPane().setMinSize(HELP_WIDTH_SIZE, HELP_HEIGHT_SIZE);
         alert.setTitle("AddressBook Commands List");
-        alert.setHeaderText("Commands");
+        alert.setHeaderText("Delete Command");
         alert.setContentText(DeleteCommand.MESSAGE_USAGE);
 
         alert.showAndWait();
@@ -143,7 +143,7 @@ public class MainWindow {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.getDialogPane().setMinSize(HELP_WIDTH_SIZE, HELP_HEIGHT_SIZE);
         alert.setTitle("AddressBook Commands List");
-        alert.setHeaderText("Commands");
+        alert.setHeaderText("Clear Command");
         alert.setContentText(ClearCommand.MESSAGE_USAGE);
 
         alert.showAndWait();
@@ -154,7 +154,7 @@ public class MainWindow {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.getDialogPane().setMinSize(HELP_WIDTH_SIZE, HELP_HEIGHT_SIZE);
         alert.setTitle("AddressBook Commands List");
-        alert.setHeaderText("Commands");
+        alert.setHeaderText("Find Command");
         alert.setContentText(FindCommand.MESSAGE_USAGE);
 
         alert.showAndWait();
@@ -165,7 +165,7 @@ public class MainWindow {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.getDialogPane().setMinSize(HELP_WIDTH_SIZE, HELP_HEIGHT_SIZE);
         alert.setTitle("AddressBook Commands List");
-        alert.setHeaderText("Commands");
+        alert.setHeaderText("List Command");
         alert.setContentText(ListCommand.MESSAGE_USAGE);
 
         alert.showAndWait();
@@ -176,7 +176,7 @@ public class MainWindow {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.getDialogPane().setMinSize(HELP_WIDTH_SIZE, HELP_HEIGHT_SIZE);
         alert.setTitle("AddressBook Commands List");
-        alert.setHeaderText("Commands");
+        alert.setHeaderText("View Command");
         alert.setContentText(ViewCommand.MESSAGE_USAGE);
 
         alert.showAndWait();
@@ -187,7 +187,7 @@ public class MainWindow {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.getDialogPane().setMinSize(HELP_WIDTH_SIZE, HELP_HEIGHT_SIZE);
         alert.setTitle("AddressBook Commands List");
-        alert.setHeaderText("Commands");
+        alert.setHeaderText("View All Command");
         alert.setContentText(ViewAllCommand.MESSAGE_USAGE);
 
         alert.showAndWait();
