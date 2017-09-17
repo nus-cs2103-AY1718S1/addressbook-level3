@@ -108,9 +108,9 @@ Use case ends.
 
 3a. The specified tag to be renamed already exists
 
-> 3a1. Addressbook gives error message to notify that the renamed tag already exists
-> 3a2. User gets prompted to enter another tag name
-> Steps 3a1-3a2 are repeated until the data entered are correct.
+> 3a1. Addressbook gives error message to notify that the renamed tag already exists <br>
+> 3a2. User gets prompted to enter another tag name <br>
+> Steps 3a1-3a2 are repeated until the data entered are correct. <br>
   Use case resumes at step 4
 
 4a. User discards changes to rename
