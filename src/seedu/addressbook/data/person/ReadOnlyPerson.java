@@ -64,7 +64,7 @@ public interface ReadOnlyPerson {
     /**
      * Formats a person as text, showing only non-private contact details.
      */
-    default String getAsTextHidePrivate() {
+     default String getAsTextHidePrivate() {
         final StringBuilder builder = new StringBuilder();
         builder.append(getName());
         if (!getPhone().isPrivate()) {
@@ -81,5 +81,17 @@ public interface ReadOnlyPerson {
             builder.append(tag);
         }
         return builder.toString();
+    }
+
+    /**
+     * Returns a concatenated version of the printable strings of each object.
+     */
+    default String getPrintableString(Printable... printables){
+        StringBuilder builder = new StringBuilder();
+        for (Printable p : printables){
+            builder.append(p.getPrintableString());
+            builder.append(" ");
+        }
+        return builder.toString().trim();
     }
 }
