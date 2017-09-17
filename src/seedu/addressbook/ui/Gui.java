@@ -4,11 +4,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import seedu.addressbook.logic.Logic;
 import seedu.addressbook.Main;
 
-import java.io.File;
 import java.io.IOException;
 
 /**
@@ -20,7 +20,7 @@ public class Gui {
     public static final int DISPLAYED_INDEX_OFFSET = 1;
 
     public static final int INITIAL_WINDOW_WIDTH = 800;
-    public static final int INITIAL_WINDOW_HEIGHT = 600;
+    public static final int INITIAL_WINDOW_HEIGHT = 400;
     private final Logic logic;
 
     private MainWindow mainWindow;
@@ -33,31 +33,30 @@ public class Gui {
     }
 
     public void start(Stage stage, Stoppable mainApp) throws IOException {
-        stage = initRootLayout(stage);
-        mainWindow = createMainWindow(stage, mainApp);
+        initRootLayout(stage);
+        mainWindow = createMainWindow(mainApp);
         mainWindow.displayWelcomeMessage(version, logic.getStorageFilePath());
     }
 
-    private Stage initRootLayout(Stage stage) {
+    private void initRootLayout(Stage stage) {
         try {
-            // Load root layout from fxml file.
+            // Load root layout from fxml file
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("ui/RootLayout.fxml"));
             rootLayout = loader.load();
 
-            // Show the scene containing the root layout.
-            Scene scene = new Scene(rootLayout);
+            // Show the scene containing the root layout
+            Scene scene = new Scene(rootLayout, INITIAL_WINDOW_WIDTH, INITIAL_WINDOW_HEIGHT);
             stage.setScene(scene);
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("contact.png")));
             stage.setTitle(version);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        return stage;
     }
 
-    private MainWindow createMainWindow(Stage stage, Stoppable mainApp) throws IOException{
+    private MainWindow createMainWindow(Stoppable mainApp) throws IOException{
         FXMLLoader loader = new FXMLLoader();
 
         /* Note: When calling getResource(), use '/', instead of File.separator or '\\'
