@@ -39,9 +39,7 @@ public abstract class Command {
     /**
      * Executes the command and returns the result.
      */
-    public CommandResult execute(){
-        throw new UnsupportedOperationException("This method should be implement in child classes");
-    }
+    public abstract CommandResult execute();
 
     //Note: it is better to make the execute() method abstract, by replacing the above method with the line below:
     //public abstract CommandResult execute();
@@ -52,6 +50,13 @@ public abstract class Command {
     public void setData(AddressBook addressBook, List<? extends ReadOnlyPerson> relevantPersons) {
         this.addressBook = addressBook;
         this.relevantPersons = relevantPersons;
+    }
+    /**
+     * @returns true for command types that mutates data
+     * Returns false by default.
+     */
+    public boolean isMutating() {
+        return false;
     }
 
     /**
