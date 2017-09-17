@@ -95,17 +95,17 @@ Use case ends.
 3a. User gives an invalid index
 
 > 3a1. AddressBook notifies user of error
-       Use case resumes at step 2
+  Use case resumes at step 2
 
 3b. User gives an invalid tag
 
 > 3b1. AddressBook notifies user of error
-       Use case resumes at step 2
+  Use case resumes at step 2
 
 5a. User did not give confirmation
 
-> 5a1. Use case resumes at step 2
-       AddressBook prompts user
+> Use case resumes at step 2
+  AddressBook prompts user
 
 ## Appendix C : Non Functional Requirements
 
