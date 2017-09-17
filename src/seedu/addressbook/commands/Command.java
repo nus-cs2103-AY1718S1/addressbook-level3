@@ -55,6 +55,14 @@ public abstract class Command {
     }
 
     /**
+     * This method will return true for command types that mutate the data. e.g. AddCommand.
+     * @return result on whether data is mutated.
+     */
+    public boolean isMutating() {
+        return false;
+    }
+
+    /**
      * Extracts the the target person in the last shown list from the given arguments.
      *
      * @throws IndexOutOfBoundsException if the target index is out of bounds of the last viewed listing
