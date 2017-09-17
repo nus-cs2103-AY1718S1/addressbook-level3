@@ -24,6 +24,10 @@ public class ViewAllCommand extends Command {
         super(targetVisibleIndex);
     }
 
+    @Override
+    boolean isMutating() {
+        return false;
+    }
 
     @Override
     public CommandResult execute() {
