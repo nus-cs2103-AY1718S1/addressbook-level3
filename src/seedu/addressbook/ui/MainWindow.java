@@ -69,8 +69,23 @@ public class MainWindow {
 
     @FXML
     private void handleAdd() {
+        String addCommand = mainGui.showPersonAddDialog();
+        if (!addCommand.equals("cancelled")) {
+            try {
+                CommandResult result = logic.execute(addCommand);
+                displayResult(result);
+                clearCommandInput();
+            } catch (Exception e) {
+                display(e.getMessage());
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    @FXML
+    private void handleHelp() {
         try {
-            CommandResult result = logic.execute(mainGui.showPersonAddDialog());
+            CommandResult result = logic.execute("help");
             displayResult(result);
             clearCommandInput();
         } catch (Exception e) {

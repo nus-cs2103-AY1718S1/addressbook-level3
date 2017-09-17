@@ -54,19 +54,25 @@ public class PersonAddDialogController {
      */
     @FXML
     private void handleOk() throws IllegalValueException {
-        Name newName = new Name(nameField.getText());
-        Phone newPhone = new Phone(phoneField.getText(), false);
-        Email newEmail = new Email(emailField.getText(), false);
-        Address newAddress = new Address(addressField.getText(), false);
-        UniqueTagList newTags = new UniqueTagList();
-        this.personToAdd = new Person(newName, newPhone, newEmail, newAddress, newTags);
         okClicked = true;
         dialogStage.close();
     }
 
-    public String toAdd() {
-        return "add " + nameField.getText() + " p/" + phoneField.getText() + " e/" + emailField.getText()
-                + " a/" + addressField.getText();
+    public String addPerson() {
+        String addCommand = toAdd();
+        return addCommand;
+    }
+
+    /**
+     * Returns the string for add command
+     */
+    public String toAdd(){
+        String name = nameField.getText();
+        String phone = phoneField.getText();
+        String email = emailField.getText();
+        String address = addressField.getText();
+        String toAdd = "buttonadd " + name + " p/" + phone + " e/" + email + " a/" + address;
+        return toAdd;
     }
 
     /**

@@ -84,8 +84,12 @@ public class Gui {
             controller.setDialogStage(dialogStage);
             // Show the dialog and wait until the user closes it
             dialogStage.showAndWait();
-
-            return controller.toAdd();
+            if (controller.isOkClicked()) {
+                return controller.addPerson();
+            }
+            else {
+                return "cancelled";
+            }
         } catch (IOException e) {
             e.printStackTrace();
             return "error";
