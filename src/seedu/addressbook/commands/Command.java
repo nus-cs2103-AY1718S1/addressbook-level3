@@ -15,6 +15,7 @@ public abstract class Command {
     protected AddressBook addressBook;
     protected List<? extends ReadOnlyPerson> relevantPersons;
     private int targetIndex = -1;
+    protected  boolean isMutating = false;
 
     /**
      * @param targetIndex last visible listing index of the target person
@@ -25,6 +26,22 @@ public abstract class Command {
 
     protected Command() {
     }
+
+
+    /*
+     * Returns true if the given command is a mutating command.
+     */
+    public boolean isMutating() {
+        return isMutating;
+    }
+
+    /*
+     * Set the isMutating attribute to be given value
+     */
+    protected void setMutating(boolean isMutating) {
+        this.isMutating = isMutating;
+    }
+
 
     /**
      * Constructs a feedback message to summarise an operation that displayed a listing of persons.
