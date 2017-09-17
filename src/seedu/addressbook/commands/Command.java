@@ -41,9 +41,6 @@ public abstract class Command {
      */
     public abstract CommandResult execute();
 
-    //Note: it is better to make the execute() method abstract, by replacing the above method with the line below:
-    //public abstract CommandResult execute();
-
     /**
      * Supplies the data the command will operate on.
      */
