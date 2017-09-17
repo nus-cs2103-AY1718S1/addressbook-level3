@@ -23,10 +23,10 @@ public class HelpCommand extends Command {
 
 
     @Override
-    boolean isMutating() {
+    public boolean isMutating() {
         return false;
     }
-
+    
     @Override
     public CommandResult execute() {
         return new CommandResult(MESSAGE_ALL_USAGES);

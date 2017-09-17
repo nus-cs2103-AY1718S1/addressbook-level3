@@ -31,10 +31,10 @@ public class FindCommand extends Command {
     }
 
     @Override
-    boolean isMutating() {
+    public boolean isMutating() {
         return false;
     }
-
+    
     @Override
     public CommandResult execute() {
         final List<ReadOnlyPerson> personsFound = getPersonsWithNameContainingAnyKeyword(keywords);

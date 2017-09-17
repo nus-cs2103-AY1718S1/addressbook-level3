@@ -29,7 +29,7 @@ public abstract class Command {
     /**
      * Returns if the command mutates data
      */
-    boolean isMutating() {
+    public boolean isMutating() {
         return true;
     }
     //Note: Default behaviour is to return true as it is better to assume commands mutate data to prevent incorrectly not storing data

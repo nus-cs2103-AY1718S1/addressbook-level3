@@ -17,7 +17,7 @@ public class ListCommand extends Command {
             + "Example: " + COMMAND_WORD;
     
     @Override
-    boolean isMutating() {
+    public boolean isMutating() {
         return false;
     }
 
