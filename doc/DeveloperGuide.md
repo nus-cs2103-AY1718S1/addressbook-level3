@@ -59,8 +59,14 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | add a new person |
 `* * *` | user | delete a person | remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
+`* * *` | user | view the whole address book | check all contacts in my address book
+`* * *` | user | exit address book | leave the App when I am finished using it
+`* *` | user | edit contact details | update details for people who have changed their contact information
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
+`*` | user | have a non case sensitive find | find contacts more easily
+`*` | user | find contacts by number | check who owns the number
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
+`*` | user | have a good user interface | use a visual appealing address book
 
 
 ## Appendix B : Use Cases
