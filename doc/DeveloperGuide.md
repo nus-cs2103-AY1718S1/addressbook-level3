@@ -94,6 +94,11 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should be usable to any user regardless of their IT proficiency level
+6. Should be able to handle errors related to interaction with saved file
+7. Should write file upon execution of every command for data recovery
+8. Should have maximum feedback wait time of 3 seconds
+9. Should not accept any invalid command and ensure no ambiguity in valid input
 
 ## Appendix D : Glossary
 
