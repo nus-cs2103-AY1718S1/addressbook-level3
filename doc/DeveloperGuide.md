@@ -94,6 +94,11 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should follow the default Java coding standard.
+6. Should be managed using a version control solution like Github
+7. Should meet scheduled deadline (to be done by the end of the semester)
+8. Should be intuitive for non tech-savvy users. 
+9. New features should be planned for thoroughly using UML and sequencing diagrams.
 
 ## Appendix D : Glossary
 
