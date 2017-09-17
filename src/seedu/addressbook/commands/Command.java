@@ -15,6 +15,7 @@ public abstract class Command {
     protected AddressBook addressBook;
     protected List<? extends ReadOnlyPerson> relevantPersons;
     private int targetIndex = -1;
+    private boolean isLogicTest = false;
 
     /**
      * @param targetIndex last visible listing index of the target person
@@ -70,4 +71,10 @@ public abstract class Command {
     public void setTargetIndex(int targetIndex) {
         this.targetIndex = targetIndex;
     }
+
+    public boolean isMutating() { return false; }
+
+    public void setIsLogicTest() { isLogicTest = true; }
+
+    public boolean getIsLogicTest() { return isLogicTest; }
 }
