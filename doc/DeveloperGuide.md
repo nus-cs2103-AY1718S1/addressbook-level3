@@ -94,6 +94,11 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should have a user friendly UI for users who are not IT-Savvy
+6. Should have a relatively fast system respond time
+7. Should work in both 32-bit and 64-bit environments
+8. Should be in a Object Oriented Programming concept
+9. Should be able to handle exceptions well
 
 ## Appendix D : Glossary
 
