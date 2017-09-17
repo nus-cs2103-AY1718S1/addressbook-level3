@@ -113,6 +113,20 @@ public class UniquePersonList implements Iterable<Person> {
         internalList.clear();
     }
 
+    /**
+     * Check if the list is empty
+     */
+    public boolean isEmpty() {
+        return internalList.isEmpty();
+    }
+
+    /**
+     * Sort the names in address book in alphabetical order
+     */
+    public void sort() {
+        Collections.sort(internalList, new PersonComparator());
+    }
+
     @Override
     public Iterator<Person> iterator() {
         return internalList.iterator();
