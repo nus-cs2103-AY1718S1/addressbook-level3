@@ -53,7 +53,7 @@ public class Parser {
             return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE));
         }
 
-        final String commandWord = matcher.group("commandWord");
+        final String commandWord = matcher.group("commandWord").toLowerCase();
         final String arguments = matcher.group("arguments");
         switch (commandWord) {
 
@@ -80,6 +80,9 @@ public class Parser {
 
             case ExitCommand.COMMAND_WORD:
                 return new ExitCommand();
+
+            case SortCommand.COMMAND_WORD:
+                return new SortCommand();
 
             case HelpCommand.COMMAND_WORD: // Fallthrough
             default:
