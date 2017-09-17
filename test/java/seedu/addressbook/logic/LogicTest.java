@@ -78,11 +78,20 @@ public class LogicTest {
                                       boolean isRelevantPersonsExpected,
                                       List<? extends ReadOnlyPerson> lastShownList) throws Exception {
 
-        //Execute the command
-        CommandResult r = logic.execute(inputCommand);
-    
+        //save initial state before testing command
+        saveFile.save(addressBook);
+
         Parser p = new Parser();
         Command parsedCommand = p.parseCommand(inputCommand);
+        
+        //If command does not mutate
+        if(!parsedCommand.isMutating()){
+            //expected addressBook state and addressBook state before command execute should be the same
+            assertEquals(expectedAddressBook, addressBook);
+        }
+        
+        //Execute the command
+        CommandResult r = logic.execute(inputCommand);      
 
         //Confirm the result contains the right data
         assertEquals(expectedMessage, r.feedbackToUser);
@@ -94,11 +103,8 @@ public class LogicTest {
         //Confirm the state of data is as expected
         assertEquals(expectedAddressBook, addressBook);
         assertEquals(lastShownList, logic.getLastShownList());
-        
-        //if command saves to storage
-        if(parsedCommand.isMutating()) {
-            assertEquals(addressBook, saveFile.load());
-        }
+        assertEquals(addressBook, saveFile.load());
+
     }
 
 
