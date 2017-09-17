@@ -38,6 +38,7 @@ public abstract class Command {
 
     /**
      * Executes the command and returns the result.
+     * Why is my execute method in Command already in abstract form :O
      */
     public CommandResult execute(){
         throw new UnsupportedOperationException("This method should be implement in child classes");
