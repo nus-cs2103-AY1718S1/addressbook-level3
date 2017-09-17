@@ -58,8 +58,13 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | new user | see usage instructions | refer to instructions when I forget how to use the App
 `* * *` | user | add a new person |
 `* * *` | user | delete a person | remove entries that I no longer need
-`* * *` | user | find a person by name | locate details of persons without having to go through the entire list
+`* * *` | user | find a person by his/her details | locate details of persons without having to go through the entire list
+`* * *` | user | quit the application | close the program when I no longer want to use it
+`* * *` | user | view all persons by pages | find my contacts which I have forgotten the names of and go through my contacts
+`* * *` | user | edit a person | update or correct his/her contact details 
+`* *` | user | tag all my contacts | search for and access them easily
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
+`*` | user | use a CLI interface with vim/emacs-like bindings | navigate through the app quickly and with ease
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
 
 
