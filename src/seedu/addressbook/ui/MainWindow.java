@@ -3,11 +3,11 @@ package seedu.addressbook.ui;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import seedu.addressbook.commands.ExitCommand;
+import seedu.addressbook.commands.*;
 import seedu.addressbook.logic.Logic;
-import seedu.addressbook.commands.CommandResult;
 import seedu.addressbook.data.person.ReadOnlyPerson;
 
 import java.util.List;
@@ -22,6 +22,9 @@ public class MainWindow {
 
     private Logic logic;
     private Stoppable mainApp;
+
+    private final double HELP_WIDTH_SIZE = 600;
+    private final double HELP_HEIGHT_SIZE = 300;
 
     public MainWindow(){
     }
@@ -105,6 +108,111 @@ public class MainWindow {
      */
     private void display(String... messages) {
         outputConsole.setText(outputConsole.getText() + new Formatter().format(messages));
+    }
+
+    @FXML
+    private void handleExit() {
+        System.exit(0);
+    }
+
+    @FXML
+    private void handleAddHelp() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.getDialogPane().setMinSize(HELP_WIDTH_SIZE, HELP_HEIGHT_SIZE);
+        alert.setTitle("AddressBook Commands List");
+        alert.setHeaderText("Commands");
+        alert.setContentText(AddCommand.MESSAGE_USAGE);
+
+
+        alert.showAndWait();
+    }
+
+    @FXML
+    private void handleDeleteHelp() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.getDialogPane().setMinSize(HELP_WIDTH_SIZE, HELP_HEIGHT_SIZE);
+        alert.setTitle("AddressBook Commands List");
+        alert.setHeaderText("Commands");
+        alert.setContentText(DeleteCommand.MESSAGE_USAGE);
+
+        alert.showAndWait();
+    }
+
+    @FXML
+    private void handleClearHelp() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.getDialogPane().setMinSize(HELP_WIDTH_SIZE, HELP_HEIGHT_SIZE);
+        alert.setTitle("AddressBook Commands List");
+        alert.setHeaderText("Commands");
+        alert.setContentText(ClearCommand.MESSAGE_USAGE);
+
+        alert.showAndWait();
+    }
+
+    @FXML
+    private void handleFindHelp() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.getDialogPane().setMinSize(HELP_WIDTH_SIZE, HELP_HEIGHT_SIZE);
+        alert.setTitle("AddressBook Commands List");
+        alert.setHeaderText("Commands");
+        alert.setContentText(FindCommand.MESSAGE_USAGE);
+
+        alert.showAndWait();
+    }
+
+    @FXML
+    private void handleListHelp() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.getDialogPane().setMinSize(HELP_WIDTH_SIZE, HELP_HEIGHT_SIZE);
+        alert.setTitle("AddressBook Commands List");
+        alert.setHeaderText("Commands");
+        alert.setContentText(ListCommand.MESSAGE_USAGE);
+
+        alert.showAndWait();
+    }
+
+    @FXML
+    private void handleViewHelp() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.getDialogPane().setMinSize(HELP_WIDTH_SIZE, HELP_HEIGHT_SIZE);
+        alert.setTitle("AddressBook Commands List");
+        alert.setHeaderText("Commands");
+        alert.setContentText(ViewCommand.MESSAGE_USAGE);
+
+        alert.showAndWait();
+    }
+
+    @FXML
+    private void handleViewAllHelp() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.getDialogPane().setMinSize(HELP_WIDTH_SIZE, HELP_HEIGHT_SIZE);
+        alert.setTitle("AddressBook Commands List");
+        alert.setHeaderText("Commands");
+        alert.setContentText(ViewAllCommand.MESSAGE_USAGE);
+
+        alert.showAndWait();
+    }
+
+    @FXML
+    private void handleHelpHelp() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.getDialogPane().setMinSize(HELP_WIDTH_SIZE, HELP_HEIGHT_SIZE);
+        alert.setTitle("AddressBook Commands List");
+        alert.setHeaderText("Commands");
+        alert.setContentText(HelpCommand.MESSAGE_USAGE);
+
+        alert.showAndWait();
+    }
+
+    @FXML
+    private void handleExitHelp() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.getDialogPane().setMinSize(HELP_WIDTH_SIZE, HELP_HEIGHT_SIZE);
+        alert.setTitle("AddressBook Commands List");
+        alert.setHeaderText("Commands");
+        alert.setContentText(ExitCommand.MESSAGE_USAGE);
+
+        alert.showAndWait();
     }
 
 }
