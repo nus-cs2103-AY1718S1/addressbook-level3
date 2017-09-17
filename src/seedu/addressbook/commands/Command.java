@@ -22,6 +22,10 @@ public abstract class Command {
     public Command(int targetIndex) {
         this.setTargetIndex(targetIndex);
     }
+    
+    public boolean isMutating() {
+        return false;
+    }
 
     protected Command() {
     }
