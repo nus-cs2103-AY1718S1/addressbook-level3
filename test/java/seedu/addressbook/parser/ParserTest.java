@@ -65,6 +65,12 @@ public class ParserTest {
         parseAndAssertCommandType(input, ExitCommand.class);
     }
 
+    @Test
+    public void sortCommand_parsedCorrectly() {
+        final String input = "sort";
+        parseAndAssertCommandType(input, SortCommand.class);
+    }
+
     /**
      * Test ingle index argument commands
      */
