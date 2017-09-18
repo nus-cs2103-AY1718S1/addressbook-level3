@@ -65,7 +65,8 @@ public abstract class Command {
     public void setTargetIndex(int targetIndex) {
         this.targetIndex = targetIndex;
     }
-    
+    /* to be inherited by child classes, 
+       returns true if it is a mutating class like add/delete  */
     public boolean isMutating(){
         throw new UnsupportedOperationException("to be implemented in child class");
     }
