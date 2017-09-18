@@ -267,6 +267,9 @@ public class LogicTest {
         expectedAB.addPerson(p2);
 
         addressBook.addPerson(p2);
+
+        saveFile.save(addressBook);
+
         logic.setLastShownList(lastShownList);
 
         assertCommandBehavior("view 1",
@@ -323,6 +326,9 @@ public class LogicTest {
         expectedAB.addPerson(p1);
 
         addressBook.addPerson(p1);
+
+        saveFile.save(addressBook);
+
         logic.setLastShownList(lastShownList);
 
         assertCommandBehavior("viewall 2",
@@ -518,6 +524,9 @@ public class LogicTest {
         AddressBook generateAddressBook(Boolean... isPrivateStatuses) throws Exception{
             AddressBook addressBook = new AddressBook();
             addToAddressBook(addressBook, isPrivateStatuses);
+
+            saveFile.save(addressBook);
+
             return addressBook;
         }
 
@@ -527,6 +536,9 @@ public class LogicTest {
         AddressBook generateAddressBook(List<Person> persons) throws Exception{
             AddressBook addressBook = new AddressBook();
             addToAddressBook(addressBook, persons);
+
+            saveFile.save(addressBook);
+
             return addressBook;
         }
 
