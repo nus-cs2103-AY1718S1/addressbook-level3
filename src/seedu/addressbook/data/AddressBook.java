@@ -19,6 +19,9 @@ public class AddressBook {
 
     private final UniquePersonList allPersons;
     private final UniqueTagList allTags; // can contain tags not attached to any person
+    private static final Scanner SCANNER = new Scanner(System.in);
+    private static final char INPUT_COMMENT_MARKER = '#';
+    private static final String LINE_PREFIX = "|| ";
 
     public static AddressBook empty() {
         return new AddressBook();
@@ -96,6 +99,62 @@ public class AddressBook {
      */
     public void removePerson(ReadOnlyPerson toRemove) throws PersonNotFoundException {
         allPersons.remove(toRemove);
+    }
+
+    /**
+     * Removes the equivalent person from the address book.
+     *
+     * @throws PersonNotFoundException if no such Person could be found.
+     */
+    public void UpdatePerson(ReadOnlyPerson toRemove , String inputLine) throws PersonNotFoundException {
+
+        System.out.println("Printing update action");
+        Person toUpdate = new Person(toRemove);
+        ChooseUpdateMethod(inputLine, toUpdate );
+
+    }
+
+    private static void ChooseUpdateMethod(String inputLine , Person toUpdate ) {
+        switch (inputLine) {
+            case "1":
+                System.out.println(LINE_PREFIX +" Enter new name ");
+                String newname = SCANNER.nextLine();
+                // silently consume all blank and comment lines
+                while (newname.trim().isEmpty() || newname.trim().charAt(0) == INPUT_COMMENT_MARKER) {
+                    newname = SCANNER.nextLine();
+                }
+                toUpdate.name.fullName = newname;
+                System.out.println(LINE_PREFIX +" The name has been replaced with " + toUpdate.name.fullName);
+
+                break;
+
+            case "2":
+                System.out.println(LINE_PREFIX +" Enter new phone no ");
+                String newphone = SCANNER.nextLine();
+                // silently consume all blank and comment lines
+                while (newphone.trim().isEmpty() || newphone.trim().charAt(0) == INPUT_COMMENT_MARKER) {
+                    newphone = SCANNER.nextLine();
+                }
+                toUpdate.phone.value = newphone;
+                System.out.println(LINE_PREFIX +" The phone has been replaced with " + toUpdate.phone.value);
+                break;
+
+            case "3":
+                System.out.println(LINE_PREFIX +" Enter new email without prefix ");
+                String newemail = SCANNER.nextLine();
+                // silently consume all blank and comment lines
+                while (newemail.trim().isEmpty() || newemail.trim().charAt(0) == INPUT_COMMENT_MARKER) {
+                    newemail = SCANNER.nextLine();
+                }
+
+                toUpdate.email.value = newemail;
+                System.out.println(LINE_PREFIX +" The email has been replaced with " + toUpdate.email.value);
+                break;
+
+            default:
+                ChooseUpdateMethod(inputLine, toUpdate);
+                break;
+        }
     }
 
     /**
