@@ -16,6 +16,7 @@ public class Person implements ReadOnlyPerson {
     private Address address;
 
     private final UniqueTagList tags;
+
     /**
      * Assumption: Every field must be present and not null.
      */
@@ -84,4 +85,12 @@ public class Person implements ReadOnlyPerson {
         return getAsTextShowAll();
     }
 
+    //returns a concatenated details of a person
+    public String getPrintableString(Printable... printables) {
+         String toPrint =""; 
+         for(Printable toAdd: printables) {
+             toPrint+= toAdd.getPrintableString()+", ";
+         }    
+         return toPrint.trim();
+    }
 }
