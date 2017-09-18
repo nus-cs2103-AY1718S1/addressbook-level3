@@ -47,6 +47,13 @@ public abstract class Command {
     //public abstract CommandResult execute();
 
     /**
+     * @return true for command types that mutate the data.
+     */
+    public boolean isMutating() {
+        throw new UnsupportedOperationException("This method should be implement in child classes");
+    }
+
+    /**
      * Supplies the data the command will operate on.
      */
     public void setData(AddressBook addressBook, List<? extends ReadOnlyPerson> relevantPersons) {
