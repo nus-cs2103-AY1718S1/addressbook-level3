@@ -133,4 +133,18 @@ public class AddressBook {
         // use this method for custom fields hashing instead of implementing your own
         return Objects.hash(allPersons, allTags);
     }
+
+    @Override
+    public String toString(){
+        StringBuilder result = new StringBuilder();
+        for(ReadOnlyPerson person : allPersons){
+            result.append(person);
+            result.append("\n");
+        }
+        for(Tag element : allTags){
+            result.append(element);
+            result.append("\n");
+        }
+        return result.toString();
+    }
 }

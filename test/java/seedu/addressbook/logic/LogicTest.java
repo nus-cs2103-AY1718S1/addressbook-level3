@@ -79,6 +79,7 @@ public class LogicTest {
 
         //Execute the command
         CommandResult r = logic.execute(inputCommand);
+        Command commandType = logic.returnCommand(inputCommand);
 
         //Confirm the result contains the right data
         assertEquals(expectedMessage, r.feedbackToUser);
@@ -90,7 +91,14 @@ public class LogicTest {
         //Confirm the state of data is as expected
         assertEquals(expectedAddressBook, addressBook);
         assertEquals(lastShownList, logic.getLastShownList());
-        assertEquals(addressBook, saveFile.load());
+        //Due to the addition of isMutating() method, this test has to be updated.
+        //If the command does not mutate data, no save would be called, and thus should be compared with an
+        //empty AddressBook object.
+        if(commandType.isMutating()) {
+            assertEquals(addressBook, saveFile.load());
+        }else{
+            assertEquals(new AddressBook(), saveFile.load());
+        }
     }
 
 

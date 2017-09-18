@@ -12,6 +12,8 @@ import static seedu.addressbook.ui.Gui.DISPLAYED_INDEX_OFFSET;
  * Represents an executable command.
  */
 public abstract class Command {
+    public static final boolean willMutateData = true;
+    public static final boolean willNotMutateData = false;
     protected AddressBook addressBook;
     protected List<? extends ReadOnlyPerson> relevantPersons;
     private int targetIndex = -1;
@@ -45,6 +47,11 @@ public abstract class Command {
 
     //Note: it is better to make the execute() method abstract, by replacing the above method with the line below:
     //public abstract CommandResult execute();
+
+    /**
+     * Returns true if command type mutates the data.
+     */
+    public abstract boolean isMutating();
 
     /**
      * Supplies the data the command will operate on.
