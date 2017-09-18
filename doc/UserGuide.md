@@ -38,6 +38,15 @@ Examples:
 Shows a list of all persons in the address book.<br>
 Format: `list`
 
+## Displaying a sorted list : `sort`
+ Shows a sorted list of all person in the address book.<br>
+ Format: `sort PARAMETER`
+ 
+ > The available parameters for sorting are `name`,`email` and `phone`
+ 
+ Examples:
+ * `sort email` displays a sorted list based on emails.
+  
 ## Finding all persons containing any keyword in their name: `find`
 Finds persons whose names contain any of the given keywords.<br>
 Format: `find KEYWORD [MORE_KEYWORDS]`
