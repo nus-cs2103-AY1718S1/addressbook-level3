@@ -74,6 +74,14 @@ public class UniquePersonList implements Iterable<Person> {
         return Collections.unmodifiableList(internalList);
     }
 
+    /**
+     * Modifiable java List view with elements cast as immutable {@link ReadOnlyPerson}s.
+     * For use in displaying list.
+     */
+    public List<Person> changeableListView() {
+        return internalList;
+    }
+
 
     /**
      * Checks if the list contains an equivalent person as the given argument.

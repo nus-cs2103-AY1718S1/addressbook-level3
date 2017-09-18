@@ -56,6 +56,10 @@ public class Name {
                 && this.fullName.equals(((Name) other).fullName)); // state check
     }
 
+    public int compareTo(Name other) {
+        return this.fullName.compareToIgnoreCase(other.fullName);
+    }
+
     @Override
     public int hashCode() {
         return fullName.hashCode();
