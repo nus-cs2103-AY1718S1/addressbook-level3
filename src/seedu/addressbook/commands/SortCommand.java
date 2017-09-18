@@ -32,6 +32,8 @@ public class SortCommand extends Command{
 
 
         Collections.sort(sortedContacts, nameComparator);
+        
+        return sortedContacts;
     }
     
     class NameComparator implements Comparator<ReadOnlyPerson> {
