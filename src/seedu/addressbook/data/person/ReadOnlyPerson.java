@@ -7,11 +7,14 @@ import seedu.addressbook.data.tag.UniqueTagList;
  * A read-only immutable interface for a Person in the addressbook.
  * Implementations should guarantee: details are present and not null, field values are validated.
  */
-public interface ReadOnlyPerson {
+public interface ReadOnlyPerson extends Printable {
 
     Name getName();
+
     Phone getPhone();
+
     Email getEmail();
+
     Address getAddress();
 
     /**
@@ -81,5 +84,16 @@ public interface ReadOnlyPerson {
             builder.append(tag);
         }
         return builder.toString();
+    }
+
+    default String getPrintableString(Printable... printables) {
+
+        String compiledString = "";
+
+        for (Printable printThese : printables) {
+            compiledString += printThese.getPrintableString();
+        }
+
+        return compiledString;
     }
 }
