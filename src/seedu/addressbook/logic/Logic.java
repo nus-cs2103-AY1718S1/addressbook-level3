@@ -85,7 +85,12 @@ public class Logic {
     private CommandResult execute(Command command) throws Exception {
         command.setData(addressBook, lastShownList);
         CommandResult result = command.execute();
-        storage.save(addressBook);
+        /**
+         * check if the command is mutating the data. If not, there's no need to save new data to the address book
+         */
+        if (command.isMutating()) {
+            storage.save(addressBook);
+        }
         return result;
     }
 
