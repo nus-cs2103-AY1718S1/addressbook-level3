@@ -94,6 +94,9 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should respond to any commands within three seconds.
+6. Should be able to be used by novice who had never use address book application before.
+7. Should be able backwards compatible with data stored by earlier version.
 
 ## Appendix D : Glossary
 
