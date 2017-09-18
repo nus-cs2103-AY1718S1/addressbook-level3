@@ -94,6 +94,9 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Need not necessarily be user-friendly but should be user-interactive.
+7. Response time should be fast enough for the best user experience.
+8. Should be scalable to allow for operations other than CRUD-ing contacts.
 
 ## Appendix D : Glossary
 
