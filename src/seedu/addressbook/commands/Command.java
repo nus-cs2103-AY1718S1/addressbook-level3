@@ -70,4 +70,13 @@ public abstract class Command {
     public void setTargetIndex(int targetIndex) {
         this.targetIndex = targetIndex;
     }
+
+    /**
+     * Returns whether the command can mutate saved data, informing the program whether it will have to update the data file
+     *
+     * @return true if can mutate, false otherwise
+     */
+    public boolean isMutating() {
+        return true;
+    }
 }
