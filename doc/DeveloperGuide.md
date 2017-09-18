@@ -87,6 +87,13 @@ Use case ends.
 
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
+  
+#### Use case: Rename tags
+**MSS**
+1. User requests to change person tags
+2. AddressBook returns all current tags associated with the name
+3. User inputs two arguments: the tag to rename, and the new tag to replace it with.
+4. If tag exists, AddressBook will replace the old tag with the new one
 
 ## Appendix C : Non Functional Requirements
 
