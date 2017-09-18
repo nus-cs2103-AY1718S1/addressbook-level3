@@ -5,6 +5,9 @@ import seedu.addressbook.data.person.Person;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Sorts all persons in the address book to display to the user.
+ */
 
 public class SortCommand extends Command {
     public static final String COMMAND_WORD = "sort";
@@ -14,9 +17,8 @@ public class SortCommand extends Command {
     private String sortingArg;
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ":\n"
-            + "Displays a persons in the address book as a sorted list with index numbers.\n"
-            + "Sorts by name if parameters left blank or if invalid\n\t"
-            + "Parameters: phone, email\n\t"
+            + "Displays a persons in the address book as a sorted list with index numbers.\n\t"
+            + "Parameters: phone, email, name\n\t"
             + "Example: " + COMMAND_WORD + " email";
 
     public SortCommand(String argument){

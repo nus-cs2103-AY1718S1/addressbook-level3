@@ -42,8 +42,7 @@ Format: `list`
  Shows a sorted list of all person in the address book.<br>
  Format: `sort PARAMETER`
  
- > The available parameters for sorting are email and phone. If left blank, or
- any other parameters, the sort function sorts by name instead.
+ > The available parameters for sorting are `name`,`email` and `phone`
  
  Examples:
  * `sort email` displays a sorted list based on emails.

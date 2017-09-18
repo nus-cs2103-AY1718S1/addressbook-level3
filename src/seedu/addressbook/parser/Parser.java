@@ -15,7 +15,6 @@ import static seedu.addressbook.common.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 public class Parser {
 
     public static final Pattern PERSON_INDEX_ARGS_FORMAT = Pattern.compile("(?<targetIndex>.+)");
-
     public static final Pattern KEYWORDS_ARGS_FORMAT =
             Pattern.compile("(?<keywords>\\S+(?:\\s+\\S+)*)"); // one or more keywords separated by whitespace
 
@@ -73,7 +72,7 @@ public class Parser {
                 return new ListCommand();
 
             case SortCommand.COMMAND_WORD:
-                return new SortCommand(arguments);
+                return prepareSort(arguments);
 
             case ViewCommand.COMMAND_WORD:
                 return prepareView(arguments);
@@ -119,6 +118,15 @@ public class Parser {
             );
         } catch (IllegalValueException ive) {
             return new IncorrectCommand(ive.getMessage());
+        }
+    }
+
+    private Command prepareSort(String args) {
+        args = args.trim();
+        if (!args.equals("name")&&!args.equals("phone")&&!args.equals("email")) {
+            return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, SortCommand.MESSAGE_USAGE));
+        } else {
+            return new SortCommand(args);
         }
     }
 
@@ -208,7 +216,6 @@ public class Parser {
         }
         return Integer.parseInt(matcher.group("targetIndex"));
     }
-
 
     /**
      * Parses arguments in the context of the find person command.
