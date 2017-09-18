@@ -24,6 +24,10 @@ public class DeleteCommand extends Command {
         super(targetVisibleIndex);
     }
 
+    @Override
+    public boolean isMutating() {
+        return MUTATES_ADDRESSBOOK;
+    }
 
     @Override
     public CommandResult execute() {

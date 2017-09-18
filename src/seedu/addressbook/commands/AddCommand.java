@@ -49,8 +49,9 @@ public class AddCommand extends Command {
         );
     }
 
-    public AddCommand(Person toAdd) {
-        this.toAdd = toAdd;
+    @Override
+    public boolean isMutating() {
+        return MUTATES_ADDRESSBOOK;
     }
 
     public ReadOnlyPerson getPerson() {
