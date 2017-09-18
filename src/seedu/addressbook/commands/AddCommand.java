@@ -27,6 +27,13 @@ public class AddCommand extends Command {
     private final Person toAdd;
 
     /**
+     * This method will return true for command types that mutate the data. e.g. AddCommand
+     */
+    public boolean isMutating(){
+        return true;
+    }
+
+    /**
      * Convenience constructor using raw values.
      *
      * @throws IllegalValueException if any of the raw values are invalid
