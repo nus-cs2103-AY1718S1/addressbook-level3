@@ -62,12 +62,6 @@ public class Phone implements Printable {
      */
     @Override
     public String getPrintableString() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("Phone: ");
-        if(isPrivate){
-            builder.append("(private) ");
-        }
-        builder.append(value);
-        return builder.toString();
+        return "Phone: " + value;
     }
 }
