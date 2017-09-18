@@ -39,17 +39,17 @@ public interface ReadOnlyPerson {
         final StringBuilder builder = new StringBuilder();
         final String detailIsPrivate = "(private) ";
         builder.append(getName())
-                .append(" Phone: ");
+                .append(getPrintableString(getName()));
         if (getPhone().isPrivate()) {
             builder.append(detailIsPrivate);
         }
         builder.append(getPhone())
-                .append(" Email: ");
+                .append(getPrintableString(getPhone()));
         if (getEmail().isPrivate()) {
             builder.append(detailIsPrivate);
         }
         builder.append(getEmail())
-                .append(" Address: ");
+                .append(getPrintableString(getEmail()));
         if (getAddress().isPrivate()) {
             builder.append(detailIsPrivate);
         }
@@ -81,5 +81,20 @@ public interface ReadOnlyPerson {
             builder.append(tag);
         }
         return builder.toString();
+    }
+
+    /**
+     * Concatenate printables passed in as variables
+     * @return String with concatenated printables
+     */
+    default String getPrintableString(Printable... printables){
+
+        StringBuilder sb = new StringBuilder();
+
+        for(Printable p : printables) {
+            sb.append(p.getPrintableString());
+        }
+
+        return sb.toString();
     }
 }
