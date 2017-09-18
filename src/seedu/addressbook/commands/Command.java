@@ -37,6 +37,16 @@ public abstract class Command {
     }
 
     /**
+     *
+     * Indicates whether the current command mutates the dataset and requires a save
+     *
+     * @return true/false
+     */
+    public boolean isMutating(){
+        return false;
+    }
+
+    /**
      * Executes the command and returns the result.
      */
     public CommandResult execute(){
