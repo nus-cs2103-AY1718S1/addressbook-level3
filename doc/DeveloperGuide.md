@@ -56,10 +56,23 @@ Priorities: High (must have) - `* * *`, Medium (nice to have)  - `* *`,  Low (un
 Priority | As a ... | I want to ... | So that I can...
 -------- | :-------- | :--------- | :-----------
 `* * *` | new user | see usage instructions | refer to instructions when I forget how to use the App
-`* * *` | user | add a new person |
-`* * *` | user | delete a person | remove entries that I no longer need
-`* * *` | user | find a person by name | locate details of persons without having to go through the entire list
+`* * *` | user | add a new person | store and manage contacts in the App
+`* * *` | user | edit an existing person | change details that are no longer pertinent
+`* * *` | user | delete an existing person | remove entries that I no longer need
+`* * *` | user | find a person | locate details of persons without having to go through the entire list
+`* * *` | user | find a person using close words | locate details of persons without having to remember the exact spelling
+`* * *` | user | undo a destructive operation | fix an accidental or unwanted command
+`* * *` | user | redo an undo operation | un-fix an undone command
+`* * *` | user | create [TODOs](#todo-list) based on a specific person | have a list of special tasks related to a person
+`* *` | secure user | secure my App with a password | prevent unauthorized access into my app
+`* *` | secure user | encrypt my contacts | prevent unauthorized access into my contacts
+`* *` | advanced user | amend the storage file manually | import and export data easily
+`* *` | user | tag a person | categorize and lookup persons easily
+`* *` | user | use multiple words for the same command | have more options to enter commands
+`* *` | user | be prompted for a confirmation before a dangerous operation | prevent accidental execution of dangerous commands
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
+`* *` | user | store notes about the contact | remember things pertaining to the contact
+`* *` | cell user | integrate my application contacts with my cell | have ease of access to the managed contacts and data
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
 
 
