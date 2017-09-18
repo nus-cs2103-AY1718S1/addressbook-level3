@@ -46,7 +46,7 @@ public class Gui {
 
         stage.setTitle(version);
         stage.setScene(new Scene(loader.load(), INITIAL_WINDOW_WIDTH, INITIAL_WINDOW_HEIGHT));
-        stage.getIcons().add(new Image("file:ui/logo.png"));
+        stage.getIcons().add(new Image("file:resources/logo.png"));
         //        stage.getIcons().add(new Image("https://s15-us2.ixquick.com/cgi-bin/serveimage?url=http%3A%2F%2Ft0.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcSSx3Mu1jClWQLWY-3nGPakZhJ7v0HuY0uALdBC3V4D7_KvPUm2&sp=38d1bef08bedbabf2372c19daad2a5fd&anticache=236053", true));
         stage.show();
         MainWindow mainWindow = loader.getController();
