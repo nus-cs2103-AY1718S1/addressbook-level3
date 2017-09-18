@@ -36,6 +36,7 @@ Examples:
 
 ## Listing all persons : `list`
 Shows a list of all persons in the address book.<br>
+The list is automatically sorted in alphabetical order. <br>
 Format: `list`
 
 ## Finding all persons containing any keyword in their name: `find`
