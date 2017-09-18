@@ -17,6 +17,7 @@ import seedu.addressbook.storage.StorageFile;
 import java.util.*;
 
 import static junit.framework.TestCase.assertEquals;
+import static junit.framework.TestCase.fail;
 import static seedu.addressbook.common.Messages.*;
 
 
@@ -90,7 +91,12 @@ public class LogicTest {
         //Confirm the state of data is as expected
         assertEquals(expectedAddressBook, addressBook);
         assertEquals(lastShownList, logic.getLastShownList());
-        assertEquals(addressBook, saveFile.load());
+        switch (inputCommand) {
+            case "add": case "delete" : case "clear" : 
+                assertEquals(addressBook, saveFile.load());
+            break;
+            default:break;
+        }
     }
 
 
