@@ -1,4 +1,25 @@
 package seedu.addressbook.commands;
 
-public class SortCommand {
+import seedu.addressbook.data.person.ReadOnlyPerson;
+import java.util.List;
+
+
+public class SortCommand extends Command{
+    
+    public static final String COMMAND_WORD = "sort";
+
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ":\n"
+            + "Sort and list all persons in the address book as a list with index numbers.\n\t"
+            + "Example: " + COMMAND_WORD;
+
+
+    @Override
+    public CommandResult execute() {
+        List<ReadOnlyPerson> allPersons = addressBook.getAllPersons().immutableListView();
+        return new CommandResult(getMessageForPersonListShownSummary(allPersons), allPersons);
+    }
+}
+    
+    
+    
 }
