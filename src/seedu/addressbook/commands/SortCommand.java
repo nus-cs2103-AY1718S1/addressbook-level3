@@ -4,6 +4,7 @@ import seedu.addressbook.data.person.ReadOnlyPerson;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 
@@ -19,18 +20,23 @@ public class SortCommand extends Command{
     @Override
     public CommandResult execute() {
         List<ReadOnlyPerson> sortedList = sortByName(addressBook.getAllPersons().immutableListView());
-        return new CommandResult(getMessageForPersonListShownSummary(allPersons), sortedList);
+        return new CommandResult(getMessageForPersonListShownSummary(sortedList), sortedList);
     }
-}
 
-    private List<ReadOnlyPerson> sortByName(List<ReadOnlyPerson> dummyList){
+    private List<ReadOnlyPerson> sortByName(List<ReadOnlyPerson> dummyList) {
         NameComparator nameComparator = new NameComparator();
         List<ReadOnlyPerson> sortedContacts = new ArrayList<>();
-        for (ReadOnlyPerson person: addressBook.getAllPersons()) {
+        for (ReadOnlyPerson person : addressBook.getAllPersons()) {
             sortedContacts.add(person);
         }
-    
+
+
         Collections.sort(sortedContacts, nameComparator);
+    }
     
-    
+    class NameComparator implements Comparator<ReadOnlyPerson> {
+        public int compare(ReadOnlyPerson p1, ReadOnlyPerson p2) {
+            return p1.getName().fullName.toUpperCase().compareTo(p2.getName().fullName.toUpperCase());
+        }
+    }
 }
