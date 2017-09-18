@@ -68,17 +68,33 @@ public interface ReadOnlyPerson {
         final StringBuilder builder = new StringBuilder();
         builder.append(getName());
         if (!getPhone().isPrivate()) {
-            builder.append(" Phone: ").append(getPhone());
+            builder.append(" " + getPrintableString(getPhone()));
         }
         if (!getEmail().isPrivate()) {
-            builder.append(" Email: ").append(getEmail());
+            builder.append(" " + getPrintableString(getEmail()));
         }
         if (!getAddress().isPrivate()) {
-            builder.append(" Address: ").append(getAddress());
+            builder.append(" " + getPrintableString(getAddress()));
         }
         builder.append(" Tags: ");
         for (Tag tag : getTags()) {
             builder.append(tag);
+        }
+        return builder.toString();
+    }
+
+    default String getPrintableString(Printable... printables) {
+        StringBuilder builder = new StringBuilder();
+        final String DIVIDER = ", ";
+        //This boolean variable checks if there is more than one printable
+        //so as to decide whether we need to append DIVIDER.
+        boolean moreThanOne = false;
+        for(Printable toPrint : printables){
+            if(moreThanOne){
+                builder.append(DIVIDER);
+            }
+            builder.append(toPrint.getPrintableString());
+            moreThanOne = true;
         }
         return builder.toString();
     }
