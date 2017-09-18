@@ -1,11 +1,12 @@
 package seedu.addressbook.util;
 
-import static org.junit.Assert.assertEquals;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 
 public class TestUtil {
     /**
