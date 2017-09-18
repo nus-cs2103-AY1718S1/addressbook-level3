@@ -87,6 +87,49 @@ Use case ends.
 
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
+  
+ #### Use case: Rename tag
+ 
+ **MSS**
+ 
+ 1. User requests to rename existing tag
+ 2. AddressBook prompts for user to enter the new name of the tag
+ 3. User enters the new name
+ 4. AddressBook prompts for confirmation of the change with the user
+ 5. User confirms the change
+ 6. AddressBook renames the tag to the new name<br>
+ Use case ends.
+ 
+ **Extensions**
+ 
+ 1a. The tag requested by the user is not an existing tag
+ 
+ > AddressBook shows an error message <br>
+ > Use case ends
+ 
+ 3a. The user did not enter a new name after 120 seconds
+ 
+ > 3a1. AddressBook reminds user to enter new name <br>
+   Use case resumes at step 2
+   
+ 3b. The user enters an empty string
+  
+ > 3b1. AddressBook informs user string cannot be empty <br>
+   Use case resumes at step 2
+    
+ 5a. The user inputs no to the change
+
+ > Use case ends
+  
+ 5b. The user inputs something other than yes or no
+  
+ > 5b1. AddressBook informs user only yes or no is accepted <br>
+   Use case resumes at step 4
+   
+ 5c. The user did not respond after 120 seconds
+  
+  > 5c1. AddressBook reminds user to confirm change <br>
+    Use case resumes at step 4
 
 ## Appendix C : Non Functional Requirements
 
