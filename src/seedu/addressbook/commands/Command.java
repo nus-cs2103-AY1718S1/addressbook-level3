@@ -70,4 +70,14 @@ public abstract class Command {
     public void setTargetIndex(int targetIndex) {
         this.targetIndex = targetIndex;
     }
+
+    public boolean isMutating(){
+
+        if (this.getClass().equals(AddCommand.class) || this.getClass().equals(ClearCommand.class)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
