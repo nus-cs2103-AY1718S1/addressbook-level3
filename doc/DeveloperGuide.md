@@ -59,8 +59,11 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | add a new person |
 `* * *` | user | delete a person | remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
+`* * *` | user | update a person particulars | update a person particulars if they have change their details
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
+`* *` | user | export my address book data to my phone | have all my contacts accessible at any time
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
+`*` | user working with various teams | organise my contacts by group | have an overview of my different team mates
 
 
 ## Appendix B : Use Cases
