@@ -66,7 +66,7 @@ public class ParserTest {
     }
 
     /**
-     * Test ingle index argument commands
+     * Test single index argument commands
      */
     
     @Test
@@ -77,9 +77,23 @@ public class ParserTest {
     }
 
     @Test
+    public void UpdateCommand_noArgs() {
+        final String[] inputs = { "update", "update " };
+        final String resultMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, UpdateCommand.MESSAGE_USAGE);
+        parseAndAssertIncorrectWithMessage(resultMessage, inputs);
+    }
+
+    @Test
     public void deleteCommand_argsIsNotSingleNumber() {
         final String[] inputs = { "delete notAnumber ", "delete 8*wh12", "delete 1 2 3 4 5" };
         final String resultMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteCommand.MESSAGE_USAGE);
+        parseAndAssertIncorrectWithMessage(resultMessage, inputs);
+    }
+
+    @Test
+    public void updateCommand_argsIsNotSingleNumber() {
+        final String[] inputs = { "update notAnumber ", "update 8*wh12", "update 1 2 3 4 5" };
+        final String resultMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, UpdateCommand.MESSAGE_USAGE);
         parseAndAssertIncorrectWithMessage(resultMessage, inputs);
     }
     
@@ -89,6 +103,14 @@ public class ParserTest {
         final String input = "delete " + testIndex;
         final DeleteCommand result = parseAndAssertCommandType(input, DeleteCommand.class);
         assertEquals(result.getTargetIndex(), testIndex);
+    }
+
+    @Test
+    public void updateCommand_numericArg_indexParsedCorrectly() {
+        final int testIndex = 11;
+        final String input = "update " + testIndex;
+        final UpdateCommand result = parseAndAssertCommandType(input, UpdateCommand.class);
+        assertEquals(result.getTargetIndex(), 1);
     }
 
     @Test

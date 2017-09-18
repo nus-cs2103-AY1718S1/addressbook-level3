@@ -10,9 +10,9 @@ import java.util.Objects;
  */
 public class Person implements ReadOnlyPerson {
 
-    private Name name;
-    private Phone phone;
-    private Email email;
+    public Name name;
+    public Phone phone;
+    public Email email;
     private Address address;
 
     private final UniqueTagList tags;

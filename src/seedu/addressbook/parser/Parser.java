@@ -8,6 +8,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static seedu.addressbook.common.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.addressbook.common.Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX;
 
 /**
  * Parses user input.
@@ -62,6 +63,9 @@ public class Parser {
 
             case DeleteCommand.COMMAND_WORD:
                 return prepareDelete(arguments);
+
+            case UpdateCommand.COMMAND_WORD:
+                return prepareUpdate(arguments);
 
             case ClearCommand.COMMAND_WORD:
                 return new ClearCommand();
@@ -156,6 +160,20 @@ public class Parser {
         }
     }
 
+    /**
+     * Parses arguments in the context of the update person command.
+     *
+     * @param args full command args string
+     * @return the prepared command
+     */
+    private Command prepareUpdate(String args) {
+        try {
+            final int targetIndex = parseArgsAsDisplayedIndex(args);
+            return new UpdateCommand(targetIndex);
+        } catch (ParseException | NumberFormatException e) {
+            return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, UpdateCommand.MESSAGE_USAGE));
+        }
+    }
     /**
      * Parses arguments in the context of the view command.
      *

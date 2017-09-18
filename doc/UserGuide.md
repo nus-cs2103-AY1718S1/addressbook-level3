@@ -66,6 +66,30 @@ Examples:
   `delete 1`<br>
   Deletes the 1st person in the results of the `find` command.
 
+### Updating a person's record : `update`
+Updates the specified person from the address book. <br>
+Format: `update INDEXACTION`
+User is given an option to either update Name, phone or email address:<br>
+
+> Updates the person at the specified `INDEX`. 
+  The index refers to the index number shown in the most recent listing.
+> Updates the details of the person at the specified `INDEX`. 
+  Enter 1 to update name , 2 to update phone no and 3 to update email
+
+Examples: 
+* `list`<br>
+  `update 21`<br>
+   `Enter new name`<br>
+   `Pujitha Desiraju`<br>
+   `The name has been replaced with Pujitha Desiraju`<br>
+   Updates the 2nd person in the address book.
+* `find Betsy`<br> 
+  `update 13`<br>
+  `Enter new email without prefix`<br>
+  `JonSnow@GameofThrones.com`<br>
+  `The email has been replaced with JonSnow@GameofThrones.com`<br>
+  Updates the 1st person in the results of the `find` command.
+  
 ## View non-private details of a person : `view`
 Displays the non-private details of the specified person.<br>
 Format: `view INDEX`
