@@ -13,10 +13,10 @@ public class SortCommand extends Command {
 
     private String sortingArg;
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Displays a persons in the address book as a sorted list with index numbers.\n"
-            + "Sorts by name if parameters left blank or if invalid\n"
-            + "Parameters: phone email\n"
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ":\n"
+            + "Displays a persons in the address book as a sorted list with index numbers.\n"
+            + "Sorts by name if parameters left blank or if invalid\n\t"
+            + "Parameters: phone, email\n\t"
             + "Example: " + COMMAND_WORD + " email";
 
     public SortCommand(String argument){
