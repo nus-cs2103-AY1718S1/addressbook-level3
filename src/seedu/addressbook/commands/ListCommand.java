@@ -18,7 +18,7 @@ public class ListCommand extends Command {
 
     @Override
     public boolean isMutating() {
-        return super.isMutating();
+        return false;
     }
 
     @Override
