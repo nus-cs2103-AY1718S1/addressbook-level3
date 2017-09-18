@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.VBox?>
-
-<VBox alignment="center" stylesheets="@/seedu/addressbook/ui/DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seedu.addressbook.ui.MainWindow">
+<VBox alignment="center" stylesheets="@/seedu/addressbook/ui/DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.111"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="seedu.addressbook.ui.MainWindow">
 
     <children>
 
@@ -17,8 +14,8 @@
         </TextArea>
         <ButtonBar prefHeight="40.0" prefWidth="200.0">
             <buttons>
-                <Button fx:id="listCmd" mnemonicParsing="false" onAction="#onClickListBtn" text="List" />
-                <Button fx:id="exitCmd" mnemonicParsing="false" onAction="#onClickExitBtn" text="Exit" />
+                <Button fx:id="listCmd" mnemonicParsing="false" onAction="#onClickListBtn" text="List"/>
+                <Button fx:id="exitCmd" mnemonicParsing="false" onAction="#onClickExitBtn" text="Exit"/>
             </buttons>
         </ButtonBar>
 
