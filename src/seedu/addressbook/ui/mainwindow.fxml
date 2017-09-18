@@ -4,6 +4,8 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <VBox stylesheets="@/seedu/addressbook/ui/DarkTheme.css" alignment="center" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="seedu.addressbook.ui.MainWindow">
 
@@ -15,6 +17,11 @@
         <TextArea fx:id="outputConsole" editable="false" wrapText="true" VBox.vgrow="ALWAYS">
         </TextArea>
 
+        <ImageView fx:id="img" fitHeight="200" fitWidth="800">
+            <image>
+                <Image url="@java-banner.jpg"></Image>
+            </image>
+        </ImageView>
     </children>
 
 </VBox>
