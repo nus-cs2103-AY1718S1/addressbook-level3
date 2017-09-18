@@ -1,6 +1,5 @@
 package seedu.addressbook.ui;
 
-import com.sun.xml.internal.ws.addressing.model.ActionNotSupportedException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
