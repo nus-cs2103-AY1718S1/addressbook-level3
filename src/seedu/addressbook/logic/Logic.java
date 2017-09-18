@@ -85,7 +85,7 @@ public class Logic {
     private CommandResult execute(Command command) throws Exception {
         command.setData(addressBook, lastShownList);
         CommandResult result = command.execute();
-        storage.save(addressBook);
+        saveIfNecessary(command);
         return result;
     }
 
@@ -94,6 +94,12 @@ public class Logic {
         final Optional<List<? extends ReadOnlyPerson>> personList = result.getRelevantPersons();
         if (personList.isPresent()) {
             lastShownList = personList.get();
+        }
+    }
+
+    private void saveIfNecessary(Command command) throws StorageFile.StorageOperationException{
+        if(command.isMutating()){
+            storage.save(addressBook);
         }
     }
 }
