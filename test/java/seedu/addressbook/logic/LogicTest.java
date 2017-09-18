@@ -457,6 +457,45 @@ public class LogicTest {
                                 expectedList);
     }
 
+    @Test
+    public void execute_sort_command() throws Exception {
+
+        // setup expectations
+        TestDataHelper helper = new TestDataHelper();
+        Person person1 = helper.generatePersonWithName("Xavier");
+        Person person2 = helper.generatePersonWithName("Charles");
+        Person person3 = helper.generatePersonWithName("Bob");
+        Person person4 = helper.generatePersonWithName("Adam");
+
+
+        List<Person> before = helper.
+                generatePersonList(person1, person2, person3, person4);
+        List<Person> after = helper.
+                generatePersonList(person4, person3, person2, person1);
+
+        helper.addToAddressBook(addressBook, before);
+
+        AddressBook beforeSort = helper.
+                generateAddressBook(before);
+        AddressBook afterSort = helper.
+                generateAddressBook(after);
+
+        // Test state of address book before sorting
+        assertEquals(beforeSort, addressBook);
+
+        // Execute the command
+        CommandResult r = logic.execute("sort");
+
+        // Confirm output is correct
+        assertEquals(SortCommand.MESSAGE_SUCCESS, r.feedbackToUser);
+
+        // Test state of address book after sorting
+        assertEquals(afterSort, addressBook);
+
+        assertEquals(addressBook, saveFile.load());
+
+    }
+
     /**
      * A utility class to generate test data.
      */
