@@ -4,7 +4,7 @@
     -fx-font-size: 18pt;
     -fx-font-family: "Consolas";
     -fx-font-weight: bold;
-    -fx-text-fill: yellow;
+    -fx-text-fill: orange;
     -fx-control-inner-background: derive(#1d1d1d,20%);
 }
 
