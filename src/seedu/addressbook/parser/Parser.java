@@ -170,10 +170,8 @@ public class Parser {
         try {
             final int targetIndex = parseArgsAsDisplayedIndex(args);
             return new UpdateCommand(targetIndex);
-        } catch (ParseException pe) {
+        } catch (ParseException | NumberFormatException e) {
             return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, UpdateCommand.MESSAGE_USAGE));
-        } catch (NumberFormatException nfe) {
-            return new IncorrectCommand(MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         }
     }
     /**
