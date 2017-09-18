@@ -17,6 +17,14 @@ public abstract class Command {
     private int targetIndex = -1;
 
     /**
+     * Mutating variable to show if the current command mutates the storage file.
+     * Defaulted to false.
+     * If the command mutates the storage file, this variable will be made to true
+     * in the constructor.
+     */
+    protected boolean mutating = false;
+
+    /**
      * @param targetIndex last visible listing index of the target person
      */
     public Command(int targetIndex) {
@@ -70,4 +78,13 @@ public abstract class Command {
     public void setTargetIndex(int targetIndex) {
         this.targetIndex = targetIndex;
     }
+
+    /**
+     *
+     * @returns true if the mutating variable is true.
+     */
+    public boolean isMutating() {
+        return mutating;
+    }
+
 }

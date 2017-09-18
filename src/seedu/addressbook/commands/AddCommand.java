@@ -26,6 +26,7 @@ public class AddCommand extends Command {
 
     private final Person toAdd;
 
+
     /**
      * Convenience constructor using raw values.
      *
@@ -47,6 +48,7 @@ public class AddCommand extends Command {
                 new Address(address, isAddressPrivate),
                 new UniqueTagList(tagSet)
         );
+        this.mutating = true;
     }
 
     public AddCommand(Person toAdd) {
