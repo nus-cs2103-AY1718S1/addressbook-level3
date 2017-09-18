@@ -1,4 +1,4 @@
-package seedu.addressbook.commands;
+package seedu.addressbook.data.person;
 
 public interface Printable {
     public String getPrintableString();
