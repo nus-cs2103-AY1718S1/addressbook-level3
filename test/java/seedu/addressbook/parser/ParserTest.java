@@ -68,6 +68,20 @@ public class ParserTest {
     /**
      * Test ingle index argument commands
      */
+
+    @Test
+    public void sortCommand_parsedIncorrectly() {
+        final String inputs[] = {"sort", "sort asd", "sort 123"};
+        final String resultMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, SortCommand.MESSAGE_USAGE);
+        parseAndAssertIncorrectWithMessage(resultMessage, inputs);
+    }
+
+    @Test
+    public void sortCommand_parsedCorrectly() {
+        final String input = "sort name";
+        parseAndAssertCommandType(input, SortCommand.class);
+    }
+
     
     @Test
     public void deleteCommand_noArgs() {
