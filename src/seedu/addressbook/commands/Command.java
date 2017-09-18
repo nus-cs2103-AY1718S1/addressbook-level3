@@ -39,12 +39,8 @@ public abstract class Command {
     /**
      * Executes the command and returns the result.
      */
-    public CommandResult execute(){
-        throw new UnsupportedOperationException("This method should be implement in child classes");
-    }
-
     //Note: it is better to make the execute() method abstract, by replacing the above method with the line below:
-    //public abstract CommandResult execute();
+    public abstract CommandResult execute();
 
     /**
      * Supplies the data the command will operate on.
@@ -69,5 +65,9 @@ public abstract class Command {
 
     public void setTargetIndex(int targetIndex) {
         this.targetIndex = targetIndex;
+    }
+
+    public boolean isMutating(){
+        return false;
     }
 }
