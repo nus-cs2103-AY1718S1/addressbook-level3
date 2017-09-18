@@ -2,6 +2,7 @@ package seedu.addressbook.commands;
 
 import seedu.addressbook.data.person.ReadOnlyPerson;
 
+import javax.print.DocFlavor;
 import java.util.*;
 
 /**
@@ -44,9 +45,17 @@ public class FindCommand extends Command {
      */
     private List<ReadOnlyPerson> getPersonsWithNameContainingAnyKeyword(Set<String> keywords) {
         final List<ReadOnlyPerson> matchedPersons = new ArrayList<>();
+
+        /* Converts all keywords into lowercase and puts them into a new ArrayList */
+        ArrayList<String> lowercaseKeywords = new ArrayList<String>();
+        for (String word : keywords ){
+            lowercaseKeywords.add(word.toLowerCase());
+        }
+
         for (ReadOnlyPerson person : addressBook.getAllPersons()) {
-            final Set<String> wordsInName = new HashSet<>(person.getName().getWordsInName());
-            if (!Collections.disjoint(wordsInName, keywords)) {
+            final Set<String> wordsInName = new HashSet<>(person.getName().getLowercaseWordsInName());
+
+            if (!Collections.disjoint(wordsInName, lowercaseKeywords)) {
                 matchedPersons.add(person);
             }
         }
