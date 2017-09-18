@@ -457,6 +457,18 @@ public class LogicTest {
                                 expectedList);
     }
 
+    @Test
+    public void testNewInterfacePrintable() throws Exception{
+        TestDataHelper helper = new TestDataHelper();
+        Person p1 = helper.generatePersonWithName("Giang");
+        Person p2 = helper.generatePersonWithName("heiseish");
+
+        assertEquals(p1.getPrintableString(p1.getName(),p1.getEmail()), "Name: Giang\nEmail: 1@email\n");
+        assertEquals(p2.getPrintableString(p2.getName(),p2.getAddress(),p2.getPhone()),"Name: heiseish\nAddress: House of 1\nPhone: 1\n");
+
+
+    }
+
     /**
      * A utility class to generate test data.
      */
