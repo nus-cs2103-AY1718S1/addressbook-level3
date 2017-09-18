@@ -26,14 +26,16 @@ public class UniquePersonList implements Iterable<Person> {
      * Signals that an operation targeting a specified person in the list would fail because
      * there is no such matching person in the list.
      */
-    public static class PersonNotFoundException extends Exception {}
+    public static class PersonNotFoundException extends Exception {
+    }
 
     private final List<Person> internalList = new ArrayList<>();
 
     /**
      * Constructs empty person list.
      */
-    public UniquePersonList() {}
+    public UniquePersonList() {
+    }
 
     /**
      * Constructs a person list with the given persons.
@@ -48,6 +50,7 @@ public class UniquePersonList implements Iterable<Person> {
 
     /**
      * Constructs a list from the items in the given collection.
+     *
      * @param persons a collection of persons
      * @throws DuplicatePersonException if the {@code persons} contains duplicate persons
      */
@@ -123,7 +126,7 @@ public class UniquePersonList implements Iterable<Person> {
         return other == this // short circuit if same object
                 || (other instanceof UniquePersonList // instanceof handles nulls
                 && this.internalList.equals(
-                        ((UniquePersonList) other).internalList));
+                ((UniquePersonList) other).internalList));
     }
 
     @Override

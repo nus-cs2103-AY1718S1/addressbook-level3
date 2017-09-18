@@ -10,22 +10,32 @@ import java.util.List;
  */
 public class Formatter {
 
-    /** A decorative prefix added to the beginning of lines printed by AddressBook */
+    /**
+     * A decorative prefix added to the beginning of lines printed by AddressBook
+     */
     private static final String LINE_PREFIX = " ";
 
-    /** A platform independent line separator. */
+    /**
+     * A platform independent line separator.
+     */
     private static final String LS = System.lineSeparator();
 
 
-    /** Format of indexed list item */
+    /**
+     * Format of indexed list item
+     */
     private static final String MESSAGE_INDEXED_LIST_ITEM = "\t%1$d. %2$s";
 
 
-    /** Offset required to convert between 1-indexing and 0-indexing.  */
+    /**
+     * Offset required to convert between 1-indexing and 0-indexing.
+     */
     private static final int DISPLAYED_INDEX_OFFSET = 1;
 
 
-    /** Formats the given strings for displaying to the user. */
+    /**
+     * Formats the given strings for displaying to the user.
+     */
     public String format(String... messages) {
         StringBuilder sb = new StringBuilder();
         for (String m : messages) {
@@ -34,7 +44,9 @@ public class Formatter {
         return sb.toString();
     }
 
-    /** Formats the given list of persons for displaying to the user. */
+    /**
+     * Formats the given list of persons for displaying to the user.
+     */
     public String format(List<? extends ReadOnlyPerson> persons) {
         final List<String> formattedPersons = new ArrayList<>();
         for (ReadOnlyPerson person : persons) {
@@ -43,7 +55,9 @@ public class Formatter {
         return format(asIndexedList(formattedPersons));
     }
 
-    /** Formats a list of strings as an indexed list. */
+    /**
+     * Formats a list of strings as an indexed list.
+     */
     private static String asIndexedList(List<String> listItems) {
         final StringBuilder formatted = new StringBuilder();
         int displayIndex = 0 + DISPLAYED_INDEX_OFFSET;
