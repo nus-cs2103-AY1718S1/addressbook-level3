@@ -3,7 +3,10 @@ package seedu.addressbook.ui;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import seedu.addressbook.data.person.Person;
 import seedu.addressbook.logic.Logic;
 import seedu.addressbook.Main;
 
@@ -24,6 +27,7 @@ public class Gui {
 
     private MainWindow mainWindow;
     private String version;
+    private Stage mainStage;
 
     public Gui(Logic logic, String version) {
         this.logic = logic;
@@ -31,6 +35,7 @@ public class Gui {
     }
 
     public void start(Stage stage, Stoppable mainApp) throws IOException {
+        this.mainStage = stage;
         mainWindow = createMainWindow(stage, mainApp);
         mainWindow.displayWelcomeMessage(version, logic.getStorageFilePath());
     }
@@ -51,7 +56,43 @@ public class Gui {
         MainWindow mainWindow = loader.getController();
         mainWindow.setLogic(logic);
         mainWindow.setMainApp(mainApp);
+        mainWindow.setMainGui(this);
         return mainWindow;
     }
 
+    /**
+     *
+     * @return true if the user clicked OK, false otherwise.
+     */
+    public String showPersonAddDialog() {
+        try {
+            // Load the fxml file and create a new stage for the popup dialog.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("ui/PersonAddDialog.fxml"));
+            AnchorPane page = (AnchorPane) loader.load();
+
+            // Create the dialog Stage.
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Add Person");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(mainStage);
+            Scene scene = new Scene(page);
+            dialogStage.setScene(scene);
+
+            // Set the person into the controller.
+            PersonAddDialogController controller = loader.getController();
+            controller.setDialogStage(dialogStage);
+            // Show the dialog and wait until the user closes it
+            dialogStage.showAndWait();
+            if (controller.isOkClicked()) {
+                return controller.addPerson();
+            }
+            else {
+                return "cancelled";
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "error";
+        }
+    }
 }
