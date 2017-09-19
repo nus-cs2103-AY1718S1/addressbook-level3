@@ -1,0 +1,17 @@
+
+
+.text-field {
+    -fx-font-size: 12pt;
+    -fx-font-family: "Droid Sans";
+    -fx-font-weight: bold;
+    -fx-text-fill: #604020;
+    -fx-control-inner-background: derive(#ffff99,20%);
+}
+
+.text-area {
+    -fx-background-color: #ffff99;
+    -fx-control-inner-background: #ffffcc;
+    -fx-font-family: "Droid Sans";
+    -fx-font-size: 10pt;
+    -fx-padding: 5 5 5 5;
+}

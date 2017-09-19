@@ -3,6 +3,14 @@
 This product is not meant for end-users and therefore there is no user-friendly installer. 
 Please refer to the [Setting up](DeveloperGuide.md#setting-up) section to learn how to set up the project.
 
+# User Story
+
+As a user, I can store the names, phone numbers, email addresses, addresses and tags so that I can add delete and query
+As a unprofessional user, I can use AddressBook Level 3 with minimal use of commandLine, so that I do not need to learn
+the commandLine operations
+As a forgetful user, I can check the names of my friends and do corresponding operation on them so that I will not have
+to remember their full name in order to check their information. [Yet to be implemented]
+
 ## Starting the program
 
 1. Find the project pane (usually located at the left side)
@@ -38,8 +46,8 @@ Examples:
 Shows a list of all persons in the address book.<br>
 Format: `list`
 
-## Finding all persons containing any keyword in their name: `find`
-Finds persons whose names contain any of the given keywords.<br>
+## Finding all persons containing any keyword in their name or their initials: `find`
+Finds persons whose names contain any of the given keywords or their name initials.<br>
 Format: `find KEYWORD [MORE_KEYWORDS]`
 
 > The search is case sensitive, the order of the keywords does not matter, only the name is searched, 
@@ -49,7 +57,9 @@ Examples:
 * `find John`<br>
   Returns `John Doe` but not `john`
 * `find Betsy Tim John`<br>
-  Returns Any person having names `Betsy`, `Tim`, or `John`
+  Returns Any person having names `Betsy`, `Tim`, `John`, or `Tan Ian Ming`
+* `find JLS`<br>
+  Returns Any person having names `JLS`, `Jiang Ling Shuo`, `Jane Lynda Sefgetr`
 
 ## Deleting a person : `delete`
 Deletes the specified person from the address book. Irreversible.<br>

@@ -88,12 +88,36 @@ Use case ends.
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
 
+
+#### Use case: Renaming of an existing tag
+
+**MSS**
+
+1. User requests to rename a certain tag <A> to be <B>
+2. AddressBook change all the tags with name <A> to be <B>
+3. AddressBook shows a list of tags
+
+Use case ends.
+
+**Extensions**
+
+2a. There is no tag called A
+
+> Use case ends
+
+3a. B is the same as A
+
+AddressBook prints out noChange message
+Use case resumes at step 3
+
 ## Appendix C : Non Functional Requirements
 
 1. Should work on any [mainstream OS](#mainstream-os) as long as it has Java 8 or higher installed.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should be able to deal with both 32-bit system and 64-bit system
+6. Should be able to respond within 3 seconds
 
 ## Appendix D : Glossary
 
