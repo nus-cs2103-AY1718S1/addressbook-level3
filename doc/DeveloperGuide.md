@@ -59,8 +59,12 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | add a new person |
 `* * *` | user | delete a person | remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
+`* * *`| user | select multiple people | perform commands such as delete or sort only those selected people
+`* *` | user | edit person details | save the trouble of removing and adding a person with new details
+`* *` | new user | learn the basics of AddressBook | use all functions of Address Book quickly.
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
+
 
 
 ## Appendix B : Use Cases
