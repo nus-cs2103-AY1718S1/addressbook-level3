@@ -22,10 +22,11 @@ public class Person implements ReadOnlyPerson {
 
 
     public String getPrintableString(Printable... printables){
-        String res = '';
+        String res = "";
         for(Printable x: printables){
             res = res+ x.getPrintableString();
         }
+        return res;
     }
 
     public Person(Name name, Phone phone, Email email, Address address, UniqueTagList tags) {
