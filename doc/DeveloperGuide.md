@@ -88,6 +88,39 @@ Use case ends.
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
 
+#### Use case: Change name tag
+
+**MSS**
+
+1. User request to change name tag
+2. AddressBook request user to input the name tag user likes to change
+3. User input name tag that he/she likes to change
+4. AddressBook request user's choice of new name tag
+5. User input new name tag
+6. AddressBook request for confirmation
+7. AddressBook update the name tag
+User case ends <br>
+
+**Extensions**
+
+3a. The given name tag do not exits
+>3a.1 AddressBook request for correct and exiting name tag
+ 3a.2 User input new tag name
+ Steps 3a.1-3a.2 are repeated until data entered are correct
+ Use case resume from Step 4.
+
+5a. The given name is null
+>5a.1 AddressBook request for name tag
+ 5a.2 User input new tag name
+ Steps 5a.1-5a.2 are repeated until data entered are correct
+ Use case resume from Step 6.
+
+6a. User choose OK
+>User case resume from Step 7
+
+6b. User choose Cancel
+>User case ends
+
 ## Appendix C : Non Functional Requirements
 
 1. Should work on any [mainstream OS](#mainstream-os) as long as it has Java 8 or higher installed.
