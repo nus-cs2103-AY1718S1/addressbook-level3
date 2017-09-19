@@ -13,6 +13,10 @@ public class SortCommand extends Command{
 
     public static final String COMMAND_WORD = "sort";
 
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ":\n"
+            + "Sorts the current addressbook..\n\t"
+            + "Example: " + COMMAND_WORD;
+
     public static final String MESSAGE_SUCCESS = "Address book has been sorted!";
 
     class nameComparator implements Comparator<ReadOnlyPerson> {
@@ -36,7 +40,6 @@ public class SortCommand extends Command{
     public CommandResult execute() {
         List<ReadOnlyPerson> sortedNames = sortedList(addressBook.getAllPersons());
         return new CommandResult(MESSAGE_SUCCESS);
-
     }
 
 }
