@@ -73,7 +73,7 @@ public class Logic {
         CommandResult result = execute(command);
         recordResult(result);
         return result;
-    }gi
+    }
 
     /**
      * Executes the command, updates storage, and returns the result.
