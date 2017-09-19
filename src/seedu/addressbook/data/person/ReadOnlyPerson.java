@@ -66,7 +66,7 @@ public interface ReadOnlyPerson {
      */
     default String getAsTextHidePrivate() {
         final StringBuilder builder = new StringBuilder();
-        builder.append(getName());
+        /*builder.append(getName());
         if (!getPhone().isPrivate()) {
             builder.append(" Phone: ").append(getPhone());
         }
@@ -75,11 +75,23 @@ public interface ReadOnlyPerson {
         }
         if (!getAddress().isPrivate()) {
             builder.append(" Address: ").append(getAddress());
-        }
+        }*/
+        builder.append(getPrintableString(getName(),getPhone(),getEmail(),getAddress()));
         builder.append(" Tags: ");
         for (Tag tag : getTags()) {
             builder.append(tag);
         }
         return builder.toString();
+    }
+
+    /**
+     * Returns a concatenated version of the printable strings of each object.
+     */
+    default String getPrintableString(Printable... printables){
+        String thisObject="";
+        for(Printable x: printables){
+            thisObject+=x.getPrintableString();
+        }
+        return thisObject;
     }
 }
