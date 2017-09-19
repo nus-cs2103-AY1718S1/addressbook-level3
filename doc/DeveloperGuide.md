@@ -94,6 +94,8 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Scene builder needs to be installed in the path recognized by IntelliJ IDEA before being ablt to construct scenes in FXML files.
+6. Should be able to run and compile JavaFX which is bundled together with Java 8.
 
 ## Appendix D : Glossary
 
