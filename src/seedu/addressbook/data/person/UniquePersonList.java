@@ -82,6 +82,23 @@ public class UniquePersonList implements Iterable<Person> {
         return internalList.contains(toCheck);
     }
 
+
+    /**
+     * Sorts all persons by their name, in alphabetic order a to z.
+     */
+    public List<Person> SortAllPersons() {
+
+        List<Person> SortedAllPersons = new ArrayList<>();
+
+        for (Person p: internalList){
+            SortedAllPersons.add(p);
+        }
+
+        SortedAllPersons.sort((person1, person2)->(person1.getName().fullName.compareToIgnoreCase(person2.getName().fullName)));
+
+        return SortedAllPersons;
+    }
+
     /**
      * Adds a person to the list.
      *

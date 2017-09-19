@@ -2,6 +2,7 @@ package seedu.addressbook.data.person;
 
 import seedu.addressbook.data.exception.IllegalValueException;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
 
@@ -39,10 +40,15 @@ public class Name {
 
     /**
      * Retrieves a listing of every word in the name, in order.
+     *
      */
-    public List<String> getWordsInName() {
-        return Arrays.asList(fullName.split("\\s+"));
-    }
+    public List<String> getWordsInName() { return Arrays.asList(fullName.split("\\s+")); }
+
+    /**
+     * Retrieves a listing of every word in the name, in order, in lowercase.
+     *
+     */
+    public List<String> getLowercaseWordsInName() { return Arrays.asList(fullName.toLowerCase().split("\\s+")); }
 
     @Override
     public String toString() {

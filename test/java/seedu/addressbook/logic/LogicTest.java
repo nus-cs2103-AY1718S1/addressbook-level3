@@ -116,6 +116,7 @@ public class LogicTest {
         addressBook.addPerson(helper.generatePerson(1, true));
         addressBook.addPerson(helper.generatePerson(2, true));
         addressBook.addPerson(helper.generatePerson(3, true));
+        addressBook.addPerson(helper.generatePerson(4, true));
 
         assertCommandBehavior("clear", ClearCommand.MESSAGE_SUCCESS, AddressBook.empty(), false, Collections.emptyList());
     }
@@ -199,6 +200,23 @@ public class LogicTest {
                               expectedAB,
                               true,
                               expectedList);
+    }
+
+    @Test
+    public void execute_sort_showsAllPersons() throws Exception {
+        // prepare expectations
+        TestDataHelper helper = new TestDataHelper();
+        AddressBook expectedAB = helper.generateAddressBook(false, true);
+        List<? extends ReadOnlyPerson> expectedList = expectedAB.getAllPersons().SortAllPersons();
+
+        // prepare address book state
+        helper.addToAddressBook(addressBook, false, true);
+
+        assertCommandBehavior("sort",
+                Command.getMessageForPersonSortShownSummary(expectedList),
+                expectedAB,
+                true,
+                expectedList);
     }
 
     @Test
@@ -418,16 +436,16 @@ public class LogicTest {
     }
 
     @Test
-    public void execute_find_isCaseSensitive() throws Exception {
+    public void execute_find_isCaseInSensitive() throws Exception {
         TestDataHelper helper = new TestDataHelper();
         Person pTarget1 = helper.generatePersonWithName("bla bla KEY bla");
         Person pTarget2 = helper.generatePersonWithName("bla KEY bla bceofeia");
-        Person p1 = helper.generatePersonWithName("key key");
+        Person p1 = helper.generatePersonWithName("Kay KAAY");
         Person p2 = helper.generatePersonWithName("KEy sduauo");
 
         List<Person> fourPersons = helper.generatePersonList(p1, pTarget1, p2, pTarget2);
         AddressBook expectedAB = helper.generateAddressBook(fourPersons);
-        List<Person> expectedList = helper.generatePersonList(pTarget1, pTarget2);
+        List<Person> expectedList = helper.generatePersonList(pTarget1, p2, pTarget2);
         helper.addToAddressBook(addressBook, fourPersons);
 
         assertCommandBehavior("find KEY",
@@ -447,7 +465,7 @@ public class LogicTest {
 
         List<Person> fourPersons = helper.generatePersonList(p1, pTarget1, p2, pTarget2);
         AddressBook expectedAB = helper.generateAddressBook(fourPersons);
-        List<Person> expectedList = helper.generatePersonList(pTarget1, pTarget2);
+        List<Person> expectedList = helper.generatePersonList(p1, pTarget1, p2, pTarget2);
         helper.addToAddressBook(addressBook, fourPersons);
 
         assertCommandBehavior("find KEY rAnDoM",
