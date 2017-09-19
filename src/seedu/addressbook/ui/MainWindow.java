@@ -6,7 +6,16 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import seedu.addressbook.commands.*;
+import seedu.addressbook.commands.AddCommand;
+import seedu.addressbook.commands.CommandResult;
+import seedu.addressbook.commands.ClearCommand;
+import seedu.addressbook.commands.DeleteCommand;
+import seedu.addressbook.commands.ExitCommand;
+import seedu.addressbook.commands.FindCommand;
+import seedu.addressbook.commands.HelpCommand;
+import seedu.addressbook.commands.ListCommand;
+import seedu.addressbook.commands.ViewCommand;
+import seedu.addressbook.commands.ViewAllCommand;
 import seedu.addressbook.logic.Logic;
 import seedu.addressbook.data.person.ReadOnlyPerson;
 
