@@ -5,7 +5,7 @@
     -fx-font-family: "Consolas";
     -fx-font-weight: bold;
     -fx-text-fill: yellow;
-    -fx-control-inner-background: derive(#1d1d1d,20%);
+    -fx-control-inner-background: derive(#483D8B,20%);
 }
 
 .text-area {
