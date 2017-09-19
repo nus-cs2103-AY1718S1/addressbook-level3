@@ -58,6 +58,21 @@ public class MainWindow {
         }
     }
 
+    @FXML
+    private void list() {
+        try {
+            String userCommandText = "list";
+            CommandResult result = logic.execute(userCommandText);
+            displayResult(result);
+            clearCommandInput();
+        } catch (Exception e) {
+            display(e.getMessage());
+            throw new RuntimeException(e);
+        }
+    }
+
+
+    @FXML
     private void exitApp() throws Exception {
         mainApp.stop();
     }
@@ -68,11 +83,13 @@ public class MainWindow {
     }
 
     /** Clears the command input box */
+    @FXML
     private void clearCommandInput() {
         commandInput.setText("");
     }
 
     /** Clears the output display area */
+    @FXML
     public void clearOutputConsole(){
         outputConsole.clear();
     }
