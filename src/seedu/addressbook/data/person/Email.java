@@ -32,8 +32,13 @@ public class Email implements Printable{
 
     @Override
     public String getPrintableString() {
-        return "Email: " + EXAMPLE;
+        if (isPrivate) {
+            return "Email: private";
+        } else {
+            return "Email: " + value;
+        }
     }
+
 
     /**
      * Checks if a given string is a valid person email.

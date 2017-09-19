@@ -30,8 +30,13 @@ public class Address implements Printable {
 
     @Override
     public String getPrintableString() {
-        return "Address: " + EXAMPLE;
+        if (isPrivate) {
+            return "Address: private";
+        } else {
+            return "Address: " + value;
+        }
     }
+
 
     /**
      * Returns true if a given string is a valid person email.

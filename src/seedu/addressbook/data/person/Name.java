@@ -32,8 +32,9 @@ public class Name implements Printable{
 
     @Override
     public String getPrintableString() {
-        return "Name: " + EXAMPLE;
+        return "Name: " + fullName;
     }
+
 
     /**
      * Returns true if a given string is a valid person name.
