@@ -63,6 +63,16 @@ public abstract class Command {
         return relevantPersons.get(getTargetIndex() - DISPLAYED_INDEX_OFFSET);
     }
 
+    /**
+     * Return a boolean value which indicates whether this command is changing the data.
+     *
+     * @throws UnsupportedOperationException this method should be implemented by children classes.
+     */
+
+    public boolean isMutating() {
+        throw new UnsupportedOperationException("This method should be implement in child classes");
+    }
+
     public int getTargetIndex() {
         return targetIndex;
     }
