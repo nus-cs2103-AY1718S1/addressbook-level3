@@ -3,6 +3,14 @@
 This product is not meant for end-users and therefore there is no user-friendly installer. 
 Please refer to the [Setting up](DeveloperGuide.md#setting-up) section to learn how to set up the project.
 
+# User Story
+
+As a user, I can store the names, phone numbers, email addresses, addresses and tags so that I can add delete and query
+As a unprofessional user, I can use AddressBook Level 3 with minimal use of commandLine, so that I do not need to learn
+the commandLine operations
+As a forgetful user, I can check the names of my friends and do corresponding operation on them so that I will not have
+to remember their full name in order to check their information. [Yet to be implemented]
+
 ## Starting the program
 
 1. Find the project pane (usually located at the left side)
