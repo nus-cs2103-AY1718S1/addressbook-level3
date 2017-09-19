@@ -59,8 +59,12 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | add a new person |
 `* * *` | user | delete a person | remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
-`* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
-`*` | user with many persons in the address book | sort persons by name | locate a person easily
+`* * *` | user | search people by tags | find people with the same tag efficiently without looking through the whole contact list
+`* * *` | careless user | undo the previous action | get the contact list back after a careless 'clear'
+`* * `  | user | create tags | tag the contact with personalised tags
+`* *`   | lazy user | use up and down on the keyboard to find a command entered previously | do not have to retype it again 
+`* *`   | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
+`*`     | user with many persons in the address book | sort persons by name | locate a person easily
 
 
 ## Appendix B : Use Cases
