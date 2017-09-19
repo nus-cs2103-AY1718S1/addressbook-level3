@@ -39,7 +39,7 @@ public abstract class Command {
     /**
      * Executes the command and returns the result.
      */
-    public abstract CommandResult execute();
+    public abstract CommandResult execute() throws Exception;
 
     //Note: it is better to make the execute() method abstract, by replacing the above method with the line below:
     //public abstract CommandResult execute();
