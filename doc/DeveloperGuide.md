@@ -94,6 +94,9 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should be able to perform all commands in less than 2 seconds.
+6. Save Files Should have backwards compatibility with older versions of AddressBook.
+7. Save Files should be portable across different AddressBook application running on different systems.
 
 ## Appendix D : Glossary
 
