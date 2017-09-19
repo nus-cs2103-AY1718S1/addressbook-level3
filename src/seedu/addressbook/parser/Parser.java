@@ -57,6 +57,9 @@ public class Parser {
         final String arguments = matcher.group("arguments");
         switch (commandWord) {
 
+            case SortCommand.COMMAND_WORD:
+                return new SortCommand();
+
             case AddCommand.COMMAND_WORD:
                 return prepareAdd(arguments);
 
