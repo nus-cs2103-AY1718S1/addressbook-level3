@@ -40,6 +40,8 @@ public class MainWindow {
     @FXML
     private TextField commandInput;
 
+    @FXML
+    private TextArea versionStr;
 
     @FXML
     void onCommand(ActionEvent event) {
@@ -90,6 +92,7 @@ public class MainWindow {
     public void displayWelcomeMessage(String version, String storageFilePath) {
         String storageFileInfo = String.format(MESSAGE_USING_STORAGE_FILE, storageFilePath);
         display(MESSAGE_WELCOME, version, MESSAGE_PROGRAM_LAUNCH_ARGS_USAGE, storageFileInfo);
+        displayVersion(version);
     }
 
     /**
@@ -107,4 +110,10 @@ public class MainWindow {
         outputConsole.setText(outputConsole.getText() + new Formatter().format(messages));
     }
 
+    /**
+     * Displays the version at the bottom.
+     */
+    private void displayVersion(String version) {
+        versionStr.setText(version);
+    }
 }
