@@ -59,8 +59,11 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | add a new person |
 `* * *` | user | delete a person | remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
+`* * *` | user | update a person | change a person's information without deleting and reinserting the person
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
+`* *` | user | find a person by first name or sur name | find a person easily
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
+`*` | user | enter the password before accessing to the AddressBook | prevent the others from entering my AddressBook
 
 
 ## Appendix B : Use Cases
