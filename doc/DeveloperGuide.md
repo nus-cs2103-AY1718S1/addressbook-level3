@@ -80,7 +80,8 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
-
+5. Should be able to run in 32bit or 64bit Windows/Linux/Mac Systems.
+6. Should be able to synchronize with social media platforms.
 ## Appendix D : Glossary
 
 ##### Mainstream OS
