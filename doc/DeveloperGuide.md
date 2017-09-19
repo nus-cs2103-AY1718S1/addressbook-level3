@@ -43,11 +43,17 @@ Priority | As a ... | I want to ... | So that I can...
 -------- | :-------- | :--------- | :-----------
 `* * *` | new user | see usage instructions | refer to instructions when I forget how to use the App
 `* * *` | user | add a new person |
+`* * *` | user | view all the added person |
+`* * *` | user | want to save the name, phone, email and address of the contacts
 `* * *` | user | delete a person | remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
+`* * *` | user | clear the Address Book
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
+`* *` | user | save the birthday, hobbies, tags of a contact
+`* *` | user | export the Address Book data to a file
+`* *` | user | save different kinds of data for different contacts
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
-
+`*` | user / open two windows of Address Book at the same time
 
 ## Appendix B : Use Cases
 
