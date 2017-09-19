@@ -62,8 +62,5 @@ public class Name implements Printable{
     }
 
     @Override
-    public void print() {
-        System.out.println("Name: " + fullName);
-    }
-
+    public String getPrintableString() { return "Name: " + fullName; }
 }

@@ -57,7 +57,5 @@ public class Address implements Printable {
     }
 
     @Override
-    public void print() {
-        System.out.println("Address: " + value);
-    }
+    public String getPrintableString() { return "Address: " + value; }
 }
