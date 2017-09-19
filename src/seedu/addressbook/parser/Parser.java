@@ -39,6 +39,9 @@ public class Parser {
 
     public static final int FIRST = 0;
     public static final int SECOND = 1;
+    public static final String FAKEEMAIL = "fakeemail@fakeemail.com";
+    public static final String FAKEPHONE = "12345678";
+    public static final String FAKEADDRESS = "123, ABC, 123456";
 
     public static final String FIELDTYPE = "NPEAT";
     /**
@@ -168,11 +171,8 @@ public class Parser {
         String[] inputValue = args.trim().split(" ");
         String index = inputValue[FIRST];
         String field = inputValue[SECOND];
-        System.out.println("Index " + index);
-        System.out.println("Field " + field);
 
         try {
-
             final int targetIndex = parseArgsAsDisplayedIndex(index);
             final Pattern targetField = parseArgsAsDisplayedField(field);
 
@@ -187,11 +187,10 @@ public class Parser {
             }
 
             String fieldNotUpdated = parseArgsAsNonDisplayedField(field);
-            System.out.println(field.indexOf('E'));
             String name="",
-                    phone="123123",
-                    email="12312@123.com",
-                    address = "123 sadas 123123" ;
+                    phone=FAKEPHONE,
+                    email=FAKEEMAIL,
+                    address = FAKEADDRESS ;
 
             Boolean isEmailPrivate=false,
                     isAddressPrivate=false,
@@ -220,8 +219,6 @@ public class Parser {
             if(field.indexOf('T') >= 0) {
                 tags = getTagsFromArgs(allMatcher.group("tagArguments"));
             }
-
-
 
             return new UpdateCommand(
                     targetIndex, fieldNotUpdated, name, phone, isPhonePrivate, email, isEmailPrivate, address, isAddressPrivate, tags
@@ -363,8 +360,6 @@ public class Parser {
         else {
             return FIELDTYPE;
         }
-
-        System.out.println("parseArgsAsNonDisplayedField " + fieldNotExist);
 
         return fieldNotExist;
     }

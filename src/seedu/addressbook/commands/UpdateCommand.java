@@ -48,7 +48,6 @@ public class UpdateCommand extends Command {
                          String address, boolean isAddressPrivate,
                          Set<String> tags) throws IllegalValueException {
         super(targetVisibleIndex);
-
         final Set<Tag> tagSet = new HashSet<>();
 
         for (String tagName : tags) {
@@ -78,18 +77,14 @@ public class UpdateCommand extends Command {
     public CommandResult execute() {
         try {
             final ReadOnlyPerson target = getTargetPerson();
-            System.out.println("Test" + target.getAddress());
+            addressBook.removePerson(target);
             Person person = retainNonUpdateData(fieldNotUpdated, toUpdate, target);
             addressBook.updatePerson(person);
-            addressBook.removePerson(target);
-
-            System.out.println(toUpdate.toString());
             return new CommandResult(String.format(MESSAGE_SUCCESS, toUpdate));
 
         } catch (UniquePersonList.DuplicatePersonException dpe) {
             return new CommandResult(MESSAGE_DUPLICATE_PERSON);
         } catch (IndexOutOfBoundsException ie) {
-            System.out.println("12321ssadasd");
             return new CommandResult(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         } catch (UniquePersonList.PersonNotFoundException pnfe) {
             return new CommandResult(Messages.MESSAGE_PERSON_NOT_IN_ADDRESSBOOK);
@@ -97,7 +92,6 @@ public class UpdateCommand extends Command {
     }
 
     private Person retainNonUpdateData(String args ,Person newData, ReadOnlyPerson oldData){
-        System.out.println("Non update data");
         for (int i=0; i<args.length(); i++){
             switch (args.charAt(i)) {
 
@@ -124,9 +118,6 @@ public class UpdateCommand extends Command {
                     break;
             }
         }
-
-
-
 
         return newData;
     }
