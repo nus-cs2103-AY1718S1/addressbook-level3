@@ -48,7 +48,7 @@ public abstract class Command {
      * Supplies the data the command will operate on.
      */
     public void setData(AddressBook addressBook, List<? extends ReadOnlyPerson> relevantPersons) {
-        if(isMutating()) {
+        if(isMutating() || this.addressBook == null || this.relevantPersons == null) {
             this.addressBook = addressBook;
             this.relevantPersons = relevantPersons;
         }

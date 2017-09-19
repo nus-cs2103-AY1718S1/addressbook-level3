@@ -46,6 +46,15 @@ public class Name implements Printable {
         return Arrays.asList(fullName.split("\\s+"));
     }
 
+    public String getNameInitial() {
+        List<String> nameList = getWordsInName();
+        String result = "";
+        for(String partialName: nameList) {
+            result += partialName.substring(0, 1);
+        }
+        return result;
+    }
+
     @Override
     public String toString() {
         return fullName;
