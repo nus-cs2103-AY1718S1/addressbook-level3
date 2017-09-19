@@ -66,13 +66,22 @@ public class Person implements ReadOnlyPerson {
         tags.setTags(replacement);
     }
 
+    
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof ReadOnlyPerson // instanceof handles nulls
                 && this.isSameStateAs((ReadOnlyPerson) other));
     }
-
+    
+    public String getPrintableString(Printable... printables){
+        String result = "";
+        for (Printable p: printables){
+            result += p.getPrintableString();
+        }
+        return result;
+    }
+    
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
