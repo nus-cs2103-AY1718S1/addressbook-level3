@@ -97,7 +97,7 @@ Use case ends.
 3. User choose one tag from all the tags provided
 4. AddressBook asks the user for a new name of the tag
 5. User enters the new name
-6. AddressBook asks the user to confirm the change
+6. AddressBook shows a list of all the persons with the old tag and asks the user to confirm the change
 7. User confirms to change the tag
 8. AddressBook shows the successful renaming message to the user
 Use case ends.
