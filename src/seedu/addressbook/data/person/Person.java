@@ -84,4 +84,14 @@ public class Person implements ReadOnlyPerson {
         return getAsTextShowAll();
     }
 
+    /**
+     * Returns a concatenated version of the printable strings of each object.
+     */
+    public static String getPrintableString(Printable... printables) {
+        StringBuilder s = new StringBuilder();
+        for(Printable c: printables) {
+            s.append(c.getPrintableString());
+        }
+        return s.toString();
+    }
 }
