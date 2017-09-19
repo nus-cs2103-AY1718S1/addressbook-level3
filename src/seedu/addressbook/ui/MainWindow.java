@@ -80,7 +80,7 @@ public class MainWindow {
         }
     }
 
-   @FXML
+    @FXML
     void onCommand(ActionEvent event) {
         try {
             String userCommandText = commandInput.getText();
@@ -96,7 +96,7 @@ public class MainWindow {
             throw new RuntimeException(e);
         }
     }
-    
+
     /**
      * Initializes the controller for displaying person details. This
      * method is automatically called after the fxml file has been loaded
@@ -124,7 +124,13 @@ public class MainWindow {
             nameLabel.setText(person.getName().fullName);
             phoneLabel.setText(person.getPhone().value);
             addressLabel.setText(person.getAddress().value);
-            tagLabel.setText(person.getTags().toString());
+            String tags = new String();
+
+            for(Tag tag : person.getTags()) {
+                tags += tag + " ";
+            }
+
+            tagLabel.setText(tags);
            } else {
             // Person is null, remove all the text
             nameLabel.setText("");
@@ -142,15 +148,26 @@ public class MainWindow {
         int selectedIndex = personTable.getSelectionModel().getSelectedIndex();
 
         if (selectedIndex >= 0) {
-            personTable.getItems().remove(selectedIndex);
+            Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION, "Confirm Deletion?", ButtonType.YES, ButtonType.NO);
+            confirmAlert.setTitle("Confirmation");
+            confirmAlert.showAndWait();
+
+            if(confirmAlert.getResult() == ButtonType.YES) {
+                personTable.getItems().remove(selectedIndex);
+                try {
+                    CommandResult result = logic.execute("delete " + (++selectedIndex));
+                    displayResult(result);
+                    clearCommandInput();
+                } catch (Exception e) {
+                    return;
+                }
+            }
         } else {
             // Nothing selected
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("No Selection");
-            alert.setHeaderText("No Person Selected");
-            alert.setContentText("Please select a person in the table.");
-
-            alert.showAndWait();
+            Alert noSelectAlert = new Alert(Alert.AlertType.WARNING, "Please select a person in the contact list.");
+            noSelectAlert.setTitle("No Selection");
+            noSelectAlert.setHeaderText("No Person Selected");
+            noSelectAlert.showAndWait();
         }
     }
     private void exitApp() throws Exception {
