@@ -66,6 +66,18 @@ public class Person implements ReadOnlyPerson {
         tags.setTags(replacement);
     }
 
+    /**
+     * Returns a concatenated version of the printable strings of each object.
+     */
+    public String getPrintableString(Printable... printables) {
+        StringBuilder str = new StringBuilder();
+
+        for (Printable p: printables) {
+            str.append(p.getPrintableString()).append(". ");
+        }
+        return str.toString();
+    }
+
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
