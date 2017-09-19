@@ -10,8 +10,11 @@ import seedu.addressbook.data.tag.UniqueTagList;
 public interface ReadOnlyPerson {
 
     Name getName();
+
     Phone getPhone();
+
     Email getEmail();
+
     Address getAddress();
 
     /**
@@ -68,18 +71,28 @@ public interface ReadOnlyPerson {
         final StringBuilder builder = new StringBuilder();
         builder.append(getName());
         if (!getPhone().isPrivate()) {
-            builder.append(" Phone: ").append(getPhone());
+            builder.append(getPrintableString(getPhone()));
         }
         if (!getEmail().isPrivate()) {
-            builder.append(" Email: ").append(getEmail());
+            builder.append(getPrintableString(getEmail()));
         }
         if (!getAddress().isPrivate()) {
-            builder.append(" Address: ").append(getAddress());
+            builder.append(getPrintableString(getAddress()));
         }
         builder.append(" Tags: ");
         for (Tag tag : getTags()) {
             builder.append(tag);
         }
+
         return builder.toString();
+    }
+
+    default String getPrintableString(Printable... printables) {
+        String allAttribText = "";
+        for (Printable p : printables) {
+            allAttribText.concat(p.getPrintableString()+" ");
+        }
+
+        return allAttribText;
     }
 }
