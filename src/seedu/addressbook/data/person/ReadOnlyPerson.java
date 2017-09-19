@@ -1,7 +1,10 @@
 package seedu.addressbook.data.person;
 
+import seedu.addressbook.common.Utils;
 import seedu.addressbook.data.tag.Tag;
 import seedu.addressbook.data.tag.UniqueTagList;
+
+import java.util.ArrayList;
 
 /**
  * A read-only immutable interface for a Person in the addressbook.
@@ -36,50 +39,44 @@ public interface ReadOnlyPerson {
      * Formats the person as text, showing all contact details.
      */
     default String getAsTextShowAll() {
-        final StringBuilder builder = new StringBuilder();
-        final String detailIsPrivate = "(private) ";
-        builder.append(getName())
-                .append(" Phone: ");
-        if (getPhone().isPrivate()) {
-            builder.append(detailIsPrivate);
-        }
-        builder.append(getPhone())
-                .append(" Email: ");
-        if (getEmail().isPrivate()) {
-            builder.append(detailIsPrivate);
-        }
-        builder.append(getEmail())
-                .append(" Address: ");
-        if (getAddress().isPrivate()) {
-            builder.append(detailIsPrivate);
-        }
-        builder.append(getAddress())
-                .append(" Tags: ");
+        Printable[] details = { getName(), getPhone(), getEmail(), getAddress() };
+        
+        final StringBuilder tags = new StringBuilder(", Tags: ");
         for (Tag tag : getTags()) {
-            builder.append(tag);
+            tags.append(tag);
         }
-        return builder.toString();
+        return Utils.getPrintableString(details) + tags.toString();
     }
 
     /**
      * Formats a person as text, showing only non-private contact details.
      */
     default String getAsTextHidePrivate() {
-        final StringBuilder builder = new StringBuilder();
-        builder.append(getName());
-        if (!getPhone().isPrivate()) {
-            builder.append(" Phone: ").append(getPhone());
+        ArrayList<Printable> detailList = new ArrayList<>();
+        
+        if(!getName().isPrivate()){
+            detailList.add(getName());
         }
-        if (!getEmail().isPrivate()) {
-            builder.append(" Email: ").append(getEmail());
+        
+        if(!getPhone().isPrivate()){
+            detailList.add(getPhone());
         }
-        if (!getAddress().isPrivate()) {
-            builder.append(" Address: ").append(getAddress());
+
+        if(!getEmail().isPrivate()){
+            detailList.add(getEmail());
         }
-        builder.append(" Tags: ");
+
+        if(!getAddress().isPrivate()){
+            detailList.add(getAddress());
+        }
+
+        final StringBuilder tags = new StringBuilder(", Tags: ");
         for (Tag tag : getTags()) {
-            builder.append(tag);
+            tags.append(tag);
         }
-        return builder.toString();
+
+        return Utils.getPrintableString(detailList.toArray(new Printable[detailList.size()])) + tags.toString();
     }
+
+    
 }
