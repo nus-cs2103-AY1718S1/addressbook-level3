@@ -13,6 +13,7 @@ import seedu.addressbook.data.person.*;
 import seedu.addressbook.data.tag.Tag;
 import seedu.addressbook.data.tag.UniqueTagList;
 import seedu.addressbook.storage.StorageFile;
+import seedu.addressbook.parser.Parser;
 
 import java.util.*;
 
@@ -77,6 +78,10 @@ public class LogicTest {
                                       boolean isRelevantPersonsExpected,
                                       List<? extends ReadOnlyPerson> lastShownList) throws Exception {
 
+        //Create the command
+        Parser parser = new Parser();
+        Command userCommand = parser.parseCommand(inputCommand);
+
         //Execute the command
         CommandResult r = logic.execute(inputCommand);
 
@@ -90,6 +95,9 @@ public class LogicTest {
         //Confirm the state of data is as expected
         assertEquals(expectedAddressBook, addressBook);
         assertEquals(lastShownList, logic.getLastShownList());
+        if(userCommand.isMutating()) {
+            assertEquals(addressBook, saveFile.load());
+        }
     }
 
 
