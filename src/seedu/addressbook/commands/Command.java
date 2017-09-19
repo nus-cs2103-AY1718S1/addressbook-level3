@@ -47,6 +47,13 @@ public abstract class Command {
     //public abstract CommandResult execute();
 
     /**
+     *
+     * @return true if command type mutates data
+     */
+    public boolean isMutating(){
+        return false;
+    }
+    /**
      * Supplies the data the command will operate on.
      */
     public void setData(AddressBook addressBook, List<? extends ReadOnlyPerson> relevantPersons) {
