@@ -67,6 +67,18 @@ Priority | As a ... | I want to ... | So that I can...
 
 (For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
 
+#### Use case: Rename tag
+**MSS**
+1. User request to rename tag friend to buddies
+2. AddressBook ask for confirmation for rename tage
+3. User acknowledge the confirmation
+4. AddressBook renamed friend to buddies
+
+**Extensions**
+3a. The given tag is invalid
+> 3a1. AddressBook shows an error message <br>
+User case resumes at step 3
+
 #### Use case: Delete person
 
 **MSS**
