@@ -116,6 +116,8 @@ Use case resumes at step 3
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should be able to deal with both 32-bit system and 64-bit system
+6. Should be able to respond within 3 seconds
 
 ## Appendix D : Glossary
 
