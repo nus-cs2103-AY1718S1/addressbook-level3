@@ -50,8 +50,10 @@ public abstract class Command {
      * Supplies the data the command will operate on.
      */
     public void setData(AddressBook addressBook, List<? extends ReadOnlyPerson> relevantPersons) {
-        this.addressBook = addressBook;
-        this.relevantPersons = relevantPersons;
+        if(isMutating()) {
+            this.addressBook = addressBook;
+            this.relevantPersons = relevantPersons;
+        }
     }
 
     /**
@@ -69,5 +71,9 @@ public abstract class Command {
 
     public void setTargetIndex(int targetIndex) {
         this.targetIndex = targetIndex;
+    }
+
+    public boolean isMutating() {
+        return this instanceof AddCommand || this instanceof DeleteCommand;
     }
 }
