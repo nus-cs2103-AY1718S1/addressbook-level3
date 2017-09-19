@@ -27,6 +27,12 @@ public abstract class Command {
     }
 
     /**
+     * Checks whether the command type mutates the data
+     * @return true if the data is mutated, false otherwise
+     */
+    public abstract boolean isMutating();
+
+    /**
      * Constructs a feedback message to summarise an operation that displayed a listing of persons.
      *
      * @param personsDisplayed used to generate summary
