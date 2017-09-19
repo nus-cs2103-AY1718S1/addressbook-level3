@@ -1,5 +1,7 @@
 package seedu.addressbook.data.person;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import seedu.addressbook.data.exception.IllegalValueException;
 
 import java.util.Arrays;
@@ -44,6 +46,9 @@ public class Name {
         return Arrays.asList(fullName.split("\\s+"));
     }
 
+    public StringProperty getStringProperty() {
+        return new SimpleStringProperty(fullName);
+    }
     @Override
     public String toString() {
         return fullName;

@@ -70,6 +70,7 @@ public class Gui {
         MainWindow mainWindow = loader.getController();
         mainWindow.setLogic(logic);
         mainWindow.setMainApp(mainApp);
+
         return mainWindow;
     }
 

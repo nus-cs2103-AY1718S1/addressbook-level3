@@ -1,16 +1,23 @@
 package seedu.addressbook.ui;
 
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import seedu.addressbook.commands.Command;
 import seedu.addressbook.commands.ExitCommand;
+import seedu.addressbook.data.person.Address;
+import seedu.addressbook.data.person.Phone;
+import seedu.addressbook.data.tag.Tag;
 import seedu.addressbook.logic.Logic;
 import seedu.addressbook.commands.CommandResult;
 import seedu.addressbook.data.person.ReadOnlyPerson;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.Observable;
 import java.util.Optional;
 
 import static seedu.addressbook.common.Messages.*;
@@ -19,6 +26,25 @@ import static seedu.addressbook.common.Messages.*;
  * Main Window of the GUI.
  */
 public class MainWindow {
+    @FXML
+    private TableView<ReadOnlyPerson> personTable;
+    @FXML
+    private TableColumn<ReadOnlyPerson, String> firstNameColumn;
+
+    @FXML
+    private Label nameLabel;
+    @FXML
+    private Label phoneLabel;
+    @FXML
+    private Label addressLabel;
+    @FXML
+    private Label tagLabel;
+
+    @FXML
+    private TextArea outputConsole;
+    @FXML
+    private TextField commandInput;
+
 
     private Logic logic;
     private Stoppable mainApp;
@@ -30,18 +56,31 @@ public class MainWindow {
         this.logic = logic;
     }
 
-    public void setMainApp(Stoppable mainApp){
+    public void setMainApp(Stoppable mainApp) {
         this.mainApp = mainApp;
+        getAllPersonObservableList();
     }
 
-    @FXML
-    private TextArea outputConsole;
+    /**
+     * Get an observable list of everyone in the
+     * database to initialise personTable
+     */
+    private void getAllPersonObservableList() {
+        try {
+            CommandResult result = logic.execute("list");
 
-    @FXML
-    private TextField commandInput;
+            List<? extends ReadOnlyPerson> resultPersons = result.getRelevantPersons().get();
+            ObservableList<ReadOnlyPerson> personsData = FXCollections.observableArrayList();
+            personsData.addAll(resultPersons);
 
+            personTable.setItems(personsData);
+        }
+        catch (Exception e) {
+            return;
+        }
+    }
 
-    @FXML
+   @FXML
     void onCommand(ActionEvent event) {
         try {
             String userCommandText = commandInput.getText();
@@ -57,7 +96,63 @@ public class MainWindow {
             throw new RuntimeException(e);
         }
     }
+    
+    /**
+     * Initializes the controller for displaying person details. This
+     * method is automatically called after the fxml file has been loaded
+     */
+    @FXML
+    private void initialize() {
+        // Initialize the columns with the person table
+        firstNameColumn.setCellValueFactory(cellData -> cellData.getValue().getName().getStringProperty());
 
+        // Clear person details
+        showPersonDetails(null);
+
+        // Listen for selection changes and show the person details when changed
+        personTable.getSelectionModel().selectedItemProperty().addListener(
+                (observable, oldValue, newValue) -> showPersonDetails(newValue));
+    }
+
+    /**
+     * Shows the person details depending on the selected item on the personTable
+     * @param person
+     */
+    private void showPersonDetails(ReadOnlyPerson person) {
+        if (person != null) {
+            // Fill the labels with info from the person object
+            nameLabel.setText(person.getName().fullName);
+            phoneLabel.setText(person.getPhone().value);
+            addressLabel.setText(person.getAddress().value);
+            tagLabel.setText(person.getTags().toString());
+           } else {
+            // Person is null, remove all the text
+            nameLabel.setText("");
+            phoneLabel.setText("");
+            addressLabel.setText("");
+            tagLabel.setText("");
+        }
+    }
+
+    /**
+     * Called when the user clicks on the delete button
+     */
+    @FXML
+    private void handleDeletePerson() {
+        int selectedIndex = personTable.getSelectionModel().getSelectedIndex();
+
+        if (selectedIndex >= 0) {
+            personTable.getItems().remove(selectedIndex);
+        } else {
+            // Nothing selected
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("No Selection");
+            alert.setHeaderText("No Person Selected");
+            alert.setContentText("Please select a person in the table.");
+
+            alert.showAndWait();
+        }
+    }
     private void exitApp() throws Exception {
         mainApp.stop();
     }
@@ -106,5 +201,4 @@ public class MainWindow {
     private void display(String... messages) {
         outputConsole.setText(outputConsole.getText() + new Formatter().format(messages));
     }
-
 }
