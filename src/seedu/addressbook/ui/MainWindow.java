@@ -1,8 +1,13 @@
 package seedu.addressbook.ui;
 
 
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import seedu.addressbook.commands.ExitCommand;
@@ -33,13 +38,45 @@ public class MainWindow {
     public void setMainApp(Stoppable mainApp){
         this.mainApp = mainApp;
     }
-
+    
+    
     @FXML
     private TextArea outputConsole;
 
     @FXML
     private TextField commandInput;
+    
+    @FXML
+    private TableView<LastViewedPerson> lastViewedTable;
 
+    @FXML
+    private TableColumn<LastViewedPerson, Integer> personIndex;
+    
+    @FXML
+    private TableColumn<LastViewedPerson, String> personName;
+
+    @FXML
+    private TableColumn<LastViewedPerson, String> personPhone;
+   
+    @FXML
+    private TableColumn<LastViewedPerson, String> personEmail;
+
+    @FXML
+    private TableColumn<LastViewedPerson, String> personAddress;
+
+    @FXML
+    private TableColumn<LastViewedPerson, String> personTags;
+
+    @FXML
+    private void initialize() {
+        personIndex.setCellValueFactory(cellData -> cellData.getValue().index);
+        personName.setCellValueFactory(cellData -> cellData.getValue().name);
+        personPhone.setCellValueFactory(cellData -> cellData.getValue().phone);
+        personEmail.setCellValueFactory(cellData -> cellData.getValue().email);
+        personAddress.setCellValueFactory(cellData -> cellData.getValue().address);
+        personTags.setCellValueFactory(cellData -> cellData.getValue().tags);
+    }
+    
 
     @FXML
     void onCommand(ActionEvent event) {
@@ -51,6 +88,7 @@ public class MainWindow {
                 return;
             }
             displayResult(result);
+            displayLastViewed();
             clearCommandInput();
         } catch (Exception e) {
             display(e.getMessage());
@@ -106,5 +144,18 @@ public class MainWindow {
     private void display(String... messages) {
         outputConsole.setText(outputConsole.getText() + new Formatter().format(messages));
     }
+    
+    private void displayLastViewed() {
+        List<ReadOnlyPerson> lastShownList = logic.getLastShownList();
+        ObservableList<LastViewedPerson> toSet = FXCollections.observableArrayList();
+        
+        for (int i = 0; i < lastShownList.size(); i++) {
+            ReadOnlyPerson personInList = lastShownList.get(i);
+            toSet.add(new LastViewedPerson(personInList, i+1));
+        }
+        
+        lastViewedTable.setItems(toSet);
+    }
 
 }
+
