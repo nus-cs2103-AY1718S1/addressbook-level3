@@ -54,11 +54,11 @@ public abstract class Command {
         this.relevantPersons = relevantPersons;
     }
 
-    public boolean isMutating(){
-        return (this.getClass().getName().equals("AddCommand") ||
-                this.getClass().getName().equals("DeleteCommand") ||
-                this.getClass().getName().equals("ClearCommand"));
-    }
+    /**
+     * Abstract method that returns true if the command type mutates the data
+     */
+    public abstract boolean isMutating();
+
 
     /**
      * Extracts the the target person in the last shown list from the given arguments.

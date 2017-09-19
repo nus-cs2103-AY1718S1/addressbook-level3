@@ -30,6 +30,8 @@ public class FindCommand extends Command {
         return new HashSet<>(keywords);
     }
 
+    public boolean isMutating(){ return false; }
+
     @Override
     public CommandResult execute() {
         final List<ReadOnlyPerson> personsFound = getPersonsWithNameContainingAnyKeyword(keywords);
