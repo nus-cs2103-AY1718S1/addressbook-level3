@@ -17,7 +17,6 @@ public class Main extends Application implements Stoppable{
     public static final String VERSION = "AddessBook Level 3 - Version 1.0";
 
     private Gui gui;
-
     @Override
     public void start(Stage primaryStage) throws Exception{
         gui = new Gui(new Logic(), VERSION);
