@@ -102,7 +102,14 @@ Guarantees: The tag will only be changed if the user confirms the changes. <br>
 3. User inputs desired new tag.
 4. System prompts user to confirm the new changes.
 5. User confirms the changes to be made.
-6. System replaces the old tag with the new tag.
+6. System replaces the old tag with the new tag. <br>
+Use case ends.
+
+**Extension**
+
+1a. The tag is not found.
+
+>Use case ends.
 
 ## Appendix C : Non Functional Requirements
 
