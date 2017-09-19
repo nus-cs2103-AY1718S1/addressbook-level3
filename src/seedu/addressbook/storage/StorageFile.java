@@ -17,7 +17,9 @@ import java.nio.file.Paths;
  */
 public class StorageFile {
 
-    /** Default file path used if the user doesn't provide the file name. */
+    /**
+     * Default file path used if the user doesn't provide the file name.
+     */
     public static final String DEFAULT_STORAGE_FILEPATH = "addressbook.txt";
 
     /* Note: Note the use of nested classes below.
@@ -125,13 +127,13 @@ public class StorageFile {
          * situation (i.e. not truly exceptional) we should not use an exception to handle it.
          */
 
-        // create empty file if not found
+            // create empty file if not found
         } catch (FileNotFoundException fnfe) {
             final AddressBook empty = new AddressBook();
             save(empty);
             return empty;
 
-        // other errors
+            // other errors
         } catch (IOException ioe) {
             throw new StorageOperationException("Error writing to file: " + path);
         } catch (JAXBException jaxbe) {
