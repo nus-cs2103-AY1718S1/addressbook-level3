@@ -6,4 +6,14 @@ package seedu.addressbook.data.person;
  */
 public interface Printable {
     String getPrintableString();
+    
+    /** Returns a concatenated version, separated by a separator, of the printable strings of each object **/
+    static String getPrintableString(Printable... printables) {
+        String separator = " ";
+        String resultString = "";
+        for (Printable p : printables) {
+            resultString += p.getPrintableString() + separator;
+        }
+        return resultString;
+    }
 }
