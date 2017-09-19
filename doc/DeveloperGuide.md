@@ -59,7 +59,15 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | add a new person |
 `* * *` | user | delete a person | remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
+`* * *` | user | edit a person's information | modify the details of a person without adding and removing them every time
+`* * *` | user | undo any operation | rectify an unintended action
+`* * *` | user | redo any undone operation | rectify an unintended undo action
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
+`* *` | user | link the contact to their social media account | improve connectivity and learn more about that contact
+`* *` | user | import and export data | restore contacts should a contact or the address book be deleted
+`* *` | user | add tags to a contact | group certain contacts together
+`* *` | user | add descriptions to a contact | store more information about the contact
+`* *` | user | have a password to authenticate the user of the address book | prevent unauthorized access to my contacts
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
 
 
