@@ -43,7 +43,7 @@ public class Gui {
          */
         loader.setLocation(Main.class.getResource("ui/mainwindow.fxml"));
 
-        stage.getIcons().add(new Image("seedu/addressbook/ui/Images/address-book-512.ico"));
+        stage.getIcons().add(new Image("seedu/addressbook/ui/Images/Addressbook.png"));
         stage.setTitle(version);
         stage.setScene(new Scene(loader.load(), INITIAL_WINDOW_WIDTH, INITIAL_WINDOW_HEIGHT));
         stage.show();
