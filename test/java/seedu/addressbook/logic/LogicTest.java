@@ -10,6 +10,7 @@ import seedu.addressbook.commands.*;
 import seedu.addressbook.common.Messages;
 import seedu.addressbook.data.AddressBook;
 import seedu.addressbook.data.person.*;
+import seedu.addressbook.parser.Parser;
 import seedu.addressbook.data.tag.Tag;
 import seedu.addressbook.data.tag.UniqueTagList;
 import seedu.addressbook.storage.StorageFile;
@@ -87,10 +88,15 @@ public class LogicTest {
             assertEquals(lastShownList, r.getRelevantPersons().get());
         }
 
+        // Get command type
+        Command comd = new Parser().parseCommand(inputCommand);
+
         //Confirm the state of data is as expected
         assertEquals(expectedAddressBook, addressBook);
         assertEquals(lastShownList, logic.getLastShownList());
-        assertEquals(addressBook, saveFile.load());
+        if (comd.isMutating()) {
+            assertEquals(addressBook, saveFile.load());
+        }
     }
 
 
