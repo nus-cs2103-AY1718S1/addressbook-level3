@@ -30,6 +30,11 @@ public class Name implements Printable{
         this.fullName = name;
     }
 
+    @Override
+    public String getPrintableString() {
+        return "Name: " + EXAMPLE;
+    }
+
     /**
      * Returns true if a given string is a valid person name.
      */

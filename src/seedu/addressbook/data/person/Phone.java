@@ -29,6 +29,11 @@ public class Phone implements Printable {
         this.value = phone;
     }
 
+    @Override
+    public String getPrintableString() {
+        return "Phone: " + EXAMPLE;
+    }
+
     /**
      * Checks if a given string is a valid person phone number.
      */

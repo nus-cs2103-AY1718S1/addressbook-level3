@@ -30,6 +30,11 @@ public class Email implements Printable{
         this.value = email;
     }
 
+    @Override
+    public String getPrintableString() {
+        return "Email: " + EXAMPLE;
+    }
+
     /**
      * Checks if a given string is a valid person email.
      */

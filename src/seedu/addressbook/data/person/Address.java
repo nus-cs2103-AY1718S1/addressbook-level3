@@ -28,6 +28,11 @@ public class Address implements Printable {
         this.value = address;
     }
 
+    @Override
+    public String getPrintableString() {
+        return "Address: " + EXAMPLE;
+    }
+
     /**
      * Returns true if a given string is a valid person email.
      */
