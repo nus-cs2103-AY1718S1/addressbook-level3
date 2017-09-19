@@ -59,8 +59,13 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | add a new person |
 `* * *` | user | delete a person | remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
+`* * *` | user | edit a person information | update the information of a person
+`* * *` | user | undo a delete function | recover accidental deletions of a person's information
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
+`* *` | user | favourite a person's contact | find the user more easily through shortcut keys
+`* *` | user | link the contact to his social media pages | find out more information about the person
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
+`*` | user with many persons in the address book | find out total number of people in the addressbook | know how many people I know in my addressbook
 
 
 ## Appendix B : Use Cases
