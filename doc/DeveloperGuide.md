@@ -94,6 +94,11 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Every command should be documented.
+6. The user interface should be intuitive for the user.
+7. Should have all the essential features by November.
+8. Should not crash under simple errors such as read and write permission error.
+9. The system should respond within 4 seconds when started.
 
 ## Appendix D : Glossary
 
