@@ -5,19 +5,22 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
-import seedu.addressbook.commands.CommandResult;
 import seedu.addressbook.commands.*;
 import seedu.addressbook.common.Messages;
 import seedu.addressbook.data.AddressBook;
 import seedu.addressbook.data.person.*;
 import seedu.addressbook.data.tag.Tag;
 import seedu.addressbook.data.tag.UniqueTagList;
+import seedu.addressbook.parser.Parser;
 import seedu.addressbook.storage.StorageFile;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.StringJoiner;
 
 import static junit.framework.TestCase.assertEquals;
-import static seedu.addressbook.common.Messages.*;
+import static seedu.addressbook.common.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
 
 public class LogicTest {
@@ -77,13 +80,23 @@ public class LogicTest {
                                       boolean isRelevantPersonsExpected,
                                       List<? extends ReadOnlyPerson> lastShownList) throws Exception {
 
+        //Save the initial state
+        saveFile.save(addressBook);
+
+        //Confirm non-mutating command doesn't mutate
+        Parser p = new Parser();
+        Command command = p.parseCommand(inputCommand);
+        if (!command.isMutating()) {
+            assertEquals(expectedAddressBook, addressBook);
+        }
+
         //Execute the command
         CommandResult r = logic.execute(inputCommand);
 
         //Confirm the result contains the right data
         assertEquals(expectedMessage, r.feedbackToUser);
         assertEquals(r.getRelevantPersons().isPresent(), isRelevantPersonsExpected);
-        if(isRelevantPersonsExpected){
+        if (isRelevantPersonsExpected) {
             assertEquals(lastShownList, r.getRelevantPersons().get());
         }
 
