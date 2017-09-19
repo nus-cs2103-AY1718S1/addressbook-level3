@@ -59,7 +59,12 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | add a new person |
 `* * *` | user | delete a person | remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
+`* * *` | user | edit existing person | update the person's contact details when his particulars change
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
+`* *` | user | add people to a certain user-defined group | group similar people together
+`* *` | user | sort by a certain field | find similar people together
+`* *` | user | find for duplicates / close matches | delete such duplicates which may be named slightly different in the past
+`* *` | user | undo my actions | not be afraid to make mistakes
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
 
 
@@ -67,6 +72,34 @@ Priority | As a ... | I want to ... | So that I can...
 
 (For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
 
+#### Use case: Rename tag
+ 
+ **MSS**
+ 
+ 1. User request to rename tag
+ 2. AddressBook requests user to input the tag to be replaced
+ 3. User inputs the tag name to be replaced
+ 4. AddressBook requests user for new tag name
+ 5. User inputs the new tag name
+ 6. AddressBook updates the tag <br>
+ Use case ends.
+ 
+ **Extensions**
+ 
+ 1a. The AddressBook is empty
+ 
+ > Use case ends
+ 
+ 3a. The tag name is not present
+ 
+ > 3a1. AddressBook shows an error message <br>
+   Use case ends
+
+ 5a. The tag name is invalid (No entry, Too long, contains illegal characters, etc)
+ 
+ > 5a1. AddressBook shows an error message <br>
+   Use case resumes at step 4
+   
 #### Use case: Delete person
 
 **MSS**
@@ -94,6 +127,11 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should be easy to navigate
+6. Should take up as little space as possible, so that the address book remains small and portable
+7. Should be able to run on all commonly available OS and architecture
+8. Should be able to ignore invalid inputs, without crashing
+9. Should have backward compatibility, especially for the Storage File
 
 ## Appendix D : Glossary
 
