@@ -61,7 +61,11 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
-
+`* *` | user | tag and categorise contacts | organise the contacts based on how they are related to my life
+`* *` | user | filter contacts based on search term | find people that I am looking for without scrolling through the entire contact list
+`* * *` | user | quit the application | go back to my task at hand quickly
+`* * *` | safety conscious user | backup my contacts | keep a safe copy of it in case the computer crashes and the data is irrecoverable
+`*` | user | view statistics about my contacts | have a better understanding of my social interactions 
 
 ## Appendix B : Use Cases
 
