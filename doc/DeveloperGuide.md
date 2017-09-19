@@ -87,6 +87,27 @@ Use case ends.
 
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
+  
+  #### Use case: Find person
+  
+  **MSS**
+  
+  1. User requests to find person
+  2. AddressBook shows a list of persons with the searched named
+  3. User retrieves the information needed from the correct person from the list<br>
+  Use case ends.
+  
+  **Extensions**
+  
+  2a. The list does not contain anyone whose name contains the searched parameters.
+  
+  > Use case ends
+  
+  2a. The parameter for searching is not provided by the user
+  
+  > 2a1. AddressBook shows an error message <br>
+    Use case resumes at step 1
+    
 
 ## Appendix C : Non Functional Requirements
 
