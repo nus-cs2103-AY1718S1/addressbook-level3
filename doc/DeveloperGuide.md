@@ -94,6 +94,10 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should not exceed the size of 10 MB.
+6. UI should be intuitive enough for users who are not IT-savvy.
+7. The response to any command should become visible within 1 second.
+8. Should be compatibile with Unix, Mac and Windows systems.
 
 ## Appendix D : Glossary
 
