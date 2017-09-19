@@ -19,8 +19,8 @@
                <children>
                   <TableView fx:id="personTable" layoutX="-13.0" layoutY="34.0" prefHeight="198.0" prefWidth="174.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="First Name" />
-                      <TableColumn prefWidth="75.0" text="Last Name" />
+                      <TableColumn fx:id="firstNameColumn" prefWidth="75.0" text="First Name" />
+                      <TableColumn fx:id="lastNameColumn" prefWidth="75.0" text="Last Name" />
                     </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -55,8 +55,8 @@
                         <Label text="City" GridPane.rowIndex="3" />
                         <Label text="Postal Code" GridPane.rowIndex="4" />
                         <Label text="Birthday" GridPane.rowIndex="5" />
-                        <Label fx:id="firstNameColumn" text="First Name" />
-                        <Label fx:id="lastNameColumn" text="Last Name" GridPane.rowIndex="1" />
+                        <Label text="First Name" />
+                        <Label text="Last Name" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
                   <ButtonBar layoutX="202.0" layoutY="244.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0">
