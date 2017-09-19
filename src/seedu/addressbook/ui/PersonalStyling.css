@@ -1,0 +1,14 @@
+
+.text-area {
+    -fx-background-color: white;
+    -fx-control-inner-background: white;
+    -fx-font-family: "Arial";
+    -fx-font-size: 10pt;
+    -fx-padding: 5 5 5 5;
+}
+
+#text-field {
+    -fx-font-weight: bold;
+    -fx-text-fill: red;
+}
+
