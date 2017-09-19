@@ -87,6 +87,42 @@ Use case ends.
 
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
+  
+#### Use case: Rename tag
+
+**Precondition**
+
+All process working fine. 
+
+**Guarantees**
+
+The tag is renamed.
+
+**MSS**
+
+1. User enters command 'rename tag'
+2. AddressBook shows a list of tags ordered with index
+3. User enters the index of the tag that is needed to be renamed, and the new tag name with a space in between
+4. AddressBook displays the message that the tag is renamed successfully <br>
+Use case ends.
+
+**Extensions**
+
+2a. The list is empty
+
+> Use case ends.
+
+3a. The given index by user does not exist
+
+> 3a1. AddressBook displays the message that the index does not exist <br>
+> 3a2. AddressBook requests user to enter index again <br>
+  Step 3a1 and 3a2 will repeat until the index entered is valid <br>
+  Use case resumes at step 4
+
+*a. At any time, user enters command 'exit'
+
+> *a1. AddressBook stops any process and exit <br>
+  Use case ends.
 
 ## Appendix C : Non Functional Requirements
 
