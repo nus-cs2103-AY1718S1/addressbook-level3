@@ -80,6 +80,13 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should be smaller than 10MB
+6. Should respond within 1 second
+7. Should be usable by a user who knows how to use the Command Line
+8. Should be open source
+9. Should be a free product
+
+
 
 ## Appendix D : Glossary
 
