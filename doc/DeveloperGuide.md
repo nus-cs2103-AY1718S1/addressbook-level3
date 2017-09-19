@@ -88,6 +88,23 @@ Use case ends.
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
 
+#### Use case: Add person
+**MSS**
+1. User request to add a person
+2. AddressBook add the person
+
+**Extentions**
+
+2a. The data format is incorrect
+
+> AddressBook give example, and ask user to re-enter information <br>
+Use case resumes at step 1
+
+2b. The data is duplicated
+
+> AddressBook shows an error message <br>
+Use case resumes at step 1
+
 ## Appendix C : Non Functional Requirements
 
 1. Should work on any [mainstream OS](#mainstream-os) as long as it has Java 8 or higher installed.
