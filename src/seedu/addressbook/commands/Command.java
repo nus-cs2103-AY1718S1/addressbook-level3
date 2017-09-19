@@ -70,4 +70,12 @@ public abstract class Command {
     public void setTargetIndex(int targetIndex) {
         this.targetIndex = targetIndex;
     }
+
+    /**
+     * This method will return true for command types that mutate the data.
+     * @return true if command type mutate data
+     */
+    public boolean isMutating() {
+        throw new UnsupportedOperationException("This method should be implement in child classes");
+    }
 }
