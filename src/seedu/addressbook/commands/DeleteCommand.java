@@ -24,6 +24,7 @@ public class DeleteCommand extends Command {
         super(targetVisibleIndex);
     }
 
+    public boolean isMutating(){ return true; }
 
     @Override
     public CommandResult execute() {

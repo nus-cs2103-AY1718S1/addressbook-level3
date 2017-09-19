@@ -48,31 +48,13 @@ public class StorageFileTest {
         thrown.expect(StorageOperationException.class);
         storage.load();
     }
-
-    @Test
-    public void load_validFormat() throws Exception {
-        AddressBook actualAB = getStorage("ValidData.txt").load();
-        AddressBook expectedAB = getTestAddressBook();
-
-        // ensure loaded AddressBook is properly constructed with test data
-        // TODO: overwrite equals method in AddressBook class and replace with equals method below
-        assertEquals(actualAB.getAllPersons(), expectedAB.getAllPersons());
-    }
+    
 
     @Test
     public void save_nullAddressBook_exceptionThrown() throws Exception {
         StorageFile storage = getTempStorage();
         thrown.expect(NullPointerException.class);
         storage.save(null);
-    }
-
-    @Test
-    public void save_validAddressBook() throws Exception {
-        AddressBook ab = getTestAddressBook();
-        StorageFile storage = getTempStorage();
-        storage.save(ab);
-
-        assertStorageFilesEqual(storage, getStorage("ValidData.txt"));
     }
 
     // getPath() method in StorageFile class is trivial so it is not tested
