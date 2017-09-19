@@ -26,6 +26,11 @@ public class ViewAllCommand extends Command {
 
 
     @Override
+    public boolean isMutating() {
+        return false;
+    }
+
+    @Override
     public CommandResult execute() {
         try {
             final ReadOnlyPerson target = getTargetPerson();
