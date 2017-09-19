@@ -87,6 +87,27 @@ Use case ends.
 
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
+  
+#### Use case: View information of person
+
+**MSS**
+
+1. User requests to list persons
+2. AddressBook shows a list of persons
+3. User request to view a specific person in the list
+4. AddressBook shows details of the person
+Use case ends.
+
+**Extensions**
+
+2a. The list is empty
+
+> Use case ends
+
+3a. The given index is invalid
+
+> 3a1. AddressBook shows an error message
+  Use case resumes at step 2
 
 ## Appendix C : Non Functional Requirements
 
