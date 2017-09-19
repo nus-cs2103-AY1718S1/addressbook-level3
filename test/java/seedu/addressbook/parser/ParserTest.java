@@ -40,7 +40,12 @@ public class ParserTest {
     /**
      * Test 0-argument commands
      */
-    
+
+    @Test
+    public void sortCommant_parsedCorrectly() {
+        final String input = "sort";
+        parseAndAssertCommandType(input, SortCommand.class);
+    }
     @Test
     public void helpCommand_parsedCorrectly() {
         final String input = "help";
