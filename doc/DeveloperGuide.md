@@ -94,6 +94,9 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should be Optimized; No redundant dependencies imported.
+6. Should respond fast (within 2 seconds).
+7. UI should be intuitive to a novice user.
 
 ## Appendix D : Glossary
 
