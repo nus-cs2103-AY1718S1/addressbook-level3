@@ -21,7 +21,7 @@ import seedu.addressbook.storage.StorageFile.StorageOperationException;
 import static seedu.addressbook.util.TestUtil.assertTextFilesEqual;
 
 public class StorageFileTest {
-    private static final String TEST_DATA_FOLDER = "../test/data/StorageFileTest";
+    private static final String TEST_DATA_FOLDER = "/test/data/StorageFileTest";
 
     @Rule
     public ExpectedException thrown = ExpectedException.none();
