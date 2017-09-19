@@ -27,7 +27,20 @@ public class Parser {
                     + " (?<isAddressPrivate>p?)a/(?<address>[^/]+)"
                     + "(?<tagArguments>(?: t/[^/]+)*)"); // variable number of tags
 
+    public static final String PERSON_NAME_ARGS_FORMAT = " (?<name>[^/]+)";
 
+    public static final String PERSON_PHONE_ARGS_FORMAT = " (?<isPhonePrivate>p?)p/(?<phone>[^/]+)";
+
+    public static final String PERSON_EMAIL_ARGS_FORMAT = " (?<isEmailPrivate>p?)e/(?<email>[^/]+)";
+
+    public static final String PERSON_ADDRESS_ARGS_FORMAT = " (?<isAddressPrivate>p?)a/(?<address>[^/]+)";
+
+    public static final String PERSON_TAGS_ARGS_FORMAT = "(?<tagArguments>(?: t/[^/]+)*)";
+
+    public static final int FIRST = 0;
+    public static final int SECOND = 1;
+
+    public static final String FIELDTYPE = "NPEAT";
     /**
      * Signals that the user input could not be parsed.
      */
@@ -151,36 +164,71 @@ public class Parser {
      * @return the prepared command
      */
     private Command prepareUpdate(String args) {
-        try {
-            String num = args.trim().substring(0,1);
-            final int targetIndex = parseArgsAsDisplayedIndex(num.trim());
 
-            String updateInput = args.trim().substring(args.trim().indexOf(" ")+1);
-            final Matcher matcher = PERSON_DATA_ARGS_FORMAT.matcher(updateInput);
+        String[] inputValue = args.trim().split(" ");
+        String index = inputValue[FIRST];
+        String field = inputValue[SECOND];
+        System.out.println("Index " + index);
+        System.out.println("Field " + field);
+
+        try {
+
+            final int targetIndex = parseArgsAsDisplayedIndex(index);
+            final Pattern targetField = parseArgsAsDisplayedField(field);
+
+            int startValue = (index + " " + field).length();
+
+            String updateInput = args.trim().substring(startValue);
+            final Matcher allMatcher = targetField.matcher(updateInput);
 
             // Validate arg string format
-            if (!matcher.matches()) {
+            if (!allMatcher.matches()) {
                 return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, UpdateCommand.MESSAGE_USAGE));
             }
 
+            String fieldNotUpdated = parseArgsAsNonDisplayedField(field);
+            System.out.println(field.indexOf('E'));
+            String name="",
+                    phone="123123",
+                    email="12312@123.com",
+                    address = "123 sadas 123123" ;
+
+            Boolean isEmailPrivate=false,
+                    isAddressPrivate=false,
+                    isPhonePrivate=false;
+
+            Set<String> tags = new HashSet<String>();;
+            if(field.indexOf('N') >= 0){
+                name = allMatcher.group("name");
+            }
+
+            if(field.indexOf('P') >= 0) {
+                phone = allMatcher.group("phone");
+                isPhonePrivate = isPrivatePrefixPresent(allMatcher.group("isPhonePrivate"));
+            }
+
+            if(field.indexOf('E') >= 0) {
+                email = allMatcher.group("email");
+                isEmailPrivate = isPrivatePrefixPresent(allMatcher.group("isEmailPrivate"));
+            }
+
+            if(field.indexOf('A') >= 0) {
+                address = allMatcher.group("address");
+                isAddressPrivate = isPrivatePrefixPresent(allMatcher.group("isAddressPrivate"));
+            }
+
+            if(field.indexOf('T') >= 0) {
+                tags = getTagsFromArgs(allMatcher.group("tagArguments"));
+            }
+
+
+
             return new UpdateCommand(
-                    targetIndex,
-                    matcher.group("name"),
-
-                    matcher.group("phone"),
-                    isPrivatePrefixPresent(matcher.group("isPhonePrivate")),
-
-                    matcher.group("email"),
-                    isPrivatePrefixPresent(matcher.group("isEmailPrivate")),
-
-                    matcher.group("address"),
-                    isPrivatePrefixPresent(matcher.group("isAddressPrivate")),
-
-                    getTagsFromArgs(matcher.group("tagArguments"))
+                    targetIndex, fieldNotUpdated, name, phone, isPhonePrivate, email, isEmailPrivate, address, isAddressPrivate, tags
             );
 
         } catch (ParseException pe) {
-            return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteCommand.MESSAGE_USAGE));
+            return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, UpdateCommand.MESSAGE_USAGE));
         } catch (NumberFormatException nfe) {
             return new IncorrectCommand(MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         }catch (IllegalValueException ive) {
@@ -252,6 +300,73 @@ public class Parser {
             throw new ParseException("Could not find index number to parse");
         }
         return Integer.parseInt(matcher.group("targetIndex"));
+    }
+
+    /**
+     * Parses the given arguments string
+     *
+     * @param args arguments string to parse as string value
+     * @return the person data args format
+     * @throws ParseException if no region of the args string could be found for the relevant indicate field
+     */
+    private Pattern parseArgsAsDisplayedField(String args) throws ParseException {
+        String regex = "";
+        for (int i=0; i<args.length(); i++){
+            switch (args.charAt(i)) {
+
+                case UpdateCommand.NAME:
+                    regex += PERSON_NAME_ARGS_FORMAT;
+                    continue;
+
+                case UpdateCommand.PHONE:
+                    regex += PERSON_PHONE_ARGS_FORMAT;
+                    continue;
+
+                case UpdateCommand.EMAIL:
+                    regex += PERSON_EMAIL_ARGS_FORMAT;
+                    continue;
+
+                case UpdateCommand.ADDRESS:
+                    regex += PERSON_ADDRESS_ARGS_FORMAT;
+                    continue;
+
+                case UpdateCommand.TAG:
+                    regex += PERSON_TAGS_ARGS_FORMAT;
+                    continue;
+                default:
+                    throw new ParseException("Could not find relevant indicated field to parse");
+            }
+        }
+
+        Pattern pattern = Pattern.compile(regex);
+
+
+        return pattern;
+    }
+
+    /**
+     * Parses the given arguments string
+     *
+     * @param args arguments string to parse as string value
+     * @return the field not updated
+     */
+    private String parseArgsAsNonDisplayedField(String args) {
+        String fieldNotExist = "";
+
+        if(FIELDTYPE.length() != args.length()){
+            for (int i=0; i<FIELDTYPE.length(); i++) {
+                if(args.indexOf(FIELDTYPE.charAt(i)) == -1){
+                    fieldNotExist += FIELDTYPE.charAt(i);
+                }
+            }
+        }
+        else {
+            return FIELDTYPE;
+        }
+
+        System.out.println("parseArgsAsNonDisplayedField " + fieldNotExist);
+
+        return fieldNotExist;
     }
 
 
