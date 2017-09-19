@@ -24,6 +24,12 @@ public class DeleteCommand extends Command {
         super(targetVisibleIndex);
     }
 
+    /**
+     * This method will return true for command types that mutate the data. e.g. AddCommand
+     */
+    public boolean isMutating(){
+        return true;
+    }
 
     @Override
     public CommandResult execute() {
