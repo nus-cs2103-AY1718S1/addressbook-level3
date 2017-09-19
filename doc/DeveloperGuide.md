@@ -100,7 +100,6 @@ Use case ends.
 6. AddressBook prompts the user for confirmation of the change
 7. User inputs a confirmation command
 8. AddressBook renames the specified tag to a new one. <br>
-
 Use case ends.
 
 **Extensions**
