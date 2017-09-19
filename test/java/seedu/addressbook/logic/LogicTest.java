@@ -497,10 +497,10 @@ public class LogicTest {
 
             cmd.add("add");
 
-            cmd.add(p.getName().toString());
-            cmd.add((p.getPhone().isPrivate() ? "pp/" : "p/") + p.getPhone());
-            cmd.add((p.getEmail().isPrivate() ? "pe/" : "e/") + p.getEmail());
-            cmd.add((p.getAddress().isPrivate() ? "pa/" : "a/") + p.getAddress());
+            cmd.add(p.getName().getPrintableString());
+            cmd.add((p.getPhone().isPrivate() ? "pp/" : "p/") + p.getPhone().getPrintableString());
+            cmd.add((p.getEmail().isPrivate() ? "pe/" : "e/") + p.getEmail().getPrintableString());
+            cmd.add((p.getAddress().isPrivate() ? "pa/" : "a/") + p.getAddress().getPrintableString());
 
             UniqueTagList tags = p.getTags();
             for(Tag t: tags){
