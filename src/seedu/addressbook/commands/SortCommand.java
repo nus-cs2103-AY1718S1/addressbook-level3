@@ -23,7 +23,7 @@ public class SortCommand extends Command {
 
         List<Person> SortAllPersons = addressBook.getAllPersons().SortAllPersons();
 
-        return new CommandResult(getMessageForPersonListShownSummary(SortAllPersons), SortAllPersons);
+        return new CommandResult(getMessageForPersonSortShownSummary(SortAllPersons), SortAllPersons);
 
     }
 }

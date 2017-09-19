@@ -5,8 +5,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import seedu.addressbook.logic.Logic;
 import seedu.addressbook.Main;
-
-import java.io.File;
 import java.io.IOException;
 
 /**
@@ -17,8 +15,8 @@ public class Gui {
     /** Offset required to convert between 1-indexing and 0-indexing.  */
     public static final int DISPLAYED_INDEX_OFFSET = 1;
 
-    public static final int INITIAL_WINDOW_WIDTH = 800;
-    public static final int INITIAL_WINDOW_HEIGHT = 600;
+    private static final int INITIAL_WINDOW_WIDTH = 800;
+    private static final int INITIAL_WINDOW_HEIGHT = 600;
     private final Logic logic;
 
     private MainWindow mainWindow;
