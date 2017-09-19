@@ -88,6 +88,34 @@ Use case ends.
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
 
+**MSS**
+
+**Precondition**
+
+All processes working fine. 
+
+**Guarantees**
+
+The certian tag is renamed.
+
+1. User requests to rename some of the tags
+2. AddressBook shows a list of persons with index
+3. User input the tag he wants to change and the new value
+4. AddressBook rename the tag
+Use case ends.
+
+**Extensions**
+
+2a. The list is empty
+
+> Use case ends
+
+3a. The given index is invalid
+
+> 3a1. AddressBook shows an error message <br>
+  Use case resumes at step 2
+
+
 ## Appendix C : Non Functional Requirements
 
 1. Should work on any [mainstream OS](#mainstream-os) as long as it has Java 8 or higher installed.
