@@ -88,6 +88,22 @@ Use case ends.
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
 
+#### Use case: Add person
+
+**MSS**
+
+1. User input person details
+2. AddressBook adds the person
+3. AddressBook show success message of added person. <br>
+Use case ends.
+
+**Extensions**
+
+2a. The input is wrong
+> 3a1. AddressBook shows an error message <br>
+  Use case resumes at step 1
+> Use case ends
+
 ## Appendix C : Non Functional Requirements
 
 1. Should work on any [mainstream OS](#mainstream-os) as long as it has Java 8 or higher installed.
