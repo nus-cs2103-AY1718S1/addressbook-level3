@@ -58,8 +58,12 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | new user | see usage instructions | refer to instructions when I forget how to use the App
 `* * *` | user | add a new person |
 `* * *` | user | delete a person | remove entries that I no longer need
+`* * *` | user | encyrpt my contacts list | reduce the chances of someone having access to my contacts when stolen
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
+`* * *` | user | find a list of people by email postfix | send emails related to a certain organisation to emails from those organisations
+`* * *` | user | edit entires | correct any mistake or update a person's details
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
+`* *` | user | clear the list | start afresh when I need to
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
 
 
