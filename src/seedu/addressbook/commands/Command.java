@@ -72,6 +72,6 @@ public abstract class Command {
     }
 
     public boolean isMutating() {
-        return this instanceof AddCommand || this instanceof DeleteCommand || this instanceof ClearCommand;
+        return this instanceof AddCommand || this instanceof DeleteCommand;
     }
 }
