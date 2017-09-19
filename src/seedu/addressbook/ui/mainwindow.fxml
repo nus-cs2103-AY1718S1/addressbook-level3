@@ -19,10 +19,10 @@
       <ButtonBar prefHeight="38.0" prefWidth="468.0">
         <buttons>
           <Button mnemonicParsing="false" onAction="#handleAdd" prefHeight="25.0" text="Add" />
+            <Button mnemonicParsing="false" text="Delete" />
             <Button mnemonicParsing="false" onAction="#handleList" text="List" />
             <Button mnemonicParsing="false" onAction="#handleClear" text="Clear" />
             <Button mnemonicParsing="false" onAction="#handleExit" text="Exit" />
-            <Button mnemonicParsing="false" onAction="#handleHelp" text="Help" />
         </buttons>
          <VBox.margin>
             <Insets right="10.0" />
