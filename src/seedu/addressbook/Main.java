@@ -3,6 +3,7 @@ package seedu.addressbook;
 import javafx.application.Application;
 import javafx.application.Platform;
 
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import seedu.addressbook.logic.Logic;
 import seedu.addressbook.ui.Gui;
@@ -21,9 +22,14 @@ public class Main extends Application implements Stoppable{
     @Override
     public void start(Stage primaryStage) throws Exception{
         gui = new Gui(new Logic(), VERSION);
+        setApplicationIcon(primaryStage);
         gui.start(primaryStage, this);
     }
-
+    private void setApplicationIcon(Stage primaryStage) {
+        // set icon
+        primaryStage.getIcons().add(new Image("seedu/addressbook/ui/res/images/appIcon.png"));
+        primaryStage.show();
+    }
     @Override
     public void stop() throws Exception {
         super.stop();
