@@ -40,4 +40,7 @@ public class ListCommand extends Command {
         }
         return list;
     }
+
+    @Override
+    public boolean isMutating(){return false;}
 }
