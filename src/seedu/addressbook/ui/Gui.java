@@ -3,10 +3,9 @@ package seedu.addressbook.ui;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import seedu.addressbook.logic.Logic;
 import seedu.addressbook.Main;
+import seedu.addressbook.logic.Logic;
 
-import java.io.File;
 import java.io.IOException;
 
 /**
@@ -40,6 +39,8 @@ public class Gui {
         /* Note: When calling getResource(), use '/', instead of File.separator or '\\'
          * More info: http://docs.oracle.com/javase/8/docs/technotes/guides/lang/resources.html#res_name_context
          */
+
+        
         loader.setLocation(Main.class.getResource("ui/mainwindow.fxml"));
 
         stage.setTitle(version);
