@@ -38,6 +38,18 @@ Examples:
 Shows a list of all persons in the address book.<br>
 Format: `list`
 
+## Editing a person : `edit`
+Edits a person's information in the address book.<br>
+Format: `edit NAME CATEGORY(name,phone,email,address) NEW VALUE`
+
+> `NAME` is the name of the person you want to edit.
+> `name`,`phone`,`email`,`address` are the categories you can edit.
+> Only one category can be edited at a time
+
+Examples:
+* `edit John Doe name Doe`
+* `edit John Doe phone 91239822`  
+
 ## Finding all persons containing any keyword in their name: `find`
 Finds persons whose names contain any of the given keywords.<br>
 Format: `find KEYWORD [MORE_KEYWORDS]`
