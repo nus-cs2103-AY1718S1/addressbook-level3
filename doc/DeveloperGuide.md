@@ -94,6 +94,9 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. The source code should be open source.
+6. The user interface should be intuitive enough for users who are not IT-savvy.
+7. The system should work on both 32-bit and 64-bit environment.
 
 ## Appendix D : Glossary
 
