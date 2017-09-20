@@ -61,7 +61,9 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
-
+`* * *` | user | group my contacts | find the contacts easier based on grouping.
+`* *` | user | sort my contacts by relevance | I can find persons that has recently been in contact with me 
+`* * *` | user | edit my contacts | if my contacts changes their address,phone number or email I can update accordingly   
 
 ## Appendix B : Use Cases
 
