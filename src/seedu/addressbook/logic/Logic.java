@@ -85,9 +85,8 @@ public class Logic {
     private CommandResult execute(Command command) throws Exception {
         command.setData(addressBook, lastShownList);
         CommandResult result = command.execute();
-        if (command.isMutating()) {
+        if(command.isMutating())
             storage.save(addressBook);
-        }
         return result;
     }
 
