@@ -1,5 +1,7 @@
 package seedu.addressbook.commands;
 
+import seedu.addressbook.data.person.ReadOnlyPerson;
+
 /**
  * Clears the address book.
  */
@@ -16,4 +18,7 @@ public class ClearCommand extends Command {
         addressBook.clear();
         return new CommandResult(MESSAGE_SUCCESS);
     }
+
+    @Override
+    public boolean isMutating() { return true; }
 }
