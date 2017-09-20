@@ -1,4 +1,5 @@
 package seedu.addressbook.data.person;
 
-public class Printable {
+public interface Printable {
+    String getPrintableString();
 }
