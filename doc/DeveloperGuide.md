@@ -99,7 +99,6 @@ Use case ends.
 7. Should adhere to standard Java coding practices.
 8. Should be made user-friendly
 
-
 ## Appendix D : Glossary
 
 ##### Mainstream OS
