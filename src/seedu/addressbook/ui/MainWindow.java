@@ -3,6 +3,8 @@ package seedu.addressbook.ui;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import seedu.addressbook.commands.ExitCommand;
@@ -59,6 +61,32 @@ public class MainWindow {
     }
 
     private void exitApp() throws Exception {
+        mainApp.stop();
+    }
+
+    @FXML
+    /**
+     * Handles clear button
+     */
+    private void handleClearButton(){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation");
+        alert.setContentText("Are you sure you want to clear output console?");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK){
+            // ... user chose OK
+            outputConsole.clear();
+        } else {
+            // ... user chose CANCEL or closed the dialog
+        }
+    }
+
+    @FXML
+    /**
+     * Handles exit button
+     */
+    private void handleExitButton() throws Exception{
         mainApp.stop();
     }
 
