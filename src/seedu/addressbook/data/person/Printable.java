@@ -11,8 +11,13 @@ public interface Printable {
     static String getPrintableString(Printable... printables) {
         String separator = " ";
         String resultString = "";
+        int count = 1;
         for (Printable p : printables) {
-            resultString += p.getPrintableString() + separator;
+            resultString.concat(p.getPrintableString());
+            if (count < printables.length) {
+                resultString.concat(separator);
+            }
+            count++;
         }
         return resultString;
     }
