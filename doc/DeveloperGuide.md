@@ -60,8 +60,16 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | delete a person | remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
+`* *` | user | edit a person's name | correct the name if I misspelled the first time
+`* *` | user | edit a person's address | update address if the person moves to new location
+`* *` | user | edit a person's phone number | update the phone number with the new one
+`* *` | user | add birth dates | wish people on their birthdays
+`* *` | user with many persons in the address book | add contacts to favorites | see only contacts more important to me
+`* *` | user with many persons in the address book | list people by tags | locate a person easily
+`*` | user | add multiple phone numbers to a person | know multiple ways to contact a person
+`*` | user | enter the location for storage file | store my contacts anywhere I want
+`*` | user with many persons in the address book| add job title and department to a person | know the profession of each entry
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
-
 
 ## Appendix B : Use Cases
 
