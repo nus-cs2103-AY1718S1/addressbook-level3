@@ -6,7 +6,7 @@ import seedu.addressbook.data.exception.IllegalValueException;
  * Represents a Person's email in the address book.
  * Guarantees: immutable; is valid as declared in {@link #isValidEmail(String)}
  */
-public class Email {
+public class Email implements Printable{
 
     public static final String EXAMPLE = "valid@e.mail";
     public static final String MESSAGE_EMAIL_CONSTRAINTS =
@@ -29,6 +29,16 @@ public class Email {
         }
         this.value = email;
     }
+
+    @Override
+    public String getPrintableString() {
+        if (isPrivate) {
+            return "Email: private";
+        } else {
+            return "Email: " + value;
+        }
+    }
+
 
     /**
      * Checks if a given string is a valid person email.
