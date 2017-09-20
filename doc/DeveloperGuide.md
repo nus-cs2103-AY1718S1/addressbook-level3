@@ -61,6 +61,7 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
+`*` | user with a spoilt caps lock key | be able to find people with lower-case keys | find people stored with upper case names
 
 
 ## Appendix B : Use Cases
@@ -75,6 +76,7 @@ Priority | As a ... | I want to ... | So that I can...
 2. AddressBook shows a list of persons
 3. User requests to delete a specific person in the list
 4. AddressBook deletes the person <br>
+5. User renames the tag of a person
 Use case ends.
 
 **Extensions**
