@@ -56,11 +56,16 @@ Priorities: High (must have) - `* * *`, Medium (nice to have)  - `* *`,  Low (un
 Priority | As a ... | I want to ... | So that I can...
 -------- | :-------- | :--------- | :-----------
 `* * *` | new user | see usage instructions | refer to instructions when I forget how to use the App
+`*` | new user | be prompted to add people to an empty addressbook | immediately begin making the addressbook useful
 `* * *` | user | add a new person |
+`* * *` | user | edit a person's details | modify my contacts if they change their address, name, or phone number
 `* * *` | user | delete a person | remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
+`* * *` | user | find a person by phone number | identify an unknown person calling me
+`* *` | user | find a person by name without case sensitivity | locate details of persons without worrying about capitalization
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
+`*` | user | find people with addresses near a location | locate a person near another location
 
 
 ## Appendix B : Use Cases
