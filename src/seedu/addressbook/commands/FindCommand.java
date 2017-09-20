@@ -35,6 +35,8 @@ public class FindCommand extends Command {
         final List<ReadOnlyPerson> personsFound = getPersonsWithNameContainingAnyKeyword(keywords);
         return new CommandResult(getMessageForPersonListShownSummary(personsFound), personsFound);
     }
+    
+    public boolean isMutating() { return false; }
 
     /**
      * Retrieve all persons in the address book whose names contain some of the specified keywords.
