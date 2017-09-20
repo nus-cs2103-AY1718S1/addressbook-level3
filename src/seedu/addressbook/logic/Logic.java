@@ -86,7 +86,6 @@ public class Logic {
         command.setData(addressBook, lastShownList);
         CommandResult result = command.execute();
         if (command.isMutating()) {
-            System.out.println(command.getClass());
             storage.save(addressBook);
         }
         return result;
