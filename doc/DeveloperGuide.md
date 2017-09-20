@@ -90,6 +90,27 @@ Use case ends.
 
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
+  
+#### Use case: Rename Tag
+**MSS**
+1. User requests to rename all tags containing "friends" to "buddies"
+2. AddressBook asks for confirmation from the user to ensure the change is not an accident
+3. Upon confirmation, AddressBook changes the "friends" tag of all the people who have it to the "buddies" tag
+Use case ends/
+
+**Extensions**
+
+2a. The list is empty
+
+> Use case ends
+
+3a. The given String is invalid
+
+> 3a1. AddressBook shows an error message <br>
+  Use case resumes at step 1
+  
+4a. The user does not confirm the change
+> Use case resumes at step 1
 
 ## Appendix C : Non Functional Requirements
 
