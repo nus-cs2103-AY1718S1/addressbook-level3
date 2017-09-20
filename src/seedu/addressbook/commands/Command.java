@@ -39,9 +39,7 @@ public abstract class Command {
     /**
      * Executes the command and returns the result.
      */
-    public CommandResult execute(){
-        throw new UnsupportedOperationException("This method should be implement in child classes");
-    }
+    public abstract CommandResult execute();
 
     /**
      * Returns boolean value if list has changed
