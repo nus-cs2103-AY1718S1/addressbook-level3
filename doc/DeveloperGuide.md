@@ -77,6 +77,13 @@ Priority | As a ... | I want to ... | So that I can...
 4. AddressBook deletes the person <br>
 Use case ends.
 
+**Rename tag**
+1. User requests to rename tag from friends to buddies
+2. AddressBook shows a list of persons
+3. AddressBook prompts the confirmation of request
+4. AddressBook shows a list of persons with updated tags<br>
+User case ends.
+
 **Extensions**
 
 2a. The list is empty
