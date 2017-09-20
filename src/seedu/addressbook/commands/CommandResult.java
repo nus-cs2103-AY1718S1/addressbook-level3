@@ -1,6 +1,7 @@
 package seedu.addressbook.commands;
 
 import seedu.addressbook.data.person.ReadOnlyPerson;
+import seedu.addressbook.data.person.Printable;
 
 import java.util.List;
 import java.util.Optional;
@@ -31,6 +32,17 @@ public class CommandResult {
      */
     public Optional<List<? extends ReadOnlyPerson>> getRelevantPersons() {
         return Optional.ofNullable(relevantPersons);
+    }
+
+    /**
+     * Returns a concatenated version of the printable strings of each object.
+     */
+    String getPrintableString(Printable... printables){
+        String resultString = "";
+        for(Printable printable: printables){
+            resultString += printable.getPrintableString();
+        }
+        return resultString;
     }
 
 }
