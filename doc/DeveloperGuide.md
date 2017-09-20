@@ -56,12 +56,15 @@ Priorities: High (must have) - `* * *`, Medium (nice to have)  - `* *`,  Low (un
 Priority | As a ... | I want to ... | So that I can...
 -------- | :-------- | :--------- | :-----------
 `* * *` | new user | see usage instructions | refer to instructions when I forget how to use the App
+`* * *` | new user | be prompted to add people to an empty addressbook |
 `* * *` | user | add a new person |
+`* * *` | user | edit a person's detail | modify their address, name or phone number
 `* * *` | user | delete a person | remove entries that I no longer need
+`* * *` | user | add a tag|able to add a tag to each person eg: friend or family
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
-
+`*` | user with many persons in the address book | sort persons by tag | locate a people of the same tag easily
 
 ## Appendix B : Use Cases
 
