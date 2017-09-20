@@ -57,6 +57,10 @@ public class AddCommand extends Command {
         return toAdd;
     }
 
+    public boolean isMutating() {
+        return true;
+    }
+
     @Override
     public CommandResult execute() {
         try {
