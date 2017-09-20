@@ -1,10 +1,10 @@
 
 
 .text-field {
-    -fx-font-size: 12pt;
+    -fx-font-size: 14pt;
     -fx-font-family: "Consolas";
     -fx-font-weight: bold;
-    -fx-text-fill: yellow;
+    -fx-text-fill: darkblue;
     -fx-control-inner-background: derive(#1d1d1d,20%);
 }
 
@@ -12,6 +12,7 @@
     -fx-background-color: black;
     -fx-control-inner-background: black;
     -fx-font-family: "Segoe UI Semibold";
-    -fx-font-size: 10pt;
+    -fx-font-size: 12pt;
     -fx-padding: 5 5 5 5;
+    -fx-text-fill: black;
 }
