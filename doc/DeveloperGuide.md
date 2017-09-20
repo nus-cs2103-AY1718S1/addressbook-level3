@@ -94,7 +94,9 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
-
+5. Should take less than 5 seconds to respond on any command when there are less than 500 persons.
+6. Should not be bigger than 30MB, storage excluded.
+7. Should have command words that are not longer than 10 characters.
 ## Appendix D : Glossary
 
 ##### Mainstream OS
