@@ -11,10 +11,13 @@ import javafx.stage.Stage;
 import javafx.stage.Modality;
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
+import javafx.scene.image.Image;
 
 import seedu.addressbook.model.Person;
 import seedu.addressbook.view.PersonOverviewController;
 import seedu.addressbook.view.PersonEditDialogController;
+
+import static sun.plugin.javascript.navig.JSType.Image;
 
 public class MainApp extends Application {
     private Stage primaryStage;
@@ -53,6 +56,8 @@ public class MainApp extends Application {
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("AddressApp");
+
+        this.primaryStage.getIcons().add(new Image("file:resources/images/home-icon.png"));
 
         initRootLayout();
 
