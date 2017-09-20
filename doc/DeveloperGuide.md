@@ -59,7 +59,10 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | add a new person |
 `* * *` | user | delete a person | remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
+`* * *` | user | edit the contact information of a person | update the necessary details of person when necessary
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
+`* *` | user who uses different machines at work and at home | store my contacts on a online database | retrieve my contacts from any machine with the app
+`*` | user | have autocomplete for entering commands | save time while entering commands
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
 
 
