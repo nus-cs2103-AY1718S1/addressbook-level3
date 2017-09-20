@@ -94,6 +94,9 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should not have a visible lag between entering a command and displaying the output.
+6. Should have contrast between background colour and text colour to have good readability.
+7. Should have easy to understand output
 
 ## Appendix D : Glossary
 
