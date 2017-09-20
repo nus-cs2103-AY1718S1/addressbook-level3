@@ -94,6 +94,10 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should respond to commands within 2 seconds.
+6. Should be built to be able to easily update the GUI in the future.
+7. Saved files should be able to work cross platform.
+8. A GUI should be used for the display of results.
 
 ## Appendix D : Glossary
 
