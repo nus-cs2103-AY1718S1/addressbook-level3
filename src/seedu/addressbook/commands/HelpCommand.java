@@ -1,5 +1,5 @@
 package seedu.addressbook.commands;
-
+import seedu.addressbook.data.person.ReadOnlyPerson;
 
 /**
  * Shows help instructions.
