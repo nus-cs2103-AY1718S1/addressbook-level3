@@ -48,9 +48,6 @@ public class MainWindow {
     private Button exit;
 
     @FXML
-    private Button test;
-
-    @FXML
     void onCommand(ActionEvent event) {
         try {
             String userCommandText = commandInput.getText();
