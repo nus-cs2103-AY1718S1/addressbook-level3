@@ -56,6 +56,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have)  - `* *`,  Low (un
 Priority | As a ... | I want to ... | So that I can...
 -------- | :-------- | :--------- | :-----------
 `* * *` | new user | see usage instructions | refer to instructions when I forget how to use the App
+`* * *` | messy user| sort my addressbook | have a neater Addressbook to refer to
+`* * *` | lazy user | ignore caps when using the find function | reduce the number of times I have to retype due to wrong format
+`* * *` | parent | avoid having my child accidentally deleting a record | feel more secure about my stored data
 `* * *` | user | add a new person |
 `* * *` | user | delete a person | remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
