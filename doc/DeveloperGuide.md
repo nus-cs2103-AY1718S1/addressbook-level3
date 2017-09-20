@@ -67,6 +67,26 @@ Priority | As a ... | I want to ... | So that I can...
 
 (For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
 
+#### Use case: Rename Tag
+
+**Guarantees**
+1. Duplicated new tag name will be merged with existing instead
+
+**MSS**
+
+1. User requests to change a tag's name
+2. AddressBook lists people affected and prompts for confirmation
+3. AddressBook renames the tag
+
+**Extensions**
+
+1a. Tag does not exist
+> Use case ends
+
+1b. New tag name already exists
+> AddressBook prompts for a <u>tag transfer<u> instead
+
+
 #### Use case: Delete person
 
 **MSS**
