@@ -16,6 +16,8 @@ public abstract class Command {
     protected List<? extends ReadOnlyPerson> relevantPersons;
     private int targetIndex = -1;
 
+    public abstract CommandResult execute();
+
     /**
      * @param targetIndex last visible listing index of the target person
      */
@@ -34,13 +36,6 @@ public abstract class Command {
      */
     public static String getMessageForPersonListShownSummary(List<? extends ReadOnlyPerson> personsDisplayed) {
         return String.format(Messages.MESSAGE_PERSONS_LISTED_OVERVIEW, personsDisplayed.size());
-    }
-
-    /**
-     * Executes the command and returns the result.
-     */
-    public CommandResult execute(){
-        throw new UnsupportedOperationException("This method should be implement in child classes");
     }
 
     /**
