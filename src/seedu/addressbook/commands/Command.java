@@ -15,6 +15,7 @@ public abstract class Command {
     protected AddressBook addressBook;
     protected List<? extends ReadOnlyPerson> relevantPersons;
     private int targetIndex = -1;
+    private boolean mutation = false;
 
     /**
      * @param targetIndex last visible listing index of the target person
@@ -25,6 +26,13 @@ public abstract class Command {
 
     protected Command() {
     }
+
+    /**
+     * Returns true for mutated data.
+     */
+     public boolean isMutating() {
+         return mutation;
+     }
 
     /**
      * Constructs a feedback message to summarise an operation that displayed a listing of persons.
