@@ -86,9 +86,9 @@ public class Logic {
         command.setData(addressBook, lastShownList);
         CommandResult result = command.execute();
         // Addressbook only save data if there is a change
-        if (command.isMutating()) {
+        //if (command.isMutating()) {
             storage.save(addressBook);
-        }
+        //}
         return result;
     }
 
