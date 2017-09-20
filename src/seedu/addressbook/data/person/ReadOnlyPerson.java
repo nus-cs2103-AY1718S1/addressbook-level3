@@ -66,20 +66,16 @@ public interface ReadOnlyPerson {
      */
     default String getAsTextHidePrivate() {
         final StringBuilder builder = new StringBuilder();
-        builder.append(getName());
-        if (!getPhone().isPrivate()) {
-            builder.append(" Phone: ").append(getPhone());
-        }
-        if (!getEmail().isPrivate()) {
-            builder.append(" Email: ").append(getEmail());
-        }
-        if (!getAddress().isPrivate()) {
-            builder.append(" Address: ").append(getAddress());
-        }
+        builder.append(getPrintableString(getName(), getPhone(), getEmail(), getAddress()));
+        builder.append(" ");
         builder.append(" Tags: ");
         for (Tag tag : getTags()) {
             builder.append(tag);
         }
         return builder.toString();
+    }
+
+    default String getPrintableString(Printable name, Printable phone, Printable email, Printable address) {
+        return name.getPrintableString() + " " + phone.getPrintableString() + " " + email.getPrintableString() + " " + address.getPrintableString();
     }
 }

@@ -81,10 +81,6 @@ public class Person implements ReadOnlyPerson {
 
     @Override
     public String toString() {
-        return getPrintableString(name, phone, email, address);
-    }
-
-    private String getPrintableString(Printable name, Printable phone, Printable email, Printable address) {
-        return name.getPrintableString() + " " + phone.getPrintableString() + " " + email.getPrintableString() + " " + address.getPrintableString();
+        return getAsTextShowAll();
     }
 }
