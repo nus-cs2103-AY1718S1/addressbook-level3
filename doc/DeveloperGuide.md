@@ -60,8 +60,10 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | delete a person | remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
+`* *` | user | edit a person's details | edit in case someone changes contact information
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
-
+`*` | user | list birthdays | know which contact has birthday coming up
+`*` | user | sort list by birthday | know which contact has birthday coming up
 
 ## Appendix B : Use Cases
 
