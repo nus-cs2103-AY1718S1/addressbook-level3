@@ -94,6 +94,22 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should not use more than 5 sec as a start up time.
+6. Should respond within 1 sec of giving a command.
+7. Should use at most 4 mb of memory.
+8. Should not take more than 10 minutes for user to learn to use the system.
+9. Should not use more than 10 % of CPU resources during command execution.
+10. Should have less than 2 crashes per day.
+11. Should take less than 15 sec to start after a failure.
+12. Should display all entries in a list perfectly correctly on every command.
+13. Should not require more than 10% of modules changing for platform compatibility.
+14. Should have less than 3 defects.
+15. Should take < 24 person-hours for developer to make changes in the code if input data format changes.
+16. Should not have any unhandled exceptions from wrong user input.
+17. Should be easy to install by user without any assistance.
+18. Should be able to perform 5000 checks per hour.
+19. Should be able to correct any known defects in less than 2 days.
+20. Should have consistent display formats for all commands.
 
 ## Appendix D : Glossary
 
