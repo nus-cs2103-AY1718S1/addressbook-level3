@@ -2,11 +2,13 @@ package seedu.addressbook.data.person;
 
 import seedu.addressbook.data.exception.IllegalValueException;
 
+import java.awt.print.Printable;
+
 /**
  * Represents a Person's phone number in the address book.
  * Guarantees: immutable; is valid as declared in {@link #isValidPhone(String)}
  */
-public class Phone {
+public class Phone implements Printable {
 
     public static final String EXAMPLE = "123456789";
     public static final String MESSAGE_PHONE_CONSTRAINTS = "Person phone numbers should only contain numbers";
@@ -55,5 +57,10 @@ public class Phone {
 
     public boolean isPrivate() {
         return isPrivate;
+    }
+
+    @Override
+    public String getPrintableString(){
+        return "Phone: " + value;
     }
 }
