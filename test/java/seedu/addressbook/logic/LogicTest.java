@@ -32,7 +32,6 @@ public class LogicTest {
     private StorageFile saveFile;
     private AddressBook addressBook;
     private Logic logic;
-    private Command command;
 
     @Before
     public void setup() throws Exception {
@@ -80,7 +79,7 @@ public class LogicTest {
                                       List<? extends ReadOnlyPerson> lastShownList) throws Exception {
 
         // Parse command
-        command = new Parser().parseCommand(inputCommand);
+        Command command = new Parser().parseCommand(inputCommand);
 
         //Execute the command
         CommandResult r = logic.execute(inputCommand);
