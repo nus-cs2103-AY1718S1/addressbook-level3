@@ -4,8 +4,8 @@
     -fx-font-size: 12pt;
     -fx-font-family: "Verdana";
     -fx-font-weight: normal;
-    -fx-text-fill: yellow;
-    -fx-control-inner-background: derive(#1d1d1d,20%);
+    -fx-text-fill: black;
+    -fx-control-inner-background: white;
 }
 
 .text-field:hover {
@@ -16,6 +16,6 @@
     -fx-background-color: black;
     -fx-control-inner-background: black;
     -fx-font-family: "Verdana";
-    -fx-font-size: 10pt;
+    -fx-font-size: 12pt;
     -fx-padding: 5 5 5 5;
 }
