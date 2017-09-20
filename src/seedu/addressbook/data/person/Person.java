@@ -35,9 +35,7 @@ public class Person implements ReadOnlyPerson {
     }
 
     @Override
-    public Name getName() {
-        return name;
-    }
+    public Name getName() { return name; }
 
     @Override
     public Phone getPhone() {
@@ -80,8 +78,6 @@ public class Person implements ReadOnlyPerson {
     }
 
     @Override
-    public String toString() {
-        return getAsTextShowAll();
-    }
+    public String toString() { return getPrintableString(getName(), getPhone(), getEmail(), getAddress()); }
 
 }
