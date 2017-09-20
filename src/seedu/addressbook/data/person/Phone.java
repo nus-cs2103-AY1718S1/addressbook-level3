@@ -56,4 +56,8 @@ public class Phone {
     public boolean isPrivate() {
         return isPrivate;
     }
+
+    public String getPrintableString(){
+        return ("Phone: " + this.value);
+    }
 }
