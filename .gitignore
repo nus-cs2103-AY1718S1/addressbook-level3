@@ -22,3 +22,6 @@ publish.sh
 .gradle/
 build/
 
+gradlew.bat
+gradle/wrapper/gradle-wrapper.properties
+gradlew
