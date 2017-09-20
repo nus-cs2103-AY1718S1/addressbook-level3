@@ -76,6 +76,7 @@ public class LogicTest {
                                       AddressBook expectedAddressBook,
                                       boolean isRelevantPersonsExpected,
                                       List<? extends ReadOnlyPerson> lastShownList) throws Exception {
+        saveFile.save(addressBook);
 
         //Execute the command
         CommandResult r = logic.execute(inputCommand);

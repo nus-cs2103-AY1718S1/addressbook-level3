@@ -37,6 +37,13 @@ public abstract class Command {
     }
 
     /**
+     * Indicates if Command modify the address book
+     *
+     * @return when the Command modify the address book
+     */
+    public boolean isMutating() { return false; }
+
+    /**
      * Executes the command and returns the result.
      */
     public CommandResult execute(){
