@@ -41,13 +41,6 @@ public abstract class Command {
     /**
      * Executes the command and returns the result.
      */
-    public CommandResult execute(){
-        throw new UnsupportedOperationException("This method should be implement in child classes");
-    }
-
-    /**
-     * Executes the command and returns the result.
-     */
     public boolean isMutating(){
         throw new UnsupportedOperationException("This method should be implement in child classes");
     }
