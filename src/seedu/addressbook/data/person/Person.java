@@ -78,21 +78,6 @@ public class Person implements ReadOnlyPerson {
     }
 
     @Override
-    public String toString() { return getAsTextShowAll(); }
-
-    /**
-     * Returns a concatenated version of the printable strings of each object.
-     */
-    String getPrintableString(Printable... printables) {
-        try {
-            String printableString = new String();
-            for (Printable subPrintable : printables) {
-                printableString.concat(subPrintable.getPrintableString());
-            }
-            return printableString;
-        } catch (Exception e) {
-            return e.getMessage();
-        }
-    }
+    public String toString() { return getPrintableString(getName(), getPhone(), getEmail(), getAddress()); }
 
 }
