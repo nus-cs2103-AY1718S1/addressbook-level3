@@ -25,4 +25,13 @@ public class HelpCommand extends Command {
     public CommandResult execute() {
         return new CommandResult(MESSAGE_ALL_USAGES);
     }
+
+    @Override
+    public boolean isMutating() { return false; }
+
+    @Override
+    public String commandType() {
+        return "HelpCommand";
+    }
+
 }
