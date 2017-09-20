@@ -59,8 +59,11 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | add a new person |
 `* * *` | user | delete a person | remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
+`* * *` | user | list all persons | view all the contacts in my address book
+`* *` | user | undo the last deletion of a person in my address book | retrieve the person back under the circumstances I accidentally deleted that person
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
+`*` | user | list persons by the different tags | locate persons with the same tag
 
 
 ## Appendix B : Use Cases
