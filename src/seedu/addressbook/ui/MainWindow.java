@@ -58,6 +58,18 @@ public class MainWindow {
         }
     }
 
+    @FXML
+    void handleExit() {
+        try {
+            CommandResult result = logic.execute(ExitCommand.COMMAND_WORD);
+            exitApp();
+            return;
+        } catch (Exception e) {
+             display(e.getMessage());
+            throw new RuntimeException(e);
+        }
+    }
+
     private void exitApp() throws Exception {
         mainApp.stop();
     }
