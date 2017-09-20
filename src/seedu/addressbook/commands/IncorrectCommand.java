@@ -10,6 +10,7 @@ public class IncorrectCommand extends Command{
 
     public IncorrectCommand(String feedbackToUser){
         this.feedbackToUser = feedbackToUser;
+        isMutating = false;
     }
 
     @Override
