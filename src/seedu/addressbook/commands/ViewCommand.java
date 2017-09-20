@@ -37,5 +37,7 @@ public class ViewCommand extends Command {
             return new CommandResult(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         }
     }
-
+    public boolean isMutating() {
+        return false;
+    }
 }
