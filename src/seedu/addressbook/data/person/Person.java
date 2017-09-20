@@ -100,7 +100,8 @@ public class Person implements ReadOnlyPerson {
                 result += ", ";
             }
         }
-        
+
+        return result;
     }
 
 }
