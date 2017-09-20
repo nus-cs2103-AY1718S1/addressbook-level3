@@ -56,6 +56,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have)  - `* *`,  Low (un
 Priority | As a ... | I want to ... | So that I can...
 -------- | :-------- | :--------- | :-----------
 `* * *` | new user | see usage instructions | refer to instructions when I forget how to use the App
+`* * *` | messy user| sort my addressbook | have a neater Addressbook to refer to
+`* * *` | lazy user | ignore caps when using the find function | reduce the number of times I have to retype due to wrong format
+`* * *` | parent | avoid having my child accidentally deleting a record | feel more secure about my stored data
 `* * *` | user | add a new person |
 `* * *` | user | delete a person | remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
@@ -87,6 +90,27 @@ Use case ends.
 
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
+  
+#### Use case: Rename Tag
+**MSS**
+1. User requests to rename all tags containing "friends" to "buddies"
+2. AddressBook asks for confirmation from the user to ensure the change is not an accident
+3. Upon confirmation, AddressBook changes the "friends" tag of all the people who have it to the "buddies" tag
+Use case ends/
+
+**Extensions**
+
+2a. The list is empty
+
+> Use case ends
+
+3a. The given String is invalid
+
+> 3a1. AddressBook shows an error message <br>
+  Use case resumes at step 1
+  
+4a. The user does not confirm the change
+> Use case resumes at step 1
 
 ## Appendix C : Non Functional Requirements
 
@@ -94,6 +118,7 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. the system should work on both 32-bit and 64-bit environments.
 
 ## Appendix D : Glossary
 
