@@ -70,4 +70,10 @@ public abstract class Command {
     public void setTargetIndex(int targetIndex) {
         this.targetIndex = targetIndex;
     }
+
+    public boolean isMutating(){
+        return false;
+        //default case is false as most command types are non mutating
+        //only Add, Delete are mutating commands.
+    }
 }
