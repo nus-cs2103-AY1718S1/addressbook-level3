@@ -16,6 +16,7 @@ public class Person implements ReadOnlyPerson {
     private Address address;
 
     private final UniqueTagList tags;
+
     /**
      * Assumption: Every field must be present and not null.
      */
@@ -84,4 +85,16 @@ public class Person implements ReadOnlyPerson {
         return getAsTextShowAll();
     }
 
+    /**
+     * Returns a concatenated version of the printable strings of each object.
+     */
+    public String getPrintableString(Printable... printables) {
+        StringBuilder sb = new StringBuilder();
+        for(Printable printable : printables) {
+            sb.append(printable.getPrintableString());
+        }
+
+        return sb.toString();
+
+    }
 }
