@@ -39,6 +39,9 @@ public class MainWindow {
 
     @FXML
     private TextField commandInput;
+    
+    @FXML
+    private TextArea listConsole;
 
 
     @FXML
@@ -97,7 +100,7 @@ public class MainWindow {
      * Private contact details are hidden.
      */
     private void display(List<? extends ReadOnlyPerson> persons) {
-        display(new Formatter().format(persons));
+        listConsole.setText(new Formatter().format(persons));
     }
 
     /**

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox stylesheets="@/seedu/addressbook/ui/DarkTheme.css" alignment="center" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="seedu.addressbook.ui.MainWindow">
+<VBox alignment="center" stylesheets="@/seedu/addressbook/ui/BrownTheme.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seedu.addressbook.ui.MainWindow">
 
     <children>
 
-        <TextField fx:id="commandInput" onAction="#onCommand" VBox.vgrow="NEVER">
+        <TextField fx:id="commandInput" onAction="#onCommand" promptText="Enter a command and hit ENTER" VBox.vgrow="NEVER">
         </TextField>
-
-        <TextArea fx:id="outputConsole" editable="false" wrapText="true" VBox.vgrow="ALWAYS">
-        </TextArea>
+        <TextArea fx:id="outputConsole" editable="false" wrapText="true" VBox.vgrow="ALWAYS" />
+        <Label fx:id="lblListing" text="Latest Listing:" prefWidth="${lblListing.parent.width}" />
+        <TextArea fx:id="listConsole" editable="false" wrapText="true" VBox.vgrow="ALWAYS" />
 
     </children>
 

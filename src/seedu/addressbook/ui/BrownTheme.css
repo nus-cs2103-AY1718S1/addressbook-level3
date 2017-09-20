@@ -1,0 +1,28 @@
+.VBOX {
+    -fx-background-color: saddlebrown;
+}
+
+.text-field {
+    -fx-font-size: 12pt;
+    -fx-font-family: "Courier New";
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: lightgray;
+    -fx-control-inner-background: sienna;
+}
+
+.text-area {
+    -fx-background-color: saddlebrown;
+    -fx-control-inner-background: saddlebrown;
+    -fx-font-family: "Copperplate Gothic Light";
+    -fx-font-size: 10pt;
+    -fx-padding: 5 5 5 5;
+}
+
+.label {
+    -fx-background-color: saddlebrown;
+    -fx-control-inner-background: saddlebrown;
+    -fx-text-fill: white;
+    -fx-font-family: "Courier New";
+    -fx-font-size: 12pt;
+}
