@@ -17,6 +17,10 @@ public class ListCommand extends Command {
             + "Example: " + COMMAND_WORD;
 
 
+    public boolean isMutating(){
+        return false;
+    }
+
     @Override
     public CommandResult execute() {
         List<ReadOnlyPerson> allPersons = addressBook.getAllPersons().immutableListView();

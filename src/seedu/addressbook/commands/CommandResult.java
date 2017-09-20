@@ -26,6 +26,11 @@ public class CommandResult {
         this.relevantPersons = relevantPersons;
     }
 
+    public boolean isMutating(){
+        return false;
+    }
+
+
     /**
      * Returns list of persons relevant to the command command result, if any.
      */
