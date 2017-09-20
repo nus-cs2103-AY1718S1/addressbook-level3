@@ -10,6 +10,10 @@ import java.util.List;
  */
 public class ListCommand extends Command {
 
+    public ListCommand(){
+        isMutating = false;
+    }
+
     public static final String COMMAND_WORD = "list";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ":\n" 
@@ -22,4 +26,5 @@ public class ListCommand extends Command {
         List<ReadOnlyPerson> allPersons = addressBook.getAllPersons().immutableListView();
         return new CommandResult(getMessageForPersonListShownSummary(allPersons), allPersons);
     }
+
 }

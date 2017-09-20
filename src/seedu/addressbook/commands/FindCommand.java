@@ -20,6 +20,7 @@ public class FindCommand extends Command {
     private final Set<String> keywords;
 
     public FindCommand(Set<String> keywords) {
+        isMutating = false;
         this.keywords = keywords;
     }
 
