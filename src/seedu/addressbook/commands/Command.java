@@ -16,6 +16,8 @@ public abstract class Command {
     protected List<? extends ReadOnlyPerson> relevantPersons;
     private int targetIndex = -1;
 
+    public abstract CommandResult execute();
+
     /**
      * @param targetIndex last visible listing index of the target person
      */
@@ -39,7 +41,7 @@ public abstract class Command {
     /**
      * Executes the command and returns the result.
      */
-    public CommandResult execute(){
+    public boolean isMutating() throws UnsupportedOperationException{
         throw new UnsupportedOperationException("This method should be implement in child classes");
     }
 
