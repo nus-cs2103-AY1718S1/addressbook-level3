@@ -94,6 +94,12 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. User should not have to wait for more than 1 second for processing of any commands
+6. Should be easy to use and self explanatory
+7. Users should not have to use an external application to access any information
+8. Should not throw any exception and all cases accounted for
+9. Without using modifying commands, users should not be able to modify Address Book data
+10. Project do not need to be concerned about syncing contacts with other Address Books
 
 ## Appendix D : Glossary
 
