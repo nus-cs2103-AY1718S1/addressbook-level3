@@ -17,7 +17,7 @@ public class Email implements Printable{
     private boolean isPrivate;
 
     @Override
-    Public String getPrintableString(){
+    public String getPrintableString(){
         return "Email: " + value;
     }
 
