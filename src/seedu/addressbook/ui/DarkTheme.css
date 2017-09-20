@@ -1,17 +1,27 @@
 
-
 .text-field {
     -fx-font-size: 12pt;
-    -fx-font-family: "Consolas";
+    -fx-font-family: "Calibri";
     -fx-font-weight: bold;
-    -fx-text-fill: yellow;
+    -fx-text-fill: white;
     -fx-control-inner-background: derive(#1d1d1d,20%);
 }
 
 .text-area {
     -fx-background-color: black;
     -fx-control-inner-background: black;
-    -fx-font-family: "Segoe UI Semibold";
-    -fx-font-size: 10pt;
+    -fx-font-family: "Calibri";
+    -fx-font-size: 12pt;
     -fx-padding: 5 5 5 5;
 }
+
+.button-bar{
+    -fx-background-color: #000000
+}
+.button{
+    -fx-background-color: #FFFFFF
+}
+.button-bar .button:pressed{
+    -fx-background-color: #808080
+}
+
