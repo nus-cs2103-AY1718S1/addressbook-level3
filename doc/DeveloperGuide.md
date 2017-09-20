@@ -67,6 +67,31 @@ Priority | As a ... | I want to ... | So that I can...
 
 (For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
 
+#### Use case: Rename tag
+e.g. rename the tag friends to buddies (i.e. all persons who had the friends tag will now have a buddies tag instead)
+Assume that AddressBook confirms the change with the user before carrying out the operation.
+
+
+**MSS**
+
+1. User requests to rename a tag
+2. AddressBook request user input for new tag name
+3. User enters new tag name
+4. AddressBook changes all persons who had the old tag to the new tag <br>
+Use case ends.
+
+**Extensions**
+
+1a. The tag the user wants to rename does not exist
+
+> 1a1. AddressBook display error message <br>
+  Use case resumes at step 2
+  
+3a. New tag name entered by user is invalid.
+
+> 3a1. AddressBook display error message <br>
+  Use case resumes at step 2
+
 #### Use case: Delete person
 
 **MSS**
