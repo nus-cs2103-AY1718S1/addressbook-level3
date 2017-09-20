@@ -43,6 +43,7 @@ public abstract class Command {
         throw new UnsupportedOperationException("This method should be implement in child classes");
     }*/
     public abstract CommandResult execute();
+    //Added comment for LO Abstract submission. Done so as I have merged branch abstract back to master by mistake.
 
     //Note: it is better to make the execute() method abstract, by replacing the above method with the line below:
     //public abstract CommandResult execute();
