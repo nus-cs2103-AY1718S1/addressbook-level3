@@ -27,6 +27,14 @@ public abstract class Command {
     }
 
     /**
+     *
+     * @return whether there is a need to save data to file
+     */
+    public boolean isMutating(){
+        return false;
+    }
+
+    /**
      * Constructs a feedback message to summarise an operation that displayed a listing of persons.
      *
      * @param personsDisplayed used to generate summary
