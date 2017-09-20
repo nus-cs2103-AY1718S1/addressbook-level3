@@ -13,5 +13,6 @@
     -fx-control-inner-background: black;
     -fx-font-family: "Segoe UI Semibold";
     -fx-font-size: 10pt;
+    -fx-text-fill: #39FF14;
     -fx-padding: 5 5 5 5;
 }
