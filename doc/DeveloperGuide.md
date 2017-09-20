@@ -112,9 +112,9 @@ Use case ends.
 > 3a1. AddressBook shows an error message <br>
 Use case resumes at step 2
 
-5a. User input is invalid
+7a. User input is invalid
 
-> 5a1. AddressBook shows an error message <br>
+> 7a1. AddressBook shows an error message <br>
  Use case resumes at step 6 
 
 ## Appendix C : Non Functional Requirements
