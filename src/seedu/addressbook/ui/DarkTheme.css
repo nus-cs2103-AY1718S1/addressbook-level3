@@ -1,17 +1,17 @@
 
 
 .text-field {
-    -fx-font-size: 12pt;
-    -fx-font-family: "Consolas";
+    -fx-font-size: 14pt;
+    -fx-font-family: "Sans Serif";
     -fx-font-weight: bold;
     -fx-text-fill: yellow;
     -fx-control-inner-background: derive(#1d1d1d,20%);
 }
 
 .text-area {
-    -fx-background-color: black;
-    -fx-control-inner-background: black;
-    -fx-font-family: "Segoe UI Semibold";
-    -fx-font-size: 10pt;
+    -fx-background-color: white;
+    -fx-control-inner-background: white;
+    -fx-font-family: "Sans Serif";
+    -fx-font-size: 12pt;
     -fx-padding: 5 5 5 5;
 }
