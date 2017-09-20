@@ -72,6 +72,6 @@ public abstract class Command {
     }
     
     public boolean isMutating(){
-        
+        throw new UnsupportedOperationException("This method should be implemented in child classes");
     }
 }
