@@ -94,6 +94,9 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should allow names up to 100 characters.
+6. Should allow addresses up to 200 characters.
+7. Should include user guide and developer guide documentation.
 
 ## Appendix D : Glossary
 
