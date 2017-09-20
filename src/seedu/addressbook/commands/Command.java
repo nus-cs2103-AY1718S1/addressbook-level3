@@ -69,7 +69,5 @@ public abstract class Command {
         this.targetIndex = targetIndex;
     }
 
-    public boolean isMutating(){
-        return false;
-    }
+    public abstract boolean isMutating();
 }
