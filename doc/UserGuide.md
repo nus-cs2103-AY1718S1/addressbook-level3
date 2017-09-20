@@ -38,6 +38,21 @@ Examples:
 Shows a list of all persons in the address book.<br>
 Format: `list`
 
+### Updating a person : `update`
+Update the specified person from the address book. Irreversible.<br>
+Format: `update INDEX John Doe p/98765432 e/johnd@gmail.com a/John street, block 123, #01-01`
+
+> Update the person at the specified `INDEX`. 
+  The index refers to the index number shown in the most recent listing.
+  
+ Examples: 
+ * `list`<br>
+   `update 2 John Doe p/98765432 e/johnd@gmail.com a/John street, block 123, #01-01`<br>
+   Update the 2nd person in the address book.
+ * `find Betsy`<br> 
+   `update 1 Besty p/98765432 e/johnd@gmail.com a/John street, block 123, #01-01`<br>
+   update the 1st person in the results of the `find` command.
+
 ## Finding all persons containing any keyword in their name: `find`
 Finds persons whose names contain any of the given keywords.<br>
 Format: `find KEYWORD [MORE_KEYWORDS]`
