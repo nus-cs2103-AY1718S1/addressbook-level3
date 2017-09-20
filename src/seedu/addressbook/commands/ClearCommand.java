@@ -16,4 +16,13 @@ public class ClearCommand extends Command {
         addressBook.clear();
         return new CommandResult(MESSAGE_SUCCESS);
     }
+
+    /**
+     *  Command modifies saved data, therefore is mutating
+     *
+     */
+    public boolean isMutating(){
+        return true;
+    }
+
 }

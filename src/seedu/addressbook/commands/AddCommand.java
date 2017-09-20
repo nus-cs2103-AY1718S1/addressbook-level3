@@ -67,4 +67,13 @@ public class AddCommand extends Command {
         }
     }
 
+    /**
+     *  Command modifies saved data, therefore is mutating
+     *
+     */
+    public boolean isMutating(){
+        return true;
+    }
+
+
 }
