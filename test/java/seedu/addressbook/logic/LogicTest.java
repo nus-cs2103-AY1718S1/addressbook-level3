@@ -90,7 +90,12 @@ public class LogicTest {
         //Confirm the state of data is as expected
         assertEquals(expectedAddressBook, addressBook);
         assertEquals(lastShownList, logic.getLastShownList());
-        assertEquals(addressBook, saveFile.load());
+        if (inputCommand.contains("add") | inputCommand.contains("clear") | inputCommand.contains("delete")) {
+            assertEquals(addressBook, saveFile.load());
+        } else {
+            assertEquals(new AddressBook(), saveFile.load());
+        }
+        
     }
 
 
