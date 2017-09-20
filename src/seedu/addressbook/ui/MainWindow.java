@@ -40,7 +40,6 @@ public class MainWindow {
     @FXML
     private TextField commandInput;
 
-
     @FXML
     void onCommand(ActionEvent event) {
         try {
