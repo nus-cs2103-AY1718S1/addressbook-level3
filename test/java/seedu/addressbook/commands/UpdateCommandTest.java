@@ -5,6 +5,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -62,6 +63,15 @@ public class UpdateCommandTest {
     }
 
     @Test
+    public void updateCommand_invalidName_throwsException() {
+        final String[] invalidNames = { "", " ", "[]\\[;]" };
+        for (String name : invalidNames) {
+            assertConstructingInvalidUpdateCmdThrowsException(name, Phone.EXAMPLE, true, Email.EXAMPLE, false,
+                    Address.EXAMPLE, true, EMPTY_STRING_LIST);
+        }
+    }
+
+    @Test
     public void execute_emptyAddressBook_returnsPersonNotFoundMessage() {
         assertUpdateFailsDueToNoSuchPerson(1, emptyAddressBook, listWithEveryone);
     }
@@ -96,6 +106,56 @@ public class UpdateCommandTest {
             return;
         }
     }
+
+    /**
+     * Asserts that attempting to construct an add command with the supplied
+     * invalid data throws an IllegalValueException
+     */
+    private void assertConstructingInvalidUpdateCmdThrowsException(String name, String phone,
+                                                                boolean isPhonePrivate, String email, boolean isEmailPrivate, String address,
+                                                                boolean isAddressPrivate, Set<String> tags) {
+        try {
+            new UpdateCommand(INDEX, UPDATEFORMAT, name, phone, isPhonePrivate, email, isEmailPrivate, address, isAddressPrivate,
+                    tags);
+        } catch (IllegalValueException e) {
+            return;
+        }
+        String error = String.format(
+                "An update command was successfully constructed with invalid input: %s %s %s %s %s %s %s %s",
+                name, phone, isPhonePrivate, email, isEmailPrivate, address, isAddressPrivate, tags);
+        fail(error);
+    }
+
+    @Test
+    public void addCommand_invalidPhone_throwsException() {
+        final String[] invalidNumbers = { "", " ", "1234-5678", "[]\\[;]", "abc", "a123", "+651234" };
+        for (String number : invalidNumbers) {
+            assertConstructingInvalidUpdateCmdThrowsException(Name.EXAMPLE, number, false, Email.EXAMPLE, true,
+                    Address.EXAMPLE, false, EMPTY_STRING_LIST);
+        }
+    }
+
+    @Test
+    public void updateCommand_invalidEmail_throwsException() {
+        final String[] invalidEmails = { "", " ", "def.com", "@", "@def", "@def.com", "abc@",
+                "@invalid@email", "invalid@email!", "!invalid@email" };
+        for (String email : invalidEmails) {
+            assertConstructingInvalidUpdateCmdThrowsException(Name.EXAMPLE, Phone.EXAMPLE, false, email, false,
+                    Address.EXAMPLE, false, EMPTY_STRING_LIST);
+        }
+    }
+
+    @Test
+    public void updateCommand_invalidTags_throwsException() {
+        final String[][] invalidTags = { { "" }, { " " }, { "'" }, { "[]\\[;]" }, { "validTag", "" },
+                { "", " " } };
+        for (String[] tags : invalidTags) {
+            Set<String> tagsToAdd = new HashSet<>(Arrays.asList(tags));
+            assertConstructingInvalidUpdateCmdThrowsException(Name.EXAMPLE, Phone.EXAMPLE, true, Email.EXAMPLE,
+                    true, Address.EXAMPLE, false, tagsToAdd);
+        }
+    }
+
 
     /**
      * Executes the command, and checks that the execution was what we had expected.
