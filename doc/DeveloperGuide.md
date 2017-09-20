@@ -58,9 +58,13 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | new user | see usage instructions | refer to instructions when I forget how to use the App
 `* * *` | user | add a new person |
 `* * *` | user | delete a person | remove entries that I no longer need
+`* * *` | user | be able to close the address book | remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
+`* * ` | user | view all contacts I have | have an overview of who I have added to my address book
+`* * ` | user | be able to prevent the adding of a duplicate contact | prevent confusion of which contact is the latest 
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
+`*` | user | sync with my social media accounts | keep my information in contacts updated
 
 
 ## Appendix B : Use Cases
