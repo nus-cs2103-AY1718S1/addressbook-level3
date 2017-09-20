@@ -58,6 +58,18 @@ public class MainWindow {
         }
     }
 
+    @FXML
+    void onClearConsole() {
+        try {
+            CommandResult result = logic.execute("clear");
+            displayResult(result);
+            clearCommandInput();
+        } catch (Exception e) {
+            display(e.getMessage());
+            throw new RuntimeException(e);
+        }
+    }
+
     private void exitApp() throws Exception {
         mainApp.stop();
     }
