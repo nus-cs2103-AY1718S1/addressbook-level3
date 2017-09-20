@@ -101,7 +101,7 @@ Use case ends.
 7. AddressBook changes tag name <br>
 Use case ends.
 
-** Extensions **
+**Extensions**
 
 2a. The list is empty
 
