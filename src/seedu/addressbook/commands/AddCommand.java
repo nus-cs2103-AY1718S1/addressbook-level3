@@ -68,12 +68,11 @@ public class AddCommand extends Command {
     }
 
     /**
-     *  Command modifies saved data, therefore is mutating
-     *
+     * Command mutalates data, returning true
      */
+    @Override
     public boolean isMutating(){
         return true;
     }
-
 
 }

@@ -65,8 +65,7 @@ public abstract class Command {
 
 
     /**
-     *  Default state of Commands being non-mutating, returning false.
-     *
+     *  Default state of Commands being non-mutating
      */
     public boolean isMutating(){
         return false;
