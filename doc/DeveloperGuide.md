@@ -94,9 +94,11 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
-5. Need not necessarily be user-friendly but should be user-interactive.
-7. Response time should be fast enough for the best user experience.
-8. Should be scalable to allow for operations other than CRUD-ing contacts.
+5. Data should be encrypted when application is not running.
+6. Response time should be lesser than 2s per command for the best user experience.
+7. Loading time should be less than 3s.
+8. The application should be usable by a novice who has never written and executed commands.
+9. The application is not required to handle calling of contacts.
 
 ## Appendix D : Glossary
 
