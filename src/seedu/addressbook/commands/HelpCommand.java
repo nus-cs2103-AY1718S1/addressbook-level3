@@ -1,6 +1,8 @@
 package seedu.addressbook.commands;
 
 
+import seedu.addressbook.data.person.ReadOnlyPerson;
+
 /**
  * Shows help instructions.
  */
@@ -25,4 +27,7 @@ public class HelpCommand extends Command {
     public CommandResult execute() {
         return new CommandResult(MESSAGE_ALL_USAGES);
     }
+
+    @Override
+    public boolean isMutating() { return false; }
 }
