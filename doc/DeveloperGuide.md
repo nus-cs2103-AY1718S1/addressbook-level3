@@ -77,7 +77,21 @@ Priority | As a ... | I want to ... | So that I can...
 4. AddressBook deletes the person <br>
 Use case ends.
 
-**Rename tag**
+**Extensions**
+
+2a. The list is empty
+
+> Use case ends
+
+3a. The given index is invalid
+
+> 3a1. AddressBook shows an error message <br>
+  Use case resumes at step 2
+  
+#### Use case: Rename tag
+
+**MSS**
+
 1. User requests to rename tag from friends to buddies
 2. AddressBook shows a list of persons
 3. AddressBook prompts the confirmation of request
@@ -89,11 +103,6 @@ User case ends.
 2a. The list is empty
 
 > Use case ends
-
-3a. The given index is invalid
-
-> 3a1. AddressBook shows an error message <br>
-  Use case resumes at step 2
 
 ## Appendix C : Non Functional Requirements
 
