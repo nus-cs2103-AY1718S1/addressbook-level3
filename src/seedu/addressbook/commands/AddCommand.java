@@ -49,6 +49,10 @@ public class AddCommand extends Command {
         );
     }
 
+    public boolean isMutating () {
+        return true;
+    }
+
     public AddCommand(Person toAdd) {
         this.toAdd = toAdd;
     }
