@@ -8,7 +8,7 @@
 
     <children>
 
-        <TextField fx:id="commandInput" onAction="#onCommand" VBox.vgrow="NEVER" />
+        <TextField fx:id="commandInput" alignment="CENTER" onAction="#onCommand" VBox.vgrow="NEVER" />
 
         <TextArea fx:id="outputConsole" editable="false" wrapText="true" VBox.vgrow="ALWAYS">
         </TextArea>
