@@ -19,7 +19,5 @@ test/data/
 publish.sh
 
 # Gradle build files
-.gradle/
-build/
-
-src/seedu/addressbook/testLambda.java
+#.gradle/
+#build/
