@@ -26,7 +26,4 @@ public class HelpCommand extends Command {
         return new CommandResult(MESSAGE_ALL_USAGES);
     }
 
-    public boolean isMutating() {
-        return false;
-    }
 }

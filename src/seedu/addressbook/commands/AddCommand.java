@@ -53,10 +53,6 @@ public class AddCommand extends Command {
         this.toAdd = toAdd;
     }
 
-    public boolean isMutating() {
-        return true;
-    }
-
     public ReadOnlyPerson getPerson() {
         return toAdd;
     }
