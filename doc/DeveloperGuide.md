@@ -58,9 +58,12 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | new user | see usage instructions | refer to instructions when I forget how to use the App
 `* * *` | user | add a new person |
 `* * *` | user | delete a person | remove entries that I no longer need
+`* * *` | user | edit a person's details | keep entries up to date
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
+`*` | clumsy user | execute commands imprecisely | use the App without typing multiple times for one execution
+`*` | user with many social media apps | sync entries with other apps | use this App together with existing apps seamlessly
 
 
 ## Appendix B : Use Cases
