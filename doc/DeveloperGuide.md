@@ -64,12 +64,25 @@ Priority | As a ... | I want to ... | So that I can...
 `* *` | user | edit a person's address | update address if the person moves to new location
 `* *` | user | edit a person's phone number | update the phone number with the new one
 `* *` | user | add birth dates | wish people on their birthdays
+`* *` | user | undo my last action | correct the mistake I made with last command
+`* *` | user | add contacts from pre-existing addressbook | save time without entering the same contacts again
+`* *` | user | auto-format phone number | easily figure out the country code or phone number
+`* *` | user with many persons in the address book | see the search log | track the searches I made
+`* *` | user with many persons in the address book | search contact without names/phone/email | identify incomplete entries 
 `* *` | user with many persons in the address book | add contacts to favorites | see only contacts more important to me
 `* *` | user with many persons in the address book | list people by tags | locate a person easily
+`* *` | user with many persons in the address book | set password to the address book | keep my contacts safe from others
+`* *` | user with many persons in the address book | find a person by phone | locate details of a person without having to go through the entire list
+`* *` | user with many persons in the address book | make groups of contacts | group relevant contacts together
+`*` | user | add a picture of the person | make it easier for myself to identify the person
 `*` | user | add multiple phone numbers to a person | know multiple ways to contact a person
 `*` | user | enter the location for storage file | store my contacts anywhere I want
 `*` | user with many persons in the address book| add job title and department to a person | know the profession of each entry
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
+`*` | user with many persons in the address book | find persons by group | locate details of persons belonging to particular group
+`*` | user with many persons in the address book | see the number of searches performed on a person | see the people I search for the most
+`*` | user with many persons in the address book | add connections to a person | connect different people in the list
+`*` | user with many persons in the address book | see the number of connections made by person | see the people with most connections
 
 ## Appendix B : Use Cases
 
