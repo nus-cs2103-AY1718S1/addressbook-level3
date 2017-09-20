@@ -355,16 +355,17 @@ public class LogicTest {
 
         AddressBook expectedAB = helper.generateAddressBook(threePersons);
         expectedAB.removePerson(p2);
-
-
+        List<? extends ReadOnlyPerson> expectedList = expectedAB.getAllPersons().immutableListView();
+ 
+        
         helper.addToAddressBook(addressBook, threePersons);
         logic.setLastShownList(threePersons);
-
+        
         assertCommandBehavior("delete 2",
                                 String.format(DeleteCommand.MESSAGE_DELETE_PERSON_SUCCESS, p2),
                                 expectedAB,
-                                false,
-                                threePersons);
+                                true,
+                                expectedList);
     }
 
     @Test
@@ -548,7 +549,7 @@ public class LogicTest {
                 addressBook.addPerson(p);
             }
         }
-
+        
         /**
          * Creates a list of Persons based on the give Person objects.
          */
