@@ -86,6 +86,7 @@ public class Logic {
         command.setData(addressBook, lastShownList);
         CommandResult result = command.execute();
         storage.save(addressBook);
+        //this addressbook is NOT the one that the command applied to. Thus, saving it here seems like it shouldn't work
         return result;
     }
 

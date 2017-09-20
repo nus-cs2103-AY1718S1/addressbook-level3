@@ -23,6 +23,13 @@ public abstract class Command {
         this.setTargetIndex(targetIndex);
     }
 
+    /**
+     *
+     * @return whether the command modifies the data in the addressbook.
+     */
+    public boolean isMutating(){
+        return true;
+    }
     protected Command() {
     }
 
