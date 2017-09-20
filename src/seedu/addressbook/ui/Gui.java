@@ -42,7 +42,7 @@ public class Gui {
          * More info: http://docs.oracle.com/javase/8/docs/technotes/guides/lang/resources.html#res_name_context
          */
         loader.setLocation(Main.class.getResource("ui/mainwindow.fxml"));
-        
+
         Image icon  = new Image(Main.class.getResource("ui/appIcon.png").toExternalForm());
         stage.getIcons().add(icon);
         stage.setTitle(version);
