@@ -62,6 +62,7 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | list all persons | view all my contacts in the address book
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
+`*` | user | list persons by their tags | locate persons that have the same tag
 
 
 ## Appendix B : Use Cases
