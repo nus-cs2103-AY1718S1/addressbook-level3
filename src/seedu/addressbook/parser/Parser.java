@@ -81,6 +81,9 @@ public class Parser {
             case ExitCommand.COMMAND_WORD:
                 return new ExitCommand();
 
+            case SortCommand.COMMAND_WORD:
+                return prepareSort(arguments);
+
             case HelpCommand.COMMAND_WORD: // Fallthrough
             default:
                 return new HelpCommand();
@@ -171,6 +174,19 @@ public class Parser {
             return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
                     ViewCommand.MESSAGE_USAGE));
         }
+    }
+
+    /**
+     * Parses arguments in the context of the sort command.
+     *
+     * @param args full command args string
+     * @return the prepared command
+     */
+    private Command prepareSort(String args) {
+        if (args.equals(" name") || args.equals(" phone") || args.equals(" email"))
+            return new SortCommand(args);
+        else return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
+                    SortCommand.MESSAGE_USAGE));
     }
 
     /**
