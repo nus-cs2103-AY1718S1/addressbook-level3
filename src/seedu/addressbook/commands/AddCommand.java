@@ -57,6 +57,10 @@ public class AddCommand extends Command {
         return toAdd;
     }
 
+    public Person getPersonObject() {
+        return toAdd;
+    }
+
     @Override
     public CommandResult execute() {
         try {

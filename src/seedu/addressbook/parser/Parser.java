@@ -191,7 +191,7 @@ public class Parser {
      * Extracts the new person's tags from the add command's tag arguments string.
      * Merges duplicate tag strings.
      */
-    private static Set<String> getTagsFromArgs(String tagArguments) throws IllegalValueException {
+    public static Set<String> getTagsFromArgs(String tagArguments) throws IllegalValueException {
         // no tags
         if (tagArguments.isEmpty()) {
             return Collections.emptySet();

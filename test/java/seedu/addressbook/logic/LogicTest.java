@@ -18,7 +18,9 @@ import seedu.addressbook.parser.Parser;
 import java.util.*;
 
 import static junit.framework.TestCase.assertEquals;
+import static seedu.addressbook.commands.AddCommand.MESSAGE_SUCCESS;
 import static seedu.addressbook.common.Messages.*;
+import static seedu.addressbook.parser.Parser.getTagsFromArgs;
 
 
 public class LogicTest {
@@ -80,14 +82,12 @@ public class LogicTest {
 
         //Execute the command
         CommandResult r = logic.execute(inputCommand);
-
         //Confirm the result contains the right data
         assertEquals(expectedMessage, r.feedbackToUser);
         assertEquals(r.getRelevantPersons().isPresent(), isRelevantPersonsExpected);
         if(isRelevantPersonsExpected){
             assertEquals(lastShownList, r.getRelevantPersons().get());
         }
-
         //Confirm the state of data is as expected
         assertEquals(expectedAddressBook, addressBook);
         assertEquals(lastShownList, logic.getLastShownList());
@@ -160,7 +160,7 @@ public class LogicTest {
 
         // execute command and verify result
         assertCommandBehavior(helper.generateAddCommand(toBeAdded),
-                              String.format(AddCommand.MESSAGE_SUCCESS, toBeAdded),
+                              String.format(MESSAGE_SUCCESS, toBeAdded),
                               expectedAB,
                               false,
                               Collections.emptyList());
@@ -206,27 +206,43 @@ public class LogicTest {
     }
 
     @Test
-    public void execute_edit_listing() throws Exception {
+    public void execute_edit_successful() throws Exception {
         // prepare expectations
         TestDataHelper helper = new TestDataHelper();
-        AddressBook expectedAB = helper.generateAddressBook(false, true);
+        Person p1 = helper.generatePerson(1, false);
+        Person p2 = helper.generatePerson(2, true);
+        Person p3 = helper.generatePerson(3, true);
+
+        List<Person> threePersons = helper.generatePersonList(p1, p2, p3);
+
+        AddressBook expectedAB = helper.generateAddressBook(threePersons);
         List<ReadOnlyPerson> expectedList = expectedAB.getAllPersons().immutableListView();
 
         // prepare address book state
-        helper.addToAddressBook(addressBook, false, true);
+        helper.addToAddressBook(addressBook, threePersons);
 
         assertCommandBehavior("edit",
                 new ListCommand().getFeedbackForEditListingCommand(expectedList),
                 expectedAB,
                 true,
                 expectedList);
+
+        execute_edit_data(expectedAB, p1, expectedList);
     }
 
-    @Test
-    public void execute_view_invalidArgsFormat() throws Exception {
-        String expectedMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, ViewCommand.MESSAGE_USAGE);
-        assertCommandBehavior("view ", expectedMessage);
-        assertCommandBehavior("view arg not number", expectedMessage);
+    public void execute_edit_data(AddressBook expectedAB, Person toDelete, List<ReadOnlyPerson> oldList) throws Exception {
+        AddCommand personToAdd = new AddCommand("Le Quang Quan",
+                "86496586",false,
+                "quan_le@u.nus.edu", false,
+                "311, Clementi Ave 2, #02-25", false,
+                getTagsFromArgs(" t/owesMoney t/friends"));
+        expectedAB.removePerson(toDelete);
+        expectedAB.addPerson(personToAdd.getPersonObject());
+        assertCommandBehavior("edit 1 n/Le Quang Quan p/86496586 e/quan_le@u.nus.edu a/311, Clementi Ave 2, #02-25 t/owesMoney t/friends",
+                String.format(MESSAGE_SUCCESS,personToAdd.getPerson()),
+                expectedAB,
+                false,
+                oldList);
     }
 
     @Test
