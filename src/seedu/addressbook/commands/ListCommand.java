@@ -10,6 +10,11 @@ import java.util.List;
  */
 public class ListCommand extends Command {
 
+    @Override
+    public boolean isMutating() {
+        return false;
+    }
+
     public static final String COMMAND_WORD = "list";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ":\n" 

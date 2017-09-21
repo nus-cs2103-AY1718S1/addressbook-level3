@@ -10,6 +10,11 @@ import seedu.addressbook.data.person.ReadOnlyPerson;
  */
 public class ViewAllCommand extends Command {
 
+    @Override
+    public boolean isMutating() {
+        return false;
+    }
+
     public static final String COMMAND_WORD = "viewall";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ":\n" + "Shows all details of the person "

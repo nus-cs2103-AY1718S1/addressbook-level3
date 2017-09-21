@@ -3,8 +3,11 @@ package seedu.addressbook.ui;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import seedu.addressbook.Main;
+import seedu.addressbook.commands.EditCommand;
 import seedu.addressbook.commands.ExitCommand;
 import seedu.addressbook.logic.Logic;
 import seedu.addressbook.commands.CommandResult;
@@ -22,6 +25,7 @@ public class MainWindow {
 
     private Logic logic;
     private Stoppable mainApp;
+    private Main mainClass;
 
     public MainWindow(){
     }
@@ -43,12 +47,17 @@ public class MainWindow {
 
     @FXML
     void onCommand(ActionEvent event) {
+        String previousCommandText = "";
         try {
             String userCommandText = commandInput.getText();
+
             CommandResult result = logic.execute(userCommandText);
             if(isExitCommand(result)){
                 exitApp();
                 return;
+            }
+            if(isEditCommand(result)){
+                handleEditPerson();
             }
             displayResult(result);
             clearCommandInput();
@@ -58,6 +67,15 @@ public class MainWindow {
         }
     }
 
+    /**
+     * Called when the user clicks the edit button. Opens a dialog to edit
+     * details for the selected person.
+     */
+    @FXML
+    private void handleEditPerson() {
+        mainClass.showPersonEditDialog();
+    }
+
     private void exitApp() throws Exception {
         mainApp.stop();
     }
@@ -65,6 +83,11 @@ public class MainWindow {
     /** Returns true of the result given is the result of an exit command */
     private boolean isExitCommand(CommandResult result) {
         return result.feedbackToUser.equals(ExitCommand.MESSAGE_EXIT_ACKNOWEDGEMENT);
+    }
+
+    /** Returns true of the result given is the result of an exit command */
+    private boolean isEditCommand(CommandResult result) {
+        return result.feedbackToUser.equals(EditCommand.MESSAGE_SUCCESS);
     }
 
     /** Clears the command input box */

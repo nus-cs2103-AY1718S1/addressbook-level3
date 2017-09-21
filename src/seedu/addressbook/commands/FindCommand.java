@@ -10,6 +10,11 @@ import java.util.*;
  */
 public class FindCommand extends Command {
 
+    @Override
+    public boolean isMutating() {
+        return false;
+    }
+
     public static final String COMMAND_WORD = "find";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ":\n" + "Finds all persons whose names contain any of "
