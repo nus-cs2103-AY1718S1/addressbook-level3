@@ -33,32 +33,26 @@ public interface ReadOnlyPerson {
     }
 
     /**
+     * Returns a concatenated version of the printable strings of each object.
+     */
+    default String getPrintableString(Printable... printables) {
+        StringBuilder builder = new StringBuilder();
+        for (Printable printable : printables) {
+            builder.append(printable.getPrintableString() + " ");
+        }
+        return builder.toString();
+    }
+
+    /**
      * Formats the person as text, showing all contact details.
      */
     default String getAsTextShowAll() {
-        final StringBuilder builder = new StringBuilder();
-        final String detailIsPrivate = "(private) ";
-        builder.append(getName())
-                .append(" Phone: ");
-        if (getPhone().isPrivate()) {
-            builder.append(detailIsPrivate);
-        }
-        builder.append(getPhone())
-                .append(" Email: ");
-        if (getEmail().isPrivate()) {
-            builder.append(detailIsPrivate);
-        }
-        builder.append(getEmail())
-                .append(" Address: ");
-        if (getAddress().isPrivate()) {
-            builder.append(detailIsPrivate);
-        }
-        builder.append(getAddress())
-                .append(" Tags: ");
+        final StringBuilder tagsBuilder = new StringBuilder();
+        tagsBuilder.append("Tags: ");
         for (Tag tag : getTags()) {
-            builder.append(tag);
+            tagsBuilder.append(tag);
         }
-        return builder.toString();
+        return getPrintableString(getName(), getPhone(), getEmail(), getAddress()) + tagsBuilder.toString();
     }
 
     /**
@@ -66,17 +60,17 @@ public interface ReadOnlyPerson {
      */
     default String getAsTextHidePrivate() {
         final StringBuilder builder = new StringBuilder();
-        builder.append(getName());
+        builder.append(getPrintableString(getName()));
         if (!getPhone().isPrivate()) {
-            builder.append(" Phone: ").append(getPhone());
+            builder.append(getPrintableString(getPhone()));
         }
         if (!getEmail().isPrivate()) {
-            builder.append(" Email: ").append(getEmail());
+            builder.append(getPrintableString(getEmail()));
         }
         if (!getAddress().isPrivate()) {
-            builder.append(" Address: ").append(getAddress());
+            builder.append(getPrintableString(getAddress()));
         }
-        builder.append(" Tags: ");
+        builder.append("Tags: ");
         for (Tag tag : getTags()) {
             builder.append(tag);
         }
