@@ -59,6 +59,9 @@ public class Parser {
      * @return the command text based on the user input
      */
     public String parseCommandText(String userInput) {
+        if (userInput.equals("")){
+            return "";
+        }
         final Matcher matcher = BASIC_COMMAND_FORMAT.matcher(userInput.trim());
         if (!matcher.matches()) {
             return String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE);

@@ -100,22 +100,6 @@ public class Logic {
         return result;
     }
 
-    /**
-     * Compare 2 consecutive commands to ensure that the edit command series is adhered to
-     */
-    private boolean compareCommandWithPreviousCommand(String commandTextSorted, String previousCommandTextSorted){
-        if (!commandTextSorted.equals("editListing") && !commandTextSorted.equals("editData")
-                && !previousCommandTextSorted.equals("editListing")) {
-            return true;
-        } else if (commandTextSorted.equals("editListing") && !previousCommandTextSorted.equals("editData")) {
-            return true;
-        } else if (commandTextSorted.equals("editData") && previousCommandTextSorted.equals("editListing")) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     /** Updates the {@link #lastShownList} if the result contains a list of Persons. */
     private void recordResult(CommandResult result) {
         final Optional<List<? extends ReadOnlyPerson>> personList = result.getRelevantPersons();

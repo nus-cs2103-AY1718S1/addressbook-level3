@@ -59,6 +59,7 @@ public class MainWindow {
                 return;
             }
             if(!compareCommandWithPreviousCommand(userCommandText,previousCommandText)){
+                clearOutputConsole();
                 display("Wrong Sequence of commands");
                 return;
             }
