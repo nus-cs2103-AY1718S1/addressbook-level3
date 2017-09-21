@@ -65,6 +65,16 @@ public class MainWindow {
         displayResult(new HelpCommand().execute());
     }
 
+    @FXML
+    /** Exits the application */
+    public void exitApplication() {
+        try {
+            exitApp();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     private void exitApp() throws Exception {
         mainApp.stop();
     }
