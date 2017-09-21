@@ -20,7 +20,8 @@ public class EditCommand extends Command{
             + "The first command will just be " + COMMAND_WORD + " to list all the people in the database.\n\t"
             + "Contact details can be marked private by prepending 'p' to the prefix.\n\t"
             + "Parameters: n/NAME [p]p/PHONE [p]e/EMAIL [p]a/ADDRESS  [t/TAG]...\n\t"
-            + "Example:\n\t\t" + MESSAGE_USAGE_EXAMPLE;
+            + "Example:\n\t\t" + MESSAGE_USAGE_EXAMPLE + "\n\t"
+            + "To end the edit command prematurely:\n\t\t end edit";
     public static final String MESSAGE_SUCCESS = "Edit command selected";
 
     public EditCommand(){}
