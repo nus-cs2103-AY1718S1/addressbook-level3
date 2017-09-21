@@ -1,19 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox stylesheets="@/seedu/addressbook/ui/DarkTheme.css" alignment="center" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="seedu.addressbook.ui.MainWindow">
+<VBox alignment="center" stylesheets="@/seedu/addressbook/ui/DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seedu.addressbook.ui.MainWindow">
 
     <children>
+      <HBox prefHeight="26.0" prefWidth="330.0">
+         <children>
+            <ImageView fitHeight="45.0" fitWidth="45.0">
+               <image>
+                  <Image url="@addressbook.png" />
+               </image>
+            </ImageView>
+            <Label prefHeight="65.0" prefWidth="535.0" text="  AddressBook: Level 3">
+               <font>
+                  <Font name="Consolas" size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
 
-        <TextField fx:id="commandInput" onAction="#onCommand" VBox.vgrow="NEVER">
-        </TextField>
+                    <TextField fx:id="commandInput" onAction="#onCommand" VBox.vgrow="NEVER">
+         <font>
+            <Font name="Consolas" size="18.0" />
+         </font>
+      </TextField>
 
-        <TextArea fx:id="outputConsole" editable="false" wrapText="true" VBox.vgrow="ALWAYS">
-        </TextArea>
+                    <TextArea fx:id="outputConsole" editable="false" wrapText="true" VBox.vgrow="ALWAYS">
+         <font>
+            <Font name="Consolas" size="24.0" />
+         </font>
+      </TextArea>
 
     </children>
 
