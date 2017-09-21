@@ -87,11 +87,23 @@ public class Logic {
         CommandResult result = execute(command);
         recordResult(result);
         String currentCommand = new Parser().parseCommandText(userCommandText);
+
         if (currentCommand.equals(EDIT_DATA_COMMAND) && isDeleteOfEdit(result)){
             result = execute(new Parser().parseAddCommand(userCommandText));
         }
         previousCommandText = userCommandText;
+        if (isAddressBookEmpty(result)) {
+            previousCommandText = "";
+        }
         return result;
+    }
+
+    private boolean isAddressBookEmpty(CommandResult result) {
+        final Optional<List<? extends ReadOnlyPerson>> relevantPersons = result.getRelevantPersons();
+        if (!relevantPersons.isPresent()) {
+            return true;
+        }
+        return (relevantPersons.get().size() == 0);
     }
 
     private boolean isCurCommandInSequenceWithPrevCommand(String commandText, String prevCommandText){
