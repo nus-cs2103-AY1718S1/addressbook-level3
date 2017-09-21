@@ -94,6 +94,9 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. The system should be usable by a novice who is not used to CLI applications.
+6. The project is expected to be completed for a preliminary release by early November.
+7. The project should respond within 3 seconds.
 
 ## Appendix D : Glossary
 
