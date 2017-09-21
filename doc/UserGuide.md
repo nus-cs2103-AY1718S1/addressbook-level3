@@ -34,6 +34,32 @@ Examples:
 * `add John Doe p/98765432 e/johnd@gmail.com a/John street, block 123, #01-01`
 * `add Betsy Crowe pp/1234567 e/betsycrowe@gmail.com pa/Newgate Prison t/criminal t/friend`
 
+## Editing a person: `edit`
+Edits a person to the address book. This is a series of 2 consecutive commands<br>
+Format:<br>
+`edit`<br>
+`edit INDEX n/NAME [p]p/PHONE_NUMBER [p]e/EMAIL [p]a/ADDRESS [t/TAG]...` 
+ 
+> Words in `UPPER_CASE` are the parameters, items in `SQUARE_BRACKETS` are optional, 
+> items with `...` after them can have multiple instances. Order of parameters are fixed. 
+> 
+> Put a `p` before the phone / email / address prefixes to mark it as `private`. `private` details can only
+> be seen using the `viewall` command.
+> 
+> Persons can have any number of tags (including 0)
+
+Examples:
+* `edit`
+* `edit n/John Doe p/98765432 e/johnd@gmail.com a/John street, block 123, #01-01`
+* `edit`
+* `edit n/Betsy Crowe pp/1234567 e/betsycrowe@gmail.com pa/Newgate Prison t/criminal t/friend`
+
+To end the edit command series prematurely<br>
+Format: `end edit`
+
+> The `end edit` command can only be recognised after calling the `edit` command first.<br>
+> It will stop the system from reading the second edit command.
+
 ## Listing all persons : `list`
 Shows a list of all persons in the address book.<br>
 Format: `list`
