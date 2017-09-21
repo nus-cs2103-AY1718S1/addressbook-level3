@@ -46,7 +46,7 @@ public class ParserTest {
         final String input = "help";
         parseAndAssertCommandType(input, HelpCommand.class);
     }
-    
+
     @Test
     public void clearCommand_parsedCorrectly() {
         final String input = "clear";
@@ -73,6 +73,13 @@ public class ParserTest {
     public void deleteCommand_noArgs() {
         final String[] inputs = { "delete", "delete " };
         final String resultMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteCommand.MESSAGE_USAGE);
+        parseAndAssertIncorrectWithMessage(resultMessage, inputs);
+    }
+
+    @Test
+    public void sortCommand_noArgs() {
+        final String[] inputs = { "sort", "sort " };
+        final String resultMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, SortCommand.MESSAGE_USAGE);
         parseAndAssertIncorrectWithMessage(resultMessage, inputs);
     }
 

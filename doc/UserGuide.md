@@ -34,6 +34,12 @@ Examples:
 * `add John Doe p/98765432 e/johnd@gmail.com a/John street, block 123, #01-01`
 * `add Betsy Crowe pp/1234567 e/betsycrowe@gmail.com pa/Newgate Prison t/criminal t/friend`
 
+### Sorting by a chosen criterion: `sort`
+Sorts all persons by a chosen criterion, if such criterion is private for some users, they will be put above and sorted by name <br>
+Format: `sort CRITERION`
+
+> `UPPER_CASE` can be "name", "phone" or "email"
+
 ## Listing all persons : `list`
 Shows a list of all persons in the address book.<br>
 Format: `list`
