@@ -13,6 +13,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
+import static seedu.addressbook.commands.EditCommand.*;
 import static seedu.addressbook.common.Messages.MESSANGE_WRONG_SEQUENCE;
 
 /**
@@ -74,25 +75,19 @@ public class Logic {
      * @throws Exception if there was any problem during command execution.
      */
     public CommandResult execute(String userCommandText) throws Exception {
-        Command command = new Parser().parseCommand(userCommandText);
-
         if (isExitEditCommand(userCommandText,previousCommandText)){
-            display("End Edit Command!");
-            clearCommandInput();
             previousCommandText = "";
-            return;
+            return new CommandResult(MESSAGE_BREAK_EDIT_COMMAND);
         }
         if(!isCurCommandInSequenceWithPrevCommand(userCommandText,previousCommandText)){
-            display(MESSANGE_WRONG_SEQUENCE);
-            clearCommandInput();
             previousCommandText = "";
-            return;
+            return new CommandResult(MESSANGE_WRONG_SEQUENCE);
         }
-
+        Command command = new Parser().parseCommand(userCommandText);
         CommandResult result = execute(command);
         recordResult(result);
         String currentCommand = new Parser().parseCommandText(userCommandText);
-        if (currentCommand.equals("editData") && isDeleteOfEdit(result)){
+        if (currentCommand.equals(EDIT_DATA_COMMAND) && isDeleteOfEdit(result)){
             result = execute(new Parser().parseAddCommand(userCommandText));
         }
         previousCommandText = userCommandText;
@@ -102,13 +97,13 @@ public class Logic {
     private boolean isCurCommandInSequenceWithPrevCommand(String commandText, String prevCommandText){
         String commandTextSorted = new Parser().parseCommandText(commandText);
         String prevCommandTextSorted = new Parser().parseCommandText(prevCommandText);
-        if (!commandTextSorted.equals("editListing") && !commandTextSorted.equals("editData")
-                && !prevCommandTextSorted.equals("editListing")) {
+        if (!commandTextSorted.equals(EDIT_LISTING_COMMAND) && !commandTextSorted.equals(EDIT_DATA_COMMAND)
+                && !prevCommandTextSorted.equals(EDIT_LISTING_COMMAND)) {
             previousCommandText = "";
             return true;
-        } else if (commandTextSorted.equals("editListing") && !prevCommandTextSorted.equals("editData")) {
+        } else if (commandTextSorted.equals(EDIT_LISTING_COMMAND) && !prevCommandTextSorted.equals(EDIT_DATA_COMMAND)) {
             return true;
-        } else if (commandTextSorted.equals("editData") && prevCommandTextSorted.equals("editListing")) {
+        } else if (commandTextSorted.equals(EDIT_DATA_COMMAND) && prevCommandTextSorted.equals(EDIT_LISTING_COMMAND)) {
             previousCommandText = "";
             return true;
         } else {
@@ -119,7 +114,7 @@ public class Logic {
     private boolean isExitEditCommand(String commandText, String prevCommandText) {
         String commandTextSorted = new Parser().parseCommandText(commandText);
         String prevCommandTextSorted = new Parser().parseCommandText(prevCommandText);
-        return commandTextSorted.equals("end edit") && prevCommandTextSorted.equals("editListing");
+        return commandTextSorted.equals(COMMAND_BREAK) && prevCommandTextSorted.equals(EDIT_LISTING_COMMAND);
     }
 
     private boolean isDeleteOfEdit(CommandResult result) {
