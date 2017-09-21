@@ -60,6 +60,8 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | delete a person | remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
+`* *` | user | undo the previous command | minimizing using wrong command by accident
+`* *` | user | clear the temporary storage for undoing the commands upon exit | minimize the memory used
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
 
 
@@ -87,6 +89,18 @@ Use case ends.
 
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
+
+#### Use case: Rename a tag
+
+**MSS**
+
+1. User requests to list persons
+2. AddressBook shows a list of persons
+3. User requests to rename a tag on an existing person in AddressBook
+4. AddressBook asks for confirmation of renaming the tag on this person
+5. User gives consent on 4
+6. AddressBook changes the old tag to the new tag
+Use case ends.
 
 ## Appendix C : Non Functional Requirements
 
