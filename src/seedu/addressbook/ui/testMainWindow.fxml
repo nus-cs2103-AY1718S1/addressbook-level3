@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seedu.addressbook.ui.MainWindow">
+   <children>
+      <TextField fx:id="commandInput" layoutX="27.0" layoutY="33.0" onAction="#onCommand" prefHeight="27.0" prefWidth="767.0" promptText="Enter a Command" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="50.0" />
+      <TextArea fx:id="outputConsole" layoutX="31.0" layoutY="79.0" prefHeight="421.0" prefWidth="745.0" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="100.0" />
+      <MenuBar prefHeight="29.0" prefWidth="801.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <ButtonBar layoutX="301.0" layoutY="349.0" prefHeight="40.0" prefWidth="279.0" />
+      <Button layoutX="664.0" layoutY="540.0" mnemonicParsing="false" onAction="#onCommand" prefHeight="27.0" prefWidth="106.0" text="Execute" AnchorPane.rightAnchor="31.0" />
+   </children>
+</AnchorPane>
