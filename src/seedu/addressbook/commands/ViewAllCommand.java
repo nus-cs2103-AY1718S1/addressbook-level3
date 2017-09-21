@@ -1,6 +1,7 @@
 package seedu.addressbook.commands;
 
 import seedu.addressbook.common.Messages;
+import seedu.addressbook.data.person.Printable;
 import seedu.addressbook.data.person.ReadOnlyPerson;
 
 
@@ -24,7 +25,16 @@ public class ViewAllCommand extends Command {
         super(targetVisibleIndex);
     }
 
-
+    /**
+     * Returns a concatenated version of the printable strings of each object.
+     */
+    String getPrintableString(Printable... printables) {
+        String output = "";
+        for(Printable E: printables) {
+            output += E.getPrintableString() + " ";
+        }
+        return output;
+    }
     @Override
     public CommandResult execute() {
         try {
@@ -32,7 +42,8 @@ public class ViewAllCommand extends Command {
             if (!addressBook.containsPerson(target)) {
                 return new CommandResult(Messages.MESSAGE_PERSON_NOT_IN_ADDRESSBOOK);
             }
-            return new CommandResult(String.format(MESSAGE_VIEW_PERSON_DETAILS, target.getAsTextShowAll()));
+            return new CommandResult(String.format(MESSAGE_VIEW_PERSON_DETAILS, getPrintableString(target.getName(),
+                    target.getPhone(), target.getEmail(), target.getAddress())));
         } catch (IndexOutOfBoundsException ie) {
             return new CommandResult(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         }
