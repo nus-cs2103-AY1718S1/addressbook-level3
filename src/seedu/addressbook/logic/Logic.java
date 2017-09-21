@@ -74,14 +74,17 @@ public class Logic {
         Command command = new Parser().parseCommand(userCommandText);
         CommandResult result = execute(command);
         recordResult(result);
-        if (new Parser().parseCommandText(userCommandText).equals("editData") && isDeleteOfEdit(result)){
+        String currentCommand = new Parser().parseCommandText(userCommandText);
+        if (currentCommand.equals("editData") && isDeleteOfEdit(result)){
             result = execute(new Parser().parseAddCommand(userCommandText));
         }
         return result;
     }
 
     private boolean isDeleteOfEdit(CommandResult result) {
-        return result.equals(DeleteCommand.MESSAGE_DELETE_PERSON_SUCCESS_EDIT_COMMAND);
+        String resultString = result.feedbackToUser;
+        String compareMessage = DeleteCommand.MESSAGE_DELETE_PERSON_SUCCESS_EDIT_COMMAND;
+        return resultString.equals(compareMessage);
     }
 
     /**

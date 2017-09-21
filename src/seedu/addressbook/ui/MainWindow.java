@@ -26,8 +26,7 @@ public class MainWindow {
 
     private Logic logic;
     private Stoppable mainApp;
-    private Main mainClass;
-    private String previousCommandText;
+    private String previousCommandText = "";
 
     public MainWindow(){
     }
@@ -49,18 +48,16 @@ public class MainWindow {
 
     @FXML
     void onCommand(ActionEvent event) {
-        previousCommandText = "";
         try {
             String userCommandText = commandInput.getText();
-
-            CommandResult result = logic.execute(userCommandText);
-            if(isExitCommand(result)){
-                exitApp();
-                return;
-            }
             if(!compareCommandWithPreviousCommand(userCommandText,previousCommandText)){
                 clearOutputConsole();
                 display("Wrong Sequence of commands");
+                return;
+            }
+            CommandResult result = logic.execute(userCommandText);
+            if(isExitCommand(result)){
+                exitApp();
                 return;
             }
             displayResult(result);

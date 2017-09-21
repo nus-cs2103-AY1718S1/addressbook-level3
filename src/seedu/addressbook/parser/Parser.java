@@ -324,6 +324,6 @@ public class Parser {
 //        String isAddressPrivate = matcher.group("isAddressPrivate");
 //
 //        String tags = matcher.group("tagArguments");
-        return new DeleteCommand(Integer.parseInt(matcher.group("index")));
+        return new DeleteCommand(Integer.parseInt(matcher.group("index")),true);
     }
 }
