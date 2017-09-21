@@ -4,6 +4,8 @@ import seedu.addressbook.data.person.ReadOnlyPerson;
 
 import java.util.List;
 
+import static seedu.addressbook.common.Messages.MESSAGE_EMPTY_ADDRESS_BOOK;
+
 
 /**
  * Lists all persons in the address book to the user.
@@ -41,7 +43,7 @@ public class ListCommand extends Command {
     public String getFeedbackForEditListingCommand(List<ReadOnlyPerson> allPersons) {
         int numPersons = allPersons.size();
         if (numPersons == 0){
-            return "Address Book is empty now. Add new persons before editing.";
+            return MESSAGE_EMPTY_ADDRESS_BOOK;
         }
         return "There are currently " + numPersons + ((numPersons>1) ? " persons" : " person")
                 +" in the Address Book. Select an index to edit";

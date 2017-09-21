@@ -228,7 +228,11 @@ public class LogicTest {
 
     @Test
     public void execute_edit_empty_address_book() throws Exception {
-
+        assertCommandBehavior("edit",
+                MESSAGE_EMPTY_ADDRESS_BOOK,
+                AddressBook.empty(),
+                true,
+                Collections.emptyList());
     }
 
     @Test

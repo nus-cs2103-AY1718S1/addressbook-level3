@@ -14,4 +14,5 @@ public class Messages {
     public static final String MESSAGE_WELCOME = "Welcome to your Address Book!";
     public static final String MESSAGE_USING_STORAGE_FILE = "Using storage file : %1$s";
     public static final String MESSANGE_WRONG_SEQUENCE = "Wrong Sequence of commands!";
+    public static final String MESSAGE_EMPTY_ADDRESS_BOOK = "Address Book is empty now. Add new persons before editing.";
 }
