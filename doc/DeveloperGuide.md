@@ -91,9 +91,12 @@ Use case ends.
 ## Appendix C : Non Functional Requirements
 
 1. Should work on any [mainstream OS](#mainstream-os) as long as it has Java 8 or higher installed.
-2. Should be able to hold up to 1000 persons.
+2. Should be able to hold up to 1000 persons. [Structure]
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Response time should not exceed 10s [Efficiency] 
+6. Should not be accessible by public .Files should be encrypted [Security]
+7. Should be easy to use especially for novice
 
 ## Appendix D : Glossary
 
