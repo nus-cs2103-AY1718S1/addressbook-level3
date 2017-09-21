@@ -116,7 +116,8 @@ public class Parser {
                 return prepareDelete(arguments);
 
             case EditCommand.COMMAND_WORD:
-                return processEdit(arguments);
+//                return processEdit(arguments);
+                return new EditCommand();
 
             case ClearCommand.COMMAND_WORD:
                 return new ClearCommand();

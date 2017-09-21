@@ -21,7 +21,9 @@ public class EditCommand extends Command{
             + "Contact details can be marked private by prepending 'p' to the prefix.\n\t"
             + "Parameters: n/NAME [p]p/PHONE [p]e/EMAIL [p]a/ADDRESS  [t/TAG]...\n\t"
             + "Example:\n\t\t" + MESSAGE_USAGE_EXAMPLE;
-    public static final String MESSAGE_SUCCESS = "Selected person is edited: %1$s";
+    public static final String MESSAGE_SUCCESS = "Edit command selected";
+
+    public EditCommand(){}
 
     /**
      * Constructor to delete a person based on index and add a new person in replacement.
@@ -45,7 +47,7 @@ public class EditCommand extends Command{
     @Override
     public CommandResult execute() {
 //        EditCommand personIndex = new EditCommand(1);
-        return new CommandResult(String.format(MESSAGE_SUCCESS, "abc"));
+        return new CommandResult(MESSAGE_SUCCESS);
     }
 
     @Override
