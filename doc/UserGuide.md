@@ -55,9 +55,9 @@ Examples:
 * `edit n/Betsy Crowe pp/1234567 e/betsycrowe@gmail.com pa/Newgate Prison t/criminal t/friend`
 
 To end the edit command series prematurely<br>
-Format: `end edit`
+Format: `break`
 
-> The `end edit` command can only be recognised after calling the `edit` command first.<br>
+> The `break` command can only be recognised after calling the `edit` command first.<br>
 > It will stop the system from reading the second edit command.
 
 ## Listing all persons : `list`

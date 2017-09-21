@@ -9,7 +9,6 @@ import seedu.addressbook.commands.ExitCommand;
 import seedu.addressbook.logic.Logic;
 import seedu.addressbook.commands.CommandResult;
 import seedu.addressbook.data.person.ReadOnlyPerson;
-import seedu.addressbook.parser.Parser;
 
 import java.util.List;
 import java.util.Optional;
@@ -23,7 +22,6 @@ public class MainWindow {
 
     private Logic logic;
     private Stoppable mainApp;
-    private String previousCommandText = "";
 
     public MainWindow(){
     }
@@ -47,19 +45,6 @@ public class MainWindow {
     void onCommand(ActionEvent event) {
         try {
             String userCommandText = commandInput.getText();
-            clearOutputConsole();
-            if (isExitEditCommand(userCommandText,previousCommandText)){
-                display("End Edit Command!");
-                clearCommandInput();
-                previousCommandText = "";
-                return;
-            }
-            if(!isCurCommandInSequenceWithPrevCommand(userCommandText,previousCommandText)){
-                display(MESSANGE_WRONG_SEQUENCE);
-                clearCommandInput();
-                previousCommandText = "";
-                return;
-            }
             CommandResult result = logic.execute(userCommandText);
             if(isExitCommand(result)){
                 exitApp();
@@ -67,34 +52,10 @@ public class MainWindow {
             }
             displayResult(result);
             clearCommandInput();
-            previousCommandText = userCommandText;
         } catch (Exception e) {
             display(e.getMessage());
             throw new RuntimeException(e);
         }
-    }
-
-    private boolean isCurCommandInSequenceWithPrevCommand(String commandText, String prevCommandText){
-        String commandTextSorted = new Parser().parseCommandText(commandText);
-        String prevCommandTextSorted = new Parser().parseCommandText(prevCommandText);
-        if (!commandTextSorted.equals("editListing") && !commandTextSorted.equals("editData")
-                && !prevCommandTextSorted.equals("editListing")) {
-            previousCommandText = "";
-            return true;
-        } else if (commandTextSorted.equals("editListing") && !prevCommandTextSorted.equals("editData")) {
-            return true;
-        } else if (commandTextSorted.equals("editData") && prevCommandTextSorted.equals("editListing")) {
-            previousCommandText = "";
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    private boolean isExitEditCommand(String commandText, String prevCommandText) {
-        String commandTextSorted = new Parser().parseCommandText(commandText);
-        String prevCommandTextSorted = new Parser().parseCommandText(prevCommandText);
-        return commandTextSorted.equals("end edit") && prevCommandTextSorted.equals("editListing");
     }
 
     private void exitApp() throws Exception {

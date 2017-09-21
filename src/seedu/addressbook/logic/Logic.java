@@ -13,6 +13,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
+import static seedu.addressbook.common.Messages.MESSANGE_WRONG_SEQUENCE;
+
 /**
  * Represents the main Logic of the AddressBook.
  */
@@ -73,13 +75,51 @@ public class Logic {
      */
     public CommandResult execute(String userCommandText) throws Exception {
         Command command = new Parser().parseCommand(userCommandText);
+
+        if (isExitEditCommand(userCommandText,previousCommandText)){
+            display("End Edit Command!");
+            clearCommandInput();
+            previousCommandText = "";
+            return;
+        }
+        if(!isCurCommandInSequenceWithPrevCommand(userCommandText,previousCommandText)){
+            display(MESSANGE_WRONG_SEQUENCE);
+            clearCommandInput();
+            previousCommandText = "";
+            return;
+        }
+
         CommandResult result = execute(command);
         recordResult(result);
         String currentCommand = new Parser().parseCommandText(userCommandText);
         if (currentCommand.equals("editData") && isDeleteOfEdit(result)){
             result = execute(new Parser().parseAddCommand(userCommandText));
         }
+        previousCommandText = userCommandText;
         return result;
+    }
+
+    private boolean isCurCommandInSequenceWithPrevCommand(String commandText, String prevCommandText){
+        String commandTextSorted = new Parser().parseCommandText(commandText);
+        String prevCommandTextSorted = new Parser().parseCommandText(prevCommandText);
+        if (!commandTextSorted.equals("editListing") && !commandTextSorted.equals("editData")
+                && !prevCommandTextSorted.equals("editListing")) {
+            previousCommandText = "";
+            return true;
+        } else if (commandTextSorted.equals("editListing") && !prevCommandTextSorted.equals("editData")) {
+            return true;
+        } else if (commandTextSorted.equals("editData") && prevCommandTextSorted.equals("editListing")) {
+            previousCommandText = "";
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private boolean isExitEditCommand(String commandText, String prevCommandText) {
+        String commandTextSorted = new Parser().parseCommandText(commandText);
+        String prevCommandTextSorted = new Parser().parseCommandText(prevCommandText);
+        return commandTextSorted.equals("end edit") && prevCommandTextSorted.equals("editListing");
     }
 
     private boolean isDeleteOfEdit(CommandResult result) {

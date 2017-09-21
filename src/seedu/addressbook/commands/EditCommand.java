@@ -21,7 +21,7 @@ public class EditCommand extends Command{
             + "Contact details can be marked private by prepending 'p' to the prefix.\n\t"
             + "Parameters: n/NAME [p]p/PHONE [p]e/EMAIL [p]a/ADDRESS  [t/TAG]...\n\t"
             + "Example:\n\t\t" + MESSAGE_USAGE_EXAMPLE + "\n\t"
-            + "To end the edit command prematurely:\n\t\t end edit";
+            + "To end the edit command prematurely:\n\t\t break";
     public static final String MESSAGE_SUCCESS = "Edit command selected";
 
     /**
