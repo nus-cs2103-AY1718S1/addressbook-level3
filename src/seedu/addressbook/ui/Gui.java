@@ -5,6 +5,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import seedu.addressbook.logic.Logic;
 import seedu.addressbook.Main;
+import javafx.scene.image.Image;
 
 import java.io.File;
 import java.io.IOException;
@@ -44,6 +45,7 @@ public class Gui {
 
         stage.setTitle(version);
         stage.setScene(new Scene(loader.load(), INITIAL_WINDOW_WIDTH, INITIAL_WINDOW_HEIGHT));
+        stage.getIcons().add(new Image("file:images/addressbook-icon.png"));
         stage.show();
         MainWindow mainWindow = loader.getController();
         mainWindow.setLogic(logic);
