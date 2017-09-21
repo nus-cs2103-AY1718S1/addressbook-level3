@@ -47,14 +47,16 @@ public class MainWindow {
     void onCommand(ActionEvent event) {
         try {
             String userCommandText = commandInput.getText();
+            clearOutputConsole();
             if (isExitEditCommand(userCommandText,previousCommandText)){
                 display("Exit Edit Command!");
+                clearCommandInput();
                 previousCommandText = "";
                 return;
             }
             if(!isCurCommandInSequenceWithPrevCommand(userCommandText,previousCommandText)){
-                clearOutputConsole();
                 display("Wrong Sequence of commands!");
+                clearCommandInput();
                 previousCommandText = "";
                 return;
             }
@@ -116,7 +118,6 @@ public class MainWindow {
 
     /** Displays the result of a command execution to the user. */
     public void displayResult(CommandResult result) {
-        clearOutputConsole();
         final Optional<List<? extends ReadOnlyPerson>> resultPersons = result.getRelevantPersons();
         if(resultPersons.isPresent()) {
             display(resultPersons.get());
