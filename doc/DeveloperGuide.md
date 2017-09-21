@@ -88,6 +88,27 @@ Use case ends.
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
 
+#### Use case: Find person
+
+**MSS**
+
+1. User requests to find persons with keywords
+2. AddressBook shows a list of persons matching keywords supplied<br>
+Use case ends.
+
+**Extensions**
+
+2a. No persons found with keywords
+
+> 2a1. Display empty list
+> Use case ends
+
+2b. User performs delete command
+
+> 2a1. Perform delete command
+> Use case ends
+
+
 ## Appendix C : Non Functional Requirements
 
 1. Should work on any [mainstream OS](#mainstream-os) as long as it has Java 8 or higher installed.
