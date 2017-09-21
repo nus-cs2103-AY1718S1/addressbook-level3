@@ -25,6 +25,17 @@ public class Parser {
                     + " (?<isEmailPrivate>p?)e/(?<email>[^/]+)"
                     + " (?<isAddressPrivate>p?)a/(?<address>[^/]+)"
                     + "(?<tagArguments>(?: t/[^/]+)*)"); // variable number of tags
+    public static final Pattern EDIT_DATA_ARGS_FORMAT = // '/' forward slashes are reserved for delimiter prefixes
+            Pattern.compile("(?<index>[^/]+)"
+                    + " n/(?<name>[^/]+)"
+                    + " (?<isPhonePrivate>p?)p/(?<phone>[^/]+)"
+                    + " (?<isEmailPrivate>p?)e/(?<email>[^/]+)"
+                    + " (?<isAddressPrivate>p?)a/(?<address>[^/]+)"
+                    + "(?<tagArguments>(?: t/[^/]+)*)"); // variable number of tags
+    public static final Pattern EDIT_ADD_ARGS_FORMAT =
+            Pattern.compile("(?<index>[^/]+)"
+                    + " n/(?<arguments>.*)");
+    private static final String ARGUMENTS_ARE_EMPTY = "";
 
 
     /**
@@ -40,6 +51,47 @@ public class Parser {
      * Used for initial separation of command word and args.
      */
     public static final Pattern BASIC_COMMAND_FORMAT = Pattern.compile("(?<commandWord>\\S+)(?<arguments>.*)");
+
+    /**
+     * Parses user input into command for execution.
+     *
+     * @param userInput full user input string
+     * @return the command text based on the user input
+     */
+    public String parseCommandText(String userInput) {
+        final Matcher matcher = BASIC_COMMAND_FORMAT.matcher(userInput.trim());
+        if (!matcher.matches()) {
+            return String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE);
+        }
+        String commandText = matcher.group("commandWord");
+        String arguments = matcher.group("arguments");
+        if (!commandText.equals(EditCommand.COMMAND_WORD)){
+            return commandText;
+        }else {
+            return commandText + ((arguments.equals("")) ? "Listing" : "Data");
+        }
+    }
+
+    /**
+     * Parses user input into an add command for edit command execution.
+     *
+     * @param userCommandText full user input string
+     * @return the add command based on the user input for the edit command processing
+     */
+    public Command parseAddCommand(String userCommandText) {
+        final Matcher matcher = BASIC_COMMAND_FORMAT.matcher(userCommandText.trim());
+        if (!matcher.matches()) {
+            return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE));
+        }
+        final String editData = matcher.group("arguments");
+        final Matcher matcherEditAdd = EDIT_ADD_ARGS_FORMAT.matcher(editData.trim());
+        if (!matcherEditAdd.matches()) {
+            return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE));
+        }
+        final String addArguments = matcherEditAdd.group("arguments");
+        return prepareAdd(addArguments);
+    }
+
 
     /**
      * Parses user input into command for execution.
@@ -62,6 +114,9 @@ public class Parser {
 
             case DeleteCommand.COMMAND_WORD:
                 return prepareDelete(arguments);
+
+            case EditCommand.COMMAND_WORD:
+                return processEdit(arguments);
 
             case ClearCommand.COMMAND_WORD:
                 return new ClearCommand();
@@ -226,5 +281,46 @@ public class Parser {
         return new FindCommand(keywordSet);
     }
 
+    /**
+     * Processes the edit command from listing to editing the person.
+     *
+     * @param arguments full command args string
+     * @return ListCommand() if it is the first edit request, and the preparedEdit command if it is the second
+     */
+    private Command processEdit(String arguments) {
+        if (arguments.equals(ARGUMENTS_ARE_EMPTY)) {
+            return new ListCommand();
+        } else {
+            return prepareEdit(arguments);
+        }
+    }
 
+    /**
+     * Parses arguments in the context of the edit person command.
+     *
+     * @param arguments full command args string
+     * @return the prepared command
+     */
+    private Command prepareEdit(String arguments){
+        final Matcher matcher = EDIT_DATA_ARGS_FORMAT.matcher(arguments.trim());
+        // Validate arg string format
+        if (!matcher.matches()) {
+            return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE));
+        }
+        String index = matcher.group("index");
+
+        String name = matcher.group("name");
+
+        String phone = matcher.group("phone");
+        String isPhonePrivate = matcher.group("isPhonePrivate");
+
+        String email = matcher.group("email");
+        String isEmailPrivate = matcher.group("isEmailPrivate");
+
+        String address = matcher.group("address");
+        String isAddressPrivate = matcher.group("isAddressPrivate");
+
+        String tags = matcher.group("tagArguments");
+        return new DeleteCommand(Integer.parseInt(matcher.group("index")));
+    }
 }
