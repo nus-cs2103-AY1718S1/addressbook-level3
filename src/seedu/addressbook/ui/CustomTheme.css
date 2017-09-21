@@ -1,0 +1,17 @@
+
+
+.text-field {
+    -fx-font-size: 13pt;
+    -fx-font-family: "Verdana";
+    -fx-font-weight: bold;
+    -fx-text-fill: AQUAMARINE;
+    -fx-control-inner-background: derive(#1d1d1d,20%);
+}
+
+.text-area {
+    -fx-background-color: CORAL;
+    -fx-control-inner-background: BLACK;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-font-size: 10pt;
+    -fx-padding: 5 5 5 5;
+}
