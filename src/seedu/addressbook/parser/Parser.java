@@ -321,20 +321,6 @@ public class Parser {
             for (String tagName : tags) {
                 tagSet.add(new Tag(tagName));
             }
-//        String index = matcher.group("index");
-//
-//        String name = matcher.group("name");
-//
-//        String phone = matcher.group("phone");
-//        String isPhonePrivate = matcher.group("isPhonePrivate");
-//
-//        String email = matcher.group("email");
-//        String isEmailPrivate = matcher.group("isEmailPrivate");
-//
-//        String address = matcher.group("address");
-//        String isAddressPrivate = matcher.group("isAddressPrivate");
-//
-//
             return new DeleteCommand(Integer.parseInt(matcher.group("index")), true);
         } catch (Exception e){
             return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE));
