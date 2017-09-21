@@ -67,6 +67,18 @@ Priority | As a ... | I want to ... | So that I can...
 
 (For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
 
+#### Use case: Rename tag
+
+**MSS**
+1. User enters rename tag command.
+2. User renames tag 'friends' to 'buddies'.
+3. All persons who were tagged 'friends' tag will be tagged 'buddies' instead.
+Use case ends.
+
+**Extensions**
+2a. No person has 'friends' tag.
+Use case ends.
+
 #### Use case: Delete person
 
 **MSS**
