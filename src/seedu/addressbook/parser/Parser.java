@@ -62,6 +62,9 @@ public class Parser {
         if (userInput.equals("")){
             return "";
         }
+        if (userInput.equals("end edit")){
+            return userInput;
+        }
         final Matcher matcher = BASIC_COMMAND_FORMAT.matcher(userInput.trim());
         if (!matcher.matches()) {
             return String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE);

@@ -3,11 +3,8 @@ package seedu.addressbook.ui;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import seedu.addressbook.Main;
-import seedu.addressbook.commands.EditCommand;
 import seedu.addressbook.commands.ExitCommand;
 import seedu.addressbook.logic.Logic;
 import seedu.addressbook.commands.CommandResult;
@@ -50,9 +47,15 @@ public class MainWindow {
     void onCommand(ActionEvent event) {
         try {
             String userCommandText = commandInput.getText();
-            if(!compareCommandWithPreviousCommand(userCommandText,previousCommandText)){
+            if(!isCurCommandInSequenceWithPrevCommand(userCommandText,previousCommandText)){
                 clearOutputConsole();
-                display("Wrong Sequence of commands");
+                display("Wrong Sequence of commands!");
+                previousCommandText = "";
+                return;
+            }
+            if (isExitEditCommand(userCommandText,previousCommandText)){
+                display("Exit Edit Command!");
+                previousCommandText = "";
                 return;
             }
             CommandResult result = logic.execute(userCommandText);
@@ -69,7 +72,7 @@ public class MainWindow {
         }
     }
 
-    private boolean compareCommandWithPreviousCommand(String commandText, String prevCommandText){
+    private boolean isCurCommandInSequenceWithPrevCommand(String commandText, String prevCommandText){
         String commandTextSorted = new Parser().parseCommandText(commandText);
         String prevCommandTextSorted = new Parser().parseCommandText(prevCommandText);
         if (!commandTextSorted.equals("editListing") && !commandTextSorted.equals("editData")
@@ -84,6 +87,12 @@ public class MainWindow {
         } else {
             return false;
         }
+    }
+
+    private boolean isExitEditCommand(String commandText, String prevCommandText) {
+        String commandTextSorted = new Parser().parseCommandText(commandText);
+        String prevCommandTextSorted = new Parser().parseCommandText(prevCommandText);
+        return commandTextSorted.equals("end edit") && prevCommandTextSorted.equals("editListing");
     }
 
     private void exitApp() throws Exception {
