@@ -12,6 +12,7 @@ import java.util.Set;
  * Adds a person to the address book.
  */
 public class AddCommand extends Command {
+    mutatesData = true;
 
     public static final String COMMAND_WORD = "add";
 
