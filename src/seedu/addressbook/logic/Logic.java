@@ -2,6 +2,8 @@ package seedu.addressbook.logic;
 
 import seedu.addressbook.commands.Command;
 import seedu.addressbook.commands.CommandResult;
+import seedu.addressbook.commands.DeleteCommand;
+import seedu.addressbook.commands.EditCommand;
 import seedu.addressbook.data.AddressBook;
 import seedu.addressbook.data.person.ReadOnlyPerson;
 import seedu.addressbook.parser.Parser;
@@ -72,7 +74,14 @@ public class Logic {
         Command command = new Parser().parseCommand(userCommandText);
         CommandResult result = execute(command);
         recordResult(result);
+        if (new Parser().parseCommandText(userCommandText).equals("editData") && isDeleteOfEdit(result)){
+            result = execute(new Parser().parseAddCommand(userCommandText));
+        }
         return result;
+    }
+
+    private boolean isDeleteOfEdit(CommandResult result) {
+        return result.equals(DeleteCommand.MESSAGE_DELETE_PERSON_SUCCESS_EDIT_COMMAND);
     }
 
     /**

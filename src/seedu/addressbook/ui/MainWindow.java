@@ -12,6 +12,7 @@ import seedu.addressbook.commands.ExitCommand;
 import seedu.addressbook.logic.Logic;
 import seedu.addressbook.commands.CommandResult;
 import seedu.addressbook.data.person.ReadOnlyPerson;
+import seedu.addressbook.parser.Parser;
 
 import java.util.List;
 import java.util.Optional;
@@ -26,6 +27,7 @@ public class MainWindow {
     private Logic logic;
     private Stoppable mainApp;
     private Main mainClass;
+    private String previousCommandText;
 
     public MainWindow(){
     }
@@ -47,7 +49,7 @@ public class MainWindow {
 
     @FXML
     void onCommand(ActionEvent event) {
-        String previousCommandText = "";
+        previousCommandText = "";
         try {
             String userCommandText = commandInput.getText();
 
@@ -56,24 +58,34 @@ public class MainWindow {
                 exitApp();
                 return;
             }
-            if(isEditCommand(result)){
-                handleEditPerson();
+            if(!compareCommandWithPreviousCommand(userCommandText,previousCommandText)){
+                display("Wrong Sequence of commands");
+                return;
             }
             displayResult(result);
             clearCommandInput();
+            previousCommandText = userCommandText;
         } catch (Exception e) {
             display(e.getMessage());
             throw new RuntimeException(e);
         }
     }
 
-    /**
-     * Called when the user clicks the edit button. Opens a dialog to edit
-     * details for the selected person.
-     */
-    @FXML
-    private void handleEditPerson() {
-        mainClass.showPersonEditDialog();
+    private boolean compareCommandWithPreviousCommand(String commandText, String prevCommandText){
+        String commandTextSorted = new Parser().parseCommandText(commandText);
+        String prevCommandTextSorted = new Parser().parseCommandText(prevCommandText);
+        if (!commandTextSorted.equals("editListing") && !commandTextSorted.equals("editData")
+                && !prevCommandTextSorted.equals("editListing")) {
+            previousCommandText = "";
+            return true;
+        } else if (commandTextSorted.equals("editListing") && !prevCommandTextSorted.equals("editData")) {
+            return true;
+        } else if (commandTextSorted.equals("editData") && prevCommandTextSorted.equals("editListing")) {
+            previousCommandText = "";
+            return true;
+        } else {
+            return false;
+        }
     }
 
     private void exitApp() throws Exception {
@@ -83,11 +95,6 @@ public class MainWindow {
     /** Returns true of the result given is the result of an exit command */
     private boolean isExitCommand(CommandResult result) {
         return result.feedbackToUser.equals(ExitCommand.MESSAGE_EXIT_ACKNOWEDGEMENT);
-    }
-
-    /** Returns true of the result given is the result of an exit command */
-    private boolean isEditCommand(CommandResult result) {
-        return result.feedbackToUser.equals(EditCommand.MESSAGE_SUCCESS);
     }
 
     /** Clears the command input box */

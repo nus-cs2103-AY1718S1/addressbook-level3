@@ -116,8 +116,7 @@ public class Parser {
                 return prepareDelete(arguments);
 
             case EditCommand.COMMAND_WORD:
-//                return processEdit(arguments);
-                return new EditCommand();
+                return processEdit(arguments);
 
             case ClearCommand.COMMAND_WORD:
                 return new ClearCommand();
@@ -308,20 +307,20 @@ public class Parser {
         if (!matcher.matches()) {
             return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE));
         }
-        String index = matcher.group("index");
-
-        String name = matcher.group("name");
-
-        String phone = matcher.group("phone");
-        String isPhonePrivate = matcher.group("isPhonePrivate");
-
-        String email = matcher.group("email");
-        String isEmailPrivate = matcher.group("isEmailPrivate");
-
-        String address = matcher.group("address");
-        String isAddressPrivate = matcher.group("isAddressPrivate");
-
-        String tags = matcher.group("tagArguments");
+//        String index = matcher.group("index");
+//
+//        String name = matcher.group("name");
+//
+//        String phone = matcher.group("phone");
+//        String isPhonePrivate = matcher.group("isPhonePrivate");
+//
+//        String email = matcher.group("email");
+//        String isEmailPrivate = matcher.group("isEmailPrivate");
+//
+//        String address = matcher.group("address");
+//        String isAddressPrivate = matcher.group("isAddressPrivate");
+//
+//        String tags = matcher.group("tagArguments");
         return new DeleteCommand(Integer.parseInt(matcher.group("index")));
     }
 }
