@@ -19,6 +19,7 @@ import java.util.*;
 
 import static junit.framework.TestCase.assertEquals;
 import static seedu.addressbook.commands.AddCommand.MESSAGE_SUCCESS;
+import static seedu.addressbook.commands.EditCommand.MESSAGE_BREAK_EDIT_COMMAND;
 import static seedu.addressbook.common.Messages.*;
 import static seedu.addressbook.parser.Parser.getTagsFromArgs;
 
@@ -222,8 +223,34 @@ public class LogicTest {
     }
 
     @Test
-    public void execute_edit_successful_end_edit() throws Exception {
+    public void execute_edit_successful_break_edit() throws Exception {
+        // prepare expectations
+        TestDataHelper helper = new TestDataHelper();
+        Person p1 = helper.generatePerson(1, false);
+        Person p2 = helper.generatePerson(2, true);
+        Person p3 = helper.generatePerson(3, true);
+        List<Person> threePersons = helper.generatePersonList(p1, p2, p3);
+        AddressBook expectedAB = helper.generateAddressBook(threePersons);
+        List<ReadOnlyPerson> expectedList = expectedAB.getAllPersons().immutableListView();
 
+        // prepare address book state
+        helper.addToAddressBook(addressBook, threePersons);
+
+        assertCommandBehavior("edit",
+                new ListCommand().getFeedbackForEditListingCommand(expectedList),
+                expectedAB,
+                true,
+                expectedList);
+
+        execute_break_edit(expectedAB, expectedList);
+    }
+
+    private void execute_break_edit(AddressBook expectedAB, List<ReadOnlyPerson> expectedList) throws Exception {
+        assertCommandBehavior("break",
+                MESSAGE_BREAK_EDIT_COMMAND,
+                expectedAB,
+                false,
+                expectedList);
     }
 
     @Test
