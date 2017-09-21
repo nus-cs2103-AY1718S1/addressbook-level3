@@ -9,8 +9,8 @@
 }
 
 .text-area {
-    -fx-background-color: black;
-    -fx-control-inner-background: black;
+    -fx-background-color: darkcyan;
+    -fx-control-inner-background: darkcyan;
     -fx-font-family: "Segoe UI Semibold";
     -fx-font-size: 14pt;
     -fx-padding: 5 5 5 5;
