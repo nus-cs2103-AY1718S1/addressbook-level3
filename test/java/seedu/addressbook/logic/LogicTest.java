@@ -204,6 +204,20 @@ public class LogicTest {
                               true,
                               expectedList);
     }
+    @Test
+    public void execute_edit_wrong_sequence() throws Exception {
+
+    }
+
+    @Test
+    public void execute_edit_wrong_data_format() throws Exception {
+
+    }
+
+    @Test
+    public void execute_edit_successful_end_edit() throws Exception {
+
+    }
 
     @Test
     public void execute_edit_successful() throws Exception {
@@ -212,9 +226,7 @@ public class LogicTest {
         Person p1 = helper.generatePerson(1, false);
         Person p2 = helper.generatePerson(2, true);
         Person p3 = helper.generatePerson(3, true);
-
         List<Person> threePersons = helper.generatePersonList(p1, p2, p3);
-
         AddressBook expectedAB = helper.generateAddressBook(threePersons);
         List<ReadOnlyPerson> expectedList = expectedAB.getAllPersons().immutableListView();
 
