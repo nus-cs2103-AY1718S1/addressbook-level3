@@ -38,7 +38,7 @@ public class ListCommand extends Command {
         return new CommandResult(getMessageForPersonListShownSummary(allPersons), allPersons);
     }
 
-    private String getFeedbackForEditListingCommand(List<ReadOnlyPerson> allPersons) {
+    public String getFeedbackForEditListingCommand(List<ReadOnlyPerson> allPersons) {
         int numPersons = allPersons.size();
         if (numPersons == 0){
             return "Address Book is empty now. Add new persons before editing.";

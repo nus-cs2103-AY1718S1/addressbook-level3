@@ -138,19 +138,6 @@ public class LogicTest {
     }
 
     @Test
-    public void execute_edit_invalidArgsFormat() throws Exception {
-        String expectedMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE);
-        assertCommandBehavior(
-                "add wrong args wrong args", expectedMessage);
-        assertCommandBehavior(
-                "add Valid Name 12345 e/valid@email.butNoPhonePrefix a/valid, address", expectedMessage);
-        assertCommandBehavior(
-                "add Valid Name p/12345 valid@email.butNoPrefix a/valid, address", expectedMessage);
-        assertCommandBehavior(
-                "add Valid Name p/12345 e/valid@email.butNoAddressPrefix valid, address", expectedMessage);
-    }
-
-    @Test
     public void execute_add_invalidPersonData() throws Exception {
         assertCommandBehavior(
                 "add []\\[;] p/12345 e/valid@e.mail a/valid, address", Name.MESSAGE_NAME_CONSTRAINTS);
@@ -216,6 +203,23 @@ public class LogicTest {
                               expectedAB,
                               true,
                               expectedList);
+    }
+
+    @Test
+    public void execute_edit_listing() throws Exception {
+        // prepare expectations
+        TestDataHelper helper = new TestDataHelper();
+        AddressBook expectedAB = helper.generateAddressBook(false, true);
+        List<ReadOnlyPerson> expectedList = expectedAB.getAllPersons().immutableListView();
+
+        // prepare address book state
+        helper.addToAddressBook(addressBook, false, true);
+
+        assertCommandBehavior("edit",
+                new ListCommand().getFeedbackForEditListingCommand(expectedList),
+                expectedAB,
+                true,
+                expectedList);
     }
 
     @Test

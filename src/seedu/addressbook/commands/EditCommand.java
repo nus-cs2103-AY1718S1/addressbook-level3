@@ -24,11 +24,9 @@ public class EditCommand extends Command{
             + "To end the edit command prematurely:\n\t\t end edit";
     public static final String MESSAGE_SUCCESS = "Edit command selected";
 
-    public EditCommand(){}
-
     /**
      * Constructor to delete a person based on index and add a new person in replacement.
-     *  @param index index of the person in the previous listing after calling "edit"
+     * @param index index of the person in the previous listing after calling "edit"
      * @param name name of the person
      * @param phone phone number of the person
      * @param isPhonePrivate private status of phone number
@@ -47,7 +45,6 @@ public class EditCommand extends Command{
 
     @Override
     public CommandResult execute() {
-//        EditCommand personIndex = new EditCommand(1);
         return new CommandResult(MESSAGE_SUCCESS);
     }
 
