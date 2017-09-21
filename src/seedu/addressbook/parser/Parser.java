@@ -295,7 +295,7 @@ public class Parser {
      */
     private Command processEdit(String arguments) {
         if (arguments.equals(ARGUMENTS_ARE_EMPTY)) {
-            return new ListCommand();
+            return new ListCommand(true);
         } else {
             return prepareEdit(arguments);
         }

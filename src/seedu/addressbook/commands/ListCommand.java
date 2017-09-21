@@ -10,6 +10,8 @@ import java.util.List;
  */
 public class ListCommand extends Command {
 
+    private boolean isPartOfEditCommand;
+
     @Override
     public boolean isMutating() {
         return false;
@@ -21,10 +23,27 @@ public class ListCommand extends Command {
             + "Displays all persons in the address book as a list with index numbers.\n\t"
             + "Example: " + COMMAND_WORD;
 
+    public ListCommand(){}
+
+    public ListCommand(boolean isPartOfEditCommand){
+        this.isPartOfEditCommand = isPartOfEditCommand;
+    }
 
     @Override
     public CommandResult execute() {
         List<ReadOnlyPerson> allPersons = addressBook.getAllPersons().immutableListView();
+        if (isPartOfEditCommand){
+            return new CommandResult(getFeedbackForEditListingCommand(allPersons), allPersons);
+        }
         return new CommandResult(getMessageForPersonListShownSummary(allPersons), allPersons);
+    }
+
+    private String getFeedbackForEditListingCommand(List<ReadOnlyPerson> allPersons) {
+        int numPersons = allPersons.size();
+        if (numPersons == 0){
+            return "Address Book is empty now. Add new persons before editing.";
+        }
+        return "There are currently " + numPersons + ((numPersons>1) ? " persons" : " person")
+                +" in the Address Book. Select an index to edit";
     }
 }
