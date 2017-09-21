@@ -47,14 +47,14 @@ public class MainWindow {
     void onCommand(ActionEvent event) {
         try {
             String userCommandText = commandInput.getText();
-            if(!isCurCommandInSequenceWithPrevCommand(userCommandText,previousCommandText)){
-                clearOutputConsole();
-                display("Wrong Sequence of commands!");
+            if (isExitEditCommand(userCommandText,previousCommandText)){
+                display("Exit Edit Command!");
                 previousCommandText = "";
                 return;
             }
-            if (isExitEditCommand(userCommandText,previousCommandText)){
-                display("Exit Edit Command!");
+            if(!isCurCommandInSequenceWithPrevCommand(userCommandText,previousCommandText)){
+                clearOutputConsole();
+                display("Wrong Sequence of commands!");
                 previousCommandText = "";
                 return;
             }
