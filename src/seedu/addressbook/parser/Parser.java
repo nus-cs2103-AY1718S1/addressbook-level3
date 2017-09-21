@@ -2,6 +2,7 @@ package seedu.addressbook.parser;
 
 import seedu.addressbook.commands.*;
 import seedu.addressbook.data.exception.IllegalValueException;
+import seedu.addressbook.data.tag.Tag;
 
 import java.util.*;
 import java.util.regex.Matcher;
@@ -314,9 +315,12 @@ public class Parser {
         if (!matcher.matches()) {
             return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE));
         }
-        if (!isValidTagName(matcher.group("tagArguments"))){
-            return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE));
-        }
+        try {
+            Set<String> tags = getTagsFromArgs(matcher.group("tagArguments"));
+            final Set<Tag> tagSet = new HashSet<>();
+            for (String tagName : tags) {
+                tagSet.add(new Tag(tagName));
+            }
 //        String index = matcher.group("index");
 //
 //        String name = matcher.group("name");
@@ -330,7 +334,10 @@ public class Parser {
 //        String address = matcher.group("address");
 //        String isAddressPrivate = matcher.group("isAddressPrivate");
 //
-//        String tags = matcher.group("tagArguments");
-        return new DeleteCommand(Integer.parseInt(matcher.group("index")),true);
+//
+            return new DeleteCommand(Integer.parseInt(matcher.group("index")), true);
+        } catch (Exception e){
+            return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE));
+        }
     }
 }
