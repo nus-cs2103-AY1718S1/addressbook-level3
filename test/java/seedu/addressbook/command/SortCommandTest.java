@@ -23,10 +23,29 @@ public class SortCommandTest {
 
     @Before
     public void setUp() throws Exception {
-        Person johnDoe = new Person(new Name("John Doe"), new Phone("61234567", false), new Email("john@doe.com", false), new Address("395C Ben Road", false), new UniqueTagList());
-        Person janeDoe = new Person(new Name("Jane Doe"), new Phone("91234567", false), new Email("jane@doe.com", false), new Address("33G Ohm Road", false), new UniqueTagList());
-        Person samDoe = new Person(new Name("Sam Doe"), new Phone("63345566", false), new Email("sam@doe.com", false), new Address("55G Abc Road", false), new UniqueTagList());
-        Person davidGrant = new Person(new Name("David Grant"), new Phone("61121122", false), new Email("david@grant.com", false), new Address("44H Define Road", false), new UniqueTagList());
+        Person johnDoe = new Person(new Name("John Doe"), 
+                new Phone("61234567", false), 
+                new Email("john@doe.com", false), 
+                new Address("395C Ben Road", false), 
+                new UniqueTagList());
+        
+        Person janeDoe = new Person(new Name("Jane Doe"), 
+                new Phone("91234567", false), 
+                new Email("jane@doe.com", false), 
+                new Address("33G Ohm Road", false), 
+                new UniqueTagList());
+        
+        Person samDoe = new Person(new Name("Sam Doe"), 
+                new Phone("63345566", false), 
+                new Email("sam@doe.com", false), 
+                new Address("55G Abc Road", false), 
+                new UniqueTagList());
+        
+        Person davidGrant = new Person(new Name("David Grant"), 
+                new Phone("61121122", false), 
+                new Email("david@grant.com", false), 
+                new Address("44H Define Road", false), 
+                new UniqueTagList());
 
         emptyAddressBook = createAddressBook();
         addressBook = createAddressBook(johnDoe, janeDoe, davidGrant, samDoe);
@@ -52,7 +71,10 @@ public class SortCommandTest {
      * +     * Check whether the result is expected
      * +
      */
-    private void assertSort(Command SortCommand, AddressBook addressBook, List<ReadOnlyPerson> relatedList, List<ReadOnlyPerson> expectedList) {
+    private void assertSort(Command SortCommand, 
+                            AddressBook addressBook, 
+                            List<ReadOnlyPerson> relatedList, 
+                            List<ReadOnlyPerson> expectedList) {
         SortCommand.setData(addressBook, relatedList);
         CommandResult result = SortCommand.execute();
 
