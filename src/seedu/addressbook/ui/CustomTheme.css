@@ -2,7 +2,7 @@
 
 .text-field {
     -fx-font-size: 12pt;
-    -fx-font-family: "Consolas";
+    -fx-font-family: "Verdana";
     -fx-font-weight: bold;
     -fx-text-fill: AQUAMARINE;
     -fx-control-inner-background: derive(#1d1d1d,20%);
