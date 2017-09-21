@@ -88,6 +88,26 @@ Use case ends.
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
 
+
+#### Use Case: Renaming existing tag
+# Pre-condition: User accepted the confirmation prompt which appears when command to rename tag is called
+# Guarantees: 1. All tag with the input name is renamed
+#             2. Existing tag is renamed and saved into Address Book database
+
+** MSS **
+1. User accepted confirmation prompt
+2. AddressBook prints successful command call message
+3. AddressBook requests for input
+4. User keys in a new tag
+5. AddressBook renames the tag into the new input name
+6. AddressBook returns a successful replacement message
+Use case ends
+
+** Extensions **
+4a. Given tag in invalid
+> 4a1. AddressBook shows an error message
+  Use case prints invalid input message and resume at Step 3
+
 ## Appendix C : Non Functional Requirements
 
 1. Should work on any [mainstream OS](#mainstream-os) as long as it has Java 8 or higher installed.
