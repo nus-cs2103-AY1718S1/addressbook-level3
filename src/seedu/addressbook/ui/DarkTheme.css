@@ -1,17 +1,17 @@
-
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto');
 
 .text-field {
     -fx-font-size: 12pt;
-    -fx-font-family: "Consolas";
+    -fx-font-family: 'Roboto', sans-serif ;
     -fx-font-weight: bold;
     -fx-text-fill: yellow;
     -fx-control-inner-background: derive(#1d1d1d,20%);
 }
 
 .text-area {
-    -fx-background-color: black;
+    -fx-background-color: #dcffd8;
     -fx-control-inner-background: black;
-    -fx-font-family: "Segoe UI Semibold";
+    -fx-font-family: 'Open Sans', sans-serif;
     -fx-font-size: 10pt;
-    -fx-padding: 5 5 5 5;
+    -fx-padding: 10 10 10 10;
 }
