@@ -39,7 +39,7 @@ public abstract class Command {
     /**
      * Executes the command and returns the result.
      */
-    public CommandResult execute(){
+    public CommandResult execute() {
         throw new UnsupportedOperationException("This method should be implement in child classes");
     }
 
@@ -53,6 +53,11 @@ public abstract class Command {
         this.addressBook = addressBook;
         this.relevantPersons = relevantPersons;
     }
+
+    public boolean isMutating() {
+        return false;
+    }
+
 
     /**
      * Extracts the the target person in the last shown list from the given arguments.
