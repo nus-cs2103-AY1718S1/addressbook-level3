@@ -38,22 +38,22 @@ public interface ReadOnlyPerson {
     default String getAsTextShowAll() {
         final StringBuilder builder = new StringBuilder();
         final String detailIsPrivate = "(private) ";
-        builder.append(getName())
+        builder.append(getPrintableString(getName()))
                 .append(" Phone: ");
         if (getPhone().isPrivate()) {
             builder.append(detailIsPrivate);
         }
-        builder.append(getPhone())
+        builder.append(getPrintableString(getPhone()))
                 .append(" Email: ");
         if (getEmail().isPrivate()) {
             builder.append(detailIsPrivate);
         }
-        builder.append(getEmail())
+        builder.append(getPrintableString(getEmail()))
                 .append(" Address: ");
         if (getAddress().isPrivate()) {
             builder.append(detailIsPrivate);
         }
-        builder.append(getAddress())
+        builder.append(getPrintableString(getAddress()))
                 .append(" Tags: ");
         for (Tag tag : getTags()) {
             builder.append(tag);
@@ -61,6 +61,16 @@ public interface ReadOnlyPerson {
         return builder.toString();
     }
 
+    /**
+     * Returns the final String of the details of each person.
+     */
+    default String getPrintableString(Printable... printable) {
+        final StringBuilder builder = new StringBuilder();
+        for (Printable p: printable) {
+            builder.append(p.getPrintableString());
+        }
+        return builder.toString();
+    }
     /**
      * Formats a person as text, showing only non-private contact details.
      */
