@@ -21,6 +21,7 @@ public class Logic {
 
     private StorageFile storage;
     private AddressBook addressBook;
+    private static String previousCommandText = "";
 
     /** The list of person shown to the user most recently.  */
     private List<? extends ReadOnlyPerson> lastShownList = Collections.emptyList();

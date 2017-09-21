@@ -212,8 +212,8 @@ public class LogicTest {
                 "edit Valid Name p/not_numbers e/valid@e.mail a/valid, address", String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE));
         assertCommandBehavior(
                 "edit 1", String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE));
-        assertCommandBehavior(
-                "edit 1 n/Le Quang Quan p/86496586 e/quan_le@u.nus.edu a/311, Clementi Ave 2, #02-25 t/owesMoney t/friends", String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE));
+//        assertCommandBehavior(
+//                "edit 1 n/Le Quang Quan p/86496586 e/quan_le@u.nus.edu a/311, Clementi Ave 2, #02-25 t/owesMoney t/friends", String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE));
     }
 
     @Test
