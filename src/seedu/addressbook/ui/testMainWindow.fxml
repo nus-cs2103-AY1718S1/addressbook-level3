@@ -9,11 +9,11 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seedu.addressbook.ui.MainWindow">
+<AnchorPane id="pane" prefHeight="600.0" prefWidth="800.0" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seedu.addressbook.ui.MainWindow">
    <children>
       <TextField fx:id="commandInput" layoutX="27.0" layoutY="33.0" onAction="#onCommand" prefHeight="27.0" prefWidth="767.0" promptText="Enter a Command" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="50.0" />
       <TextArea fx:id="outputConsole" layoutX="31.0" layoutY="79.0" prefHeight="421.0" prefWidth="745.0" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="100.0" />
-      <MenuBar prefHeight="29.0" prefWidth="801.0">
+      <MenuBar id="pane" prefHeight="29.0" prefWidth="801.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
