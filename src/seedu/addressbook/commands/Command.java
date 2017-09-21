@@ -50,7 +50,7 @@ public abstract class Command {
      * Abstract methods for commands: if the command mutates the data return true
      */
     public abstract boolean isMutating();
-    
+
     /**
      * Supplies the data the command will operate on.
      */
