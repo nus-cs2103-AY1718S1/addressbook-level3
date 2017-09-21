@@ -60,6 +60,7 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | delete a person | remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
+`* * *` | user | rename tag| re-catergorise my relation with the contact   
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
 
 
@@ -87,6 +88,37 @@ Use case ends.
 
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
+
+
+
+#### Use case: Rename existing tag 
+#Pre-condition :The identitifed tag exist in Addressbook
+**MSS**
+
+1. User requests to list persons
+2. AddressBook shows a list of persons
+3. User requests to rename the tag 
+4. User keys in the new input
+5. AddressBook replace the name of the existing to the newer version 
+6. AddressBook prompt user to confirm the changes
+7.AddressBook shows a sucessful message regarding the replacement<br>
+Use case ends.
+
+**Extensions**
+
+2a. The list is empty
+
+> Use case ends
+
+4a. The given tag is invalid
+
+> 4a1. AddressBook shows an error message <br>
+  Use case resumes at step 3
+
+6a. User disconfirm the changes
+
+> Use case ends
+
 
 ## Appendix C : Non Functional Requirements
 
