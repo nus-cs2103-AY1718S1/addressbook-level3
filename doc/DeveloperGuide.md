@@ -59,6 +59,7 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | add a new person |
 `* * *` | user | delete a person | remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
+`* * *` | user | to be able to edit person particulars | update the particulars without deleting and re-adding
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
 
@@ -86,6 +87,33 @@ Use case ends.
 3a. The given index is invalid
 
 > 3a1. AddressBook shows an error message <br>
+  Use case resumes at step 2
+
+#### Use case: Rename Tag
+
+**MSS**
+
+1. User request to list all existing tags
+2. AddressBook shows a list of tags
+3. User request to rename a tag in the list
+4. AddressBook renames the tag
+5. AddressBook updates the tag
+Use case ends.
+
+**Extensions**
+
+2a. The list is empty
+
+> Use case ends
+
+3a. The given index is invalid
+
+> 3a1. AddressBook shows an error message <br>
+  Use case resumes at step 2
+
+3b. Updated name already exist in the list of existing tags.
+
+> 3b1. AddressBook shows an error message <br>
   Use case resumes at step 2
 
 ## Appendix C : Non Functional Requirements
