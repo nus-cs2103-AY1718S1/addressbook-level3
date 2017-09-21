@@ -19,11 +19,9 @@ public class DeleteCommand extends Command {
 
     public static final String MESSAGE_DELETE_PERSON_SUCCESS = "Deleted Person: %1$s";
 
-
     public DeleteCommand(int targetVisibleIndex) {
         super(targetVisibleIndex);
     }
-
 
     @Override
     public CommandResult execute() {
@@ -39,4 +37,8 @@ public class DeleteCommand extends Command {
         }
     }
 
+    @Override
+    public boolean isMutating(){
+        return true;
+    }
 }
