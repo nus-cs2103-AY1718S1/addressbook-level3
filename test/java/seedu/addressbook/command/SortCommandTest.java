@@ -65,12 +65,12 @@ public class SortCommandTest {
     public void execute_sortWithAddressBook() {
         assertSort(new SortCommand(), addressBook, DisplayList, sortDisplayList);
     }
-    
+
     private void assertSort(Command SortCommand, 
                             AddressBook addressBook, 
                             List<ReadOnlyPerson> relatedList, 
                             List<ReadOnlyPerson> expectedList) {
-        
+
         SortCommand.setData(addressBook, relatedList);
         CommandResult result = SortCommand.execute();
 
@@ -102,4 +102,4 @@ public class SortCommandTest {
     }
 
 }
- 
+
