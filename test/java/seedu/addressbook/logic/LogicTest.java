@@ -21,6 +21,7 @@ import static junit.framework.TestCase.assertEquals;
 import static seedu.addressbook.commands.AddCommand.MESSAGE_SUCCESS;
 import static seedu.addressbook.commands.EditCommand.MESSAGE_BREAK_EDIT_COMMAND;
 import static seedu.addressbook.common.Messages.*;
+import static seedu.addressbook.data.tag.Tag.MESSAGE_TAG_CONSTRAINTS;
 import static seedu.addressbook.parser.Parser.getTagsFromArgs;
 
 
@@ -147,7 +148,7 @@ public class LogicTest {
         assertCommandBehavior(
                 "add Valid Name p/12345 e/notAnEmail a/valid, address", Email.MESSAGE_EMAIL_CONSTRAINTS);
         assertCommandBehavior(
-                "add Valid Name p/12345 e/valid@e.mail a/valid, address t/invalid_-[.tag", Tag.MESSAGE_TAG_CONSTRAINTS);
+                "add Valid Name p/12345 e/valid@e.mail a/valid, address t/invalid_-[.tag", MESSAGE_TAG_CONSTRAINTS);
 
     }
 
@@ -219,7 +220,45 @@ public class LogicTest {
 
     @Test
     public void execute_edit_wrong_data_format() throws Exception {
+        // prepare expectations
+        TestDataHelper helper = new TestDataHelper();
+        AddressBook expectedAB = helper.generateAddressBook(false, true);
+        List<ReadOnlyPerson> expectedList = expectedAB.getAllPersons().immutableListView();
 
+        // prepare address book state
+        helper.addToAddressBook(addressBook, false, true);
+
+        assertCommandBehavior("edit",
+                new ListCommand().getFeedbackForEditListingCommand(expectedList),
+                expectedAB,
+                true,
+                expectedList);
+
+        execute_wrong_edit_syntax(expectedAB, expectedList);
+
+        assertCommandBehavior("edit",
+                new ListCommand().getFeedbackForEditListingCommand(expectedList),
+                expectedAB,
+                true,
+                expectedList);
+
+        execute_wrong_edit_syntax_tags(expectedAB, expectedList);
+    }
+
+    private void execute_wrong_edit_syntax(AddressBook expectedAB, List<ReadOnlyPerson> expectedList) throws Exception {
+        assertCommandBehavior("edit 1 Le Quang Quan pp/86496586 pe/quan_le@u.nus.edu pa/311, Clementi Ave 2, #02-25 t/owesMoney t/friends",
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE),
+                expectedAB,
+                false,
+                expectedList);
+    }
+
+    private void execute_wrong_edit_syntax_tags(AddressBook expectedAB, List<ReadOnlyPerson> expectedList) throws Exception {
+        assertCommandBehavior("edit 1 n/Le Quang Quan pp/86496586 pe/quan_le@u.nus.edu pa/311, Clementi Ave 2, #02-25 t/owesMoney t/friends???",
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE),
+                expectedAB,
+                false,
+                expectedList);
     }
 
     @Test
