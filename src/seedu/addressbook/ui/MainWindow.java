@@ -49,13 +49,13 @@ public class MainWindow {
             String userCommandText = commandInput.getText();
             clearOutputConsole();
             if (isExitEditCommand(userCommandText,previousCommandText)){
-                display("Exit Edit Command!");
+                display("End Edit Command!");
                 clearCommandInput();
                 previousCommandText = "";
                 return;
             }
             if(!isCurCommandInSequenceWithPrevCommand(userCommandText,previousCommandText)){
-                display("Wrong Sequence of commands!");
+                display(MESSANGE_WRONG_SEQUENCE);
                 clearCommandInput();
                 previousCommandText = "";
                 return;
