@@ -1,6 +1,7 @@
 package seedu.addressbook.data.person;
 
 import seedu.addressbook.data.tag.UniqueTagList;
+import seedu.addressbook.data.person.Printable;
 
 import java.util.Objects;
 
@@ -82,6 +83,17 @@ public class Person implements ReadOnlyPerson {
     @Override
     public String toString() {
         return getAsTextShowAll();
+    }
+
+    /**
+     * Returns a concatenated version of the printable strings of each object.
+     */
+    public String getPrintableString(Printable... printables){
+        String print = "";
+        for (Printable p: printables) {
+            print += p.getPrintableString();
+        }
+        return print;
     }
 
 }
