@@ -98,7 +98,15 @@ Examples:
 
 ## Clearing all entries : `clear`
 Clears all entries from the address book.<br>
-Format: `clear`  
+Format: `clear`
+
+## Total number of contacts : 'total'
+Displays the total number of contacts in the addressbook contact list
+Format: 'total'
+
+Example:
+* `total`<br>
+  Shows the total number of contacts in the addressbook contact list.
 
 ## Exiting the program : `exit`
 Exits the program.<br>
