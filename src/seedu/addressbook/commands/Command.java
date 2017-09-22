@@ -41,7 +41,7 @@ public abstract class Command {
      * @return whether command mutates value
      */
     public boolean isMutating() {
-        return true;
+        return false;
     }
 
     /**
