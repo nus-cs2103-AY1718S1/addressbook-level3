@@ -107,7 +107,14 @@ public class LogicTest {
 
     @Test
     public void execute_total() throws Exception {
-        assertCommandBehavior("total", TotalCommand.MESSAGE_ALL_USAGES);
+        // prepare expectations
+        TestDataHelper helper = new TestDataHelper();
+        AddressBook expectedAB = helper.generateAddressBook(false, true);
+        List<? extends ReadOnlyPerson> expectedList = expectedAB.getAllPersons().immutableListView();
+
+        int total = expectedList.size();
+
+        assertCommandBehavior("total", Integer.toString(total) + TotalCommand.MESSAGE_DETAIL);
     }
 
     @Test
