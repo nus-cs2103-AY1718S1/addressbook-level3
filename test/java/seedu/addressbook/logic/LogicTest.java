@@ -106,6 +106,11 @@ public class LogicTest {
     }
 
     @Test
+    public void execute_total() throws Exception {
+        assertCommandBehavior("total", TotalCommand.MESSAGE_ALL_USAGES);
+    }
+
+    @Test
     public void execute_exit() throws Exception {
         assertCommandBehavior("exit", ExitCommand.MESSAGE_EXIT_ACKNOWEDGEMENT);
     }
