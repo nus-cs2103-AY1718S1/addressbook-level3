@@ -3,7 +3,7 @@ package seedu.addressbook.storage;
 /**
  * Created by Francis on 21/9/2017.
  */
-public class StorageStub extends StorageFile{
+public class StorageStub extends StorageFile {
 
     public StorageStub() throws InvalidStorageFilePathException {
         super();

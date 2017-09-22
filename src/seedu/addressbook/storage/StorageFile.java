@@ -125,13 +125,13 @@ public class StorageFile extends Storage{
          * situation (i.e. not truly exceptional) we should not use an exception to handle it.
          */
 
-        // create empty file if not found
+            // create empty file if not found
         } catch (FileNotFoundException fnfe) {
             final AddressBook empty = new AddressBook();
             save(empty);
             return empty;
 
-        // other errors
+            // other errors
         } catch (IOException ioe) {
             throw new StorageOperationException("Error writing to file: " + path);
         } catch (JAXBException jaxbe) {
