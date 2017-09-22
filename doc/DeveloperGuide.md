@@ -68,6 +68,9 @@ Priority | As a ... | I want to ... | So that I can...
 ## Appendix B : Use Cases
 
 (For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
+1. user type "rename A to B" where A and B are all names of tags.
+2. System changes all the tag A of people with the tag A to tag B.
+3. user receive all the people affected.
 
 #### Use case: Delete person
 
