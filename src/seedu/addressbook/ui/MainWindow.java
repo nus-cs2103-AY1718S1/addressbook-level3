@@ -3,9 +3,11 @@ package seedu.addressbook.ui;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import seedu.addressbook.commands.ExitCommand;
+import seedu.addressbook.commands.HelpCommand;
 import seedu.addressbook.logic.Logic;
 import seedu.addressbook.commands.CommandResult;
 import seedu.addressbook.data.person.ReadOnlyPerson;
@@ -52,6 +54,30 @@ public class MainWindow {
             }
             displayResult(result);
             clearCommandInput();
+        } catch (Exception e) {
+            display(e.getMessage());
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    @FXML
+    void quit(){
+        try {
+            exitApp();
+            return;
+        } catch (Exception e) {
+            display(e.getMessage());
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    @FXML
+    void showHelp(){
+        try {
+            displayResult(new HelpCommand().execute());
+            return;
         } catch (Exception e) {
             display(e.getMessage());
             throw new RuntimeException(e);
