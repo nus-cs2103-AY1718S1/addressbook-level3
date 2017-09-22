@@ -109,12 +109,17 @@ public class LogicTest {
     public void execute_total() throws Exception {
         // prepare expectations
         TestDataHelper helper = new TestDataHelper();
-        AddressBook expectedAB = helper.generateAddressBook(false, true);
+        Person person1 = helper.generatePersonWithName("James");
+        Person person2 = helper.generatePersonWithName("Rayson");
+
+        List<Person> people = helper.generatePersonList(person1, person2);
+        AddressBook expectedAB = helper.generateAddressBook(people);
+
         List<? extends ReadOnlyPerson> expectedList = expectedAB.getAllPersons().immutableListView();
 
-        int total = expectedList.size();
+        String expectedMsg = Integer.toString(expectedList.size()) + TotalCommand.MESSAGE_DETAIL;
 
-        assertCommandBehavior("total", Integer.toString(total) + TotalCommand.MESSAGE_DETAIL);
+        assertCommandBehavior("total", expectedMsg);
     }
 
     @Test
