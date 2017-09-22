@@ -67,6 +67,31 @@ Priority | As a ... | I want to ... | So that I can...
 
 (For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
 
+#### Use case: Renaming of an existing tag
+
+**MSS**
+1. User requests for tag to be renamed
+2. AddressBook requests user for the tag to be renamed 
+3. User enters the tag to be renamed
+4. AddressBook requests user for a new tag name
+5. User enters new name of tag requested earlier
+6. AddressBook requests for confirmation of change<br>
+Use case ends.
+
+**Extensions**
+
+3a. Tag does not exist
+
+> 3a1. AddressBook shows an error describing non existence of tag
+> 3a2. AddressBook requests for another tag 
+> Steps 3a1-3a2 are repeated until a valid tag has been entered
+
+5a. Tag already exists
+
+> 5a1. AddressBook shows an warning describing duplicate tag
+  Use case resumes at step 6
+  
+
 #### Use case: Delete person
 
 **MSS**
