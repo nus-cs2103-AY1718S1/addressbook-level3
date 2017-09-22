@@ -61,11 +61,16 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
+`*` | user | delete a person without knowing his/her index numner | delete a particular person whose name I know directly
+
 
 
 ## Appendix B : Use Cases
 
 (For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
+1. user type "rename A to B" where A and B are all names of tags.
+2. System changes all the tag A of people with the tag A to tag B.
+3. user receive all the people affected.
 
 #### Use case: Delete person
 
@@ -94,6 +99,7 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should remember the last command sent, like what happens in unix command line.
 
 ## Appendix D : Glossary
 
