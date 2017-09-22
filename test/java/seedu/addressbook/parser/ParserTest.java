@@ -60,6 +60,13 @@ public class ParserTest {
     }
 
     @Test
+    public void totalCommand_parsedCorrectly() {
+
+        final String input = "total";
+        parseAndAssertCommandType(input, TotalCommand.class);
+    }
+
+    @Test
     public void exitCommand_parsedCorrectly() {
         final String input = "exit";
         parseAndAssertCommandType(input, ExitCommand.class);
