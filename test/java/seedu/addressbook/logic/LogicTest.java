@@ -119,7 +119,9 @@ public class LogicTest {
 
         String expectedMsg = Integer.toString(expectedList.size()) + TotalCommand.MESSAGE_DETAIL;
 
-        assertCommandBehavior("total", expectedMsg);
+        CommandResult message = logic.execute("total");
+
+        assertEquals(message, expectedMsg);
     }
 
     @Test
