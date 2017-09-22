@@ -7,19 +7,16 @@
 
 <VBox alignment="center" stylesheets="@/seedu/addressbook/ui/DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seedu.addressbook.ui.MainWindow">
 
-    <children>
-
-              <TextField fx:id="commandInput" onAction="#onCommand" VBox.vgrow="NEVER">
+    <children>         
+        <TextField fx:id="commandInput" onAction="#onCommand" VBox.vgrow="NEVER">
         </TextField>
-
-                    <TextArea fx:id="outputConsole" editable="false" wrapText="true">
+        <TextArea fx:id="outputConsole" editable="false" wrapText="true" VBox.vgrow="ALWAYS">
         </TextArea>
-      <TextField fx:id="commandInput1" alignment="CENTER_RIGHT" editable="false" layoutX="10.0" layoutY="10.0" onAction="#onCommand" text="Address Book - Level 3">
+        <TextField fx:id="commandInput1" alignment="CENTER_RIGHT" editable="false" onAction="#onCommand" text="Address Book - Level 3">
          <font>
             <Font size="15.0" />
          </font>
-      </TextField>
-
+        </TextField>
     </children>
 
 </VBox>
