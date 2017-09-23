@@ -457,6 +457,21 @@ public class LogicTest {
                                 expectedList);
     }
 
+
+    /**
+     * Tests if the Name, Phone, Email and Address objects have correctly implemented the Printable interface
+     *
+     * @throws Exception If there is an error when generating a Person object
+     */
+    @Test
+    public void verify_isPrintable_successIfPrintable() throws Exception {
+        TestDataHelper helper = new TestDataHelper();
+        Person pTarget1 = helper.generatePersonWithName("Gabriel");
+        String s = Person.getPrintableString(pTarget1.getName(),pTarget1.getPhone(),pTarget1.getEmail(),pTarget1.getAddress());
+        String s2 = "Name: " + pTarget1.getName() + " Phone: " + pTarget1.getPhone() + " Email: " + pTarget1.getEmail() + " Address: " + pTarget1.getAddress();
+        assertEquals(s2,s);
+    }
+
     /**
      * A utility class to generate test data.
      */
