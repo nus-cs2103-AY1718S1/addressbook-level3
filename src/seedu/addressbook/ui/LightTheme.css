@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Merriweather');
+
+.text-field {
+    -fx-font-size: 12pt;
+    -fx-font-family: "Open Sans";
+    -fx-font-weight: bold;
+    -fx-text-fill: black;
+    -fx-control-inner-background: floralwhite;
+}
+
+.text-area {
+    -fx-background-color: white;
+    -fx-control-inner-background: ghostwhite;
+    -fx-font-family: "Merriweather";
+    -fx-font-size: 10pt;
+    -fx-padding: 5 5 5 5;
+    -fx-font-fill: black;
+}
