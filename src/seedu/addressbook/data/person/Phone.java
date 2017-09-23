@@ -60,6 +60,10 @@ public class Phone implements Printable {
 
     @Override
     public String getPrintableString() {
-        return String.format(PREFIX_PRINTABLE, value);
+        if (isPrivate) {
+            return String.format(PREFIX_PRINTABLE, detailIsPrivate);
+        } else {
+            return String.format(PREFIX_PRINTABLE, value);
+        }
     }
 }
