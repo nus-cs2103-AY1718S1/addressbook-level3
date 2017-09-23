@@ -456,6 +456,15 @@ public class LogicTest {
                                 true,
                                 expectedList);
     }
+    
+    @Test
+    public void execute_getPrintableString() throws Exception {
+        TestDataHelper helper = new TestDataHelper();
+        Person p = helper.generatePersonWithName("Nam");
+        String actual = p.getPrintableString(p.getName(), p.getPhone(), p.getEmail(), p.getAddress());
+        String expected = "Name: " + p.getName() + " " + "Phone: " + p.getPhone() + " " + "Email: " + p.getEmail() + " " + "Address: " + p.getAddress() + " ";
+        assertEquals(actual, expected);
+    }
 
     /**
      * A utility class to generate test data.
