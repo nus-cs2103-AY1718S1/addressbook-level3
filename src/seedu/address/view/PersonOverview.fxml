@@ -59,8 +59,8 @@
                   <ButtonBar layoutX="43.0" layoutY="236.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0">
                     <buttons>
                       <Button mnemonicParsing="false" text="New..." />
-                        <Button layoutX="135.0" layoutY="18.0" mnemonicParsing="false" text="Edit..." />
-                        <Button layoutX="50.0" layoutY="18.0" mnemonicParsing="false" text="Delete" />
+                        <Button layoutX="135.0" layoutY="18.0" mnemonicParsing="false" onAction="#handleEditPerson" text="Edit..." />
+                        <Button layoutX="50.0" layoutY="18.0" mnemonicParsing="false" onAction="#handleDeletePerson" text="Delete" />
                     </buttons>
                   </ButtonBar>
                </children>
