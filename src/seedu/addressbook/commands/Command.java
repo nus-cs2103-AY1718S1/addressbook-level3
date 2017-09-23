@@ -74,7 +74,5 @@ public abstract class Command {
     /**
      * @return true if the command is mutating the data and false otherwise
      */
-    public boolean isMutating(){
-        throw new UnsupportedOperationException("This method should be implement in child classes");
-    }
+    public abstract boolean isMutating();
 }
