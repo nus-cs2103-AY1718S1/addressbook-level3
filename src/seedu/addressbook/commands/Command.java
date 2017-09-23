@@ -71,7 +71,7 @@ public abstract class Command {
         this.targetIndex = targetIndex;
     }
     
-    public boolean isMutating() throws UnsupportedOperationException {
+    public boolean isMutating() {
         throw new UnsupportedOperationException("This method can only be called from child classes");
     }
 }
