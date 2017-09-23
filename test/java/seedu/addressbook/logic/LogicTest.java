@@ -106,6 +106,15 @@ public class LogicTest {
     }
 
     @Test
+    public void execute_total() throws Exception {
+
+        List<ReadOnlyPerson> allPersons = addressBook.getAllPersons().immutableListView();
+        int total = allPersons.size();
+
+        assertCommandBehavior("total", Integer.toString(total) + TotalCommand.MESSAGE_DETAIL);
+    }
+
+    @Test
     public void execute_exit() throws Exception {
         assertCommandBehavior("exit", ExitCommand.MESSAGE_EXIT_ACKNOWEDGEMENT);
     }
