@@ -5,7 +5,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import org.omg.SendingContext.RunTime;
 import seedu.addressbook.commands.ExitCommand;
+import seedu.addressbook.commands.ListCommand;
 import seedu.addressbook.logic.Logic;
 import seedu.addressbook.commands.CommandResult;
 import seedu.addressbook.data.person.ReadOnlyPerson;
@@ -39,8 +41,24 @@ public class MainWindow {
 
     @FXML
     private TextField commandInput;
-
-
+    
+    @FXML 
+    void showAllButton() {
+        try {
+            CommandResult result = logic. execute(ListCommand.COMMAND_WORD);
+            displayResult(result);
+            clearCommandInput();
+        } catch (Exception e) {
+            display(e.getMessage());
+            throw new RuntimeException(e);
+        }
+    }
+    
+    @FXML
+    void clearTextButton() {
+        clearOutputConsole();
+    }
+    
     @FXML
     void onCommand(ActionEvent event) {
         try {
