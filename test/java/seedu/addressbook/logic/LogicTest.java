@@ -12,6 +12,7 @@ import seedu.addressbook.data.AddressBook;
 import seedu.addressbook.data.person.*;
 import seedu.addressbook.data.tag.Tag;
 import seedu.addressbook.data.tag.UniqueTagList;
+import seedu.addressbook.parser.Parser;
 import seedu.addressbook.storage.StorageFile;
 
 import java.util.*;
@@ -69,6 +70,8 @@ public class LogicTest {
      * also confirms that the following three parts of the Logic object's state are as expected:<br>
      *      - the internal address book data are same as those in the {@code expectedAddressBook} <br>
      *      - the internal 'last shown list' matches the {@code expectedLastList} <br>
+     *          
+     *      if the command is mutating the data:
      *      - the storage file content matches data in {@code expectedAddressBook} <br>
      */
     private void assertCommandBehavior(String inputCommand,
@@ -77,7 +80,8 @@ public class LogicTest {
                                       boolean isRelevantPersonsExpected,
                                       List<? extends ReadOnlyPerson> lastShownList) throws Exception {
 
-        //Execute the command
+        //Parse and execute the command
+        Command command = new Parser().parseCommand(inputCommand);
         CommandResult r = logic.execute(inputCommand);
 
         //Confirm the result contains the right data
@@ -91,8 +95,8 @@ public class LogicTest {
         assertEquals(expectedAddressBook, addressBook);
         assertEquals(lastShownList, logic.getLastShownList());
         
-        if(inputCommand.equals("add") || inputCommand.equals("clear") || inputCommand.equals("delete")) {
-            assertEquals(addressBook, saveFile.load());
+        if(!command.isMutating()) {
+            assertEquals(expectedAddressBook, saveFile.load());
         }
     }
 
