@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seedu.address.view.PersonEditDialogController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seedu.address.view.PersonEditDialogController">
    <children>
       <GridPane layoutX="75.0" layoutY="47.0" prefHeight="186.0" prefWidth="217.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
         <columnConstraints>
@@ -39,10 +39,10 @@
             <TextField fx:id="birthdayField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
          </children>
       </GridPane>
-      <ButtonBar layoutX="300.0" layoutY="319.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0">
+      <ButtonBar layoutX="300.0" layoutY="319.0" prefHeight="40.0" prefWidth="350.0" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0">
         <buttons>
-          <Button mnemonicParsing="false" onAction="#handleOk" text="Ok" />
-            <Button layoutX="135.0" layoutY="18.0" mnemonicParsing="false" onAction="#handleCancel" text="Cancel" />
+          <Button defaultButton="true" mnemonicParsing="false" onAction="#handleOk" text="Ok" />
+            <Button layoutX="135.0" layoutY="18.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="33.0" prefWidth="110.0" text="Cancel" />
         </buttons>
       </ButtonBar>
    </children>
