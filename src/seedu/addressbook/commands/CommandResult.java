@@ -32,5 +32,4 @@ public class CommandResult {
     public Optional<List<? extends ReadOnlyPerson>> getRelevantPersons() {
         return Optional.ofNullable(relevantPersons);
     }
-
 }
