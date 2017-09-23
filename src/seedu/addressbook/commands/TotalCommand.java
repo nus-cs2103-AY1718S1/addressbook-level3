@@ -24,8 +24,8 @@ public class TotalCommand extends Command {
     public CommandResult execute() {
 
         List<ReadOnlyPerson> allPersons = addressBook.getAllPersons().immutableListView();
-        int total = allPersons.size();
-        return new CommandResult(Integer.toString(total) + MESSAGE_DETAIL);
+
+        return new CommandResult(Integer.toString(allPersons.size()) + MESSAGE_DETAIL);
 
     }
 }
