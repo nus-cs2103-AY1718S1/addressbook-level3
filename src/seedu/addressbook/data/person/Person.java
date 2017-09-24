@@ -38,6 +38,10 @@ public class Person implements ReadOnlyPerson {
     public Name getName() {
         return name;
     }
+    
+    public void setName(Name name) {
+        this.name = name;
+    }
 
     @Override
     public Phone getPhone() {
