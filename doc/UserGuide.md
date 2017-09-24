@@ -50,9 +50,9 @@ Format:<br>
 
 Examples:
 * `edit`
-* `edit n/John Doe p/98765432 e/johnd@gmail.com a/John street, block 123, #01-01`
+* `edit 1 n/John Doe p/98765432 e/johnd@gmail.com a/John street, block 123, #01-01`
 * `edit`
-* `edit n/Betsy Crowe pp/1234567 e/betsycrowe@gmail.com pa/Newgate Prison t/criminal t/friend`
+* `edit 2 n/Betsy Crowe pp/1234567 e/betsycrowe@gmail.com pa/Newgate Prison t/criminal t/friend`
 
 To end the edit command series prematurely<br>
 Format: `break`
