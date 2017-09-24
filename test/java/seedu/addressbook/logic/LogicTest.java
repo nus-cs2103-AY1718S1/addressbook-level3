@@ -13,10 +13,12 @@ import seedu.addressbook.data.person.*;
 import seedu.addressbook.data.tag.Tag;
 import seedu.addressbook.data.tag.UniqueTagList;
 import seedu.addressbook.storage.StorageFile;
+import seedu.addressbook.parser.Parser;
 
 import java.util.*;
 
 import static junit.framework.TestCase.assertEquals;
+import static junit.framework.TestCase.assertNotSame;
 import static seedu.addressbook.common.Messages.*;
 
 
@@ -87,10 +89,17 @@ public class LogicTest {
             assertEquals(lastShownList, r.getRelevantPersons().get());
         }
 
+        Command cmd = new Parser().parseCommand(inputCommand);
+
         //Confirm the state of data is as expected
         assertEquals(expectedAddressBook, addressBook);
         assertEquals(lastShownList, logic.getLastShownList());
-        assertEquals(addressBook, saveFile.load());
+        if (cmd.isMutating()) {
+            assertEquals(addressBook, saveFile.load());
+        }
+        else {
+            assertNotSame(addressBook, saveFile.load());
+        }
     }
 
 
