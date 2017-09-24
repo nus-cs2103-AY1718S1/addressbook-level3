@@ -6,7 +6,7 @@ import seedu.addressbook.data.exception.IllegalValueException;
  * Represents a Person's address in the address book.
  * Guarantees: immutable; is valid as declared in {@link #isValidAddress(String)}
  */
-public class Address implements Printable {
+public class Address {
 
     public static final String EXAMPLE = "123, some street";
     public static final String MESSAGE_ADDRESS_CONSTRAINTS = "Person addresses can be in any format";
@@ -54,9 +54,5 @@ public class Address implements Printable {
 
     public boolean isPrivate() {
         return isPrivate;
-    }
-
-    public String getPrintableString(Printable p, Printable p1, Printable p2) {
-        return value;
     }
 }
