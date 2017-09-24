@@ -39,8 +39,4 @@ public class DeleteCommand extends Command {
         }
     }
 
-    public boolean isMutating() {
-        return true;
-    }
-
 }
