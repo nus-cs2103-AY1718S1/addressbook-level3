@@ -1,5 +1,7 @@
 package seedu.addressbook.data.person;
 
+import java.util.StringJoiner;
+
 import seedu.addressbook.data.tag.Tag;
 import seedu.addressbook.data.tag.UniqueTagList;
 
@@ -38,20 +40,25 @@ public interface ReadOnlyPerson {
     default String getAsTextShowAll() {
         final StringBuilder builder = new StringBuilder();
         final String detailIsPrivate = "(private) ";
-        builder.append(getName())
-                .append(" Phone: ");
-        if (getPhone().isPrivate()) {
-            builder.append(detailIsPrivate);
-        }
-        builder.append(getPhone())
-                .append(" Email: ");
-        if (getEmail().isPrivate()) {
-            builder.append(detailIsPrivate);
-        }
-        builder.append(getEmail())
-                .append(" Address: ");
-        if (getAddress().isPrivate()) {
-            builder.append(detailIsPrivate);
+        
+        if(!getPhone().isPrivate() && !getEmail().isPrivate() && !getAddress().isPrivate())
+            builder.append(getPrintableString());
+        else {
+            builder.append(getName())
+                    .append(" Phone: ");
+            if (getPhone().isPrivate()) {
+                builder.append(detailIsPrivate);
+            }
+            builder.append(getPhone())
+                    .append(" Email: ");
+            if (getEmail().isPrivate()) {
+                builder.append(detailIsPrivate);
+            }
+            builder.append(getEmail())
+                    .append(" Address: ");
+            if (getAddress().isPrivate()) {
+                builder.append(detailIsPrivate);
+            }
         }
         builder.append(getAddress())
                 .append(" Tags: ");
@@ -87,10 +94,10 @@ public interface ReadOnlyPerson {
      * Returns a concatenated version of the printable strings of each object.
      */
     default String getPrintableString(Printable ... printables){
-        String retString = "";
+        StringJoiner sj = new StringJoiner(" ");
         for (Printable p : printables){
-            retString += p.getPrintableString() + " ";
+            sj.add(p.getPrintableString());
         }
-        return retString;
+        return sj.toString();
     }
 }
