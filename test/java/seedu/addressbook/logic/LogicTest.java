@@ -18,6 +18,7 @@ import seedu.addressbook.parser.Parser;
 import java.util.*;
 
 import static junit.framework.TestCase.assertEquals;
+import static junit.framework.TestCase.assertNotSame;
 import static seedu.addressbook.common.Messages.*;
 
 
@@ -95,6 +96,9 @@ public class LogicTest {
         assertEquals(lastShownList, logic.getLastShownList());
         if (cmd.isMutating()) {
             assertEquals(addressBook, saveFile.load());
+        }
+        else {
+            assertNotSame(addressBook, saveFile.load());
         }
     }
 

@@ -64,7 +64,7 @@ public abstract class Command {
     }
 
     /**
-     * Checks if the data file is changed after entering the command
+     * Returns true if the data file is changed after entering the command
      */
     public abstract boolean isMutating();
 
