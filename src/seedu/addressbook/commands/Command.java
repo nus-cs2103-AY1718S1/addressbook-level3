@@ -70,4 +70,9 @@ public abstract class Command {
     public void setTargetIndex(int targetIndex) {
         this.targetIndex = targetIndex;
     }
+
+    /**
+     * Returns true if Command subclass is a command capable of mutation
+     */
+    public abstract boolean isMutating();
 }
