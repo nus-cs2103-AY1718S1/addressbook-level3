@@ -38,5 +38,8 @@ public class DeleteCommand extends Command {
             return new CommandResult(Messages.MESSAGE_PERSON_NOT_IN_ADDRESSBOOK);
         }
     }
+    public boolean isMutating() {
+        return false;
+    }
 
 }
