@@ -79,6 +79,17 @@ public class Person implements ReadOnlyPerson {
         return Objects.hash(name, phone, email, address, tags);
     }
 
+    /**
+     * Returns a concatenated version of the printable strings of each object.
+     */
+    public String getPrintableString(Printable... printables){
+        String toBeReturned = "";
+        for(Printable object: printables) {
+            toBeReturned = toBeReturned + object.getPrintableString() + " ";
+        }
+        return toBeReturned.trim();
+    }
+
     @Override
     public String toString() {
         return getAsTextShowAll();
