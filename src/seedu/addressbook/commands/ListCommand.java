@@ -17,6 +17,14 @@ public class ListCommand extends Command {
             + "Example: " + COMMAND_WORD;
 
 
+    /**
+     * Returns a boolean value stating if the command mutates the content in the addressbook
+     */
+    @Override
+    public boolean isMutating() {
+        return false;
+    }
+
     @Override
     public CommandResult execute() {
         List<ReadOnlyPerson> allPersons = addressBook.getAllPersons().immutableListView();

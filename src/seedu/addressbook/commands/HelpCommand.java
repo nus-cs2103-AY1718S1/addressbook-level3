@@ -21,6 +21,14 @@ public class HelpCommand extends Command {
             + "\n" + HelpCommand.MESSAGE_USAGE
             + "\n" + ExitCommand.MESSAGE_USAGE;
 
+    /**
+     * Returns a boolean value stating if the command mutates the content in the addressbook
+     */
+    @Override
+    public boolean isMutating() {
+        return false;
+    }
+
     @Override
     public CommandResult execute() {
         return new CommandResult(MESSAGE_ALL_USAGES);

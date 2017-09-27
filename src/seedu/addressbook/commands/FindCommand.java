@@ -30,6 +30,14 @@ public class FindCommand extends Command {
         return new HashSet<>(keywords);
     }
 
+    /**
+     * Returns a boolean value stating if the command mutates the content in the addressbook
+     */
+    @Override
+    public boolean isMutating() {
+        return false;
+    }
+
     @Override
     public CommandResult execute() {
         final List<ReadOnlyPerson> personsFound = getPersonsWithNameContainingAnyKeyword(keywords);
