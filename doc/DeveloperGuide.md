@@ -94,6 +94,9 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should have error log and be able to backup data when errors occur.
+6. Should be lightweight, can respond within 2 seconds. 
+7. Should have uncomplicated layout and the system should be usable by computer novices.
 
 ## Appendix D : Glossary
 
