@@ -3,6 +3,7 @@ package seedu.addressbook;
 import javafx.application.Application;
 import javafx.application.Platform;
 
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import seedu.addressbook.logic.Logic;
 import seedu.addressbook.ui.Gui;
@@ -20,6 +21,10 @@ public class Main extends Application implements Stoppable{
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        // Load custom fonts
+        Font.loadFont(getClass().getResourceAsStream("/seedu/addressbook/ui/fonts/NovaSquare.ttf"), 10);
+        Font.loadFont(getClass().getResourceAsStream("/seedu/addressbook/ui/fonts/Electrolize-Regular.ttf"), 10);
+
         gui = new Gui(new Logic(), VERSION);
         gui.start(primaryStage, this);
     }

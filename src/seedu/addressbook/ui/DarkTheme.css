@@ -1,17 +1,15 @@
-
-
 .text-field {
-    -fx-font-size: 12pt;
-    -fx-font-family: "Consolas";
-    -fx-font-weight: bold;
-    -fx-text-fill: yellow;
-    -fx-control-inner-background: derive(#1d1d1d,20%);
+    -fx-font-size: 15pt;
+    -fx-font-family: "Nova Square";
+    -fx-text-fill: lightgray;
+    -fx-control-inner-background: black;
 }
 
 .text-area {
-    -fx-background-color: black;
-    -fx-control-inner-background: black;
-    -fx-font-family: "Segoe UI Semibold";
-    -fx-font-size: 10pt;
+    -fx-background-color: #545454;
+    -fx-control-inner-background: mediumblue;
+    -fx-font-family: "Electrolize";
+    -fx-font-size: 18pt;
+    -fx-text-fill: ghostwhite;
     -fx-padding: 5 5 5 5;
 }
