@@ -3,10 +3,9 @@ package seedu.addressbook.ui;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import seedu.addressbook.logic.Logic;
 import seedu.addressbook.Main;
+import seedu.addressbook.logic.Logic;
 
-import java.io.File;
 import java.io.IOException;
 
 /**
@@ -42,7 +41,7 @@ public class Gui {
          */
         loader.setLocation(Main.class.getResource("ui/mainwindow.fxml"));
 
-        stage.setTitle(version);
+        stage.setTitle("CS2103T W13 B1 " + version);
         stage.setScene(new Scene(loader.load(), INITIAL_WINDOW_WIDTH, INITIAL_WINDOW_HEIGHT));
         stage.show();
         MainWindow mainWindow = loader.getController();
