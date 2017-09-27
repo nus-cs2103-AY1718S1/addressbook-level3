@@ -57,6 +57,9 @@ public class AddCommand extends Command {
         return toAdd;
     }
 
+    /**
+     * Returns a boolean value stating if the command mutates the content in the addressbook
+     */
     @Override
     public boolean isMutating() {
         return true;

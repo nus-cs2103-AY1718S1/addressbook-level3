@@ -24,7 +24,9 @@ public class ViewCommand extends Command {
         super(targetVisibleIndex);
     }
 
-
+    /**
+     * Returns a boolean value stating if the command mutates the content in the addressbook
+     */
     @Override
     public boolean isMutating() {
         return false;
