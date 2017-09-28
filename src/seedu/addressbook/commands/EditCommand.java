@@ -9,6 +9,8 @@ import seedu.addressbook.data.tag.UniqueTagList;
 import java.util.HashSet;
 import java.util.Set;
 
+import static seedu.addressbook.ui.Gui.DISPLAYED_INDEX_OFFSET;
+
 /**
  * Edits a person identified using it's last displayed index from the address book.
  */
@@ -24,6 +26,7 @@ public class EditCommand extends Command{
             + "Parameters: n/NAME [p]p/PHONE [p]e/EMAIL [p]a/ADDRESS  [t/TAG]...\n\t"
             + "Example:\n\t\t" + MESSAGE_USAGE_EXAMPLE + "\n\t";
     public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited Person: %1$s";
+    public static final String MESSAGE_EDIT_SAME_PERSON = "Person %1$s is the same as the one in the record";
 
     //To be deleted later
     public static final String MESSAGE_BREAK_EDIT_COMMAND = "Break Edit Command!";
@@ -33,7 +36,8 @@ public class EditCommand extends Command{
                        String email, boolean isEmailPrivate,
                        String address, boolean isAddressPrivate,
                        Set<String> tags) throws IllegalValueException {
-        personIndex = index;
+        super(index);
+        personIndex = index - DISPLAYED_INDEX_OFFSET;
         final Set<Tag> tagSet = new HashSet<>();
         for (String tagName : tags) {
             tagSet.add(new Tag(tagName));
@@ -50,10 +54,13 @@ public class EditCommand extends Command{
     @Override
     public CommandResult execute() {
         try {
+            final ReadOnlyPerson target = getTargetPerson();
             addressBook.editPerson(personIndex,toEdit);
             return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, toEdit));
         } catch (IndexOutOfBoundsException ie) {
             return new CommandResult(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+        } catch (UniquePersonList.NoChangeException nce){
+            return new CommandResult(String.format(nce.getLocalizedMessage(), toEdit));
         }
     }
 

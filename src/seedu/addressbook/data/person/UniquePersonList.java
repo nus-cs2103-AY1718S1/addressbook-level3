@@ -25,6 +25,15 @@ public class UniquePersonList implements Iterable<Person> {
     }
 
     /**
+     * Signals that Edit operation does not change any information of an existing person.
+     */
+    public static class NoChangeException extends DuplicateDataException {
+        protected NoChangeException() {
+            super("Person %1$s is the same as the one in the record");
+        }
+    }
+
+    /**
      * Signals that an operation targeting a specified person in the list would fail because
      * there is no such matching person in the list.
      */
@@ -99,7 +108,10 @@ public class UniquePersonList implements Iterable<Person> {
     /**
      * Edits a person in the most recent list.
      */
-    public void edit(int index, Person toEdit){
+    public void edit(int index, Person toEdit) throws NoChangeException {
+        if (contains(toEdit)) {
+            throw new NoChangeException();
+        }
         internalList.set(index,toEdit);
     }
 

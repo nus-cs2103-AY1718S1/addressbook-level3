@@ -87,7 +87,7 @@ public class AddressBook {
      * Also checks the new person's tags and updates {@link #allTags} with any new tags found,
      * and updates the Tag objects in the person to point to those in {@link #allTags}.
      */
-    public void editPerson(int index, Person toEdit) {
+    public void editPerson(int index, Person toEdit) throws NoChangeException {
         syncTagsWithMasterList(toEdit);
         allPersons.edit(index, toEdit);
     }
