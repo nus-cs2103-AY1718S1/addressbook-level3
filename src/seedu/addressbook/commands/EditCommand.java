@@ -28,9 +28,6 @@ public class EditCommand extends Command{
     public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited Person: %1$s";
     public static final String MESSAGE_EDIT_SAME_PERSON = "Person %1$s is the same as the one in the record";
 
-    //To be deleted later
-    public static final String MESSAGE_BREAK_EDIT_COMMAND = "Break Edit Command!";
-
     public EditCommand(int index, String name,
                        String phone, boolean isPhonePrivate,
                        String email, boolean isEmailPrivate,
