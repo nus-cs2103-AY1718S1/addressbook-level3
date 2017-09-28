@@ -26,7 +26,6 @@ public class EditCommand extends Command{
             + "Parameters: n/NAME [p]p/PHONE [p]e/EMAIL [p]a/ADDRESS  [t/TAG]...\n\t"
             + "Example:\n\t\t" + MESSAGE_USAGE_EXAMPLE + "\n\t";
     public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited Person: %1$s";
-    public static final String MESSAGE_EDIT_SAME_PERSON = "Person %1$s is the same as the one in the record";
 
     public EditCommand(int index, String name,
                        String phone, boolean isPhonePrivate,

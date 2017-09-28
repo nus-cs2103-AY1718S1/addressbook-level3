@@ -12,8 +12,6 @@ import static seedu.addressbook.common.Messages.MESSAGE_EMPTY_ADDRESS_BOOK;
  */
 public class ListCommand extends Command {
 
-    private boolean isPartOfEditCommand;
-
     @Override
     public boolean isMutating() {
         return false;
@@ -27,16 +25,9 @@ public class ListCommand extends Command {
 
     public ListCommand(){}
 
-    public ListCommand(boolean isPartOfEditCommand){
-        this.isPartOfEditCommand = isPartOfEditCommand;
-    }
-
     @Override
     public CommandResult execute() {
         List<ReadOnlyPerson> allPersons = addressBook.getAllPersons().immutableListView();
-        if (isPartOfEditCommand){
-            return new CommandResult(getFeedbackForEditListingCommand(allPersons), allPersons);
-        }
         return new CommandResult(getMessageForPersonListShownSummary(allPersons), allPersons);
     }
 

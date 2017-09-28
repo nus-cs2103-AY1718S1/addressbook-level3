@@ -208,13 +208,13 @@ public class LogicTest {
     @Test
     public void execute_edit_wrong_sequence() throws Exception {
         assertCommandBehavior(
-                "edit []\\[;] p/12345 e/valid@e.mail a/valid, address", MESSANGE_WRONG_SEQUENCE);
+                "edit []\\[;] p/12345 e/valid@e.mail a/valid, address", String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE));
         assertCommandBehavior(
-                "edit Valid Name p/not_numbers e/valid@e.mail a/valid, address", MESSANGE_WRONG_SEQUENCE);
+                "edit Valid Name p/not_numbers e/valid@e.mail a/valid, address", String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE));
         assertCommandBehavior(
-                "edit 1", MESSANGE_WRONG_SEQUENCE);
+                "edit 1", String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE));
         assertCommandBehavior(
-                "edit 1 n/Le Quang Quan p/86496586 e/quan_le@u.nus.edu a/311, Clementi Ave 2, #02-25 t/owesMoney t/friends", MESSANGE_WRONG_SEQUENCE);
+                "edit 1 n/Le Quang Quan p/86496586 e/quan_le@u.nus.edu a/311, Clementi Ave 2, #02-25 t/owesMoney t/friends", MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
     }
 
     @Test
@@ -274,7 +274,7 @@ public class LogicTest {
         // prepare address book state
         helper.addToAddressBook(addressBook, threePersons);
 
-        assertCommandBehavior("edit",
+        assertCommandBehavior("list",
                 new ListCommand().getFeedbackForEditListingCommand(expectedList),
                 expectedAB,
                 true,
