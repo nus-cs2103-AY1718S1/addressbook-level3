@@ -83,6 +83,16 @@ public class AddressBook {
     }
 
     /**
+     * Edits a person in the most recent list of the address book.
+     * Also checks the new person's tags and updates {@link #allTags} with any new tags found,
+     * and updates the Tag objects in the person to point to those in {@link #allTags}.
+     */
+    public void editPerson(int index, Person toEdit) {
+        syncTagsWithMasterList(toEdit);
+        allPersons.edit(index, toEdit);
+    }
+
+    /**
      * Checks if an equivalent person exists in the address book.
      */
     public boolean containsPerson(ReadOnlyPerson key) {
