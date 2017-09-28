@@ -53,12 +53,6 @@ Examples:
   `edit 1 n/John Doe p/98765432 e/johnd@gmail.com a/John street, block 123, #01-01`<br>
   Edit the first person in the list with the information after the edit command word.
 
-To end the edit command series prematurely<br>
-Format: `break`
-
-> The `break` command can only be recognised after calling the `edit` command first.<br>
-> It will stop the system from reading the second edit command.
-
 ## Listing all persons : `list`
 Shows a list of all persons in the address book.<br>
 Format: `list`
