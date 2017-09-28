@@ -75,64 +75,10 @@ public class Logic {
      * @throws Exception if there was any problem during command execution.
      */
     public CommandResult execute(String userCommandText) throws Exception {
-        if (isExitEditCommand(userCommandText,previousCommandText)){
-            previousCommandText = "";
-            return new CommandResult(MESSAGE_BREAK_EDIT_COMMAND);
-        }
-        if(!isCurCommandInSequenceWithPrevCommand(userCommandText,previousCommandText)){
-            previousCommandText = "";
-            return new CommandResult(MESSANGE_WRONG_SEQUENCE);
-        }
         Command command = new Parser().parseCommand(userCommandText);
         CommandResult result = execute(command);
         recordResult(result);
-        String currentCommand = new Parser().parseCommandText(userCommandText);
-
-        if (currentCommand.equals(EDIT_DATA_COMMAND) && isDeleteOfEdit(result)){
-            result = execute(new Parser().parseAddCommand(userCommandText));
-        }
-        previousCommandText = userCommandText;
-        if (isAddressBookEmpty(result)) {
-            previousCommandText = "";
-        }
         return result;
-    }
-
-    private boolean isAddressBookEmpty(CommandResult result) {
-        final Optional<List<? extends ReadOnlyPerson>> relevantPersons = result.getRelevantPersons();
-        if (!relevantPersons.isPresent()) {
-            return true;
-        }
-        return (relevantPersons.get().size() == 0);
-    }
-
-    private boolean isCurCommandInSequenceWithPrevCommand(String commandText, String prevCommandText){
-        String commandTextSorted = new Parser().parseCommandText(commandText);
-        String prevCommandTextSorted = new Parser().parseCommandText(prevCommandText);
-        if (!commandTextSorted.equals(EDIT_LISTING_COMMAND) && !commandTextSorted.equals(EDIT_DATA_COMMAND)
-                && !prevCommandTextSorted.equals(EDIT_LISTING_COMMAND)) {
-            previousCommandText = "";
-            return true;
-        } else if (commandTextSorted.equals(EDIT_LISTING_COMMAND) && !prevCommandTextSorted.equals(EDIT_DATA_COMMAND)) {
-            return true;
-        } else if (commandTextSorted.equals(EDIT_DATA_COMMAND) && prevCommandTextSorted.equals(EDIT_LISTING_COMMAND)) {
-            previousCommandText = "";
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    private boolean isExitEditCommand(String commandText, String prevCommandText) {
-        String commandTextSorted = new Parser().parseCommandText(commandText);
-        String prevCommandTextSorted = new Parser().parseCommandText(prevCommandText);
-        return commandTextSorted.equals(COMMAND_BREAK) && prevCommandTextSorted.equals(EDIT_LISTING_COMMAND);
-    }
-
-    private boolean isDeleteOfEdit(CommandResult result) {
-        String resultString = result.feedbackToUser;
-        String compareMessage = DeleteCommand.MESSAGE_DELETE_PERSON_SUCCESS_EDIT_COMMAND;
-        return resultString.equals(compareMessage);
     }
 
     /**

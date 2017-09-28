@@ -124,7 +124,7 @@ public class Parser {
                 return prepareDelete(arguments);
 
             case EditCommand.COMMAND_WORD:
-                return processEdit(arguments);
+                return prepareEdit(arguments);
 
             case ClearCommand.COMMAND_WORD:
                 return new ClearCommand();
@@ -287,20 +287,6 @@ public class Parser {
         final String[] keywords = matcher.group("keywords").split("\\s+");
         final Set<String> keywordSet = new HashSet<>(Arrays.asList(keywords));
         return new FindCommand(keywordSet);
-    }
-
-    /**
-     * Processes the edit command from listing to editing the person.
-     *
-     * @param arguments full command args string
-     * @return ListCommand() if it is the first edit request, and the preparedEdit command if it is the second
-     */
-    private Command processEdit(String arguments) {
-        if (arguments.equals(ARGUMENTS_ARE_EMPTY)) {
-            return new ListCommand(true);
-        } else {
-            return prepareEdit(arguments);
-        }
     }
 
     /**
