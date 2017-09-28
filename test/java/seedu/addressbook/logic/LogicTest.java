@@ -31,7 +31,7 @@ public class LogicTest {
     private StorageFile saveFile;
     private AddressBook addressBook;
     private Logic logic;
-    private List<String> mutatingCommands = Arrays.asList("add", "delete", "clear");
+    private List<String> mutatingCommands = Arrays.asList("add", "delete", "clear", "exit");
 
     @Before
     public void setup() throws Exception {
@@ -95,6 +95,7 @@ public class LogicTest {
         if(mutatingCommands.contains(inputCommand)) {
             assertEquals(addressBook, saveFile.load());
         }
+        
     }
 
 
