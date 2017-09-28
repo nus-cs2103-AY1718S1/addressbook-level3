@@ -49,12 +49,9 @@ Format:
 > listing.
 
 Examples:
-* `listing`<br>
+* `list`<br>
   `edit 1 n/John Doe p/98765432 e/johnd@gmail.com a/John street, block 123, #01-01`<br>
   Edit the first person in the list with the information after the edit command word.
-* `find Betsy`<br>
-  `edit 2 n/Betsy Crowe pp/1234567 e/betsycrowe@gmail.com pa/Newgate Prison t/criminal t/friend`<br>
-  Edit the second person after the find command with the information given.
 
 To end the edit command series prematurely<br>
 Format: `break`
