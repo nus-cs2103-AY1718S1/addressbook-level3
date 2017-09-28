@@ -34,10 +34,6 @@ public class Parser {
                     + " (?<isEmailPrivate>p?)e/(?<email>[^/]+)"
                     + " (?<isAddressPrivate>p?)a/(?<address>[^/]+)"
                     + "(?<tagArguments>(?: t/[^/]+)*)"); // variable number of tags
-    public static final Pattern EDIT_ADD_ARGS_FORMAT =
-            Pattern.compile("(?<index>[^/]+)"
-                    + " n/(?<arguments>.*)");
-    private static final String ARGUMENTS_ARE_EMPTY = "";
 
 
     /**
@@ -53,53 +49,6 @@ public class Parser {
      * Used for initial separation of command word and args.
      */
     public static final Pattern BASIC_COMMAND_FORMAT = Pattern.compile("(?<commandWord>\\S+)(?<arguments>.*)");
-
-    /**
-     * Parses user input into command for execution.
-     *
-     * @param userInput full user input string
-     * @return the command text based on the user input
-     */
-    public String parseCommandText(String userInput) {
-        if (userInput.equals("")){
-            return "";
-        }
-        if (userInput.equals("end edit")){
-            return userInput;
-        }
-        final Matcher matcher = BASIC_COMMAND_FORMAT.matcher(userInput.trim());
-        if (!matcher.matches()) {
-            return String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE);
-        }
-        String commandText = matcher.group("commandWord");
-        String arguments = matcher.group("arguments");
-        if (!commandText.equals(EditCommand.COMMAND_WORD)){
-            return commandText;
-        }else {
-            return commandText + ((arguments.equals("")) ? "Listing" : "Data");
-        }
-    }
-
-    /**
-     * Parses user input into an add command for edit command execution.
-     *
-     * @param userCommandText full user input string
-     * @return the add command based on the user input for the edit command processing
-     */
-    public Command parseAddCommand(String userCommandText) {
-        final Matcher matcher = BASIC_COMMAND_FORMAT.matcher(userCommandText.trim());
-        if (!matcher.matches()) {
-            return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE));
-        }
-        final String editData = matcher.group("arguments");
-        final Matcher matcherEditAdd = EDIT_ADD_ARGS_FORMAT.matcher(editData.trim());
-        if (!matcherEditAdd.matches()) {
-            return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE));
-        }
-        final String addArguments = matcherEditAdd.group("arguments");
-        return prepareAdd(addArguments);
-    }
-
 
     /**
      * Parses user input into command for execution.
@@ -307,7 +256,21 @@ public class Parser {
             for (String tagName : tags) {
                 tagSet.add(new Tag(tagName));
             }
-            return new DeleteCommand(Integer.parseInt(matcher.group("index")));
+            int personIndex = Integer.parseInt(matcher.group("index"));
+            return new EditCommand(personIndex,
+                    matcher.group("name"),
+
+                    matcher.group("phone"),
+                    isPrivatePrefixPresent(matcher.group("isPhonePrivate")),
+
+                    matcher.group("email"),
+                    isPrivatePrefixPresent(matcher.group("isEmailPrivate")),
+
+                    matcher.group("address"),
+                    isPrivatePrefixPresent(matcher.group("isAddressPrivate")),
+
+                    getTagsFromArgs(matcher.group("tagArguments"))
+            );
         } catch (Exception e){
             return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE));
         }
