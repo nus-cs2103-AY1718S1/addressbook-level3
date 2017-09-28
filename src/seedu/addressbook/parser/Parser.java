@@ -307,7 +307,7 @@ public class Parser {
             for (String tagName : tags) {
                 tagSet.add(new Tag(tagName));
             }
-            return new DeleteCommand(Integer.parseInt(matcher.group("index")), true);
+            return new DeleteCommand(Integer.parseInt(matcher.group("index")));
         } catch (Exception e){
             return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE));
         }
