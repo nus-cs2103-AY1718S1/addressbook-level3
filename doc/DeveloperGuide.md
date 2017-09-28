@@ -94,6 +94,9 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should allow multiple users to use the system with the aid of user administration system
+6. Should automatically erase all content when the number of times it takes to log in exceeds 100
+7. Should have the feature to transfer contacts from one account to another
 
 ## Appendix D : Glossary
 
