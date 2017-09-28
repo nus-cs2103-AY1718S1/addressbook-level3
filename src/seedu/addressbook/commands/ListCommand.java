@@ -30,13 +30,4 @@ public class ListCommand extends Command {
         List<ReadOnlyPerson> allPersons = addressBook.getAllPersons().immutableListView();
         return new CommandResult(getMessageForPersonListShownSummary(allPersons), allPersons);
     }
-
-    public String getFeedbackForEditListingCommand(List<ReadOnlyPerson> allPersons) {
-        int numPersons = allPersons.size();
-        if (numPersons == 0){
-            return MESSAGE_EMPTY_ADDRESS_BOOK;
-        }
-        return "There are currently " + numPersons + ((numPersons>1) ? " persons" : " person")
-                +" in the Address Book. Select an index to edit";
-    }
 }

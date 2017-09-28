@@ -7,6 +7,8 @@ import seedu.addressbook.data.tag.UniqueTagList;
 
 import java.util.*;
 
+import static seedu.addressbook.common.Messages.MESSAGE_EDIT_SAME_PERSON;
+
 /**
  * A list of persons. Does not allow null elements or duplicates.
  *
@@ -29,7 +31,7 @@ public class UniquePersonList implements Iterable<Person> {
      */
     public static class NoChangeException extends DuplicateDataException {
         protected NoChangeException() {
-            super("Person %1$s is the same as the one in the record");
+            super(MESSAGE_EDIT_SAME_PERSON);
         }
     }
 

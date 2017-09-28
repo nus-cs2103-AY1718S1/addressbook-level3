@@ -15,4 +15,5 @@ public class Messages {
     public static final String MESSAGE_USING_STORAGE_FILE = "Using storage file : %1$s";
     public static final String MESSANGE_WRONG_SEQUENCE = "Wrong Sequence of commands!";
     public static final String MESSAGE_EMPTY_ADDRESS_BOOK = "Address Book is empty now. Add new persons before editing.";
+    public static final String MESSAGE_EDIT_SAME_PERSON = "Person %1$s is the same as the one in the record";
 }

@@ -19,6 +19,7 @@ import java.util.*;
 
 import static junit.framework.TestCase.assertEquals;
 import static seedu.addressbook.commands.AddCommand.MESSAGE_SUCCESS;
+import static seedu.addressbook.commands.EditCommand.MESSAGE_EDIT_PERSON_SUCCESS;
 import static seedu.addressbook.common.Messages.*;
 import static seedu.addressbook.data.tag.Tag.MESSAGE_TAG_CONSTRAINTS;
 import static seedu.addressbook.parser.Parser.getTagsFromArgs;
@@ -227,16 +228,16 @@ public class LogicTest {
         // prepare address book state
         helper.addToAddressBook(addressBook, false, true);
 
-        assertCommandBehavior("edit",
-                new ListCommand().getFeedbackForEditListingCommand(expectedList),
+        assertCommandBehavior("list",
+                Command.getMessageForPersonListShownSummary(expectedList),
                 expectedAB,
                 true,
                 expectedList);
 
         execute_wrong_edit_syntax(expectedAB, expectedList);
 
-        assertCommandBehavior("edit",
-                new ListCommand().getFeedbackForEditListingCommand(expectedList),
+        assertCommandBehavior("list",
+                Command.getMessageForPersonListShownSummary(expectedList),
                 expectedAB,
                 true,
                 expectedList);
@@ -261,36 +262,6 @@ public class LogicTest {
     }
 
     @Test
-    public void execute_edit_successful_break_edit() throws Exception {
-        // prepare expectations
-        TestDataHelper helper = new TestDataHelper();
-        Person p1 = helper.generatePerson(1, false);
-        Person p2 = helper.generatePerson(2, true);
-        Person p3 = helper.generatePerson(3, true);
-        List<Person> threePersons = helper.generatePersonList(p1, p2, p3);
-        AddressBook expectedAB = helper.generateAddressBook(threePersons);
-        List<ReadOnlyPerson> expectedList = expectedAB.getAllPersons().immutableListView();
-
-        // prepare address book state
-        helper.addToAddressBook(addressBook, threePersons);
-
-        assertCommandBehavior("list",
-                new ListCommand().getFeedbackForEditListingCommand(expectedList),
-                expectedAB,
-                true,
-                expectedList);
-    }
-
-    @Test
-    public void execute_edit_empty_address_book() throws Exception {
-        assertCommandBehavior("edit",
-                MESSAGE_EMPTY_ADDRESS_BOOK,
-                AddressBook.empty(),
-                true,
-                Collections.emptyList());
-    }
-
-    @Test
     public void execute_edit_successful() throws Exception {
         // prepare expectations
         TestDataHelper helper = new TestDataHelper();
@@ -304,28 +275,54 @@ public class LogicTest {
         // prepare address book state
         helper.addToAddressBook(addressBook, threePersons);
 
-        assertCommandBehavior("edit",
-                new ListCommand().getFeedbackForEditListingCommand(expectedList),
+        assertCommandBehavior("list",
+                Command.getMessageForPersonListShownSummary(expectedList),
                 expectedAB,
                 true,
                 expectedList);
 
-        execute_edit_data(expectedAB, p1, expectedList);
-    }
-
-    public void execute_edit_data(AddressBook expectedAB, Person toDelete, List<ReadOnlyPerson> oldList) throws Exception {
-        AddCommand personToAdd = new AddCommand("Le Quang Quan",
-                "86496586",false,
-                "quan_le@u.nus.edu", false,
-                "311, Clementi Ave 2, #02-25", false,
-                getTagsFromArgs(" t/owesMoney t/friends"));
-        expectedAB.removePerson(toDelete);
-        expectedAB.addPerson(personToAdd.getPersonObject());
-        assertCommandBehavior("edit 1 n/Le Quang Quan p/86496586 e/quan_le@u.nus.edu a/311, Clementi Ave 2, #02-25 t/owesMoney t/friends",
-                String.format(MESSAGE_SUCCESS,personToAdd.getPerson()),
+        Person toEdit = helper.adam();
+        expectedAB.editPerson(0,toEdit);
+        assertCommandBehavior(helper.generateEditCommand(1,toEdit),
+                String.format(MESSAGE_EDIT_PERSON_SUCCESS,toEdit),
                 expectedAB,
                 false,
-                oldList);
+                expectedList);
+    }
+
+    @Test
+    public void execute_edit_same_person() throws Exception {
+        // prepare expectations
+        TestDataHelper helper = new TestDataHelper();
+        Person p1 = helper.generatePerson(1, false);
+        Person p2 = helper.generatePerson(2, true);
+        Person p3 = helper.generatePerson(3, true);
+        List<Person> threePersons = helper.generatePersonList(p1, p2, p3);
+        AddressBook expectedAB = helper.generateAddressBook(threePersons);
+        List<ReadOnlyPerson> expectedList = expectedAB.getAllPersons().immutableListView();
+
+        // prepare address book state
+        helper.addToAddressBook(addressBook, threePersons);
+
+        assertCommandBehavior("list",
+                Command.getMessageForPersonListShownSummary(expectedList),
+                expectedAB,
+                true,
+                expectedList);
+
+        Person toEdit = helper.adam();
+        expectedAB.editPerson(0,toEdit);
+        assertCommandBehavior(helper.generateEditCommand(1,toEdit),
+                String.format(MESSAGE_EDIT_PERSON_SUCCESS,toEdit),
+                expectedAB,
+                false,
+                expectedList);
+
+        assertCommandBehavior(helper.generateEditCommand(1,toEdit),
+                String.format(MESSAGE_EDIT_SAME_PERSON,toEdit),
+                expectedAB,
+                false,
+                expectedList);
     }
 
     @Test
@@ -618,6 +615,25 @@ public class LogicTest {
             cmd.add("add");
 
             cmd.add(p.getName().toString());
+            cmd.add((p.getPhone().isPrivate() ? "pp/" : "p/") + p.getPhone());
+            cmd.add((p.getEmail().isPrivate() ? "pe/" : "e/") + p.getEmail());
+            cmd.add((p.getAddress().isPrivate() ? "pa/" : "a/") + p.getAddress());
+
+            UniqueTagList tags = p.getTags();
+            for(Tag t: tags){
+                cmd.add("t/" + t.tagName);
+            }
+
+            return cmd.toString();
+        }
+
+        /** Generates the correct edit command based on the person given */
+        String generateEditCommand(int personIndex, Person p) {
+            StringJoiner cmd = new StringJoiner(" ");
+
+            cmd.add("edit");
+            cmd.add(""+personIndex);
+            cmd.add("n/"+p.getName().toString());
             cmd.add((p.getPhone().isPrivate() ? "pp/" : "p/") + p.getPhone());
             cmd.add((p.getEmail().isPrivate() ? "pe/" : "e/") + p.getEmail());
             cmd.add((p.getAddress().isPrivate() ? "pa/" : "a/") + p.getAddress());
