@@ -28,11 +28,12 @@ public class EditCommand extends Command{
     //To be deleted later
     public static final String MESSAGE_BREAK_EDIT_COMMAND = "Break Edit Command!";
 
-    public EditCommand(String name,
+    public EditCommand(int index, String name,
                        String phone, boolean isPhonePrivate,
                        String email, boolean isEmailPrivate,
                        String address, boolean isAddressPrivate,
                        Set<String> tags) throws IllegalValueException {
+        personIndex = index;
         final Set<Tag> tagSet = new HashSet<>();
         for (String tagName : tags) {
             tagSet.add(new Tag(tagName));
