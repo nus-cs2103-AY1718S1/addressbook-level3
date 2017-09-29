@@ -1,9 +1,5 @@
 package seedu.addressbook.commands;
 
-import seedu.addressbook.data.person.ReadOnlyPerson;
-
-import java.util.List;
-
 /**
  * Sorts the entries in the list by their name, lexicographically
  */

@@ -83,6 +83,13 @@ public class UniquePersonList implements Iterable<Person> {
     }
 
     /**
+     * Sorts all persons in list by their name in lexicographical order
+     */
+    public void sort() {
+        Collections.sort(internalList, new sortByPerson());
+    }
+
+    /**
      * Adds a person to the list.
      *
      * @throws DuplicatePersonException if the person to add is a duplicate of an existing person in the list.
