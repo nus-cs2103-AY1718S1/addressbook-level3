@@ -60,7 +60,7 @@ public class ParserTest {
     }
 
     @Test
-    public void sortCOmmand_parsedCorrectly() {
+    public void sortCommand_parsedCorrectly() {
         final String input = "sort";
         parseAndAssertCommandType(input, SortCommand.class);
     }
@@ -72,7 +72,7 @@ public class ParserTest {
     }
 
     /**
-     * Test ingle index argument commands
+     * Test single index argument commands
      */
     
     @Test
