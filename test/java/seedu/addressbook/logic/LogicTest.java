@@ -106,6 +106,38 @@ public class LogicTest {
     }
 
     @Test
+    public void execute_sort() throws Exception {
+        TestDataHelper helper = new TestDataHelper();
+
+        Person a = helper.generatePersonWithName("a");
+        Person b = helper.generatePersonWithName("b");
+        Person c = helper.generatePersonWithName("c");
+
+        List<Person> beforeList = helper.generatePersonList(c, b, a);
+        List<Person> afterList = helper.generatePersonList(a, b, c);
+
+        // add list to address book
+        helper.addToAddressBook(addressBook, beforeList);
+
+        AddressBook beforeSort = helper.generateAddressBook(beforeList);
+        AddressBook afterSort = helper.generateAddressBook(afterList);
+
+        // Check that address book contains beforeList
+        assertEquals(addressBook, beforeSort);
+
+        CommandResult r = logic.execute("sort");
+
+        // Check output shown to user matches intended output
+        assertEquals(SortCommand.MESSAGE_SUCCESS, r.feedbackToUser);
+
+        // Check if address book has indeed been updated
+        assertEquals(addressBook, afterSort);
+
+        // Check if address book has been saved accordingly
+        assertEquals(addressBook, saveFile.load());
+    }
+
+    @Test
     public void execute_exit() throws Exception {
         assertCommandBehavior("exit", ExitCommand.MESSAGE_EXIT_ACKNOWEDGEMENT);
     }
