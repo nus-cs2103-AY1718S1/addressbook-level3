@@ -95,6 +95,10 @@ Examples:
 * `find Betsy`<br> 
   `viewall 1`<br>
   Views all details of the 1st person in the results of the `find` command.
+  
+### Sorting all persons : `sort`
+Sorts the persons in the address book by their name in lexicographical order.<br>
+Format: `sort`
 
 ## Clearing all entries : `clear`
 Clears all entries from the address book.<br>
