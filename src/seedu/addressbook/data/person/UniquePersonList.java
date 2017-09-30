@@ -113,6 +113,26 @@ public class UniquePersonList implements Iterable<Person> {
         internalList.clear();
     }
 
+    /**
+     * Sorts all persons in list in ascending order.
+     */
+    public void sort() {
+        Collections.sort(internalList, comparePersons);
+    }
+
+    /**
+     * Compares two persons and returns a positive number if the name of first
+     * person is lexicographically bigger than the second person, returns 0 if
+     * they are the same, otherwise returns a negative number.
+     */
+    public Comparator<Person> comparePersons = new Comparator<Person>(){
+        public int compare(Person firstPerson, Person secondPerson){
+            String firstPersonName = firstPerson.getName().fullName;
+            String secondPersonName = secondPerson.getName().fullName;
+            return firstPersonName.compareTo(secondPersonName);
+        }
+    };
+
     @Override
     public Iterator<Person> iterator() {
         return internalList.iterator();
