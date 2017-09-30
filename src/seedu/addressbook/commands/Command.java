@@ -70,4 +70,8 @@ public abstract class Command {
     public void setTargetIndex(int targetIndex) {
         this.targetIndex = targetIndex;
     }
+
+
+    //Making the method abstract forces all child classes to declare whether it is a mutating command or not, rather than depend on an arbitrary decision made in the parent class.
+    public abstract boolean isMutating () ;
 }
