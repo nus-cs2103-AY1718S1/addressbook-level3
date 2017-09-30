@@ -15,6 +15,8 @@ import seedu.addressbook.data.tag.UniqueTagList;
 import seedu.addressbook.parser.Parser;
 import seedu.addressbook.storage.StorageFile;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 
 import static junit.framework.TestCase.assertEquals;
@@ -81,9 +83,14 @@ public class LogicTest {
                                       boolean isRelevantPersonsExpected,
                                       List<? extends ReadOnlyPerson> lastShownList) throws Exception {
 
+        //Save timestamp of the file
+        Path path = Paths.get(saveFile.getPath());
+        long lastModifiedBeforeCommand = path.toFile().lastModified();
+
         //Parse and execute the command
         Command command = new Parser().parseCommand(inputCommand);
         CommandResult r = logic.execute(inputCommand);
+        long lastModifiedAfterCommand = path.toFile().lastModified();
 
         //Confirm the result contains the right data
         assertEquals(expectedMessage, r.feedbackToUser);
@@ -95,11 +102,12 @@ public class LogicTest {
         //Confirm the state of data is as expected
         assertEquals(expectedAddressBook, addressBook);
         assertEquals(lastShownList, logic.getLastShownList());
-        
+
         if(command.isMutating()) {
             assertEquals(expectedAddressBook, saveFile.load());
+            assertNotSame(lastModifiedBeforeCommand, lastModifiedAfterCommand);
         } else {
-            assertNotSame(expectedAddressBook, saveFile.load());
+            assertEquals(lastModifiedBeforeCommand, lastModifiedAfterCommand);
         }
     }
 
