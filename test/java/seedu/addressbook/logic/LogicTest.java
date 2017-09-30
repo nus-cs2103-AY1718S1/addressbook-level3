@@ -457,6 +457,27 @@ public class LogicTest {
                                 expectedList);
     }
 
+    @Test
+    public void execute_sort_ascendingOrder() throws Exception {
+        TestDataHelper helper = new TestDataHelper();
+        // Adding entries in descending order
+        Person firstToBeAdded = helper.generatePersonWithName("Betty");
+        Person secondToBeAdded = helper.generatePersonWithName("Adam");
+
+        List<Person> twoPersons = helper.generatePersonList(firstToBeAdded,secondToBeAdded);
+        AddressBook expectedAB = helper.generateAddressBook(twoPersons);
+        helper.addToAddressBook(addressBook, twoPersons);
+
+        expectedAB.sort();
+        List<? extends ReadOnlyPerson> expectedList = expectedAB.getAllPersons().immutableListView();
+
+        assertCommandBehavior("sort",
+                String.format(SortCommand.MESSAGE_SORT_LIST_SUCCESS),
+                expectedAB,
+                true,
+                expectedList);
+    }
+
     /**
      * A utility class to generate test data.
      */
