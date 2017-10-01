@@ -60,7 +60,7 @@ public class Email implements Printable{
     }
 
     @Override
-    public String getPrintableString(Printable... printables) {
+    public String getPrintableString() {
         return "Email: " + value;
     }
 }

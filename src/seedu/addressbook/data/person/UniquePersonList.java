@@ -131,4 +131,19 @@ public class UniquePersonList implements Iterable<Person> {
         return internalList.hashCode();
     }
 
+    /**
+     * Get printable string from printable given
+     * @param printables
+     * @return a concatenated version of the printable strings of each object.
+     */
+    public String getPrintableString(Printable... printables){
+        String printableString = "";
+
+        for(Printable data: printables) {
+            printableString += data.getPrintableString() + " ";
+        }
+
+        return printableString;
+    }
+
 }

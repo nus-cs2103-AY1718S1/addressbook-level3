@@ -58,7 +58,7 @@ public class Phone implements Printable{
     }
 
     @Override
-    public String getPrintableString(Printable... printables) {
+    public String getPrintableString() {
         return "Phone" + value;
     }
 }
