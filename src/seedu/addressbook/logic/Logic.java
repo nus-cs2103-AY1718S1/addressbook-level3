@@ -15,15 +15,13 @@ import java.util.Optional;
  * Represents the main Logic of the AddressBook.
  */
 public class Logic {
-
-
     private StorageFile storage;
     private AddressBook addressBook;
 
     /** The list of person shown to the user most recently.  */
     private List<? extends ReadOnlyPerson> lastShownList = Collections.emptyList();
 
-    public Logic() throws Exception{
+    public Logic() throws Exception {
         setStorage(initializeStorage());
         setAddressBook(storage.load());
     }
@@ -85,13 +83,17 @@ public class Logic {
     private CommandResult execute(Command command) throws Exception {
         command.setData(addressBook, lastShownList);
         CommandResult result = command.execute();
-        storage.save(addressBook);
+
+        if (command.isMutating()) {
+            storage.save(addressBook);
+        }
         return result;
     }
 
     /** Updates the {@link #lastShownList} if the result contains a list of Persons. */
     private void recordResult(CommandResult result) {
         final Optional<List<? extends ReadOnlyPerson>> personList = result.getRelevantPersons();
+
         if (personList.isPresent()) {
             lastShownList = personList.get();
         }

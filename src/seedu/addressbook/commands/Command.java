@@ -39,12 +39,18 @@ public abstract class Command {
     /**
      * Executes the command and returns the result.
      */
-    public CommandResult execute(){
-        throw new UnsupportedOperationException("This method should be implement in child classes");
-    }
+    public abstract CommandResult execute();
 
     //Note: it is better to make the execute() method abstract, by replacing the above method with the line below:
     //public abstract CommandResult execute();
+
+    /**
+     * Checks whether this command mutates the data so as to decide whether to save the changes to the storage file
+     * after this command is executed.
+     *
+     * @return true if the command mutates the data.
+     */
+    public abstract boolean isMutating();
 
     /**
      * Supplies the data the command will operate on.
