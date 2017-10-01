@@ -1,6 +1,7 @@
 package seedu.addressbook.logic;
 
 
+import com.sun.org.apache.xpath.internal.SourceTree;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -12,9 +13,11 @@ import seedu.addressbook.data.AddressBook;
 import seedu.addressbook.data.person.*;
 import seedu.addressbook.data.tag.Tag;
 import seedu.addressbook.data.tag.UniqueTagList;
+import seedu.addressbook.parser.Parser;
 import seedu.addressbook.storage.StorageFile;
 
 import java.util.*;
+import java.text.*;
 
 import static junit.framework.TestCase.assertEquals;
 import static seedu.addressbook.common.Messages.*;
@@ -61,7 +64,8 @@ public class LogicTest {
      * @see #assertCommandBehavior(String, String, AddressBook, boolean, List)
      */
     private void assertCommandBehavior(String inputCommand, String expectedMessage) throws Exception {
-        assertCommandBehavior(inputCommand, expectedMessage, AddressBook.empty(),false, Collections.emptyList());
+        assertCommandBehavior(inputCommand, expectedMessage, AddressBook.empty(),
+                false, Collections.emptyList());
     }
 
     /**
@@ -77,6 +81,11 @@ public class LogicTest {
                                       boolean isRelevantPersonsExpected,
                                       List<? extends ReadOnlyPerson> lastShownList) throws Exception {
 
+
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+        long lastModified = saveFile.path.toFile().lastModified();
+
         //Execute the command
         CommandResult r = logic.execute(inputCommand);
 
@@ -90,7 +99,21 @@ public class LogicTest {
         //Confirm the state of data is as expected
         assertEquals(expectedAddressBook, addressBook);
         assertEquals(lastShownList, logic.getLastShownList());
-        assertEquals(addressBook, saveFile.load());
+
+        //Obtain the command to from the parsed command input string
+        Command command = new Parser().parseCommand(inputCommand);
+
+        if (command.isMutating()) {
+            System.out.println("[Files updated] New: " + sdf.format(saveFile.path.toFile().lastModified())
+                    + " Old: " + sdf.format(lastModified));
+            assertEquals(addressBook, saveFile.load());
+        } else {
+            System.out.println("[Files not updated] New: " + sdf.format(saveFile.path.toFile().lastModified())
+                    + " Old: " + sdf.format(lastModified));
+            assertEquals(saveFile.path.toFile().lastModified(), lastModified);
+        }
+
+
     }
 
 
