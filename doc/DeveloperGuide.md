@@ -55,11 +55,15 @@ Priorities: High (must have) - `* * *`, Medium (nice to have)  - `* *`,  Low (un
 
 Priority | As a ... | I want to ... | So that I can...
 -------- | :-------- | :--------- | :-----------
+`* * *` | user in a dynamic world | be able to edit a person's contact information | easily update a person's contact information without needing to delete it and retype again.
 `* * *` | new user | see usage instructions | refer to instructions when I forget how to use the App
 `* * *` | user | add a new person |
 `* * *` | user | delete a person | remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
+`* * *` | user | find a person by his/her tags | locate details of persons belonging to a group/tag.
+`* *` | user | be able to edit/rename/add a person's tag | add more context with respect to a person in the address book.
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
+`* *` | user | undo/redo a previous command | correct erroneous commands easily without having to execute multiple commands
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
 
 
