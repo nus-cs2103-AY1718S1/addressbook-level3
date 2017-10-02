@@ -94,10 +94,9 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
-5. Should adhere to OOP standard for any changes on this project.
-6. Should respond within 2 second after the command is entered.
-7. Should provide comprehensive comments for every public methods and some important private methods.
-8. Should develop this project on IntelliJ.
+5. Should respond within 2 second after the command is entered.
+6. Should provide comprehensive comments for every public methods and some important private methods.
+7. Should develop this project on IntelliJ.
  
 
 ## Appendix D : Glossary
