@@ -15,6 +15,7 @@ public abstract class Command {
     protected AddressBook addressBook;
     protected List<? extends ReadOnlyPerson> relevantPersons;
     private int targetIndex = -1;
+    private final boolean NOT_MUTATING_STORAGE = false;
 
     /**
      * @param targetIndex last visible listing index of the target person
@@ -77,6 +78,6 @@ public abstract class Command {
      * By default, the method returns false.
      * */
     public boolean isMutating() {
-        return false;
+        return NOT_MUTATING_STORAGE;
     }
 }
