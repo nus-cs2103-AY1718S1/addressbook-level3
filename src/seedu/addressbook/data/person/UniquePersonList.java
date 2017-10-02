@@ -95,6 +95,15 @@ public class UniquePersonList implements Iterable<Person> {
     }
 
     /**
+     * Get reference of the list which is in ReadOnlyPerson form
+     */
+    public List<Person> getInternalList(){
+
+        return internalList;
+
+    }
+
+    /**
      * Removes the equivalent person from the list.
      *
      * @throws PersonNotFoundException if no such person could be found in the list.
