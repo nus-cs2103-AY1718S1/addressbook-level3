@@ -24,6 +24,12 @@ public class ViewCommand extends Command {
         super(targetVisibleIndex);
     }
 
+    /**
+     *  Returns true if the command types not mutates data;
+     */
+    public boolean isMutating(){
+        return false;
+    }
 
     @Override
     public CommandResult execute() {

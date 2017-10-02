@@ -17,4 +17,11 @@ public class IncorrectCommand extends Command{
         return new CommandResult(feedbackToUser);
     }
 
+    /**
+     *  Returns true if the command types not mutates data;
+     */
+    public boolean isMutating(){
+        return false;
+    }
+
 }
