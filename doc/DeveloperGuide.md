@@ -100,7 +100,7 @@ The tag is renamed.
 
 **MSS**
 
-1. User enters command 'rename tag'
+1. User enters 'rename tag'
 2. AddressBook shows a list of tags ordered with index
 3. User enters the index of the tag that is needed to be renamed, and the new tag name with a space in between
 4. AddressBook displays the message that the tag is renamed successfully <br>
