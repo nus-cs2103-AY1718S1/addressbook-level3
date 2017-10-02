@@ -108,7 +108,7 @@ Use case ends.
 
 **Extensions**
 
-2a. The list is empty
+1a. The list is empty
 
 > Use case ends.
 
