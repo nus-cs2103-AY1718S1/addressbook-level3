@@ -17,6 +17,7 @@ public class Main extends Application implements Stoppable{
     public static final String VERSION = "AddressBook Level 3 - Version 1.0";
 
     private Gui gui;
+    private int check;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
