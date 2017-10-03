@@ -17,16 +17,7 @@ public class SortCommand extends Command {
 
     public List<Person> sortByName(){
 
-        List<Person> sortedList = addressBook.getAllPersons().getInternalList();
-        Collections.sort(sortedList, new Comparator<Person>() {
-            @Override
-            public int compare(Person firstPerson, Person secondPerson) {
-                return firstPerson.getName().fullName.compareTo(secondPerson.getName().fullName);
-            }
-
-        });
-
-        return sortedList;
+        return addressBook.sortList();
     }
 
     public CommandResult execute() {
