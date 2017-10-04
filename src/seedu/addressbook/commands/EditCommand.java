@@ -19,8 +19,8 @@ public class EditCommand extends Command{
     private static int personIndex;
     private final Person toEdit;
 
-    private static final String MESSAGE_USAGE_EXAMPLE = COMMAND_WORD + " 1 "
-            + " n/John Doe [p]p/98765432 pe/johnd@gmail.com [p]a/311, Clementi Ave 2, #02-25 t/friends t/owesMoney";
+    private static final String MESSAGE_USAGE_EXAMPLE = COMMAND_WORD + " 1"
+            + " n/John Doe pp/98765432 pe/johnd@gmail.com pa/311, Clementi Ave 2, #02-25 t/friends t/owesMoney";
     public static final String MESSAGE_USAGE = COMMAND_WORD + ":\nEdits a person in the address book."
             + "Select the index of the person to be edited from the list provided.\n\t"
             + "Parameters: n/NAME [p]p/PHONE [p]e/EMAIL [p]a/ADDRESS  [t/TAG]...\n\t"
