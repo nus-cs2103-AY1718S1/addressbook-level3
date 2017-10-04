@@ -2,6 +2,8 @@ package seedu.addressbook.logic;
 
 import seedu.addressbook.commands.Command;
 import seedu.addressbook.commands.CommandResult;
+import seedu.addressbook.commands.DeleteCommand;
+import seedu.addressbook.commands.EditCommand;
 import seedu.addressbook.data.AddressBook;
 import seedu.addressbook.data.person.ReadOnlyPerson;
 import seedu.addressbook.parser.Parser;
@@ -11,6 +13,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
+import static seedu.addressbook.commands.EditCommand.*;
+import static seedu.addressbook.common.Messages.MESSANGE_WRONG_SEQUENCE;
+
 /**
  * Represents the main Logic of the AddressBook.
  */
@@ -19,6 +24,7 @@ public class Logic {
 
     private StorageFile storage;
     private AddressBook addressBook;
+    private static String previousCommandText = "";
 
     /** The list of person shown to the user most recently.  */
     private List<? extends ReadOnlyPerson> lastShownList = Collections.emptyList();
@@ -85,7 +91,9 @@ public class Logic {
     private CommandResult execute(Command command) throws Exception {
         command.setData(addressBook, lastShownList);
         CommandResult result = command.execute();
-        storage.save(addressBook);
+        if (command.isMutating()) {
+            storage.save(addressBook);
+        }
         return result;
     }
 

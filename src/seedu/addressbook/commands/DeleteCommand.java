@@ -10,6 +10,11 @@ import seedu.addressbook.data.person.UniquePersonList.PersonNotFoundException;
  */
 public class DeleteCommand extends Command {
 
+    @Override
+    public boolean isMutating() {
+        return true;
+    }
+
     public static final String COMMAND_WORD = "delete";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ":\n" 
@@ -24,14 +29,12 @@ public class DeleteCommand extends Command {
         super(targetVisibleIndex);
     }
 
-
     @Override
     public CommandResult execute() {
         try {
             final ReadOnlyPerson target = getTargetPerson();
             addressBook.removePerson(target);
             return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, target));
-
         } catch (IndexOutOfBoundsException ie) {
             return new CommandResult(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         } catch (PersonNotFoundException pnfe) {

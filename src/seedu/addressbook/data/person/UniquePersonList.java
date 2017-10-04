@@ -2,8 +2,12 @@ package seedu.addressbook.data.person;
 
 import seedu.addressbook.common.Utils;
 import seedu.addressbook.data.exception.DuplicateDataException;
+import seedu.addressbook.data.tag.Tag;
+import seedu.addressbook.data.tag.UniqueTagList;
 
 import java.util.*;
+
+import static seedu.addressbook.common.Messages.MESSAGE_EDIT_SAME_PERSON;
 
 /**
  * A list of persons. Does not allow null elements or duplicates.
@@ -19,6 +23,15 @@ public class UniquePersonList implements Iterable<Person> {
     public static class DuplicatePersonException extends DuplicateDataException {
         protected DuplicatePersonException() {
             super("Operation would result in duplicate persons");
+        }
+    }
+
+    /**
+     * Signals that Edit operation does not change any information of an existing person.
+     */
+    public static class NoChangeException extends DuplicateDataException {
+        protected NoChangeException() {
+            super(MESSAGE_EDIT_SAME_PERSON);
         }
     }
 
@@ -92,6 +105,16 @@ public class UniquePersonList implements Iterable<Person> {
             throw new DuplicatePersonException();
         }
         internalList.add(toAdd);
+    }
+
+    /**
+     * Edits a person in the most recent list.
+     */
+    public void edit(int index, Person toEdit) throws NoChangeException {
+        if (contains(toEdit)) {
+            throw new NoChangeException();
+        }
+        internalList.set(index,toEdit);
     }
 
     /**

@@ -57,6 +57,10 @@ public class AddCommand extends Command {
         return toAdd;
     }
 
+    public Person getPersonObject() {
+        return toAdd;
+    }
+
     @Override
     public CommandResult execute() {
         try {
@@ -65,6 +69,11 @@ public class AddCommand extends Command {
         } catch (UniquePersonList.DuplicatePersonException dpe) {
             return new CommandResult(MESSAGE_DUPLICATE_PERSON);
         }
+    }
+
+    @Override
+    public boolean isMutating() {
+        return true;
     }
 
 }
