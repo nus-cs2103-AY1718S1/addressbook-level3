@@ -38,6 +38,11 @@ Examples:
 Shows a list of all persons in the address book.<br>
 Format: `list`
 
+
+## Sorting all persons in AddressBook : `sort`
+Sorts the contacts in the AddressBook, then proceeds to display the new sorted list<br>
+Format: `sort`
+
 ## Finding all persons containing any keyword in their name: `find`
 Finds persons whose names contain any of the given keywords.<br>
 Format: `find KEYWORD [MORE_KEYWORDS]`

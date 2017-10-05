@@ -107,6 +107,15 @@ public class UniquePersonList implements Iterable<Person> {
     }
 
     /**
+     * Returns a pointer to the Internal List
+     * Can be changed and is immediately mutable
+     */
+
+    public List<Person> getInternalList(){
+        return internalList;
+    }
+
+    /**
      * Clears all persons in list.
      */
     public void clear() {
@@ -124,6 +133,16 @@ public class UniquePersonList implements Iterable<Person> {
                 || (other instanceof UniquePersonList // instanceof handles nulls
                 && this.internalList.equals(
                         ((UniquePersonList) other).internalList));
+    }
+
+    public List<Person> sort(){
+                Comparator<Person> comparator = new Comparator<Person>(){
+            public int compare (Person personOne, Person personTwo){
+                return personOne.getName().toString().compareTo(personTwo.getName().toString());
+            }
+        };
+        Collections.sort(internalList, comparator);
+        return internalList;
     }
 
     @Override
