@@ -236,7 +236,6 @@ public class Parser {
      * @return the prepared command
      */
     private Command prepareSort(String args) {
-        System.out.println(args);
         try {
             if (Objects.equals(args, "")) {
                 return new SortCommand();
