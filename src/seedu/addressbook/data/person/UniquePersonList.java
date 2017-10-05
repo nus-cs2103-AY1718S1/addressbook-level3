@@ -94,6 +94,15 @@ public class UniquePersonList implements Iterable<Person> {
         internalList.add(toAdd);
     }
 
+
+    /**
+     * Get reference of the list which is in ReadOnlyPerson form
+     */
+    public List<Person> getInternalList(){
+        return internalList;
+    }
+
+
     /**
      * Removes the equivalent person from the list.
      *
