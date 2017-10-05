@@ -101,6 +101,15 @@ public class UniquePersonList implements Iterable<Person> {
     public void sort() {
         Collections.sort(internalList);
     }
+    
+    /**
+     * Sorts the internal list according to alphabetical order
+     * 
+     */
+    public void sortDesc() {
+        Collections.sort(internalList);
+        Collections.reverse(internalList);
+    }
 
     /**
      * Removes the equivalent person from the list.
