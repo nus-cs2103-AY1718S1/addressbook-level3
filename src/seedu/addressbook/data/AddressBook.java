@@ -99,6 +99,20 @@ public class AddressBook {
     }
 
     /**
+     * Sorts all persons in the address book by alphabetical order
+     */
+    public void sortAllPersons() {
+        allPersons.sort(); 
+    }
+    
+     /**
+     * Sorts all persons in the address book by reverse alphabetical order
+     */
+    public void sortAllPersonsDesc() {
+        allPersons.sortDesc(); 
+    }
+    
+    /**
      * Clears all persons and tags from the address book.
      */
     public void clear() {

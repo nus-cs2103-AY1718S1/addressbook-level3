@@ -69,6 +69,9 @@ public class Parser {
             case FindCommand.COMMAND_WORD:
                 return prepareFind(arguments);
 
+            case SortCommand.COMMAND_WORD:
+                return prepareSort(arguments);
+                
             case ListCommand.COMMAND_WORD:
                 return new ListCommand();
 
@@ -225,6 +228,24 @@ public class Parser {
         final Set<String> keywordSet = new HashSet<>(Arrays.asList(keywords));
         return new FindCommand(keywordSet);
     }
-
+    
+    /**
+     * Parses arguments in the context of the sort command.
+     *
+     * @param args full command args string
+     * @return the prepared command
+     */
+    private Command prepareSort(String args) {
+        try {
+            if (Objects.equals(args, "")) {
+                return new SortCommand();
+            } else {
+                return new SortCommand(args.trim());
+            }
+        } catch (IllegalValueException e) {
+            return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, SortCommand.MESSAGE_USAGE));
+        }
+    }
+ 
 
 }

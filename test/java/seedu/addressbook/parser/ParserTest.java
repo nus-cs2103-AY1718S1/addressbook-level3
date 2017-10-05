@@ -58,6 +58,24 @@ public class ParserTest {
         final String input = "list";
         parseAndAssertCommandType(input, ListCommand.class);
     }
+    
+    @Test
+    public void sortCommand_noArgs_parsedCorrectly() {
+        final String input = "sort";
+        parseAndAssertCommandType(input, SortCommand.class);
+    }
+
+    @Test
+    public void sortCommand_asc_parsedCorrectly() {
+        final String input = "sort asc";
+        parseAndAssertCommandType(input, SortCommand.class);
+    }
+
+    @Test
+    public void sortCommand_desc_parsedCorrectly() {
+        final String input = "sort desc";
+        parseAndAssertCommandType(input, SortCommand.class);
+    }
 
     @Test
     public void exitCommand_parsedCorrectly() {
@@ -135,7 +153,15 @@ public class ParserTest {
         final ViewAllCommand result = parseAndAssertCommandType(input, ViewAllCommand.class);
         assertEquals(result.getTargetIndex(), testIndex);
     }
-
+    
+    @Test
+    public void sortCommand_wrongArg() {
+        final String[] inputs = { "sort a", "sort sdfd" };
+        final String resultMessage =
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, SortCommand.MESSAGE_USAGE);
+        parseAndAssertIncorrectWithMessage(resultMessage, inputs);
+    }
+    
     /**
      * Test find persons by keyword in name command
      */
