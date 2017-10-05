@@ -101,6 +101,31 @@ public class LogicTest {
     }
 
     @Test
+    public void execute_sort() throws Exception {
+        TestDataHelper helper = new TestDataHelper();
+
+        Person ts2 = helper.generatePersonWithName("Aaaron");
+        Person ts4 = helper.generatePersonWithName("Bobbbby");
+        Person ts3 = helper.generatePersonWithName("Cspan");
+        Person ts1 = helper.generatePersonWithName("Dean Michaels");
+
+        List<Person> TSlist = helper.generatePersonList(
+                ts1 ,ts2 , ts3 ,ts4);
+
+        AddressBook expectedAB = helper.generateAddressBook(TSlist);
+        expectedAB.sortList();
+        List<? extends ReadOnlyPerson> expectedList = expectedAB.getAllPersons().immutableListView();
+
+        helper.addToAddressBook(addressBook, TSlist);
+
+        assertCommandBehavior("sort",
+                Command.getMessageForPersonSortShownSummary(expectedList),
+                expectedAB,
+                true,
+                expectedList);
+    }
+
+    @Test
     public void execute_help() throws Exception {
         assertCommandBehavior("help", HelpCommand.MESSAGE_ALL_USAGES);
     }
