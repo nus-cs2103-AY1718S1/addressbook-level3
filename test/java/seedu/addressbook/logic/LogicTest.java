@@ -100,6 +100,7 @@ public class LogicTest {
         assertCommandBehavior(unknownCommand, HelpCommand.MESSAGE_ALL_USAGES);
     }
 
+
     @Test
     public void execute_help() throws Exception {
         assertCommandBehavior("help", HelpCommand.MESSAGE_ALL_USAGES);
@@ -200,6 +201,25 @@ public class LogicTest {
                               true,
                               expectedList);
     }
+
+    @Test
+    public void execute_sort() throws Exception{
+        //preparing expectations
+        TestDataHelper helper = new TestDataHelper();
+
+        Person personOne = helper.generatePersonWithName("Alvin");
+        Person personTwo = helper.generatePersonWithName("James");
+        Person personThree = helper.generatePersonWithName("Xavier");
+        Person personFour = helper.generatePersonWithName("Yvonne");
+        List<Person> sortedList = helper.generatePersonList(personOne, personTwo, personThree, personFour);
+        AddressBook expectedAB = helper.generateAddressBook(sortedList);
+        expectedAB.getAllPersons().sort();
+        List<? extends ReadOnlyPerson> expectedList = expectedAB.getAllPersons().immutableListView();
+
+        helper.addToAddressBook(addressBook,sortedList);
+        assertCommandBehavior("sort", Command.getMessageForSortedListShownSummary(expectedList), expectedAB, true, expectedList);
+    }
+
 
     @Test
     public void execute_view_invalidArgsFormat() throws Exception {
