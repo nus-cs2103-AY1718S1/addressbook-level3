@@ -98,9 +98,13 @@ public class AddressBook {
         allPersons.remove(toRemove);
     }
 
+    /**
+     * Sorts all persons in the address book by alphabetical order
+     */
     public void sortAllPersons() {
         allPersons.sort(); 
     }
+    
     /**
      * Clears all persons and tags from the address book.
      */
