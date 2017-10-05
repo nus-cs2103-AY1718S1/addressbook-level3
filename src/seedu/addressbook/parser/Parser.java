@@ -236,10 +236,15 @@ public class Parser {
      * @return the prepared command
      */
     private Command prepareSort(String args) {
+        System.out.println(args);
         try {
-            return new SortCommand(args);
+            if (Objects.equals(args, "")) {
+                return new SortCommand();
+            } else {
+                return new SortCommand(args.trim());
+            }
         } catch (IllegalValueException e) {
-            return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, ViewAllCommand.MESSAGE_USAGE));
+            return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, SortCommand.MESSAGE_USAGE));
         }
     }
  
