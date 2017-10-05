@@ -94,6 +94,31 @@ public class UniquePersonList implements Iterable<Person> {
         internalList.add(toAdd);
     }
 
+
+    /**
+     * Sorts the list in alphabetical order according to the person's name.
+     */
+    public List<Person> sort(){
+        List<Person> sortedList = internalList;
+        Collections.sort(sortedList, new Comparator<Person>() {
+            @Override
+            public int compare(Person firstPerson, Person secondPerson) {
+                return firstPerson.getName().fullName.compareTo(secondPerson.getName().fullName);
+            }
+
+        });
+        return sortedList;
+    }
+
+
+    /**
+     * Get reference of the list which is in ReadOnlyPerson form
+     */
+    public List<Person> getInternalList(){
+        return internalList;
+    }
+
+
     /**
      * Removes the equivalent person from the list.
      *
