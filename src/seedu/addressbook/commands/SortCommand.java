@@ -28,6 +28,7 @@ public class SortCommand extends Command {
     private SortOrder order = SortOrder.ASC;
 
     public SortCommand() {
+        super(0);
     }
     
     public SortCommand(String sortOrderInput) throws IllegalValueException {
@@ -42,8 +43,12 @@ public class SortCommand extends Command {
     
     @Override
     public CommandResult execute() {
+        if (order == SortOrder.ASC) {
+            addressBook.sortAllPersons();
+        } else {
+            addressBook.sortAllPersonsDesc();
+        }
         
-        addressBook.sortAllPersons();
         List<ReadOnlyPerson> allPersons = addressBook.getAllPersons().immutableListView();
         return new CommandResult(getMessageForPersonListShownSummary(allPersons), allPersons);
     }
