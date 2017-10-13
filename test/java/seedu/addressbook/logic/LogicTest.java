@@ -202,6 +202,25 @@ public class LogicTest {
     }
 
     @Test
+    public void execute_sort() throws Exception {
+        // prepare expectations
+        TestDataHelper helper = new TestDataHelper();
+        Person p1 = helper.generatePerson(4, true);
+        Person p2 = helper.generatePerson(5, true);
+        List<Person> PersonsInOrder = helper.generatePersonList(p1, p2);
+        List<Person> PersonsNotIO = helper.generatePersonList(p2, p1);
+
+        //set up the expected AB
+        AddressBook inOrderAB = new AddressBook();
+        helper.addToAddressBook(inOrderAB,PersonsInOrder);
+        helper.addToAddressBook(addressBook,PersonsNotIO);
+        AddressBook expectedAB = new AddressBook(inOrderAB.getAllPersons(), addressBook.getAllTags());
+
+        //verify results
+        assertCommandBehavior("sort", SortCommand.MESSAGE_SUCCESS,expectedAB,false,Collections.emptyList());
+    }
+
+    @Test
     public void execute_view_invalidArgsFormat() throws Exception {
         String expectedMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, ViewCommand.MESSAGE_USAGE);
         assertCommandBehavior("view ", expectedMessage);
@@ -587,5 +606,4 @@ public class LogicTest {
             );
         }
     }
-
 }

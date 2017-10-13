@@ -131,4 +131,15 @@ public class UniquePersonList implements Iterable<Person> {
         return internalList.hashCode();
     }
 
+    /*
+    * sorts list alphabetically
+     */
+    public void sort() {
+        Collections.sort(internalList, new Comparator<Person>() {
+            @Override
+            public int compare(Person o1, Person o2) {
+                return o1.getName().fullName.compareTo(o2.getName().fullName);
+            }
+        });
+    }
 }

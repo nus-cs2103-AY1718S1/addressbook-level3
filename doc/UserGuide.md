@@ -104,6 +104,11 @@ Format: `clear`
 Exits the program.<br>
 Format: `exit`  
 
+## Sorting the entries alphabetically by name : `sort`
+Sorts addressbook alphabetically <br>
+Format: `sort`
+
+
 ## Saving the data 
 Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually. Address book data are saved in a file called `addressbook.txt` in the project root folder.
