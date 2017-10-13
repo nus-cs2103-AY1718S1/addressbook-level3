@@ -202,6 +202,19 @@ public class LogicTest {
     }
 
     @Test
+    public void execute_sort() throws Exception {
+        // prepare expectations
+        TestDataHelper helper = new TestDataHelper();
+        addressBook.addPerson(helper.generatePerson(3, true));
+        addressBook.addPerson(helper.generatePerson(2, true));
+        addressBook.addPerson(helper.generatePerson(1, true));
+        AddressBook expectedAB = helper.sort(addressBook);
+
+        //verify results
+        assertCommandBehavior("sort", SortCommand.MESSAGE_SUCCESS,expectedAB,false,Collections.emptyList());
+    }
+
+    @Test
     public void execute_view_invalidArgsFormat() throws Exception {
         String expectedMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, ViewCommand.MESSAGE_USAGE);
         assertCommandBehavior("view ", expectedMessage);
@@ -585,6 +598,14 @@ public class LogicTest {
                     new Address("House of 1", false),
                     new UniqueTagList(new Tag("tag"))
             );
+        }
+
+        /*
+        * sort the addressbook
+         */
+        AddressBook sort(AddressBook addressBook) {
+            addressBook.sort();
+            return addressBook;
         }
     }
 
