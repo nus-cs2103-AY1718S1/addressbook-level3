@@ -605,23 +605,5 @@ public class LogicTest {
                     new UniqueTagList(new Tag("tag"))
             );
         }
-
-        /*
-        * sort the addressbook
-         */
-        AddressBook sort(AddressBook addressBook) {
-            addressBook.sort();
-            return addressBook;
-        }
-
-        /*
-        * adds and returns the addressbook
-         */
-        AddressBook addToABandReturn(AddressBook addressBook, List<Person> personsToAdd) throws Exception{
-            for(Person p: personsToAdd){
-                addressBook.addPerson(p);
-            }
-            return addressBook;
-        }
     }
 }
