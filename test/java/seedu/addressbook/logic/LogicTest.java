@@ -433,28 +433,50 @@ public class LogicTest {
         assertCommandBehavior("find KEY",
                                 Command.getMessageForPersonListShownSummary(expectedList),
                                 expectedAB,
-                                true,
+                                 true,
                                 expectedList);
     }
 
-    @Test
+     @Test
     public void execute_find_matchesIfAnyKeywordPresent() throws Exception {
         TestDataHelper helper = new TestDataHelper();
         Person pTarget1 = helper.generatePersonWithName("bla bla KEY bla");
         Person pTarget2 = helper.generatePersonWithName("bla rAnDoM bla bceofeia");
         Person p1 = helper.generatePersonWithName("key key");
         Person p2 = helper.generatePersonWithName("KEy sduauo");
+        Person pTarget3 = helper.generatePersonWithName("12345678");
+        Person pTarget4 = helper.generatePersonWithName("87654321");
+        Person p3 = helper.generatePersonWithName("24681012");
+        Person p4 = helper.generatePersonWithName("12108642");
 
         List<Person> fourPersons = helper.generatePersonList(p1, pTarget1, p2, pTarget2);
         AddressBook expectedAB = helper.generateAddressBook(fourPersons);
         List<Person> expectedList = helper.generatePersonList(pTarget1, pTarget2);
         helper.addToAddressBook(addressBook, fourPersons);
 
+        List<Person> fourNum = helper.generatePersonList(p3, pTarget3, p4, pTarget4);
+        AddressBook expectedCD = helper.generateAddressBook(fourNum);
+        List<Person> expectedL = helper.generatePersonList(pTarget3, pTarget4);
+        helper.addToAddressBook(addressBook, fourNum);
+
         assertCommandBehavior("find KEY rAnDoM",
                                 Command.getMessageForPersonListShownSummary(expectedList),
                                 expectedAB,
                                 true,
                                 expectedList);
+
+        assertCommandBehavior("find 12348765",
+                                Command.getMessageForPersonListShownSummary(expectedL),
+                                expectedCD,
+                                true,
+                                expectedL);
+
+//        assertCommandBehavior("find 8765 4321",
+//                                Command.getMessageForPersonListShownSummary(expectedL),
+//                                expectedCD,
+//                                true,
+//                                expectedL);
+
     }
 
     /**
@@ -586,6 +608,7 @@ public class LogicTest {
                     new UniqueTagList(new Tag("tag"))
             );
         }
+
     }
 
 }
