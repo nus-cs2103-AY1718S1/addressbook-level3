@@ -205,10 +205,16 @@ public class LogicTest {
     public void execute_sort() throws Exception {
         // prepare expectations
         TestDataHelper helper = new TestDataHelper();
-        addressBook.addPerson(helper.generatePerson(3, true));
-        addressBook.addPerson(helper.generatePerson(2, true));
-        addressBook.addPerson(helper.generatePerson(1, true));
-        AddressBook expectedAB = helper.sort(addressBook);
+        Person p1 = helper.generatePerson(4, true);
+        Person p2 = helper.generatePerson(5, true);
+        List<Person> PersonsInOrder = helper.generatePersonList(p1, p2);
+        List<Person> PersonsNotIO = helper.generatePersonList(p2, p1);
+
+        //set up the expected AB
+        AddressBook inOrderAB = new AddressBook();
+        helper.addToAddressBook(inOrderAB,PersonsInOrder);
+        helper.addToAddressBook(addressBook,PersonsNotIO);
+        AddressBook expectedAB = new AddressBook(inOrderAB.getAllPersons(), addressBook.getAllTags());
 
         //verify results
         assertCommandBehavior("sort", SortCommand.MESSAGE_SUCCESS,expectedAB,false,Collections.emptyList());
@@ -607,6 +613,15 @@ public class LogicTest {
             addressBook.sort();
             return addressBook;
         }
-    }
 
+        /*
+        * adds and returns the addressbook
+         */
+        AddressBook addToABandReturn(AddressBook addressBook, List<Person> personsToAdd) throws Exception{
+            for(Person p: personsToAdd){
+                addressBook.addPerson(p);
+            }
+            return addressBook;
+        }
+    }
 }
